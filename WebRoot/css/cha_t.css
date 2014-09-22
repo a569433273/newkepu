@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0 auto; padding:0;}
+body{text-align:center;}
+img{border:none;}
+.a_con{width:1000px; height:auto; overflow:hidden; position:absolute; top:30px; left:50%;margin-left:-500px; z-index:-9999;}
+.a_c_1{width:1000px; height:auto; overflow:hidden; float:left;}
+.a_c_1 table{ border:0;border-collapse:collapse; width:1000px; font-size:12px; }
+.a_tab_1{border-top:1px solid #55889b; border-bottom:1px solid #55889b; font-weight:bold; color:#1c648a;}
+.a_tab_2{border-bottom:1px dashed #cfd1d0;}
+.a_co1{color:#7e0404;}
+.a_co2{color:#7b90a5; font-weight:bold;}
+.a_co3{color:#9f173d; font-weight:bold;}
+.a_but1{background:url(../images/a_but1.jpg) #effafc no-repeat center center; cursor:pointer;}
+.a_but2{background:url(../images/a_but4.jpg) #effafc no-repeat center center; cursor:pointer;}
+.even{background:#06F;}
+.aa{border-right:1px solid #e2e3ea; border-bottom:1px solid #e2e3ea; border-left:1px solid #e2e3ea;  margin-top:-1px; z-index:100; background:#eee;}
+.seek_top{width:750px; height:auto; overflow:hidden;}
+.seek_top .s_left{float:left;  overflow:hidden; font-size:12px;}
+.seek_top .s_left1{float:left;  overflow:hidden; font-size:12px;}
+.seek_top .s_left2{float:left;  overflow:hidden; font-size:12px;}
+.seek_top .s_left3{float:left;   overflow:hidden; }
+
+.s_3{display:none;}
+
+
+
+
+
