@@ -1,4 +1,4 @@
-
+//加载完后排序价格
 function sortTable2(tableId,Idx){
 	             try{
          HTMLElement.prototype.__defineGetter__

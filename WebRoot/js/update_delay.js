@@ -1,16 +1,14 @@
-// <!--选中表单时 选中意外险--以及将钱数写入
-function box_ch(ck_name){
-	var flag=1;
+// 选中延误险option时 改变价格 选中延误险checkbox
+function del_upd(s_name){
 	
-	var ck_name2=document.getElementById(ck_name);
-	var ck_name1=ck_name.substr(5);
-	var sc_name=document.getElementById("secure"+ck_name1);
-	var ck_name3=document.getElementById("safe_0");
-	var sec_fx=document.getElementById("secure"+ck_name1);
-		var sec_fx_in=sec_fx.selectedIndex;
-		var sec_fx_val=sec_fx.options[sec_fx_in].text;
-		var sec_fx_int=parseInt(sec_fx_val);
-//读取url里面的数据
+	var flag=0;
+	var s1_name=s_name.substr(7);
+	var aa=document.getElementById("del_sec"+s1_name);//opotion
+	var ab=document.getElementById("delay_cl"+s1_name);//checkbox
+	var index=aa.selectedIndex; 
+	if(aa.options[index].value=='1' || aa.options[index].value=='2'){ab.checked='true';} else{ab.checked=false;}//设置默认的checked
+	
+	//读取url里面的数据
 			var M1=window.location.href.split("?")[1];
 	        var  M2=M1.split("=")[1]; 
 	       var  M3=M2.split(",")[4];//净价
@@ -119,42 +117,11 @@ function box_ch(ck_name){
 		  }}
 	 
 	//统计延误险选中个数 over		
-  var pre_allM=del_M+sec_M+yng_M+psg_M; //添加之前的总价
+    var pre_allM=del_M+sec_M+yng_M+psg_M; //添加之前的总价
 
-//获取订单总额 over
-	if(ck_name2.checked){
-	sc_name.options[1].selected="false";
-	sc_name.options[0].selected="true";
-	ck_name3.innerHTML="及<a href=''>《航意险说明1》</a> &<a href=''>《航意险说明2》</a>";
-	//钱数统计并写入
-	
-	pre_allM=pre_allM+30;
-	sec_M=sec_M+30;	
-    document.getElementById("all_money_0").innerHTML="¥"+pre_allM;//总的钱数   
-    document.getElementById("air_secure0").innerHTML="¥"+sec_M; //航意险
-	//钱数统计并写入 over
-	}
-	else{
-		sc_name.options[0].selected="false";
-		sc_name.options[1].selected="true";
-        //钱数统计并写入
+   //获取订单总额 over
+    document.getElementById("all_money_0").innerHTML="¥"+pre_allM;
+    document.getElementById("delay_money0").innerHTML="¥"+del_M;
 		
-		pre_allM=pre_allM-30*sec_fx_int;
-	   sec_M=sec_M-30*sec_fx_int;	
-       document.getElementById("all_money_0").innerHTML="¥"+pre_allM;//总的钱数   
-       document.getElementById("air_secure0").innerHTML="¥"+sec_M; //航意险
-		//钱数统计并写入 over
-		var classElements = [],allElements = document.getElementsByTagName('*');
-		for (var i=0; i< allElements.length; i++ )  {
-	      if (allElements[i].className == "secur0" ) 
-		    {	
-			    if(allElements[i].checked){
-				 flag=0;
-				 }
-		   } 
-		  } //for 判断是否全没有选中意外险
-		if(flag==1){
-			ck_name3.innerHTML="";
-			}
-		}
+
 	}

@@ -1,5 +1,6 @@
-// JavaScript Document
+﻿// JavaScript Document
 var hangbanurl = "searchplane.action";
+var Xsml;
 $(document)
 .ready(function(){
 				$.ajax({
@@ -11,12 +12,16 @@ $(document)
 						arrival : $("#arrival").val(),
 						fromdata : $("#fromdata").val()
 					},
-					error : function() {alert('Error loading XML document');},
+					error : function() {s_msg(); return false;},
     success : function(xml){
+    	Xsml = xml;
+		 //判断航班是否存在
+		  var Wrong_c=$(xml).find('ErrorInfo_1_0').find('Content').text();//舱位字母
+		  var Wrong_In=Wrong_c.indexOf("Error Code");
+		  if(Wrong_In>0){s_msg1(); return false;}
+		 //判断航班是否存在 over
 		//xml start
-		 $("#a_table1").html("");
-	  
-		  $air_port='';
+	      $air_port='';
 	      $air_off='';
 	      $air_portat='';
 	      $air_offat='';
@@ -25,16 +30,19 @@ $(document)
 	      $price_y_r=0;
 	     $count=0;
 	     $count_i=0;
-		 $air_str='';
-		 $counti=0;
-		 var id_str="";
-		
-			  $(xml).find('Item').each(function(i){
+	     $air_str='';
+	     $counti=0;
+	     var id_str="";
+		  $(xml).find('Item').each(function(i){
+			  var ID=$(this).children('ID').text();
 			  var Carrier=$(this).children('Carrier').text();//航空公司名称
 			  // 对应航空名称
+			  var air_name=air_n(Carrier);//机场名称返回值
 			   $counti=$counti+1;
 			   var YClassPrice=$(this).children('YClassPrice').text();//Y价格
-			   var air_name=air_n(Carrier);//机场名称返回值
+			   var TPM=$(this).children('TPM').text();
+			   var TPM_int=parseInt(TPM);
+			   if(TPM_int>=800){var tmp_ioil=110;} else{var tmp_ioil=60;}//油价
 			    var FlightNo=$(this).children('FlightNo').text();
 				var FlightNo=Carrier+FlightNo;//航班号
 				var Aircraft=$(this).children('Aircraft').text();//机型
@@ -42,7 +50,7 @@ $(document)
 				$air_off=$(this).children('Offairport').text();//降落机场
 				$air_portat=$(this).children('BoardPointAT').text();//起飞机场ID
 				$air_offat=$(this).children('OffPointAT').text();// 降落机场ID
-				var DepartureDate=$(this).children('DepartureDate').text();//降落Date
+				var DepartureDate=$(this).children('DepartureDate').text();//起飞Date
 				var DepartureDate=DepartureDate.substring(5);
 				var DepartureTime=$(this).children('DepartureTime').text();//起飞time
 				var depart_date=DepartureDate+'  '+DepartureTime;//起飞data+time
@@ -56,12 +64,6 @@ $(document)
 				 var t=i-1;
 				 if(i>0 && $count==0){$('#atb'+t).remove(); $('#add_ip_air'+t).remove();}
 				  $count=0;
-				  //YClassPrice 插入到文档中
-				   id_str="";
-				   id_str="<tr><td id='id_YCL"+i+"'></td></tr>"
-				   $('#YCl_id').append(id_str);
-				   $('#id_YCL'+i).text(YClassPrice);
-				   //YClassPrice 插入到文档中 over
 				   $str4="";
 			       $str4+="<tbody id='atb"+i+"'>";
 			       $str4+="</tbody>";
@@ -70,7 +72,7 @@ $(document)
 		          $str1+="<tr id='f_col"+i+"' align='center' height='30' class='a_tab_2'  bgcolor='#effafc'>";
 	           	  $str1+="<td style='border-bottom:1px dashed #cfd1d0;' aling='center' width='15%'><span id='air_name"+i+"'></span></td>";
 		          $str1+="<td style='border-bottom:1px dashed #cfd1d0;' width='13%'><span id='air_no"+i+"'></span></td>";
-		          $str1+="<td style='border-bottom:1px dashed #cfd1d0;' width='15%'><span id='air_type"+i+"'></span></td>";
+		          $str1+="<td style='border-bottom:1px dashed #cfd1d0;' width='16%'><span id='air_type"+i+"'></span></td>";
 		          $str1+="<td style='border-bottom:1px dashed #cfd1d0;'  width='13%'><span id='d_where"+i+"'></span><span id='depa_no"+i+"'></span> <span class='a_co1'><div id='de"+i+"'></div></span></td>";
 		          $str1+="<td  style='border-bottom:1px dashed #cfd1d0;'  width='13%'><span id='off_where"+i+"'></span><span id='off_no"+i+"'></span> <span class='a_co1'><div id='ar"+i+"'></div></span></td>";
 	              $str1+="<td  style='border-bottom:1px dashed #cfd1d0;' width='5%'><span id='vapo"+i+"'></span></td>";
@@ -113,9 +115,7 @@ $(document)
 				  var price_int_y=parseInt($price_y_r);
 				  var sale=Price_int/price_int_y;
 				  var sale=sale*10;
-				  var sale=sale.toFixed(0);//打折				 
-				  var Code=$(this).attr('Code');
-					
+				  var sale=sale.toFixed(0);//打折					
 				  // 退票 改签
 			    var tuipiao=$(this).attr('tuipiao');
 				var gaiqi=$(this).attr('gaiqi');
@@ -142,7 +142,7 @@ $(document)
                          $str+="<td style='border-bottom:1px dashed #cfd1d0;' class='a_co2'  width='13%'>净价: <span id='j_money"+i+"_"+s+"' class='a_co3'></span>元</td>";
                          $str+="<td style='border-bottom:1px dashed #cfd1d0;' width='5%'><span id='viaport"+i+"_"+s+"'></span></td>";
                          $str+="<td style='border-bottom:1px dashed #cfd1d0;'  width='8%' ><a href=''><img src='../images/a_but3.jpg' id='ww"+i+"_"+s+"' onmouseout='hiddencont(this.id);' onmouseover='showcont(event,this.id);'/></a></td>";
-		                 $str+="<td  style='border-bottom:1px dashed #cfd1d0;' style='cursor:pointer;' onclick='res_tick(this.id);' id='res"+i+"_"+s+"'><img src='../images/a_but2.jpg'/></td>"; 
+		                 $str+="<td  style='border-bottom:1px dashed #cfd1d0;' onclick='res_tick(this.id);' id='res"+ID+"_"+s+"'><img src='../images/a_but2.jpg' style='cursor:pointer;'/></td>"; 
                          $str+="</tr>";
 		$str+="<tr  id='h_lay"+i+"_"+s+"'>"
 		$str+="<td align='left'  id='ticket_add"+i+"_"+s+"' width='800' style='background:#fbf9f9; border:1px solid #ccc; display:none; position:absolute; z-index:100; color:#000;'>&nbsp;<p style='font-size:12px; font-weight:normal; color:#000; padding:0px; margin-top:-5px;  margin-left:5px;' id='tp"+i+"_"+s+"'></p>&nbsp;<p style='font-size:12px; font-weight:normal; color:#000; padding:0px; margin-top:-5px;  margin-left:5px;' id='gq"+i+"_"+s+"'></p>&nbsp;<p style='font-size:12px; font-weight:normal; color:#000; padding:0px; margin-top:-5px; margin-bottom:5px; margin-left:5px;' id='qz"+i+"_"+s+"'></p></td>"
@@ -209,9 +209,7 @@ $(document)
 			})
 			//筛选航空公司
 			sortTable2('a_table1',4); //使所有价格降序
-		// xml over
-		
-		
+			// xml over		
 		}//sucess
  })//ajax
 })//document

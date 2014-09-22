@@ -15,8 +15,8 @@ a,img{border:none;}
 .peo_info{width:985px; height:auto; overflow:hidden;}
 .peo_info .top1{width:2px; height:30px; background:#1db9d0; float:left;}
 .peo_info .top{width:983px; height:30px; background:#dcf7fb; float:left;}
-.peo_info .top2{width:1130px; height:auto;  float:left;}
-.peo_info .top2 .t_1{width:1130px; height:auto; float:left;}
+.peo_info .top2{width:985px; height:auto;  float:left;}
+.peo_info .top2 .t_1{width:985px; height:auto; float:left;}
 .peo_info .top2 .t_1 .t_1_top{width:985px; height:auto; float:left; overflow:hidden; margin-top:20px;}
 .peo_info .top2 .t_1 .t_1_top1{width:985px; height:auto; float:left; overflow:hidden; margin-top:10px;}
 /*按钮--添加客*/

@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 *{margin:0 auto; padding:0;}
 body{text-align:center; background:#fff;}
@@ -18,7 +18,7 @@ p{margin:0; padding:0;}
 /*登录部分*/
 .login_part{width:985px; height:45px; float:left; background:url(../images/bar_bule.jpg) repeat-x left center;}
 .login_left{width:410px; height:15px; line-height:15px; float:left; margin-top:16px; display:inline; color:#fff; font-size:12px; margin-left:350px;}
-.input_w_h{width:80px; height:15px;}
+.input_w_h{width:80px; height:12px;}
 .lg_mid{ width:45px; height:15px; float:left; margin-top:15px; display:inline;}
 .login_right{width:120px; height:22px; float:left; margin-top:11px; margin-left:40px; display:inline;}
 /*首页中间部分*/

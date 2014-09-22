@@ -1,12 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
@@ -30,7 +24,7 @@ $(function(){
 <div class="total">
 <!--header部分 start-->
  <div class="header">
-  <div class="logo"><a href="index.html"><img src="../images/logo.jpg"/></a></div>
+  <div class="logo"><a href="index.jsp"><img src="../images/logo.jpg"/></a></div>
   <div class="hd_tel"><img src="../images/tel.jpg"/></div>
   <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" /></a>&nbsp;&nbsp;<a href=""><img src="../images/mark2.jpg" /></a></div>
   <div style="clear:both;"></div>

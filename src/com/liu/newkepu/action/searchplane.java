@@ -58,7 +58,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 		shihefdprice(fdprices);
 		Document document = DocumentHelper.parseText(resultsString);
 		Element rootElement = document.getRootElement();
-		Iterator<Element> iter = rootElement.elements("Item").iterator();
+		Iterator<?> iter = rootElement.elements("Item").iterator();
 		while (iter.hasNext()) {
 			Element item = (Element) iter.next();
 			if (item.element("FlightType").getText().equals("S")) {
@@ -118,7 +118,11 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 				 * 针对格式为 北京
 				 */
 				list = flightnameDao.findBychengshi(fromandarrival);
-				fromandarrivalList.add(list.get(0).getSanzima());
+				if (fromandarrivalList.size() > 0) {
+					fromandarrivalList.add(list.get(0).getSanzima());
+				} else {
+					return null;
+				}
 			}
 
 			/*
@@ -281,9 +285,9 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 		Element classes = item.element("Classes");
 		List<Tuigai> tuigais = tuigaiDao.findByhangkonggongsi(item
 				.elementText("Carrier"));
-		for (Iterator<Element> iterator = classes.elementIterator(); iterator
+		for (Iterator<?> iterator = classes.elementIterator(); iterator
 				.hasNext();) {
-			Element tgq = iterator.next();
+			Element tgq = (Element) iterator.next();
 			tgq.addAttribute("tuipiao", "");
 			tgq.addAttribute("gaiqi", "");
 			tgq.addAttribute("qianzhuan", "");

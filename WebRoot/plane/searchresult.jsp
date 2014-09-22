@@ -1,13 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
@@ -15,6 +8,7 @@
 <link href="../css/search.css" rel="stylesheet" type="text/css" />
 <link href="../css/aire_t.css" rel="stylesheet" type="text/css" />
 <link href="../css/doubleDate.css" rel="stylesheet" type="text/css" /><!--日历样式-->
+<link href="../css/show_message.css" rel="stylesheet" type="text/css" /><!--提示框样式--->
 <script src="../js/jquery-1.6.4.js"></script>
 <script src="../js/doubleDate2.0.js"></script><!--日历-->
 <script src="../js/test.js"></script><!--航空机场数据及效果-->
@@ -27,6 +21,8 @@
 <script src="../js/sort_air.js"></script><!--所有航班价格降序-->
 <script src="../js/air_name.js"></script><!--对应返回航班-->
 <script src="../js/air_type.js"></script><!--单程往返切换效果-->
+<script src="../js/base64encode.js"></script><!--加密码净价票面价-->
+<script src="../js/show_msg.js"></script><!--错误提示框-->
 <script>
 $(function(){
 	$('.doubledate').kuiDate({
@@ -41,7 +37,7 @@ $(function(){
 <!--header部分 start-->
 <div class="total">
  <div class="header">
-  <div class="logo"><a href="index.html"><img src="../images/logo.jpg"/></a></div>
+  <div class="logo"><a href="index.jsp"><img src="../images/logo.jpg"/></a></div>
   <div class="hd_tel"><img src="../images/tel.jpg"/></div>
   <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" /></a>&nbsp;&nbsp;<a href=""><img src="../images/mark2.jpg" /></a></div>
   <div style="clear:both;"></div>
@@ -128,7 +124,6 @@ $(function(){
 <div class="sear_rigth">
  <!--头部图片-->
   <div class="a_top_img">
-  
   </div>
  <!--is over-->
  
@@ -152,7 +147,7 @@ $(function(){
      <tr align="center">
       <td align="center" class="a_tab_1">
        <table width="1000" bgcolor="#effafc">
-         <tr align="center" height="30px"><td align="center" width="15%"  >航空公司</td><td width="13%">航班号</td><td  width="15%">机型</td><td  width="13%">起飞地点/时间</td><td  width="13%">到达地点/时间</td><td  width="5%">经停</td><td  width="8%"></td><td>操作</td></tr>
+         <tr align="center"><td align="center" width="15%"  >航空公司</td><td width="13%">航班号</td><td  width="15%">机型</td><td  width="13%">起飞地点/时间</td><td  width="13%">到达地点/时间</td><td  width="5%">经停</td><td  width="8%"></td><td>操作</td></tr>
        </table>
        </td>
      </tr>
@@ -203,13 +198,25 @@ $(function(){
    
 </div> 
 <!--footer-->
-<!--Y航价格 以及机建燃油卡价格-->
-<div style="width:0px; height:0px; overflow:hidden; display:none;" >
- <table id="YCl_id">
- 
- </table>
-</div>
-<!--Y航价格 以及机建燃油卡价格 is over-->
 
+<!--提示框-->
+<div class="s_div">
+   <h2>窠浦提醒您</h2>
+   <div class="s_t">
+     <div class="s_1">网页出现错误,请重新查询</div>
+     <div class="s_2"><img src="../images/show_sure.jpg" onclick="lc_href()"/></div>
+   </div>
+</div>	
+<div id="z_h"></div>
+<!--提示框 over-->
+<!--提示框1-->
+<div class="s_div1">
+   <h2>窠浦提醒您</h2>
+   <div class="s_t">
+     <div class="s_1">您搜索的航班不存在！</div>
+     <div class="s_2"><img src="../images/show_sure.jpg" onclick="lc_href()"/></div>
+   </div>
+</div>
+<!--提示框1 over-->
 </body>
 </html>
