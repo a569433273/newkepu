@@ -5,5 +5,5 @@ import java.util.List;
 import com.liu.newkepu.model.Tuigai;
 
 public interface TuigaiDao {
-	public List<Tuigai> findByhangkonggongsi(String hangkonggongsi);
+    public List<Tuigai> findByhangkonggongsi(String hangkonggongsi);
 }

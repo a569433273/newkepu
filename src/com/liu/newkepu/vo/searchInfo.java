@@ -1,81 +1,281 @@
 package com.liu.newkepu.vo;
 
 public class searchInfo {
-	/* 登陆页面传来的值 */
-	private String username;
-	private String password;
-	private String status;
 
-	/* 查询页面传来的值 */
-	private String from;
-	private String arrival;
-	private String fromdata;
+    /* 登陆页面传来的值 */
+    private String username;
+    private String password;
+    private String status;
 
-	public String getUsername() {
-		return username;
-	}
+    /* 查询页面传来的值 */
+    private String from;
+    private String arrival;
+    private String fromdata;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    /* 预订页面传来的值 */
+    private String air_Name_1;
+    private String tkoff_Name;
+    private String tkoff_Time;
+    private String land_Name;
+    private String land_Time;
+    private String Viaport_1;
+    private String Saled_1;
+    private String Price_1;
+    private String Return_1;
+    private String net_Price_1;
+    private String mach_oil;
+    private String Tmp_nm;
+    private String type_aircft;
+    private String tkoff_Id;
+    private String land_Id;
+    private String pasge_info;
+    private String ck_name;
+    private String check_tel;
+    private String p_email;
+    private String Kid_price;
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	/**
-	 * 获得的数据格式为：
-	 * <p>1.北京(beijing)</p>
-	 * <p>2.北京(NAY)</p>
-	 * <p>3.北京</p>
-	 * @author 刘健
-	 */
-	public String getFrom() {
-		return from;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setFrom(String from) {
-		this.from = from;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	/**
-	 * 获得的数据格式为：
-	 * <p>1.北京(beijing)</p>
-	 * <p>2.北京(NAY)</p>
-	 * <p>3.北京</p>
-	 * @author 刘健
-	 */
-	public String getArrival() {
-		return arrival;
-	}
+    /**
+     * 获得的数据格式为：
+     * <p>
+     * 1.北京(beijing)
+     * </p>
+     * <p>
+     * 2.北京(NAY)
+     * </p>
+     * <p>
+     * 3.北京
+     * </p>
+     *
+     * @author 刘健
+     */
+    public String getFrom() {
+        return from;
+    }
 
-	public void setArrival(String arrival) {
-		this.arrival = arrival;
-	}
+    public void setFrom(String from) {
+        this.from = from;
+    }
 
-	/**
-	 * 获得的数据格式为：
-	 * <p>2014-09-10</p>
-	 * @author 刘健
-	 */
-	public String getFromdata() {
-		return fromdata;
-	}
+    /**
+     * 获得的数据格式为：
+     * <p>
+     * 1.北京(beijing)
+     * </p>
+     * <p>
+     * 2.北京(NAY)或黄岩(台州)(HYN)
+     * </p>
+     * <p>
+     * 3.北京
+     * </p>
+     *
+     * @author 刘健
+     */
+    public String getArrival() {
+        return arrival;
+    }
 
-	public void setFromdata(String fromdata) {
-		this.fromdata = fromdata;
-	}
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
+    }
 
+    /**
+     * 获得的数据格式为：
+     * <p>
+     * 2014-09-10
+     * </p>
+     *
+     * @author 刘健
+     */
+    public String getFromdata() {
+        return fromdata;
+    }
+
+    public void setFromdata(String fromdata) {
+        this.fromdata = fromdata;
+    }
+
+    public String getAir_Name_1() {
+        return air_Name_1;
+    }
+
+    public void setAir_Name_1(String air_Name_1) {
+        this.air_Name_1 = air_Name_1;
+    }
+
+    public String getTkoff_Name() {
+        return tkoff_Name;
+    }
+
+    public void setTkoff_Name(String tkoff_Name) {
+        this.tkoff_Name = tkoff_Name;
+    }
+
+    public String getTkoff_Time() {
+        return tkoff_Time;
+    }
+
+    public void setTkoff_Time(String tkoff_Time) {
+        this.tkoff_Time = tkoff_Time;
+    }
+
+    public String getLand_Name() {
+        return land_Name;
+    }
+
+    public void setLand_Name(String land_Name) {
+        this.land_Name = land_Name;
+    }
+
+    public String getLand_Time() {
+        return land_Time;
+    }
+
+    public void setLand_Time(String land_Time) {
+        this.land_Time = land_Time;
+    }
+
+    public String getViaport_1() {
+        return Viaport_1;
+    }
+
+    public void setViaport_1(String viaport_1) {
+        Viaport_1 = viaport_1;
+    }
+
+    public String getSaled_1() {
+        return Saled_1;
+    }
+
+    public void setSaled_1(String saled_1) {
+        Saled_1 = saled_1;
+    }
+
+    public String getPrice_1() {
+        return Price_1;
+    }
+
+    public void setPrice_1(String price_1) {
+        Price_1 = price_1;
+    }
+
+    public String getReturn_1() {
+        return Return_1;
+    }
+
+    public void setReturn_1(String return_1) {
+        Return_1 = return_1;
+    }
+
+    public String getNet_Price_1() {
+        return net_Price_1;
+    }
+
+    public void setNet_Price_1(String net_Price_1) {
+        this.net_Price_1 = net_Price_1;
+    }
+
+    public String getMach_oil() {
+        return mach_oil;
+    }
+
+    public void setMach_oil(String mach_oil) {
+        this.mach_oil = mach_oil;
+    }
+
+    public String getTmp_nm() {
+        return Tmp_nm;
+    }
+
+    public void setTmp_nm(String tmp_nm) {
+        Tmp_nm = tmp_nm;
+    }
+
+    public String getType_aircft() {
+        return type_aircft;
+    }
+
+    public void setType_aircft(String type_aircft) {
+        this.type_aircft = type_aircft;
+    }
+
+    public String getTkoff_Id() {
+        return tkoff_Id;
+    }
+
+    public void setTkoff_Id(String tkoff_Id) {
+        this.tkoff_Id = tkoff_Id;
+    }
+
+    public String getLand_Id() {
+        return land_Id;
+    }
+
+    public void setLand_Id(String land_Id) {
+        this.land_Id = land_Id;
+    }
+
+    public String getPasge_info() {
+        return pasge_info;
+    }
+
+    public void setPasge_info(String pasge_info) {
+        this.pasge_info = pasge_info;
+    }
+
+    public String getCk_name() {
+        return ck_name;
+    }
+
+    public void setCk_name(String ck_name) {
+        this.ck_name = ck_name;
+    }
+
+    public String getCheck_tel() {
+        return check_tel;
+    }
+
+    public void setCheck_tel(String check_tel) {
+        this.check_tel = check_tel;
+    }
+
+    public String getP_email() {
+        return p_email;
+    }
+
+    public void setP_email(String p_email) {
+        this.p_email = p_email;
+    }
+
+    public String getKid_price() {
+        return Kid_price;
+    }
+
+    public void setKid_price(String kid_price) {
+        Kid_price = kid_price;
+    }
 }
+

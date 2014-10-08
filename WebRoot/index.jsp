@@ -23,7 +23,7 @@
 <p>&nbsp;</p>
 <!--header部分 start-->
  <div class="header">
-  <div class="logo"><a href="index.html"><img src="images/logo.jpg"/></a></div>
+  <div class="logo"><a href="index.jsp"><img src="images/logo.jpg"/></a></div>
   <div class="hd_tel"><img src="images/tel.jpg"/></div>
   <div class="hd_mark"><a href=""><img src="images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img src="images/mark2.jpg"></a></div>
   <div style="clear:both;"></div>

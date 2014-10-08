@@ -12,16 +12,15 @@ import com.liu.newkepu.dao.UserDao;
 import com.liu.newkepu.model.User;
 
 @Component("UserDao")
-public class UserDaoImpl implements UserDao{
-	
-	@Resource
-	private SessionFactory sessionFactory;
+public class UserDaoImpl implements UserDao {
 
-	@Override
-	public List<User> findBynameandword(String username, String password) {
-		// TODO Auto-generated method stub
-		Query query = sessionFactory.getCurrentSession().createQuery("from User u where u.username='" + username + "' and u.password='" + password +"'");
-		return query.list();
-	}
+    @Resource
+    private SessionFactory sessionFactory;
+
+    @Override
+    public List<User> findBynameandword(String username, String password) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from User u where u.username='" + username + "' and u.password='" + password + "'");
+        return query.list();
+    }
 
 }

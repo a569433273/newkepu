@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+.py_top{width:985px; height:30px;}
+.py_top .py_t1{float:left;}
+.py_top .py_t1 span{color:#555; font-size:16px; font-weight:bold; line-height:30px;}
+.py_top .py_t2{float:right;}
+/*订单信息头部*/
+.py_gds{width:985px; height:30px; margin-top:10px;}
+.py_gds .py_gds1{width:3px; height:30px; float:left; background:#1ebad1;}
+.py_gds .py_gds2{width:982px; height:30px; float:left; background:#dcf7fb; text-align:left;}
+.py_gds .py_gds2 span{font-size:14px; font-weight:bold; color:#555; line-height:30px; margin-left:10px;}
+/*订单总额*/
+.py_my{width:985px; height:110px; margin-top:10px;}
+.py_my1{width:960px; height:110px; background:#ffffeb; border:1px solid #fbd5a7;}
+.py_my_1{width:960px; height:30px; float:left; text-align:left; margin-top:20px; display:inline;}
+.py_my_1 span{font-size:12px; color:#555; line-height:30px; }
+.py_my_1 .py_sp1{color:#3469ca;}
+.py_my_1 .py_sp2{color:#ff075b; font-size:16px; font-weight:bold;}
+.py_my_1 .py_sp3{font-weight:bold;}
+.py_my_2{width:960px; height:30px; float:left; text-align:left; margin-top:15px;}
+.py_my_2 span{font-size:12px; color:#555; line-height:16px; }
+.py_my_2 .py_my_21{float:left; width:16px; height:16px; margin-left:30px; display:inline;}
+.py_my_2 .py_my_22{float:left;}
+/*航班信息*/
+.py_amsg{width:985px; height:auto; margin-top:10px; overflow:hidden; }
+.py_amsg .py_amsg1{width:960px; height:auto;}
+.py_pmsg{width:985px; height:auto; margin-top:10px; overflow:hidden; border-top:2px solid #1ebad1; }
+.py_pmsg .py_pmsg1{width:960px; height:auto;}
+.py_pmsg .py_pmsg1 .py_pmsg11{width:960px; height:auto; overflow:hidden; float:left; }
+.py_amsg1 .py_amsg_1{width:960px; height:30px; float:left; border-bottom:1px solid #acadad; text-align:left;} 
+.py_amsg1 span{color:#555; font-size:14px; font-weight:bold; line-height:30px;}
+.py_amsg1 .py_amsg_2{width:960px; height:auto; overflow:hidden; float:left;  text-align:left;} 
+.py_amsg1 .py_amsg_2 .py_table{border:0;border-collapse:collapse; width:960px; font-size:12px; margin-top:10px;}

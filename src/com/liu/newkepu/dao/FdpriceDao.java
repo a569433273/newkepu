@@ -5,5 +5,5 @@ import java.util.List;
 import com.liu.newkepu.model.Fdprice;
 
 public interface FdpriceDao {
-	public List<Fdprice> findByqifeianddaoda(String qifei, String daoda);
+    public List<Fdprice> findByqifeianddaoda(String qifei, String daoda);
 }

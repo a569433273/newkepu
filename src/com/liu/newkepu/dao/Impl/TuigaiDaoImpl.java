@@ -12,16 +12,15 @@ import com.liu.newkepu.dao.TuigaiDao;
 import com.liu.newkepu.model.Tuigai;
 
 @Component("TuigaiDao")
-public class TuigaiDaoImpl implements TuigaiDao{
-	
-	@Resource
-	private SessionFactory sessionFactory;
+public class TuigaiDaoImpl implements TuigaiDao {
 
-	@Override
-	public List<Tuigai> findByhangkonggongsi(String hangkonggongsi) {
-		// TODO Auto-generated method stub
-		Query query = sessionFactory.getCurrentSession().createQuery("from Tuigai t where t.hangkonggongsi='" + hangkonggongsi + "'");
-		return query.list();
-	}
+    @Resource
+    private SessionFactory sessionFactory;
+
+    @Override
+    public List<Tuigai> findByhangkonggongsi(String hangkonggongsi) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Tuigai t where t.hangkonggongsi='" + hangkonggongsi + "'");
+        return query.list();
+    }
 
 }
