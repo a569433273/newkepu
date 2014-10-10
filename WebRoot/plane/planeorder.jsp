@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -129,7 +129,7 @@
     <div class="peo_info" id="peo_info">
         <div class="top1"></div>
         <div class="top">
-            <div style="float:left; line-height:30px; font-size:12px;">      乘机人信息</div>
+            <div style="float:left; line-height:30px; font-size:12px;"> 乘机人信息</div>
             <div style="float:left;margin-top:5px; overflow:hidden;">&nbsp;<img src="../images/auto_write.gif"
                                                                                 style="cursor:pointer;"
                                                                                 class="showdiv"/></div>
@@ -238,7 +238,7 @@
         <div class="peo1_info">
             <div class="top1"></div>
             <div class="top">
-                <div style="float:left; line-height:30px; font-size:12px;">      联系人信息</div>
+                <div style="float:left; line-height:30px; font-size:12px;"> 联系人信息</div>
                 <div style="float:left;margin-top:5px; overflow:hidden;">&nbsp;<img src="../images/auto_write.gif"
                                                                                     style="cursor:pointer;"
                                                                                     class="showdiv"/></div>
@@ -264,7 +264,7 @@
                 <div style="float:left; margin-top:2px; overflow:hidden; display:inline;">&nbsp;
                     <input name="input" type="checkbox" value="" checked="checked"/>
                 </div>
-                <div style="float:left; overflow:hidden; font-size:12px; line-height:23px;">      是否保存为常用联系人</div>
+                <div style="float:left; overflow:hidden; font-size:12px; line-height:23px;"> 是否保存为常用联系人</div>
             </div>
         </div>
     </div>
@@ -376,7 +376,7 @@
                 </div>
                 <div class="lg4">
                     <div style="float:left;"><input name="" type="checkbox" value=""/></div>
-                    <div style="float:left;">            两周内自动登录</div>
+                    <div style="float:left;"> 两周内自动登录</div>
                 </div>
                 <div class="lg5"><p style="text-align:left; margin-left:30px;"><input type="image"
                                                                                       src="../images/submit_img.png"/>
@@ -397,7 +397,7 @@
                 </div>
                 <div class="lg4">
                     <div style="float:left;"><input name="" type="checkbox" value=""/></div>
-                    <div style="float:left;">            两周内自动登录</div>
+                    <div style="float:left;"> 两周内自动登录</div>
                 </div>
                 <div class="lg5"><p style="text-align:left; margin-left:30px;"><input type="image"
                                                                                       src="../images/submit_img.png"/>

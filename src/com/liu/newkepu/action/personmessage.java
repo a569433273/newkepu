@@ -1,4 +1,21 @@
 package com.liu.newkepu.action;
 
-public class personmessage {
+import com.liu.newkepu.vo.searchInfo;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.stereotype.Component;
+
+@Component("personmessage")
+public class personmessage  extends ActionSupport implements ModelDriven<Object> {
+    private searchInfo searchInfo = new searchInfo();
+
+    @Override
+    public String execute() throws Exception {
+        return "success";
+    }
+
+    @Override
+    public Object getModel() {
+        return searchInfo;
+    }
 }
