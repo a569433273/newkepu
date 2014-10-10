@@ -1,11 +1,88 @@
 @charset "utf-8";
 /* CSS 弹出框 */
 
-.s_div{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #bcdaf7 solid;padding:1px;background:#fff;}
-.s_div h2{height:25px;font-size:12px; background:#bcdaf7; line-height:25px;color:#000; font-weight:normal; text-align:center; width:250px;}
-.s_t{background:#efefef; width:250px; height:125px;}
-.s_1{width:250px; height:auto; font-size:14px; color:#000; margin-top:30px; float:left; }
-.s_2{width:250px; height:auto; font-size:14px; color:#000; margin-top:30px; float:left; }
-#z_h{background-color:#666; position:absolute; z-index:99;left:0;top:0;display:none;width:100%;height:100%;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}
-.s_div1{width:0px;height:0px;display:none;position:absolute;right:0;top:0;z-index:100;border:1px #bcdaf7 solid;padding:1px;background:#fff;}
-.s_div1 h2{height:25px;font-size:12px; background:#bcdaf7; line-height:25px;color:#000; font-weight:normal; text-align:center; width:250px;}
+.s_div {
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    border: 1px #bcdaf7 solid;
+    padding: 1px;
+    background: #fff;
+}
+
+.s_div h2 {
+    height: 25px;
+    font-size: 12px;
+    background: #bcdaf7;
+    line-height: 25px;
+    color: #000;
+    font-weight: normal;
+    text-align: center;
+    width: 250px;
+}
+
+.s_t {
+    background: #efefef;
+    width: 250px;
+    height: 125px;
+}
+
+.s_1 {
+    width: 250px;
+    height: auto;
+    font-size: 14px;
+    color: #000;
+    margin-top: 30px;
+    float: left;
+}
+
+.s_2 {
+    width: 250px;
+    height: auto;
+    font-size: 14px;
+    color: #000;
+    margin-top: 30px;
+    float: left;
+}
+
+#z_h {
+    background-color: #666;
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+}
+
+.s_div1 {
+    width: 0px;
+    height: 0px;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    border: 1px #bcdaf7 solid;
+    padding: 1px;
+    background: #fff;
+}
+
+.s_div1 h2 {
+    height: 25px;
+    font-size: 12px;
+    background: #bcdaf7;
+    line-height: 25px;
+    color: #000;
+    font-weight: normal;
+    text-align: center;
+    width: 250px;
+}

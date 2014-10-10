@@ -1,37 +1,208 @@
 @charset "utf-8";
 /* CSS Document */
-*{margin:0 auto;}
-body{text-align:center;}
-.sear_all{width:985px; height:auto; overflow:hidden;}
+* {
+    margin: 0 auto;
+}
+
+body {
+    text-align: center;
+}
+
+.sear_all {
+    width: 985px;
+    height: auto;
+    overflow: hidden;
+}
+
 /*左部部分*/
-.sear_all .left{width:225px; height:auto; float:left; }
-.sear_all .left .left1{width:220px; height:auto; float:left;}
-.sear_all .left .left1 .le_1{width:220px; height:42px; background:url(../images/left_gimg.jpg) no-repeat; float:left;}
-.sear_all .left .left1 .le_2{width:218px; height:auto; float:left; font-size:12px; border-right:1px solid #c3c8cc; border-left:1px solid #c3c8cc;}
-.sear_all .left .left1 .le_3{width:220px; height:13px; background:url(../images/left_bimg4.jpg) no-repeat; float:left;}
-.sear_all .left .left1 .le_2 .s_left{float:left;  overflow:hidden; width:218px; margin-top:10px;}
-.sear_all .left .left1 .le_2 .s_left1{float:left;  overflow:hidden; width:218px;  margin-top:10px;}
-.sear_all .left .left1 .le_2 .s_left2{float:left;  overflow:hidden;  width:218px;  margin-top:10px;}
-.sear_all .left .left1 .le_2 .s_left3{float:left;   overflow:hidden; width:218px;  margin-top:10px;}
-.sear_all .left .left1 .le_2 .s_left4{float:left;   overflow:hidden; width:218px;  margin-top:10px;}
-.sear_all .left .left1 .le_2 .s_left5{float:left;   overflow:hidden; width:218px;  margin-top:10px;}
-.s_3{display:none;}
-.even{background:#06F;}
-.aa{border-right:1px solid #e2e3ea; border-bottom:1px solid #e2e3ea; border-left:1px solid #e2e3ea;  margin-top:-1px; z-index:100; background:#eee;}
+.sear_all .left {
+    width: 225px;
+    height: auto;
+    float: left;
+}
+
+.sear_all .left .left1 {
+    width: 220px;
+    height: auto;
+    float: left;
+}
+
+.sear_all .left .left1 .le_1 {
+    width: 220px;
+    height: 42px;
+    background: url(../images/left_gimg.jpg) no-repeat;
+    float: left;
+}
+
+.sear_all .left .left1 .le_2 {
+    width: 218px;
+    height: auto;
+    float: left;
+    font-size: 12px;
+    border-right: 1px solid #c3c8cc;
+    border-left: 1px solid #c3c8cc;
+}
+
+.sear_all .left .left1 .le_3 {
+    width: 220px;
+    height: 13px;
+    background: url(../images/left_bimg4.jpg) no-repeat;
+    float: left;
+}
+
+.sear_all .left .left1 .le_2 .s_left {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.sear_all .left .left1 .le_2 .s_left1 {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.sear_all .left .left1 .le_2 .s_left2 {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.sear_all .left .left1 .le_2 .s_left3 {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.sear_all .left .left1 .le_2 .s_left4 {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.sear_all .left .left1 .le_2 .s_left5 {
+    float: left;
+    overflow: hidden;
+    width: 218px;
+    margin-top: 10px;
+}
+
+.s_3 {
+    display: none;
+}
+
+.even {
+    background: #06F;
+}
+
+.aa {
+    border-right: 1px solid #e2e3ea;
+    border-bottom: 1px solid #e2e3ea;
+    border-left: 1px solid #e2e3ea;
+    margin-top: -1px;
+    z-index: 100;
+    background: #eee;
+}
+
 /*左部部分 over*/
 /*右部部分*/
-.sear_all .sear_rigth{width:740px; height:auto; float:right; }
-.sear_all .sear_rigth .a_top_img{width:740px; height:27px; background:url(../images/right_timg.jpg) no-repeat; float:left;}
+.sear_all .sear_rigth {
+    width: 740px;
+    height: auto;
+    float: right;
+}
+
+.sear_all .sear_rigth .a_top_img {
+    width: 740px;
+    height: 27px;
+    background: url(../images/right_timg.jpg) no-repeat;
+    float: left;
+}
 
 /*search_air 中部*/
-.se_ar_left{width:250px; height:auto; }
-.se_ar_left .left1{width:250px; height:auto; float:left;}
-.se_ar_left .left1 .le_1{width:250px; height:42px; background:url(../images/left_gimg.jpg) no-repeat; float:left;}
-.se_ar_left .left1 .le_2{width:250px; height:auto; float:left; font-size:12px;}
-.se_ar_left .left1 .le_3{width:250px; height:13px; background:url(../images/left_bimg4.jpg) no-repeat; float:left;}
-.se_ar_left .left1 .le_2 .s_left{float:left;  overflow:hidden; width:250px; margin-top:10px; border-bottom:1px dashed #ccc; padding-bottom:5px;}
-.se_ar_left .left1 .le_2 .s_left1{float:left;  overflow:hidden; width:250px;  margin-top:10px; border-bottom:1px dashed #ccc; padding-bottom:5px;}
-.se_ar_left .left1 .le_2 .s_left2{float:left;  overflow:hidden;  width:250px;  margin-top:10px; border-bottom:1px dashed #ccc; padding-bottom:5px;}
-.se_ar_left .left1 .le_2 .s_left3{float:left;   overflow:hidden; width:250px;  margin-top:10px;}
-.se_ar_left .left1 .le_2 .s_left4{float:left;   overflow:hidden; width:250px;  margin-top:10px; border-bottom:1px dashed #ccc; padding-bottom:5px;}
-.se_ar_left .left1 .le_2 .s_left5{float:left;   overflow:hidden; width:250px;  margin-top:10px;}
+.se_ar_left {
+    width: 250px;
+    height: auto;
+}
+
+.se_ar_left .left1 {
+    width: 250px;
+    height: auto;
+    float: left;
+}
+
+.se_ar_left .left1 .le_1 {
+    width: 250px;
+    height: 42px;
+    background: url(../images/left_gimg.jpg) no-repeat;
+    float: left;
+}
+
+.se_ar_left .left1 .le_2 {
+    width: 250px;
+    height: auto;
+    float: left;
+    font-size: 12px;
+}
+
+.se_ar_left .left1 .le_3 {
+    width: 250px;
+    height: 13px;
+    background: url(../images/left_bimg4.jpg) no-repeat;
+    float: left;
+}
+
+.se_ar_left .left1 .le_2 .s_left {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.se_ar_left .left1 .le_2 .s_left1 {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.se_ar_left .left1 .le_2 .s_left2 {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.se_ar_left .left1 .le_2 .s_left3 {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+}
+
+.se_ar_left .left1 .le_2 .s_left4 {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.se_ar_left .left1 .le_2 .s_left5 {
+    float: left;
+    overflow: hidden;
+    width: 250px;
+    margin-top: 10px;
+}

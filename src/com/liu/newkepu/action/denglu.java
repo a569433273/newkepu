@@ -30,9 +30,10 @@ public class denglu extends ActionSupport implements ModelDriven<Object> {
         List<Member> members = memberDao.findBynameandpassword(searchInfo.getUsername(), searchInfo.getPassword());
         if (members.size() > 0) {
             request.getSession().setAttribute("member_id", members.get(0).getMember_id());
+            request.getSession().setAttribute("member_realname",members.get(0).getMember_realname());
             return "success";
         }
-        request.getSession().setAttribute("member_id", "1");
+        request.getSession().setAttribute("member_id", null);
         return "faild";
     }
 

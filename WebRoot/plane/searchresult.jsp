@@ -1,32 +1,47 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>无标题文档</title>
-    <link href="../css/index.css" rel="stylesheet" type="text/css" />
-    <link href="../css/search.css" rel="stylesheet" type="text/css" />
-    <link href="../css/aire_t.css" rel="stylesheet" type="text/css" />
-    <link href="../css/doubleDate.css" rel="stylesheet" type="text/css" /><!--日历样式-->
-    <link href="../css/show_message.css" rel="stylesheet" type="text/css" /><!--提示框样式--->
+    <link href="../css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/search.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/aire_t.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/doubleDate.css" rel="stylesheet" type="text/css"/>
+    <!--日历样式-->
+    <link href="../css/show_message.css" rel="stylesheet" type="text/css"/>
+    <!--提示框样式--->
     <script src="../js/jquery-1.6.4.js"></script>
-    <script src="../js/doubleDate2.0.js"></script><!--日历-->
-    <script src="../js/test.js"></script><!--航空机场数据及效果-->
-    <script src="../js/air_xml.js"></script> <!--xml解析及效果-->
-    <script src="../js/res_tick.js"></script><!--预定时传值效果-->
-    <script src="../js/return_t.js"></script><!-- 退票改签效果-->
-    <script src="../js/fold_un.js"></script><!--查看舱位展开折叠-->
-    <script src="../js/sort_table.js"></script><!--时间升降序-->
-    <script src="../js/sort_table1.js"></script><!--价格升降序-->
-    <script src="../js/sort_air.js"></script><!--所有航班价格降序-->
-    <script src="../js/air_name.js"></script><!--对应返回航班-->
-    <script src="../js/air_type.js"></script><!--单程往返切换效果-->
-    <script src="../js/base64encode.js"></script><!--加密码净价票面价-->
-    <script src="../js/show_msg.js"></script><!--错误提示框-->
+    <script src="../js/doubleDate2.0.js"></script>
+    <!--日历-->
+    <script src="../js/test.js"></script>
+    <!--航空机场数据及效果-->
+    <script src="../js/air_xml.js"></script>
+    <!--xml解析及效果-->
+    <script src="../js/res_tick.js"></script>
+    <!--预定时传值效果-->
+    <script src="../js/return_t.js"></script>
+    <!-- 退票改签效果-->
+    <script src="../js/fold_un.js"></script>
+    <!--查看舱位展开折叠-->
+    <script src="../js/sort_table.js"></script>
+    <!--时间升降序-->
+    <script src="../js/sort_table1.js"></script>
+    <!--价格升降序-->
+    <script src="../js/sort_air.js"></script>
+    <!--所有航班价格降序-->
+    <script src="../js/air_name.js"></script>
+    <!--对应返回航班-->
+    <script src="../js/air_type.js"></script>
+    <!--单程往返切换效果-->
+    <script src="../js/base64encode.js"></script>
+    <!--加密码净价票面价-->
+    <script src="../js/show_msg.js"></script>
+    <!--错误提示框-->
     <script>
-        $(function(){
+        $(function () {
             $('.doubledate').kuiDate({
-                className:'doubledate',
+                className: 'doubledate',
                 isDisabled: "0"  // isDisabled为可选参数，"0"表示今日之前不可选，"1"标志今日之前可选
             });
         });//加载日历
@@ -39,40 +54,52 @@
     <div class="header">
         <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
         <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img src="../images/mark2.jpg"></a></div>
+        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
+                src="../images/mark2.jpg"></a></div>
         <div style="clear:both;"></div>
     </div>
 </div>
 <!--header部分 over-->
 <p>&nbsp;</p>
+
 <div class="sear_all" id="a_hh">
     <!--左部-->
     <div class="left">
         <div class="left1">
             <div class="le_1">
             </div>
-            <form action="searchresult.jsp" name="chaxunform" id="chaxunform" method="post" onkeydown="if(event.keyCode==13)return false;" >
+            <form action="searchresult.jsp" name="chaxunform" id="chaxunform" method="post"
+                  onkeydown="if(event.keyCode==13)return false;">
                 <div class="le_2">
                     <div class="s_left4">
                         航程类型：<select id="air_type" style="width:130px;" onchange="one_way()">
-                        <option value="01" >单程</option>
-                        <option value="22" >往返</option>
+                        <option value="01">单程</option>
+                        <option value="22">往返</option>
                     </select>&nbsp;
                     </div>
                     <div class="s_left">
-                        出发城市：<input type="text" name="from" id="from" value="<%=request.getParameter("from")%>" style="border:1px solid #ccc; padding:1px; width:130px; height:16px;" onKeyup="test(this.id,event)" autocomplete="off"/>&nbsp;
+                        出发城市：<input type="text" name="from" id="from" value="<%=request.getParameter("from")%>"
+                                    style="border:1px solid #ccc; padding:1px; width:130px; height:16px;"
+                                    onKeyup="test(this.id,event)" autocomplete="off"/>&nbsp;
                     </div>
                     <div class="s_left1">
-                        目地城市：<input type="text" name="arrival" id="arrival"  value="<%=request.getParameter("arrival")%>" style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;" onKeyup="test(this.id,event)" autocomplete="off"/>&nbsp;
+                        目地城市：<input type="text" name="arrival" id="arrival" value="<%=request.getParameter("arrival")%>"
+                                    style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;"
+                                    onKeyup="test(this.id,event)" autocomplete="off"/>&nbsp;
                     </div>
                     <div class="s_left2">
-                        出发日期：<input type="text" readonly="readonly" class="doubledate ipticon"  name="fromdata" id="fromdata" value="<%=request.getParameter("fromdata")%>" style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;" />&nbsp;
+                        出发日期：<input type="text" readonly="readonly" class="doubledate ipticon" name="fromdata"
+                                    id="fromdata" value="<%=request.getParameter("fromdata")%>"
+                                    style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;"/>&nbsp;
                     </div>
                     <div class="s_left2" style="display:none;" id="db_way">
-                        往返日期：<input type="text" readonly="readonly" class="doubledate ipticon"  name="fromdata1" id="fromdata1" value="" style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;" />&nbsp;
+                        往返日期：<input type="text" readonly="readonly" class="doubledate ipticon" name="fromdata1"
+                                    id="fromdata1" value=""
+                                    style="border:1px solid #ccc; padding:1px; width:130px;  height:16px;"/>&nbsp;
                     </div>
                     <div class="s_left5">
-                        航空公司：<select name="searchtext.airName" id="searchtext.airName" class="text w153" style="width:135px;">
+                        航空公司：<select name="searchtext.airName" id="searchtext.airName" class="text w153"
+                                     style="width:135px;">
                         <option value="0" selected="selected">请选择航空公司</option>
                         <option value="CA">CA--中国国际航空</option>
                         <option value="CZ">CZ--中国南方航空</option>
@@ -110,10 +137,11 @@
                     </select>&nbsp;&nbsp;
                     </div>
                     <div class="s_left3">
-                        <input name="sub" type="image" id="sub" value="sub1"  src="../images/left_gimg1.jpg"/>
+                        <input name="sub" type="image" id="sub" value="sub1" src="../images/left_gimg1.jpg"/>
                     </div>
                 </div>
-                <div id="test" class="s_3"></div> <!--机场数据-->
+                <div id="test" class="s_3"></div>
+                <!--机场数据-->
             </form>
             <div class="le_3">
             </div>
@@ -129,14 +157,24 @@
 
         <!--头部-->
         <div class="a_top">
-            <div class="a_top11"><span style="font-size:12px; color:#333; font-weight:bold; line-height:25px;">航空公司：</span></div>
+            <div class="a_top11"><span
+                    style="font-size:12px; color:#333; font-weight:bold; line-height:25px;">航空公司：</span></div>
             <div class="a_top12">
                 <!--js加载航班-->
             </div>
         </div>
         <div class="a_top1">
-            <p style="font-size:12px; color:#333; font-weight:bold; text-align:left; margin-top:5px;">按起飞时间排序：<span id="ssort1" class="air_sy"  style="font-weight:normal; cursor:pointer;" onclick="sortTable('a_table1',3,0,'asc')">时间从低到高</span>&nbsp;&nbsp;<span id="ssort2" class="air_sy" style="font-weight:normal; cursor:pointer;" onclick="sortTable('a_table1',3,0,'des')">时间从高到低</span></p>
-            <p style="font-size:12px; color:#333; font-weight:bold; text-align:left; margin-top:5px;">按价格排序：<span  class="air_sy"  style="font-weight:normal; cursor:pointer;" onclick="sortTable1('a_table1',4,'asc')">价格从低到高</span>&nbsp;&nbsp;<span class="air_sy" style="font-weight:normal; cursor:pointer;" onclick="sortTable1('a_table1',4,'des')">价格从高到低</span></p>
+            <p style="font-size:12px; color:#333; font-weight:bold; text-align:left; margin-top:5px;">按起飞时间排序：<span
+                    id="ssort1" class="air_sy" style="font-weight:normal; cursor:pointer;"
+                    onclick="sortTable('a_table1',3,0,'asc')">时间从低到高</span>&nbsp;&nbsp;<span id="ssort2" class="air_sy"
+                                                                                             style="font-weight:normal; cursor:pointer;"
+                                                                                             onclick="sortTable('a_table1',3,0,'des')">时间从高到低</span>
+            </p>
+
+            <p style="font-size:12px; color:#333; font-weight:bold; text-align:left; margin-top:5px;">按价格排序：<span
+                    class="air_sy" style="font-weight:normal; cursor:pointer;" onclick="sortTable1('a_table1',4,'asc')">价格从低到高</span>&nbsp;&nbsp;<span
+                    class="air_sy" style="font-weight:normal; cursor:pointer;" onclick="sortTable1('a_table1',4,'des')">价格从高到低</span>
+            </p>
             <br/>
         </div>
         <!--头部-->
@@ -147,7 +185,16 @@
                     <tr align="center">
                         <td align="center" class="a_tab_1">
                             <table width="1000" bgcolor="#effafc">
-                                <tr align="center" height="30"><td aling="center" width="15%"  >航空公司</td><td width="13%">航班号</td><td  width="15%">机型</td><td  width="13%">起飞地点/时间</td><td  width="13%">到达地点/时间</td><td  width="5%">经停</td><td  width="8%"></td><td>操作</td></tr>
+                                <tr align="center" height="30">
+                                    <td aling="center" width="15%">航空公司</td>
+                                    <td width="13%">航班号</td>
+                                    <td width="15%">机型</td>
+                                    <td width="13%">起飞地点/时间</td>
+                                    <td width="13%">到达地点/时间</td>
+                                    <td width="5%">经停</td>
+                                    <td width="8%"></td>
+                                    <td>操作</td>
+                                </tr>
                             </table>
                         </td>
                     </tr>
@@ -155,7 +202,7 @@
                     <!--3-->
                     <tr align="center">
                         <td align="center">
-                            <table width="1000" id="a_table1" >
+                            <table width="1000" id="a_table1">
                                 <!--air_xml.js加载-->
                             </table>
                         </td>
@@ -168,31 +215,39 @@
     <!--加载代码-->
     <div id="loading">
         <h1 style="color:#f00; font-size:16px; text-align:center; margin-top:300px;">加载中请耐心请待......</h1>
+
         <h2><a href=""><img src="../images/loading.gif"></a></h2>
     </div>
 </div>
 <!--foodter-->
 <div class="total1">
-    <div class="sear_footer" >
+    <div class="sear_footer">
 
         <div class="sear_footer1" style="margin-left:50px;">
             <p><a href="">关于窠浦</a></p>
+
             <p><a href="">法律声明</a></p>
+
             <p><a href="">意见反馈</a></p>
         </div>
         <div class="sear_footer1" style="margin-left:60px;">
             <p><a href="">联系我们</a></p>
+
             <p><a href="">隐私条款</a></p>
+
             <p><a href="">企业QQ:4006205588</a></p>
         </div>
         <div class="sear_footer1" style="margin-left:15px;">
             <p><a href="">加入窠浦</a></p>
+
             <p><a href="">广告服务</a></p>
         </div>
         <div class="sear_footer1" style="margin-left:150px;">
             <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
+
             <p>地址:北京市东城区朝阳门银河SOHO中心A座10511室 邮政编码：100010</p>
-            <p>京ICP备11016456号    京ICP证110540号</p>
+
+            <p>京ICP备11016456号 京ICP证110540号</p>
         </div>
     </div>
 
@@ -202,6 +257,7 @@
 <!--提示框-->
 <div class="s_div">
     <h2>窠浦提醒您</h2>
+
     <div class="s_t">
         <div class="s_1">网页出现错误,请重新查询</div>
         <div class="s_2"><img src="../images/show_sure.jpg" onclick="lc_href()"/></div>
@@ -212,6 +268,7 @@
 <!--提示框1-->
 <div class="s_div1">
     <h2>窠浦提醒您</h2>
+
     <div class="s_t">
         <div class="s_1">您搜索的航班不存在！</div>
         <div class="s_2"><img src="../images/show_sure.jpg" onclick="lc_href()"/></div>

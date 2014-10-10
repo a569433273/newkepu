@@ -438,8 +438,8 @@ function ck_submit() {
         var str7 = oil_2.substr(mm + 2, oil_len - mm - 2);
         var str8 = parseInt(str7);//油价
         var add_money = parseInt(M3) + str4 + str8;//添加时要添加的钱数
-        var childstr8 = parseInt(str8/2);
-        if(childstr8 == '55'){
+        var childstr8 = parseInt(str8 / 2);
+        if (childstr8 == '55') {
             childstr8 = 50;
         }
         //油价 逢5进1
@@ -449,7 +449,7 @@ function ck_submit() {
         var str8_y_len = str8_y_str.length;//统计长度
         var str8_last = str8_y_str.substr(str8_y_len - 1, 1);
         if (str8_last >= '5' || str8_last >= '5' && str8_last != '0') {
-            var str8_lt_int = parseInt(str8_y) +5 ;//儿童油价
+            var str8_lt_int = parseInt(str8_y) + 5;//儿童油价
         }
         else {
             var str8_lt_int = str8_y;//儿童油价
@@ -540,8 +540,9 @@ function ck_submit() {
         document.getElementById("Tmp_nm").value = M6; //里程
         document.getElementById("type_aircft").value = M7; //机型
         document.getElementById("tkoff_Id").value = M10; //起飞编号
-        document.getElementById("Kid_price").value=add_y_money;//儿童价格
-        if(M11==null ||M11 =="") {} else {
+        document.getElementById("Kid_price").value = add_y_money;//儿童价格
+        if (M11 == null || M11 == "") {
+        } else {
             document.getElementById("land_Id").value = M11; //降落编号
         }
         var C21_1 = C21.indexOf("¥");

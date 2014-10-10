@@ -67,12 +67,18 @@
                     <td width="5%">经停</td>
                 </tr>
                 <tr height="50" align="center">
-                    <td width="13%"><%=request.getAttribute("flight_company_cn")%></td>
-                    <td width="13%"><%=request.getAttribute("Tkoff_Time")%></td>
-                    <td width="13%"><%=request.getAttribute("flight_from")%></td>
-                    <td width="5%"><%=request.getAttribute("Land_Time")%></td>
-                    <td width="13%"><%=request.getAttribute("flight_arrival")%></td>
-                    <td width="10%"><%=request.getAttribute("viaport")%></td>
+                    <td width="13%"><%=request.getAttribute("flight_company_cn")%>
+                    </td>
+                    <td width="13%"><%=request.getAttribute("Tkoff_Time")%>
+                    </td>
+                    <td width="13%"><%=request.getAttribute("flight_from")%>
+                    </td>
+                    <td width="5%"><%=request.getAttribute("Land_Time")%>
+                    </td>
+                    <td width="13%"><%=request.getAttribute("flight_arrival")%>
+                    </td>
+                    <td width="10%"><%=request.getAttribute("viaport")%>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -96,21 +102,31 @@
                     <td width="12%"> 延误险</td>
                     <td width="10%">订单金额</td>
                 </tr>
-                <s:iterator value="passengers">
-                <tr height="50" align="center">
-                    <td width="8%"><s:property value="passenger_name" /> </td>
-                    <s:if test="passenger_type == 0">
-                    <td width="8%">成人</td>
-                    </s:if>
-                    <s:else><td width="8%">儿童</td></s:else>
-                    <td width="13%"><s:property value="passenger_papernum" /> <br/><s:property value="passenger_sex" />&nbsp;<s:property value="passenger_birth" /></td>
-                    <td width="8%"><s:property value="passenger_gocw" /> </td>
-                    <td width="12%"><s:property value="passenger_price" /> </td>
-                    <td width="12%"><s:property value="passenger_jijian" />/<s:property value="passenger_ranyou" /> </td>
-                    <td width="12%">30/份 X <span style="font-size:12px; font-weight:normal;"><s:property value="passenger_hangyixian" /> </span>份</td>
-                    <td width="12%">20/份 X <span style="font-size:12px; font-weight:normal;"><s:property value="passenger_yanwuxian" /> </span>份</td>
-                    <td width="10%"><span style="font-weigth:bold; color:#e20909; font-size:14px;"><s:property value="passenger_goxiaofei" /> </span></td>
-                </tr>
+                <s:iterator value="passengers" status="status">
+                    <tr height="50" align="center">
+                        <td width="8%"><s:property value="passenger_name"/></td>
+                        <s:if test="passenger_type == 0">
+                            <td width="8%">成人</td>
+                        </s:if>
+                        <s:else>
+                            <td width="8%">儿童</td>
+                        </s:else>
+                        <td width="13%"><s:property value="passenger_papernum"/> <br/><s:property
+                                value="passenger_sex"/>&nbsp;<s:property value="passenger_birth"/></td>
+                        <td width="8%"><s:property value="passenger_gocw"/></td>
+                        <td width="12%" id="asd<s:property value="#status.count"/>"><s:property
+                                value="passenger_price"/></td>
+                        <td width="12%"><s:property value="passenger_jijian"/>/<s:property
+                                value="passenger_ranyou"/></td>
+                        <td width="12%">30/份 X <span style="font-size:12px; font-weight:normal;"><s:property
+                                value="passenger_hangyixian"/> </span>份
+                        </td>
+                        <td width="12%">20/份 X <span style="font-size:12px; font-weight:normal;"><s:property
+                                value="passenger_yanwuxian"/> </span>份
+                        </td>
+                        <td width="10%"><span style="font-weigth:bold; color:#e20909; font-size:14px;"><s:property
+                                value="passenger_goxiaofei"/> </span></td>
+                    </tr>
                 </s:iterator>
             </table>
         </div>
@@ -129,13 +145,13 @@
                     <td width="10%">邮箱</td>
                     <td width="45%"></td>
                 </tr>
-                <s:iterator value="orders" >
-                <tr height="50" align="center">
-                    <td width="8%"><s:property value="flight_lxr" /></td>
-                    <td width="10%"><s:property value="flight_lxrdh" /></td>
-                    <td width="10%"><s:property value="flight_lxryx" /></td>
-                    <td width="45%"></td>
-                </tr>
+                <s:iterator value="orders">
+                    <tr height="50" align="center">
+                        <td width="8%"><s:property value="flight_lxr"/></td>
+                        <td width="10%"><s:property value="flight_lxrdh"/></td>
+                        <td width="10%"><s:property value="flight_lxryx"/></td>
+                        <td width="45%"></td>
+                    </tr>
                 </s:iterator>
             </table>
         </div>
