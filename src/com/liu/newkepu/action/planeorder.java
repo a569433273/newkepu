@@ -259,7 +259,14 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
                 traveller.setTraveller_type(passenger.getPassenger_type());
                 traveller.setTraveller_papers_type(passenger.getPassenger_paperstype());
                 if (passenger.getPassenger_paperstype() == 0) {
-                    traveller.setTraveller_sf_num(passenger.getPassenger_papernum());
+                    String shenfenzheng = passenger.getPassenger_papernum();
+                    traveller.setTraveller_sf_num(shenfenzheng);
+                    traveller.setTraveller_birth(shenfenzheng.substring(6, 10) + "-" + shenfenzheng.substring(10, 12) + "-" + shenfenzheng.substring(12, 14));
+                    if (Integer.valueOf(shenfenzheng.substring(16, 17)) % 2 == 1) {
+                        traveller.setTraveller_sex("男");
+                    } else {
+                        traveller.setTraveller_sex("女");
+                    }
                 } else if (passenger.getPassenger_paperstype() == 1) {
                     traveller.setTraveller_hz_num(passenger.getPassenger_papernum());
                     traveller.setTraveller_sex(passenger.getPassenger_sex());
@@ -270,6 +277,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
                     traveller.setTraveller_birth(passenger.getPassenger_birth());
                 }
                 traveller.setTraveller_member_id(order_member_id);
+                traveller.setTraveller_id(UUID.randomUUID().toString());
                 travellerDao.save(traveller);
             }
 

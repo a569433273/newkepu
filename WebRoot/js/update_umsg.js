@@ -16,6 +16,7 @@ function upd_umsg(ins_nm) {
         var pu_Depa1 = document.getElementById("pu_depa1").innerHTML;//城市
         var pu_Job = document.getElementById("pu_job").innerHTML; //工作单位
         var pu_Resu = document.getElementById("pu_resu").innerHTML;//职称
+        var pu_Wel = document.getElementById("pu_wel").innerHTML;
         //读取内容over
         //插入内容
         var str1 = "";
@@ -29,7 +30,7 @@ function upd_umsg(ins_nm) {
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>手机号码：&nbsp;</div><div class='ct_2'><span style='line-height:30px; font-size:12px; color:#555; width:130px;' id='pu_tel'>15933258477</span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件类型：&nbsp;</div><div class='ct_2'><select name='pu_crdtp' style='margin-top:5px; width:130px;'  id='pu_crdtp'><option checked='checked'>身份证</option><option>护照</option><option>其他</option></select></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>出生日期：&nbsp;</div><div class='ct_2'><input type='text' name='pu_date' value=''  style='margin-top:5px; width:70px;' id='pu_date' onkeyup='ck_Birth();' onblur='ck_wbcrd();'/>&nbsp;<span id='ck_wbir'></span>&nbsp;<span style='color:#f00; font-size:12px; line-height:30px;'>如:2014-02-10</span></div></div>";
-        str2 += "<div class='prs_rt2_11'><div class='ct_1'>邀请码：&nbsp;</div><div class='ct_2'><span style='color:#f00; line-height:30px; font-size:14px; font-weight:bold;'>88888</span></div></div>";
+        str2 += "<div class='prs_rt2_11'><div class='ct_1'>邀请码：&nbsp;</div><div class='ct_2'><span style='color:#f00; line-height:30px; font-size:14px; font-weight:bold;'>" + pu_Wel + "</span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'>客户经理：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_per' value=''  style='margin-top:5px; width:130px;' id='pu_per'/></div></div>";
         $("#user_Lmsg1").append(str2); //左部内容插入
         str3 = "<div class='prs_rt2_2' id='user_Rmsg1'></div>";//右部框
@@ -37,7 +38,7 @@ function upd_umsg(ins_nm) {
         str4 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>性别：&nbsp;</div><div class='ct_2'><input name='sex' type='radio' value=''  id='pu_sex'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='sex' type='radio' value='' id='pu_sex1'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>座机号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_ztel' value=''  style='margin-top:5px; width:130px;' id='pu_ztel'/></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_card' value=''  style='margin-top:5px; width:130px;'  id='pu_card' onkeyup='ck_wcrd();' onblur='ck_wbcrd();' />&nbsp;<span id='ck_wcrd'></span></div></div>";
-        str4 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>所在地：&nbsp;</div><div class='ct_2'><select id='province' onchange='initcity();' name='province'  style='margin-top:5px;'><SCRIPT>creatprovince();</SCRIPT></select>&nbsp;<select name='city' style='margin-top:5px;' id='city'> <option value=''>选择城市</option></select>&nbsp;<span id='ck_wdep'></span></div></div>";
+        str4 += "<div class='prs_rt2_11'><div class='ct_1'>所在地：&nbsp;</div><div class='ct_2'><select id='province' onchange='initcity();' name='province'  style='margin-top:5px;'><SCRIPT>creatprovince();</SCRIPT></select>&nbsp;<select name='city' style='margin-top:5px;' id='city'> <option value=''>选择城市</option></select>&nbsp;<span id='ck_wdep'></span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>工作单位：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_job' value=''  style='margin-top:5px; width:130px;' id='pu_job'/></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>职称：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_resu' value=''  style='margin-top:5px; width:130px;' id='pu_resu'/></div></div>";
         $("#user_Rmsg1").append(str4); //插入右部内容
@@ -185,17 +186,17 @@ function upd_umsg1() {
     }
 //证件号验证 over
 //地区
-    if (pu_Depa == '省份' || pu_Depa1 == '地区') {
-        flag3 = 1;
-        document.getElementById("ck_wdep").innerHTML = "<img src='../images/wrong_ck.jpg' />";
-    } else {
-        document.getElementById("ck_wdep").innerHTML = "";
-    }
+//    if (pu_Depa == '省份' || pu_Depa1 == '地区') {
+//        flag3 = 1;
+//        document.getElementById("ck_wdep").innerHTML = "<img src='../images/wrong_ck.jpg' />";
+//    } else {
+//        document.getElementById("ck_wdep").innerHTML = "";
+//    }
 //地区over
-    if (flag == 0 && flag1 == 0 && flag2 == 0 && flag3 == 0) {
-        return true;
-    } else {
-        alert("信息输入有误,请重新输入");
-        return false;
-    }
+//    if (flag == 0 && flag1 == 0 && flag2 == 0 && flag3 == 0) {
+//        return true;
+//    } else {
+//        alert("信息输入有误,请重新输入");
+//        return false;
+//    }
 }

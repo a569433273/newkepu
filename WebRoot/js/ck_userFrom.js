@@ -89,6 +89,12 @@ function ck_wbcrd() { //onblur
     if (Crd3_tp1 == '身份证') {
         if (cidInfo(Crd1) != '1') {
             document.getElementById("ck_wcrd").innerHTML = "";
+            var Bir_Year = Crd1.substr(6, 4);
+            var Bir_Mon = Crd1.substr(10, 2);
+            var Bir_Day = Crd1.substr(12, 2);
+            var Bir_dy = Bir_Year + '-' + Bir_Mon + '-' + Bir_Day;
+            document.getElementById("pu_date").value = Bir_dy;
+            Bir1 = document.getElementById("pu_date").value;
         }
         else {
             flag = 1;

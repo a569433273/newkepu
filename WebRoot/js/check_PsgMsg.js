@@ -30,15 +30,15 @@ function ck_psgMsg(Num_s) {
     }
     //姓名验证over
 //电话验证
-    var ptel1 = document.getElementById("Ptel1").value;
-    var patrn_T = /^0?(13[0-9]|15[012356789]|18[0236789]|17[0123456789]|14[57])[0-9]{8}$/;
-    if (patrn_T.exec(ptel1)) {
-        document.getElementById("chk_Ptel1").innerHTML = "";
-    }
-    else {
-        document.getElementById("chk_Ptel1").innerHTML = "<img src='../images/wrong_ck.jpg' />";
-        flag1 = 1;
-    }
+//    var ptel1 = document.getElementById("Ptel1").value;
+//    var patrn_T = /^0?(13[0-9]|15[012356789]|18[0236789]|17[0123456789]|14[57])[0-9]{8}$/;
+//    if (patrn_T.exec(ptel1)) {
+//        document.getElementById("chk_Ptel1").innerHTML = "";
+//    }
+//    else {
+//        document.getElementById("chk_Ptel1").innerHTML = "<img src='../images/wrong_ck.jpg' />";
+//        flag1 = 1;
+//    }
 //电话验证over
 //证件号验证
     var crd1 = document.getElementById("CrdNo1").value;
@@ -90,6 +90,7 @@ function ck_psgMsg(Num_s) {
         if (Num_s == 1) {
             goPage(1, 5, 1);
         }
+        document.travllersavefrom.submit();
         return true;
     }
     else {

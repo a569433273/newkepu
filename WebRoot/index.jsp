@@ -33,41 +33,42 @@
 <!--header部分 over-->
 <!--登录部分 start-->
 <s:if test="#session.member_id == null">
-<form action="denglu.action" method="post" name="loginfrom" id="loginfrom">
-    <div class="login_part">
-        <div class="login_left">
-            <div style="float:left;">用户名：</div>
-            <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="username" id="username"
-                                                                             class="input_w_h"/></div>
-            <div style="float:left; margin-left:5px; display:inline;">密码：</div>
-            <div style="float:left; margin-top:-1px; display:inline;"><input type="password" name="password"
-                                                                             id="password"
-                                                                             class="input_w_h"/></div>
-            <div style="float:left; margin-left:5px; display:inline;">验证码：</div>
-            <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="id_code"
-                                                                             class="input_w_h"/></div>
+    <form action="denglu.action" method="post" name="loginfrom" id="loginfrom">
+        <div class="login_part">
+            <div class="login_left">
+                <div style="float:left;">用户名：</div>
+                <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="username"
+                                                                                 id="username"
+                                                                                 class="input_w_h"/></div>
+                <div style="float:left; margin-left:5px; display:inline;">密码：</div>
+                <div style="float:left; margin-top:-1px; display:inline;"><input type="password" name="password"
+                                                                                 id="password"
+                                                                                 class="input_w_h"/></div>
+                <div style="float:left; margin-left:5px; display:inline;">验证码：</div>
+                <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="id_code"
+                                                                                 class="input_w_h"/></div>
+            </div>
+            <div class="lg_mid">
+                <input onclick="createCode()" id="checkCode" class="unchanged"
+                       style="width: 45px; height:15px;  display:inline-block; "/>
+            </div>
+            <div class="login_right">
+                <input type="image" name="login" onclick="validate()" src="images/login.jpg"/>&nbsp;&nbsp;&nbsp;<input
+                    name="reg"
+                    type="image"
+                    src="images/reg.jpg"/>
+            </div>
+            <div style="clear:both;"></div>
         </div>
-        <div class="lg_mid">
-            <input onclick="createCode()" id="checkCode" class="unchanged"
-                   style="width: 45px; height:15px;  display:inline-block; "/>
-        </div>
-        <div class="login_right">
-            <input type="image" name="login" onclick="validate()" src="images/login.jpg"/>&nbsp;&nbsp;&nbsp;<input
-                name="reg"
-                type="image"
-                src="images/reg.jpg"/>
-        </div>
-        <div style="clear:both;"></div>
-    </div>
-</form>
+    </form>
 </s:if>
 <s:else>
-<div class="login_part">
-<div class="login_left">
-    <div style="float:right;"><%=request.getSession().getAttribute("member_realname")%>
-        <a href="personmessage.action">个人中心</a></div>
-</div>
-</div>
+    <div class="login_part">
+        <div class="login_left">
+            <div style="float:right;"><%=request.getSession().getAttribute("member_realname")%>
+                <a href="personmessage.action">个人中心</a></div>
+        </div>
+    </div>
 </s:else>
 <!--登录部分 over-->
 <!--中间内容部分-->

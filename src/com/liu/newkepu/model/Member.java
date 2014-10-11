@@ -29,6 +29,7 @@ public class Member {
     private String member_workname;
     private String member_yqm;
     private String member_hyyqm;
+    private String member_zuoji;
 
     @Id
     public String getMember_id() {
@@ -205,5 +206,13 @@ public class Member {
 
     public void setMember_hyyqm(String member_hyyqm) {
         this.member_hyyqm = member_hyyqm;
+    }
+
+    public String getMember_zuoji() {
+        return member_zuoji;
+    }
+
+    public void setMember_zuoji(String member_zuoji) {
+        this.member_zuoji = member_zuoji;
     }
 }

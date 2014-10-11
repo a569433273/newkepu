@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -56,7 +57,8 @@
                     <ul>
                         <li class="prs_clk" id="prs_1" onclick="prs_show(this.id)"><a class="li_aClk" href="#">我的资料</a>
                         </li>
-                        <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk" href="prs_psg.html">常用乘机人</a>
+                        <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
+                                                                                    href="persontravller.action">常用乘机人</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_finc.html">财务中心</a></li>
@@ -88,90 +90,119 @@
                     <!--我的资料内容-->
                     <div style="float:left; width:810px; height:auto; overflow:hidden;" id="user_msg">
                         <!--内容左部-->
+                        <s:iterator value="members">
                         <div class="prs_rt2_1">
                             <div class="prs_rt2_11">
                                 <div class="ct_1">姓名：&nbsp;</div>
                                 <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_name">李一一</span></div>
+                                                        id="pu_name"><s:property
+                                        value="member_realname"></s:property></span></div>
                             </div>
                             <div class="prs_rt2_11">
                                 <div class="ct_1">手机号码：&nbsp;</div>
                                 <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_tel">15933258477</span></div>
+                                                        id="pu_tel"><s:property
+                                        value="member_phone"></s:property></span></div>
                             </div>
                             <div class="prs_rt2_11">
                                 <div class="ct_1">证件类型：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_crdtp">身份证</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">出生日期：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_date">1999-10-25</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">邀请码：&nbsp;</div>
-                                <div class="ct_2"><span
-                                        style="color:#f00; line-height:30px; font-size:14px; font-weight:bold;"
-                                        id="pu_wel">88888</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">客户经理：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_per">未设置</span></div>
-                            </div>
-                        </div>
-                        <!--内容左部 over-->
-                        <!--内容右部-->
-                        <div class="prs_rt2_2">
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">性别：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_sex">女</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">座机号：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_ztel">010-1234569</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">证件号：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_card">130929199910252574</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">所在地：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_depa">北京</span><span
-                                        style="line-height:30px; font-size:12px; color:#555;" id="pu_depa1">顺义</span>
-                                </div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">工作单位：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_job">未设置</span></div>
-                            </div>
-                            <div class="prs_rt2_11">
-                                <div class="ct_1">职称：&nbsp;</div>
-                                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                        id="pu_resu">未设置</span></div>
-                            </div>
-                        </div>
-                        <!--内容右部 over-->
+                                <div class="ct_2">
+                                    <s:if test="member_papers_type==0">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">身份证</span></div>
+                                </s:if>
+                                <s:elseif test="member_papers_type==1">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">护照</span></div>
+                            </s:elseif>
+                            <s:elseif test="member_papers_type==4">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">其他</span></div>
+                        </s:elseif>
                     </div>
-                    <!--我的资料内容 over-->
-                    <!--按钮-->
-                    <div class="prs_updt" id="prs_updt"><img class="inst1" id="inst1" src="../images/per_udp1.png"
-                                                             onclick="upd_umsg(this.id)"/>
-
-                        <p>&nbsp;</p></div>
-                    <!--按钮 over-->
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">出生日期：&nbsp;</div>
+                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                                id="pu_date"><s:property value="member_birth"></s:property></span></div>
+                    </div>
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">邀请码：&nbsp;</div>
+                        <div class="ct_2"><span
+                                style="color:#f00; line-height:30px; font-size:14px; font-weight:bold;"
+                                id="pu_wel"><s:property value="member_yqm"></s:property> </span></div>
+                    </div>
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">客户经理：&nbsp;</div>
+                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                                id="pu_per">未设置</span></div>
+                    </div>
                 </div>
-                <!--我的资料内容及按钮 over-->
+                <!--内容左部 over-->
+                <!--内容右部-->
+                <div class="prs_rt2_2">
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">性别：&nbsp;</div>
+                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                                id="pu_sex"><s:property value="member_sex"></s:property> </span></div>
+                    </div>
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">座机号：&nbsp;</div>
+                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                                id="pu_ztel"><s:property value="member_zuoji"></s:property> </span>
+                        </div>
+                    </div>
+                    <div class="prs_rt2_11">
+                        <div class="ct_1">证件号：&nbsp;</div>
+                        <div class="ct_2">
+                            <s:if test="member_papers_type==0">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_card"><s:property value="member_papers_num"></s:property></span>
+                        </div>
+                        </s:if>
+                        <s:elseif test="member_papers_type==1">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_card"><s:property value="member_hz_num"></s:property></span></div>
+                    </s:elseif>
+                    <s:elseif test="member_papers_type==4">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_card"><s:property value="member_qt_num"></s:property></span></div>
+                </s:elseif>
             </div>
-            <!--我的资料 over-->
+            <div class="prs_rt2_11">
+                <div class="ct_1">所在地：&nbsp;</div>
+                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                        id="pu_depa"><s:property value="member_sheng"></s:property> </span><span
+                        style="line-height:30px; font-size:12px; color:#555;" id="pu_depa1"><s:property
+                        value="member_shi"></s:property> </span>
+                </div>
+            </div>
+            <div class="prs_rt2_11">
+                <div class="ct_1">工作单位：&nbsp;</div>
+                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                        id="pu_job">未设置</span></div>
+            </div>
+            <div class="prs_rt2_11">
+                <div class="ct_1">职称：&nbsp;</div>
+                <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
+                                        id="pu_resu">未设置</span></div>
+            </div>
         </div>
-        <div style="clear:both;"></div>
+        <!--内容右部 over-->
+    </div>
+    </s:iterator>
+    <!--我的资料内容 over-->
+    <!--按钮-->
+    <div class="prs_updt" id="prs_updt"><img class="inst1" id="inst1" src="../images/per_udp1.png"
+                                             onclick="upd_umsg(this.id)"/>
+
+        <p>&nbsp;</p></div>
+    <!--按钮 over-->
+    </div>
+    <!--我的资料内容及按钮 over-->
+    </div>
+    <!--我的资料 over-->
+    </div>
+    <div style="clear:both;"></div>
     </div>
     <!--中部 over-->
 </form>

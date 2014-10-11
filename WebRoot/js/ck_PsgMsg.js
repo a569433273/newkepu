@@ -93,6 +93,12 @@ function chk_bCrd() {//onblur
             if (cidInfo(crd1) != '1') {
                 document.getElementById("chk_CrdNo1").innerHTML = "";
                 flag1 = 0;
+                var Bir_Year = crd1.substr(6, 4);
+                var Bir_Mon = crd1.substr(10, 2);
+                var Bir_Day = crd1.substr(12, 2);
+                var Bir_dy = Bir_Year + '-' + Bir_Mon + '-' + Bir_Day;
+                document.getElementById("Bdate1").value = Bir_dy;
+                dt1 = document.getElementById("Bdate1").value;
             }
             else {
                 document.getElementById("chk_CrdNo1").innerHTML = "<img src='../images/wrong_ck.jpg' />";

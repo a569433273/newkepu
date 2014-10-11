@@ -21,6 +21,7 @@ public class Traveller {
     private String traveller_sex;
     private String traveller_birth;
     private String traveller_member_id;
+    private String traveller_phone;
 
     @Id
     public String getTraveller_id() {
@@ -134,5 +135,13 @@ public class Traveller {
 
     public void setTraveller_member_id(String traveller_member_id) {
         this.traveller_member_id = traveller_member_id;
+    }
+
+    public String getTraveller_phone() {
+        return traveller_phone;
+    }
+
+    public void setTraveller_phone(String traveller_phone) {
+        this.traveller_phone = traveller_phone;
     }
 }

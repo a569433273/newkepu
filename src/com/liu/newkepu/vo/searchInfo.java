@@ -33,6 +33,16 @@ public class searchInfo {
     private String p_email;
     private String Kid_price;
 
+    /*常用成绩人编辑和添加页面穿来的值*/
+    private String Nm1;
+    private String Ptel1;
+    private int Ctype1;
+    private String CrdNo1;
+    private String Bdate1;
+    private int Ptype1;
+    private String Sex1;
+    private String Id1;
+
     public String getUsername() {
         return username;
     }
@@ -267,6 +277,70 @@ public class searchInfo {
 
     public void setKid_price(String kid_price) {
         Kid_price = kid_price;
+    }
+
+    public String getNm1() {
+        return Nm1;
+    }
+
+    public void setNm1(String nm1) {
+        Nm1 = nm1;
+    }
+
+    public String getPtel1() {
+        return Ptel1;
+    }
+
+    public void setPtel1(String ptel1) {
+        Ptel1 = ptel1;
+    }
+
+    public int getCtype1() {
+        return Ctype1;
+    }
+
+    public void setCtype1(int ctype1) {
+        Ctype1 = ctype1;
+    }
+
+    public String getCrdNo1() {
+        return CrdNo1;
+    }
+
+    public void setCrdNo1(String crdNo1) {
+        CrdNo1 = crdNo1;
+    }
+
+    public String getBdate1() {
+        return Bdate1;
+    }
+
+    public void setBdate1(String bdate1) {
+        Bdate1 = bdate1;
+    }
+
+    public int getPtype1() {
+        return Ptype1;
+    }
+
+    public void setPtype1(int ptype1) {
+        Ptype1 = ptype1;
+    }
+
+    public String getSex1() {
+        return Sex1;
+    }
+
+    public void setSex1(String sex1) {
+        Sex1 = sex1;
+    }
+
+    public String getId1() {
+        return Id1;
+    }
+
+    public void setId1(String id1) {
+        Id1 = id1;
     }
 }
 

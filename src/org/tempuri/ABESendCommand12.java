@@ -8,11 +8,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for anonymous complex type.
- * 
+ * <p>
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -26,79 +26,68 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "identity", "request", "filter" })
+@XmlType(name = "", propOrder = {"identity", "request", "filter"})
 @XmlRootElement(name = "ABE_SendCommand_1_2")
 public class ABESendCommand12 {
 
-	protected String identity;
-	protected String request;
-	protected String filter;
+    protected String identity;
+    protected String request;
+    protected String filter;
 
-	/**
-	 * Gets the value of the identity property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getIdentity() {
-		return identity;
-	}
+    /**
+     * Gets the value of the identity property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getIdentity() {
+        return identity;
+    }
 
-	/**
-	 * Sets the value of the identity property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setIdentity(String value) {
-		this.identity = value;
-	}
+    /**
+     * Sets the value of the identity property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setIdentity(String value) {
+        this.identity = value;
+    }
 
-	/**
-	 * Gets the value of the request property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getRequest() {
-		return request;
-	}
+    /**
+     * Gets the value of the request property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getRequest() {
+        return request;
+    }
 
-	/**
-	 * Sets the value of the request property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setRequest(String value) {
-		this.request = value;
-	}
+    /**
+     * Sets the value of the request property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setRequest(String value) {
+        this.request = value;
+    }
 
-	/**
-	 * Gets the value of the filter property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getFilter() {
-		return filter;
-	}
+    /**
+     * Gets the value of the filter property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getFilter() {
+        return filter;
+    }
 
-	/**
-	 * Sets the value of the filter property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setFilter(String value) {
-		this.filter = value;
-	}
+    /**
+     * Sets the value of the filter property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setFilter(String value) {
+        this.filter = value;
+    }
 
 }

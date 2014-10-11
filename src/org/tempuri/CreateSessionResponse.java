@@ -9,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for anonymous complex type.
- * 
+ * <p>
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -25,36 +25,31 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "createSessionResult" })
+@XmlType(name = "", propOrder = {"createSessionResult"})
 @XmlRootElement(name = "CreateSessionResponse")
 public class CreateSessionResponse {
 
-	@XmlElement(name = "CreateSessionResult")
-	protected String createSessionResult;
+    @XmlElement(name = "CreateSessionResult")
+    protected String createSessionResult;
 
-	/**
-	 * Gets the value of the createSessionResult property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getCreateSessionResult() {
-		return createSessionResult;
-	}
+    /**
+     * Gets the value of the createSessionResult property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getCreateSessionResult() {
+        return createSessionResult;
+    }
 
-	/**
-	 * Sets the value of the createSessionResult property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setCreateSessionResult(String value) {
-		this.createSessionResult = value;
-	}
+    /**
+     * Sets the value of the createSessionResult property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setCreateSessionResult(String value) {
+        this.createSessionResult = value;
+    }
 
 }

@@ -7,10 +7,7 @@ import java.util.Calendar;
 
 public class test {
     public static void main(String[] args) {
-        Calendar calendar = Calendar.getInstance();
-        DateFormat xiaoshiformat = new SimpleDateFormat("HHmm");
-        calendar.add(Calendar.HOUR, 2);
-        String TicketLimitTime = xiaoshiformat.format(calendar.getTime());
-        System.out.println(TicketLimitTime);
+        String shenfen = "11022419900622141X";
+        System.out.println(shenfen.substring(16, 17));
     }
 }

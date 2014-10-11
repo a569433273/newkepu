@@ -9,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for anonymous complex type.
- * 
+ * <p>
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -25,36 +25,31 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "abeSubmitResult" })
+@XmlType(name = "", propOrder = {"abeSubmitResult"})
 @XmlRootElement(name = "ABESubmitResponse")
 public class ABESubmitResponse {
 
-	@XmlElement(name = "ABESubmitResult")
-	protected String abeSubmitResult;
+    @XmlElement(name = "ABESubmitResult")
+    protected String abeSubmitResult;
 
-	/**
-	 * Gets the value of the abeSubmitResult property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getABESubmitResult() {
-		return abeSubmitResult;
-	}
+    /**
+     * Gets the value of the abeSubmitResult property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getABESubmitResult() {
+        return abeSubmitResult;
+    }
 
-	/**
-	 * Sets the value of the abeSubmitResult property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setABESubmitResult(String value) {
-		this.abeSubmitResult = value;
-	}
+    /**
+     * Sets the value of the abeSubmitResult property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setABESubmitResult(String value) {
+        this.abeSubmitResult = value;
+    }
 
 }

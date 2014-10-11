@@ -19,6 +19,12 @@
         <action name="personmessage" class="personmessage">
             <result name="success">/person/personindex.jsp</result>
         </action>
+        <action name="persontravller" class="persontravller">
+            <result name="success">/person/persontravller.jsp</result>
+        </action>
+        <action name="travllerchuli" class="travllerchuli">
+            <result name="success" type="redirect">persontravller.action</result>
+        </action>
     </package>
 </struts>
 	

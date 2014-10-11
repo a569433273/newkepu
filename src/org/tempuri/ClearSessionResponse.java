@@ -9,11 +9,11 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>
  * Java class for anonymous complex type.
- * 
+ * <p>
  * <p>
  * The following schema fragment specifies the expected content contained within
  * this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -25,36 +25,31 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "clearSessionResult" })
+@XmlType(name = "", propOrder = {"clearSessionResult"})
 @XmlRootElement(name = "ClearSessionResponse")
 public class ClearSessionResponse {
 
-	@XmlElement(name = "ClearSessionResult")
-	protected String clearSessionResult;
+    @XmlElement(name = "ClearSessionResult")
+    protected String clearSessionResult;
 
-	/**
-	 * Gets the value of the clearSessionResult property.
-	 * 
-	 * @return possible object is {@link String }
-	 * 
-	 */
-	public String getClearSessionResult() {
-		return clearSessionResult;
-	}
+    /**
+     * Gets the value of the clearSessionResult property.
+     *
+     * @return possible object is {@link String }
+     */
+    public String getClearSessionResult() {
+        return clearSessionResult;
+    }
 
-	/**
-	 * Sets the value of the clearSessionResult property.
-	 * 
-	 * @param value
-	 *            allowed object is {@link String }
-	 * 
-	 */
-	public void setClearSessionResult(String value) {
-		this.clearSessionResult = value;
-	}
+    /**
+     * Sets the value of the clearSessionResult property.
+     *
+     * @param value allowed object is {@link String }
+     */
+    public void setClearSessionResult(String value) {
+        this.clearSessionResult = value;
+    }
 
 }

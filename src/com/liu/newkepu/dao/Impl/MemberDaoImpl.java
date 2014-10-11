@@ -26,4 +26,10 @@ public class MemberDaoImpl implements MemberDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_accountnum='" + name + "' and m.member_accountpass='" + password + "'");
         return query.list();
     }
+
+    @Override
+    public List<Member> findBymember_id(String member_id) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_id='" + member_id + "'");
+        return query.list();
+    }
 }

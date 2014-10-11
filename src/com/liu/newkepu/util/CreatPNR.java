@@ -13,24 +13,25 @@ import java.util.List;
  * Created by Administrator on 2014/9/28.
  */
 public class CreatPNR {
-    public String CreatPnr(Order order,List<Passenger> passengers) {
+    public String CreatPnr(Order order, List<Passenger> passengers) {
         Calendar calendar = Calendar.getInstance();
         DateFormat riqiformat = new SimpleDateFormat("yyyy-MM-dd");
         DateFormat xiaoshiformat = new SimpleDateFormat("HHmm");
-        calendar.add(Calendar.HOUR,2);
+        calendar.add(Calendar.HOUR, 2);
         String TicketLimitDate = riqiformat.format(calendar.getTime());
         String TicketLimitTime = xiaoshiformat.format(calendar.getTime());
         String Telephone = order.getFlight_lxrdh();
         String Carrier = order.getFlight_company();
         String FlightNo = order.getFlight_id();
-        String ClassCode =  passengers.get(0).getPassenger_gocw();;
-        String DepartureDate =order.getFlight_from_date();
-        String DepartureTime =order.getFlight_from_time().replaceAll(":","");
+        String ClassCode = passengers.get(0).getPassenger_gocw();
+        ;
+        String DepartureDate = order.getFlight_from_date();
+        String DepartureTime = order.getFlight_from_time().replaceAll(":", "");
         String BoardPoint = order.getFlight_from();
-        String OffPoint =order.getFlight_arrival();
+        String OffPoint = order.getFlight_arrival();
         String Name = "";
-        String CardNo ="";
-        String BirthDay="";
+        String CardNo = "";
+        String BirthDay = "";
         String MobilePhone = order.getFlight_lxrdh();
 
         String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=119.161.188.35;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
@@ -41,7 +42,7 @@ public class CreatPNR {
                 + "</TicketLimitTime><Office>PEK460</Office><Telephone>"
                 + Telephone
                 + "</Telephone><RMKS><RMK/></RMKS>";
-        String requestFlight ="<Flights><Flight><Carrier>"
+        String requestFlight = "<Flights><Flight><Carrier>"
                 + Carrier
                 + "</Carrier><FlightNo>"
                 + FlightNo
@@ -58,7 +59,7 @@ public class CreatPNR {
                 + "</OffPoint></Flight></Flights>";
 
         String passenger = "";
-        for (int i =0;i<passengers.size();i++) {
+        for (int i = 0; i < passengers.size(); i++) {
             if (passengers.get(i).getPassenger_type() == 1) {
                 Name = passengers.get(i).getPassenger_name() + "CHD";
             } else {
@@ -67,7 +68,7 @@ public class CreatPNR {
             CardNo = passengers.get(i).getPassenger_papernum();
             BirthDay = passengers.get(i).getPassenger_birth();
             if (BirthDay == null) {
-                BirthDay="";
+                BirthDay = "";
             }
 
             passenger = passenger + "<Passenger><Name>"
@@ -80,12 +81,12 @@ public class CreatPNR {
                     + MobilePhone
                     + "</MobilePhone><CarrierCard></CarrierCard></Passenger>";
         }
-        String requestPassenger = "<Passengers>" +passenger +"</Passengers>"
+        String requestPassenger = "<Passengers>" + passenger + "</Passengers>"
                 + "<OtherSegments><OtherSegment></OtherSegment></OtherSegments></ABE_CreatePNR_1_2>";
         String filter = "";
-        String request=requestBase + requestFlight + requestPassenger;
+        String request = requestBase + requestFlight + requestPassenger;
         Service service = new Service();
-        String returnString =  service.getServiceSoap().abeSubmit(identity, request, filter);
+        String returnString = service.getServiceSoap().abeSubmit(identity, request, filter);
         return returnString;
     }
 }
