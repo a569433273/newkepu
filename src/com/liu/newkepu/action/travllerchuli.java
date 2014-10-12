@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
-import java.util.List;
 import java.util.UUID;
 
 @Component("travllerchuli")
@@ -27,11 +24,17 @@ public class travllerchuli extends ActionSupport implements ModelDriven<Object> 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-        //Id1为1，新增，有值就是update
-        if (searchInfo.getId1().equals("1")) {
-            SaveNewTravller(request);
+
+        if (searchInfo.getDeleteid().equals("1")) {
+            //Id1为1，新增，有值就是update
+            if (searchInfo.getId1().equals("1")) {
+                SaveNewTravller(request);
+            } else {
+                UpdateTravller(request);
+            }
         } else {
-            UpdateTravller(request);
+            Traveller traveller = travellerDao.load(searchInfo.getDeleteid());
+            travellerDao.delete(traveller);
         }
         return "success";
     }

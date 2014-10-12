@@ -26,6 +26,11 @@ public class TravellerDaoImpl implements TravellerDao {
     }
 
     @Override
+    public void delete(Traveller traveller) {
+        sessionFactory.getCurrentSession().delete(traveller);
+    }
+
+    @Override
     public List<Traveller> findBymember_id(String member_id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Traveller t where t.traveller_member_id='" + member_id + "'");
         return query.list();

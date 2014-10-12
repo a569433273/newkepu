@@ -42,6 +42,7 @@ public class searchInfo {
     private int Ptype1;
     private String Sex1;
     private String Id1;
+    private String deleteid;
 
     public String getUsername() {
         return username;
@@ -341,6 +342,14 @@ public class searchInfo {
 
     public void setId1(String id1) {
         Id1 = id1;
+    }
+
+    public String getDeleteid() {
+        return deleteid;
+    }
+
+    public void setDeleteid(String deleteid) {
+        this.deleteid = deleteid;
     }
 }
 

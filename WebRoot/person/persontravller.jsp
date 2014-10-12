@@ -158,8 +158,12 @@
                                                                                         id="prs<s:property value="#status.count"/>_Del"
                                                                                         onclick="prs_Dele(this.id)">删除</span>
                                 </td>
+                                <form action="travllerchuli.action" name="travllerdeletefrom" id="travllerdeletefrom" method="post">
+                                    <input name="deleteid" id="deleteid" value="1" type="hidden"/>
+                                </form>
                             </tr>
                             </s:iterator>
+
                             <!--乘客信息 over-->
                             <tr bgcolor="#eef8fa" align="center" height="30">
                                 <td width="8%"

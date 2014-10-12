@@ -8,6 +8,7 @@ function s_msg1(p_d_id) {
     $("#z_h").css({
         display: "block", height: $(document).height()
     });
+    document.travllerdeletefrom.submit();
 }
 //确定跳转
 function lc_href(ts_id) {
