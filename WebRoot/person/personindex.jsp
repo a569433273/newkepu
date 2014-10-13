@@ -61,11 +61,11 @@
                                                                                     href="persontravller.action">常用乘机人</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="prs_finc.html">财务中心</a></li>
+                                                                                    href="persontcaiwu.action">财务中心</a></li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_order.html">订单管理</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="prs_voyage.html">我的航程</a></li>
+                                                                                    href="persontmyflight.action">我的航程</a></li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_meeting.html">我的会议</a>
                         </li>

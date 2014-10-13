@@ -45,7 +45,7 @@
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk" href="persontravller.action">常用乘机人</a></li>
                         <li class="prs_clk" id="prs_3" onclick="prs_show(this.id)"><a class="li_aClk" href="#">财务中心</a></li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk" href="prs_order.html">订单管理</a></li>
-                        <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk" href="prs_voyage.html">我的航程</a></li>
+                        <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk" href="persontmyflight.action">我的航程</a></li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk" href="prs_meeting.html">我的会议</a></li>
                     </ul>
                 </div>
@@ -88,23 +88,21 @@
                                 <tr bgcolor="#eef8fa" style="border:1px solid #dcf7fb;" align="center"  height="30">
                                     <td width="15%" >订单号</td>
                                     <td width="8%">支付金额</td>
-                                    <td width="8%" >退票金额</td>
-                                    <td width="8%" >退票手续费</td>
                                     <td width="10%">交易时间</td>
                                     <td width="8%">交付状态</td>
                                     <td width="8%" >账户余额</td>
                                     <td width="15%">备注</td>
                                 </tr>
+                                <s:iterator value="caiwus">
                                 <tr align="center"  height="30">
-                                    <td width="15%" >44538-AS2013101433743 </td>
-                                    <td width="8%">1000</td>
-                                    <td width="8%" >0</td>
-                                    <td width="8%" >0</td>
-                                    <td width="10%">2014-01-02</td>
-                                    <td width="8%">成功</td>
-                                    <td width="8%" >5000</td>
-                                    <td width="15%">xxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                                    <td width="15%" ><s:property value="vmrecord_orderid"></s:property></td>
+                                    <td width="8%"><s:property value="vmrecord_number"></s:property></td>
+                                    <td width="10%"><s:property value="vmrecord_time"></s:property></td>
+                                    <td width="8%"><s:property value="vmrecord_type"></s:property></td>
+                                    <td width="8%" ><s:property value="vmrecord_money"></s:property></td>
+                                    <td width="15%"><s:property value="vmrecord_beizhu"></s:property></td>
                                 </tr>
+                                </s:iterator>
                             </table>
                         </div>
                         <!--账单明细内容-->
