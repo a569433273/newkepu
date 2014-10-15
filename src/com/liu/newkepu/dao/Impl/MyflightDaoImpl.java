@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("MyflightDao")
-public class MyflightDaoImpl implements MyflightDao{
+public class MyflightDaoImpl implements MyflightDao {
 
     @Resource
     private SessionFactory sessionFactory;

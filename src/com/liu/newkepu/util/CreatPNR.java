@@ -9,9 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-/**
- * Created by Administrator on 2014/9/28.
- */
+
 public class CreatPNR {
     public String CreatPnr(Order order, List<Passenger> passengers) {
         Calendar calendar = Calendar.getInstance();

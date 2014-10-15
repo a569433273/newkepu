@@ -25,8 +25,23 @@ public class personmessage extends ActionSupport implements ModelDriven<Object> 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-        members = memberDao.findBymember_id(request.getSession().getAttribute("member_id").toString());
-        return "success";
+        String tmember_id = request.getSession().getAttribute("member_id").toString();
+        members = memberDao.findBymember_id(tmember_id);
+        if (searchInfo.getPu_name() == null || searchInfo.getPu_name().equals("")) {
+            return "success";
+        } else {
+            Member member = memberDao.load(tmember_id);
+            member.setMember_realname(searchInfo.getPu_name());
+            member.setMember_papers_type(searchInfo.getPu_crdtp());
+            member.setMember_papers_num(searchInfo.getPu_card());
+            member.setMember_sex(searchInfo.getPu_tsex());
+            member.setMember_zuoji(searchInfo.getPu_ztel());
+            member.setMember_birth(searchInfo.getPu_date());
+            member.setMember_workname(searchInfo.getPu_resu());
+            memberDao.update(member);
+            members = memberDao.findBymember_id(tmember_id);
+            return "success";
+        }
     }
 
     @Override

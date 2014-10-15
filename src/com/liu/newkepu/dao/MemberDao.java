@@ -11,4 +11,10 @@ public interface MemberDao {
     public List<Member> findBynameandpassword(String name, String password);
 
     public List<Member> findBymember_id(String member_id);
+
+    public List<Member> findBymember_phone(String member_phone);
+
+    public Member load(String member_id);
+
+    public void update(Member member);
 }

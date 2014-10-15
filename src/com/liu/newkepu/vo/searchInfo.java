@@ -33,7 +33,7 @@ public class searchInfo {
     private String p_email;
     private String Kid_price;
 
-    /*常用成绩人编辑和添加页面穿来的值*/
+    /*常用成绩人编辑和添加页面传来的值*/
     private String Nm1;
     private String Ptel1;
     private int Ctype1;
@@ -43,6 +43,22 @@ public class searchInfo {
     private String Sex1;
     private String Id1;
     private String deleteid;
+
+    //注册页面传来的值
+    private String u_name;
+    private String u_pwd;
+    private String u_tel;
+    private String u_msg;
+    private String u_weck;
+
+    //我的资料页面传来的值
+    private String pu_name;
+    private String pu_ztel;
+    private String pu_card;
+    private String pu_tsex;
+    private int pu_crdtp;
+    private String pu_date;
+    private String pu_resu;
 
     public String getUsername() {
         return username;
@@ -350,6 +366,102 @@ public class searchInfo {
 
     public void setDeleteid(String deleteid) {
         this.deleteid = deleteid;
+    }
+
+    public String getU_name() {
+        return u_name;
+    }
+
+    public void setU_name(String u_name) {
+        this.u_name = u_name;
+    }
+
+    public String getU_pwd() {
+        return u_pwd;
+    }
+
+    public void setU_pwd(String u_pwd) {
+        this.u_pwd = u_pwd;
+    }
+
+    public String getU_tel() {
+        return u_tel;
+    }
+
+    public void setU_tel(String u_tel) {
+        this.u_tel = u_tel;
+    }
+
+    public String getU_msg() {
+        return u_msg;
+    }
+
+    public void setU_msg(String u_msg) {
+        this.u_msg = u_msg;
+    }
+
+    public String getU_weck() {
+        return u_weck;
+    }
+
+    public void setU_weck(String u_weck) {
+        this.u_weck = u_weck;
+    }
+
+    public String getPu_name() {
+        return pu_name;
+    }
+
+    public void setPu_name(String pu_name) {
+        this.pu_name = pu_name;
+    }
+
+    public String getPu_ztel() {
+        return pu_ztel;
+    }
+
+    public void setPu_ztel(String pu_ztel) {
+        this.pu_ztel = pu_ztel;
+    }
+
+    public String getPu_card() {
+        return pu_card;
+    }
+
+    public void setPu_card(String pu_card) {
+        this.pu_card = pu_card;
+    }
+
+    public String getPu_tsex() {
+        return pu_tsex;
+    }
+
+    public void setPu_tsex(String pu_tsex) {
+        this.pu_tsex = pu_tsex;
+    }
+
+    public int getPu_crdtp() {
+        return pu_crdtp;
+    }
+
+    public void setPu_crdtp(int pu_crdtp) {
+        this.pu_crdtp = pu_crdtp;
+    }
+
+    public String getPu_date() {
+        return pu_date;
+    }
+
+    public void setPu_date(String pu_date) {
+        this.pu_date = pu_date;
+    }
+
+    public String getPu_resu() {
+        return pu_resu;
+    }
+
+    public void setPu_resu(String pu_resu) {
+        this.pu_resu = pu_resu;
     }
 }
 

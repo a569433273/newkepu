@@ -32,4 +32,21 @@ public class MemberDaoImpl implements MemberDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_id='" + member_id + "'");
         return query.list();
     }
+
+    @Override
+    public List<Member> findBymember_phone(String member_phone) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_phone='" + member_phone + "'");
+        return query.list();
+    }
+
+    @Override
+    public Member load(String member_id) {
+        Member member = (Member) sessionFactory.getCurrentSession().load(Member.class, member_id);
+        return member;
+    }
+
+    @Override
+    public void update(Member member) {
+        sessionFactory.getCurrentSession().update(member);
+    }
 }

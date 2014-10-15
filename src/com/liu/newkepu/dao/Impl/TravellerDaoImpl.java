@@ -38,7 +38,7 @@ public class TravellerDaoImpl implements TravellerDao {
 
     @Override
     public Traveller load(String member_id) {
-        Traveller traveller = (Traveller) sessionFactory.getCurrentSession().load(Traveller.class,member_id);
+        Traveller traveller = (Traveller) sessionFactory.getCurrentSession().load(Traveller.class, member_id);
         return traveller;
     }
 }

@@ -10,14 +10,14 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("CaiwuDao")
-public class CaiwuDaoImpl implements CaiwuDao{
+public class CaiwuDaoImpl implements CaiwuDao {
 
     @Resource
     private SessionFactory sessionFactory;
 
     @Override
     public List<Caiwu> findBymember_id(String member_id) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Caiwu c where c.vmrecord_member_id='" + member_id +"'");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Caiwu c where c.vmrecord_member_id='" + member_id + "'");
         return query.list();
     }
 }

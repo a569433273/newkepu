@@ -1,5 +1,5 @@
 ﻿function initcity(city) {
-    switch (document.form_data["province"].value) {
+    switch (document.getElementById("province").value) {
         case "安徽" :
             var cityOptions = new Array("地区", "", "合肥(*)", "合肥", "安庆", "安庆", "蚌埠", "蚌埠", "亳州", "亳州", "巢湖", "巢湖", "滁州", "滁州", "阜阳", "阜阳", "贵池", "贵池", "淮北", "淮北", "淮化", "淮化", "淮南", "淮南", "黄山", "黄山", "九华山", "九华山", "六安", "六安", "马鞍山", "马鞍山", "宿州", "宿州", "铜陵", "铜陵", "屯溪", "屯溪", "芜湖", "芜湖", "宣城", "宣城");
             break;
@@ -109,21 +109,21 @@
             var cityOptions = new Array("地区", "");
             break;
     }
-    document.form_data["city"].options.length = 0;
+    document.getElementById("city").options.length = 0;
     for (var i = 0; i < cityOptions.length / 2; i++) {
-        document.form_data["city"].options[i] = new Option(cityOptions[i * 2], cityOptions[i * 2 + 1]);
-        if (document.form_data["city"].options[i].value == city) {
-            document.form_data["city"].selectedIndex = i;
+        document.getElementById("city").options[i] = new Option(cityOptions[i * 2], cityOptions[i * 2 + 1]);
+        if (document.getElementById("city").options[i].value == city) {
+            document.getElementById("city").selectedIndex = i;
         }
     }
 }
 function creatprovince(province) {
     var provinces = new Array("北京", "上海", "重庆", "安徽", "福建", "甘肃", "广东", "广西", "贵州", "海南", "河北", "黑龙江", "河南", "香港", "湖北", "湖南", "江苏", "江西", "吉林", "辽宁", "澳门", "内蒙古", "宁夏", "青海", "山东", "山西", "陕西", "四川", "台湾", "天津", "新疆", "西藏", "云南", "浙江", "海外");
-    document.form_data["province"].options[0] = new Option("省份", "");
+    document.getElementById("province").options[0] = new Option("省份", "");
     for (var i = 0; i < provinces.length; i++) {
-        document.form_data["province"].options[i + 1] = new Option(provinces[i], provinces[i]);
-        if (document.form_data["province"].options[i + 1].value == province) {
-            document.form_data["province"].selectedIndex = i + 1;
+        document.getElementById("province").options[i + 1] = new Option(provinces[i], provinces[i]);
+        if (document.getElementById("province").options[i + 1].value == province) {
+            document.getElementById("province").selectedIndex = i + 1;
         }
     }
 }

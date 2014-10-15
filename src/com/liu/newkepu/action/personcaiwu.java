@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("personcaiwu")
-public class personcaiwu extends ActionSupport implements ModelDriven<Object>{
+public class personcaiwu extends ActionSupport implements ModelDriven<Object> {
 
     private searchInfo searchInfo = new searchInfo();
 

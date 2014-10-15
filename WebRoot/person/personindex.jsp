@@ -39,7 +39,7 @@
 <!--header部分 over-->
 <p>&nbsp;</p>
 
-<form action="#" name="form_data" method="post" onsubmit="return upd_umsg1();">
+<form action="personmessage.action" name="messageform" id="messageform" method="post" onsubmit="return upd_umsg1();">
     <!--中部-->
     <div class="prs_mid">
         <!--左部-->
@@ -61,11 +61,13 @@
                                                                                     href="persontravller.action">常用乘机人</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontcaiwu.action">财务中心</a></li>
+                                                                                    href="persontcaiwu.action">财务中心</a>
+                        </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_order.html">订单管理</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontmyflight.action">我的航程</a></li>
+                                                                                    href="persontmyflight.action">我的航程</a>
+                        </li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_meeting.html">我的会议</a>
                         </li>
@@ -129,7 +131,7 @@
                         <div class="ct_1">邀请码：&nbsp;</div>
                         <div class="ct_2"><span
                                 style="color:#f00; line-height:30px; font-size:14px; font-weight:bold;"
-                                id="pu_wel"><s:property value="member_yqm"></s:property> </span></div>
+                                id="pu_wel"><s:property value="member_yqm"></s:property></span></div>
                     </div>
                     <div class="prs_rt2_11">
                         <div class="ct_1">客户经理：&nbsp;</div>
@@ -142,13 +144,13 @@
                 <div class="prs_rt2_2">
                     <div class="prs_rt2_11">
                         <div class="ct_1">性别：&nbsp;</div>
-                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                id="pu_sex"><s:property value="member_sex"></s:property> </span></div>
+                        <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;" name="pu_sex"
+                                                id="pu_sex"><s:property value="member_sex"></s:property></span></div>
                     </div>
                     <div class="prs_rt2_11">
                         <div class="ct_1">座机号：&nbsp;</div>
                         <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                id="pu_ztel"><s:property value="member_zuoji"></s:property> </span>
+                                                id="pu_ztel"><s:property value="member_zuoji"></s:property></span>
                         </div>
                     </div>
                     <div class="prs_rt2_11">
@@ -171,9 +173,9 @@
             <div class="prs_rt2_11">
                 <div class="ct_1">所在地：&nbsp;</div>
                 <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                        id="pu_depa"><s:property value="member_sheng"></s:property> </span><span
+                                        id="pu_depa"><s:property value="member_sheng"></s:property></span><span
                         style="line-height:30px; font-size:12px; color:#555;" id="pu_depa1"><s:property
-                        value="member_shi"></s:property> </span>
+                        value="member_shi"></s:property></span>
                 </div>
             </div>
             <div class="prs_rt2_11">

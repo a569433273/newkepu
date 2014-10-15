@@ -13,6 +13,6 @@ function prs_Dele(prs_d) {
     str2 = "<div class='s_1'>确认删除吗？</div>";
     str2 += "<div class='s_2'><img src='../images/show_sure.jpg' id='dlt_psg" + prs_d1 + "' onclick='lc_href(this.id)'/>&nbsp;&nbsp;<img src='../images/show_disure.jpg' id='hdn_psg" + prs_d1 + "' onclick='lc_href1(this.id)'></div>";
     $("#s_t" + prs_d1).append(str2);
-    document.getElementById("deleteid").value=document.getElementById("psg" + prs1 + "_Id").innerHTML;
+    document.getElementById("deleteid").value = document.getElementById("psg" + prs1 + "_Id").innerHTML;
     s_msg1(prs_d);
 }

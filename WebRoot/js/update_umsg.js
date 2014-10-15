@@ -16,7 +16,8 @@ function upd_umsg(ins_nm) {
         var pu_Depa1 = document.getElementById("pu_depa1").innerHTML;//城市
         var pu_Job = document.getElementById("pu_job").innerHTML; //工作单位
         var pu_Resu = document.getElementById("pu_resu").innerHTML;//职称
-        var pu_Wel = document.getElementById("pu_wel").innerHTML;
+        var pu_Wel = document.getElementById("pu_wel").innerHTML;//邀请码
+        var pu_Tel = document.getElementById("pu_tel").innerHTML;//手机号
         //读取内容over
         //插入内容
         var str1 = "";
@@ -26,25 +27,27 @@ function upd_umsg(ins_nm) {
         $("#user_msg").html("");
         str1 = "<div class='prs_rt2_1' id='user_Lmsg1'></div>";//左部框
         $("#user_msg").append(str1); //左部框插入
-        str2 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>姓名：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_name' value=''  style='margin-top:5px; width:130px;' id='pu_name' onkeyup='ck_Nm();' />&nbsp;<span id='ck_wnm'></span></div></div>";
-        str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>手机号码：&nbsp;</div><div class='ct_2'><span style='line-height:30px; font-size:12px; color:#555; width:130px;' id='pu_tel'>15933258477</span></div></div>";
-        str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件类型：&nbsp;</div><div class='ct_2'><select name='pu_crdtp' style='margin-top:5px; width:130px;'  id='pu_crdtp'><option checked='checked'>身份证</option><option>护照</option><option>其他</option></select></div></div>";
+        str2 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>姓名：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_name1' value=''  style='margin-top:5px; width:130px;' id='pu_name1' onkeyup='ck_Nm();' />&nbsp;<span id='ck_wnm'></span></div></div>";
+        str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>手机号码：&nbsp;</div><div class='ct_2'><span style='line-height:30px; font-size:12px; color:#555; width:130px;' id='pu_tel'>" + pu_Tel + "</span></div></div>";
+        str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件类型：&nbsp;</div><div class='ct_2'><select name='pu_crdtp' style='margin-top:5px; width:130px;'  id='pu_crdtp'><option value='0'>身份证</option><option value='1'>护照</option><option value='4'>其他</option></select></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>出生日期：&nbsp;</div><div class='ct_2'><input type='text' name='pu_date' value=''  style='margin-top:5px; width:70px;' id='pu_date' onkeyup='ck_Birth();' onblur='ck_wbcrd();'/>&nbsp;<span id='ck_wbir'></span>&nbsp;<span style='color:#f00; font-size:12px; line-height:30px;'>如:2014-02-10</span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'>邀请码：&nbsp;</div><div class='ct_2'><span style='color:#f00; line-height:30px; font-size:14px; font-weight:bold;'>" + pu_Wel + "</span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'>客户经理：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_per' value=''  style='margin-top:5px; width:130px;' id='pu_per'/></div></div>";
         $("#user_Lmsg1").append(str2); //左部内容插入
         str3 = "<div class='prs_rt2_2' id='user_Rmsg1'></div>";//右部框
         $("#user_msg").append(str3); //插入右部框
-        str4 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>性别：&nbsp;</div><div class='ct_2'><input name='sex' type='radio' value=''  id='pu_sex'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='sex' type='radio' value='' id='pu_sex1'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
+        str4 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>性别：&nbsp;</div><div class='ct_2'><input name='sex' type='radio' value=''  id='pu_sex' onclick='checkputsex()'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='sex' type='radio' value='' id='pu_sex1' onclick='checkputsex()'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>座机号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_ztel' value=''  style='margin-top:5px; width:130px;' id='pu_ztel'/></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_card' value=''  style='margin-top:5px; width:130px;'  id='pu_card' onkeyup='ck_wcrd();' onblur='ck_wbcrd();' />&nbsp;<span id='ck_wcrd'></span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>所在地：&nbsp;</div><div class='ct_2'><select id='province' onchange='initcity();' name='province'  style='margin-top:5px;'><SCRIPT>creatprovince();</SCRIPT></select>&nbsp;<select name='city' style='margin-top:5px;' id='city'> <option value=''>选择城市</option></select>&nbsp;<span id='ck_wdep'></span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>工作单位：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_job' value=''  style='margin-top:5px; width:130px;' id='pu_job'/></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>职称：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_resu' value=''  style='margin-top:5px; width:130px;' id='pu_resu'/></div></div>";
+        str4 += "<input type='hidden' name='pu_tsex' id='pu_tsex' value=''>"
         $("#user_Rmsg1").append(str4); //插入右部内容
         //插入内容over
         //将读取的内容插入到页面中
-        document.getElementById("pu_name").value = pu_nm;//姓名
+        document.getElementById("pu_tsex").value = pu_Sex;
+        document.getElementById("pu_name1").value = pu_nm;//姓名
         //证件类型
         if (pu_typeC == '身份证') {
             document.getElementById("pu_crdtp").options[0].selected = "ture";
@@ -75,22 +78,26 @@ function upd_umsg(ins_nm) {
         //设置地区
         //省份
         var P_len = document.getElementById("province").options.length;
-        for (var I = 1; I <= P_len; I++) {
-            var TT = document.getElementById("province").options[I].text;
-            if (TT == pu_Depa) {
-                document.getElementById("province").options[I].selected = "true";
-                initcity();
-                break;
+        if (P_len != 1) {
+            for (var I = 1; I <= P_len; I++) {
+                var TT = document.getElementById("province").options[I].text;
+                if (TT == pu_Depa) {
+                    document.getElementById("province").options[I].selected = "true";
+                    initcity();
+                    break;
+                }
             }
         }
         //城市
         var C_len = document.getElementById("city").options.length;
-
-        for (var K = 1; K <= C_len; K++) {
-            var EE = document.getElementById("city").options[K].text;
-            if (EE == pu_Depa1) {
-                document.getElementById("city").options[K].selected = "true";
-                break;
+        alert(C_len);
+        if (C_len != 1) {
+            for (var K = 1; K <= C_len; K++) {
+                var EE = document.getElementById("city").options[K].text;
+                if (EE == pu_Depa1) {
+                    document.getElementById("city").options[K].selected = "true";
+                    break;
+                }
             }
         }
         //设置地区 over
@@ -199,4 +206,7 @@ function upd_umsg1() {
 //        alert("信息输入有误,请重新输入");
 //        return false;
 //    }
+}
+function checkputsex(browser) {
+    document.getElementById("pu_tsex").value = browser
 }
