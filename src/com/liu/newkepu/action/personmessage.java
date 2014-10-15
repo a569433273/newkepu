@@ -6,6 +6,7 @@ import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("personmessage")
+@Scope("prototype")
 public class personmessage extends ActionSupport implements ModelDriven<Object> {
 
     private searchInfo searchInfo = new searchInfo();

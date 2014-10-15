@@ -27,7 +27,7 @@ function upd_umsg(ins_nm) {
         $("#user_msg").html("");
         str1 = "<div class='prs_rt2_1' id='user_Lmsg1'></div>";//左部框
         $("#user_msg").append(str1); //左部框插入
-        str2 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>姓名：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_name1' value=''  style='margin-top:5px; width:130px;' id='pu_name1' onkeyup='ck_Nm();' />&nbsp;<span id='ck_wnm'></span></div></div>";
+        str2 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>姓名：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_name' value=''  style='margin-top:5px; width:130px;' id='pu_name' onkeyup='ck_Nm();' />&nbsp;<span id='ck_wnm'></span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>手机号码：&nbsp;</div><div class='ct_2'><span style='line-height:30px; font-size:12px; color:#555; width:130px;' id='pu_tel'>" + pu_Tel + "</span></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件类型：&nbsp;</div><div class='ct_2'><select name='pu_crdtp' style='margin-top:5px; width:130px;'  id='pu_crdtp'><option value='0'>身份证</option><option value='1'>护照</option><option value='4'>其他</option></select></div></div>";
         str2 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>出生日期：&nbsp;</div><div class='ct_2'><input type='text' name='pu_date' value=''  style='margin-top:5px; width:70px;' id='pu_date' onkeyup='ck_Birth();' onblur='ck_wbcrd();'/>&nbsp;<span id='ck_wbir'></span>&nbsp;<span style='color:#f00; font-size:12px; line-height:30px;'>如:2014-02-10</span></div></div>";
@@ -47,7 +47,7 @@ function upd_umsg(ins_nm) {
         //插入内容over
         //将读取的内容插入到页面中
         document.getElementById("pu_tsex").value = pu_Sex;
-        document.getElementById("pu_name1").value = pu_nm;//姓名
+        document.getElementById("pu_name").value = pu_nm;//姓名
         //证件类型
         if (pu_typeC == '身份证') {
             document.getElementById("pu_crdtp").options[0].selected = "ture";
@@ -78,8 +78,9 @@ function upd_umsg(ins_nm) {
         //设置地区
         //省份
         var P_len = document.getElementById("province").options.length;
-        if (P_len != 1) {
-            for (var I = 1; I <= P_len; I++) {
+        alert(P_len);
+            for (var I = 1; I < P_len; I++) {
+                alert(I);
                 var TT = document.getElementById("province").options[I].text;
                 if (TT == pu_Depa) {
                     document.getElementById("province").options[I].selected = "true";
@@ -87,12 +88,10 @@ function upd_umsg(ins_nm) {
                     break;
                 }
             }
-        }
         //城市
         var C_len = document.getElementById("city").options.length;
-        alert(C_len);
         if (C_len != 1) {
-            for (var K = 1; K <= C_len; K++) {
+            for (var K = 1; K < C_len; K++) {
                 var EE = document.getElementById("city").options[K].text;
                 if (EE == pu_Depa1) {
                     document.getElementById("city").options[K].selected = "true";
@@ -140,7 +139,7 @@ function upd_umsg1() {
         var patrn2 = /^[\u4e00-\u9fa5]{1,}[A-Za-z]*$/;
         if (!patrn.exec(pu_nm)) {
             if (patrn1.exec(pu_nm) || patrn2.exec(pu_nm)) {
-                if (Nm1_len < 26) {
+                if (pu_nm.length < 26) {
                     document.getElementById("ck_wnm").innerHTML = "";
                 }
                 else {
@@ -200,12 +199,13 @@ function upd_umsg1() {
 //        document.getElementById("ck_wdep").innerHTML = "";
 //    }
 //地区over
-//    if (flag == 0 && flag1 == 0 && flag2 == 0 && flag3 == 0) {
-//        return true;
-//    } else {
-//        alert("信息输入有误,请重新输入");
-//        return false;
-//    }
+    alert(flag2);
+    if (flag == 0 && flag1 == 0 && flag2 == 0 && flag3 == 0) {
+        return true;
+    } else {
+        alert("信息输入有误,请重新输入");
+        return false;
+    }
 }
 function checkputsex(browser) {
     document.getElementById("pu_tsex").value = browser

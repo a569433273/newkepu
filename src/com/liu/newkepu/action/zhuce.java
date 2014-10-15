@@ -9,9 +9,11 @@ import com.liu.newkepu.util.Faduanxin;
 import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -56,8 +58,11 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
     }
 
     public void savemember() {
+        HttpServletRequest request = ServletActionContext.getRequest();
         Member member = new Member();
-        member.setMember_id(UUID.randomUUID().toString());
+        String tid = UUID.randomUUID().toString();
+        member.setMember_id(tid);
+        request.getSession().setAttribute("member_id",tid);
         member.setMember_realname(searchInfo.getU_name());
         member.setMember_frequency(0);
         Calendar calendar = Calendar.getInstance();
@@ -70,7 +75,7 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
         member.setMember_accountpass(searchInfo.getU_pwd());
         member.setMember_paypass(searchInfo.getU_pwd());
         member.setMember_staffmessage_id("");
-        member.setMember_phone("");
+        member.setMember_phone(searchInfo.getU_tel());
         member.setMember_papers_type(0);
         member.setMember_papers_num("");
         member.setMember_hz_num("");

@@ -94,7 +94,6 @@ function ck_wbcrd() { //onblur
             var Bir_Day = Crd1.substr(12, 2);
             var Bir_dy = Bir_Year + '-' + Bir_Mon + '-' + Bir_Day;
             document.getElementById("pu_date").value = Bir_dy;
-            Bir1 = document.getElementById("pu_date").value;
         }
         else {
             flag = 1;
@@ -110,34 +109,7 @@ function ck_wbcrd() { //onblur
         }
     }
     //是否为正确的身份证 over
-    //取出身份证中的年月日
-    var C_Year = Crd1.substr(6, 4);
-    var C_Mon = Crd1.substr(10, 2);
-    var C_Day = Crd1.substr(12, 2);
-    var C_Date = C_Year + C_Mon + C_Day; //身份证中的出生日期
-    //取出身份证中的年月日 over
-    //将输入的出生日期格式化
-    var B_str = new Array();
-    B_str = Bir1.split('-');
-    var D_Y = B_str[0];
-    var D_M = B_str[1];
-    var D_D = B_str[2];
-    if (D_M.length < 2) {
-        D_M = '0' + D_M;
-    }
-    if (D_D.length < 2) {
-        D_D = '0' + D_D;
-    }
-    var D_Dt = D_Y + D_M + D_D;
-    //将输入的出生日期格式化
-    if (Bir1 != '' && Crd3_tp1 == '身份证' && flag == 0 && flag1 == 0) {
-        if (C_Date != D_Dt) {
-            document.getElementById("pu_date").value = ""; //出生日期输入框
-            document.getElementById("pu_card").value = ""; //证件输入框
-            alert("您输入出生日期与证件号码不符，请重新输入");
-        }
-
-    }//Bir1!='';
+   //Bir1!='';
 
 }
 	
