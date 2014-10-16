@@ -9,6 +9,7 @@ public class Yanzhengtemp {
     private int id;
     private String shoujihao;
     private String yanzhengma;
+    private int fenzhong;
 
     @Id
     @GeneratedValue
@@ -34,5 +35,13 @@ public class Yanzhengtemp {
 
     public void setYanzhengma(String yanzhengma) {
         this.yanzhengma = yanzhengma;
+    }
+
+    public int getFenzhong() {
+        return fenzhong;
+    }
+
+    public void setFenzhong(int fenzhong) {
+        this.fenzhong = fenzhong;
     }
 }

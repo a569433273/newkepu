@@ -35,16 +35,43 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
 
     @Override
     public String execute() throws Exception {
+        Calendar calendar = Calendar.getInstance();
+        DateFormat fenzhongformat = new SimpleDateFormat("mm");
+        int timenow = Integer.valueOf(fenzhongformat.format(calendar.getTime()));
         if (searchInfo.getU_weck() == null) {
             List<Member> members = memberDao.findBymember_phone(searchInfo.getU_tel());
             if (members.size() <= 0) {
-                String yanzhenma = String.valueOf(Math.random()).substring(2, 8);
-                String message = "短信验证码：" + yanzhenma + "，请勿泄露验证码！验证码有效时间为5分钟。";
-                System.out.println(new Faduanxin().faduanxin(searchInfo.getU_tel(), message));
-                Yanzhengtemp yanzhengtemp = new Yanzhengtemp();
-                yanzhengtemp.setShoujihao(searchInfo.getU_tel());
-                yanzhengtemp.setYanzhengma(yanzhenma);
-                yanzhengtempDao.save(yanzhengtemp);
+                List<Yanzhengtemp> yanzhengtemps = yanzhengtempDao.findByshoujihao(searchInfo.getU_tel());
+                if (yanzhengtemps.size() < 1) {
+                    String yanzhenma = String.valueOf(Math.random()).substring(2, 8);
+                    String message = "短信验证码：" + yanzhenma + "，请勿泄露验证码！验证码有效时间为5分钟。";
+                    System.out.println(new Faduanxin().faduanxin(searchInfo.getU_tel(), message));
+                    Yanzhengtemp yanzhengtemp = new Yanzhengtemp();
+                    yanzhengtemp.setShoujihao(searchInfo.getU_tel());
+                    yanzhengtemp.setYanzhengma(yanzhenma);
+                    yanzhengtemp.setFenzhong(timenow);
+                    yanzhengtempDao.save(yanzhengtemp);
+                } else {
+                    int yanzhengmatime = yanzhengtemps.get(0).getFenzhong();
+                    int shijiancha = 0;
+                    if (yanzhengmatime > timenow) {
+                        shijiancha = (timenow + 60)- yanzhengmatime;
+                    } else {
+                        shijiancha = timenow - yanzhengmatime;
+                    }
+                    if (shijiancha > 5) {
+                        String yanzhenma = String.valueOf(Math.random()).substring(2, 8);
+                        String message = "短信验证码：" + yanzhenma + "，请勿泄露验证码！验证码有效时间为5分钟。";
+                        System.out.println(new Faduanxin().faduanxin(searchInfo.getU_tel(), message));
+                        yanzhengtemps.get(0).setYanzhengma(yanzhenma);
+                        yanzhengtemps.get(0).setFenzhong(timenow);
+                        yanzhengtempDao.save(yanzhengtemps.get(0));
+                    } else {
+                        String yanzhenma = yanzhengtemps.get(0).getYanzhengma();
+                        String message = "短信验证码：" + yanzhenma + "，请勿泄露验证码！验证码有效时间为5分钟。";
+                        System.out.println(new Faduanxin().faduanxin(yanzhengtemps.get(0).getShoujihao(), message));
+                    }
+                }
             } else {
                 zhuce = 1;
                 return "faild";

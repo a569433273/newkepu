@@ -33,6 +33,7 @@
         <action name="travllerchuli" class="travllerchuli">
             <result name="success" type="redirect">persontravller.action</result>
         </action>
+        <action name="test" class="test"></action>
     </package>
 </struts>
 	

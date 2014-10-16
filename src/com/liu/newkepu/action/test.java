@@ -1,15 +1,26 @@
 package com.liu.newkepu.action;
 
+import com.liu.newkepu.dao.MemberDao;
+import com.liu.newkepu.model.Member;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
-import com.liu.newkepu.util.Faduanxin;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import javax.annotation.Resource;
 import java.util.Calendar;
+import java.util.List;
 
+@Component("test")
 public class test {
-    public static void main(String[] args) {
-        String aa = String.valueOf(Math.random()).substring(2, 8);
-        System.out.println(aa);
+
+    @Resource
+    private MemberDao memberDao;
+
+    @Scheduled(cron = "0 0/5 * * * ?")
+    public void mytest() {
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.getTime());
+        System.out.println("我执行了");
+        List<Member> members = memberDao.findBynameandpassword("liujian","123456");
+        System.out.println(members.get(0).getMember_id());
     }
 }
