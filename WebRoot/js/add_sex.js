@@ -12,9 +12,9 @@ function set_sex(id_name) {
         var sex_str = "";
         //插入性别出生日期数据
         sex_str = "<div style='float:left; font-size:12px; width:60px; text-align:right;'>性别<span style='color:#f00;'>*</span></div>";
-        sex_str += "<div style='float:left;'>&nbsp;<select name='' class='sex_psg'><option>男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option><option>女&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option></select></div>";
+        sex_str += "<div style='float:left;'>&nbsp;<select name='' class='sex_psg' id='dt_inputsex" + id_n1 + "'><option>男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option><option>女&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option></select></div>";
         sex_str += "<div style='float:left; font-size:12px; width:70px; text-align:right;'>出生日期<span style='color:#f00;'>*</span></div>";
-        sex_str += "<div style='float:left;'>&nbsp;<input type='text' name='date_add' class='input_val2' style='width:80px; color:#999;' value='yyyy-mm-dd'  id='dt_input" + id_n1 + "' onkeyup='ck_dtime(this.id)' onfocus='set_val(this.id)'  onblur='age_d(this.id)' /><span id='ck_tm" + id_n1 + "'></span></div>";
+        sex_str += "<div style='float:left;'>&nbsp;<input type='text' autocomplete='off' name='date_add' class='input_val2' style='width:80px; color:#999;' value='yyyy-mm-dd'  id='dt_input" + id_n1 + "' onkeyup='ck_dtime(this.id)' onfocus='set_val(this.id)'  onblur='age_d(this.id)' /><span id='ck_tm" + id_n1 + "'></span></div>";
         sex_str += "<div style='float:left; overflow:hidden; font-size:12px; line-height:20px;'>&nbsp;<span style='color:#f00;'>如：2014-09-18</span></div>";
         //插入性别出生日期数据 over
         $("#disp_sex" + id_n1).append(sex_str);
@@ -22,7 +22,7 @@ function set_sex(id_name) {
         document.getElementById("disp_sex" + id_n1).style.display = "block";
         $("#card_disp" + id_n1).html("");
         var in_str = "";
-        in_str = "&nbsp;<input type='text'  class='hz_val' style='width:130px;'/>";
+        in_str = "&nbsp;<input type='text'  class='hz_val' id='input_cardnock" + id_n1 + "' style='width:130px;'/>";
         $("#card_disp" + id_n1).append(in_str);
     }
     else {

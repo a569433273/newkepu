@@ -109,7 +109,7 @@ function ck_wbcrd() { //onblur
         }
     }
     //是否为正确的身份证 over
-   //Bir1!='';
+    //Bir1!='';
 
 }
 	

@@ -55,7 +55,7 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
                     int yanzhengmatime = yanzhengtemps.get(0).getFenzhong();
                     int shijiancha = 0;
                     if (yanzhengmatime > timenow) {
-                        shijiancha = (timenow + 60)- yanzhengmatime;
+                        shijiancha = (timenow + 60) - yanzhengmatime;
                     } else {
                         shijiancha = timenow - yanzhengmatime;
                     }
@@ -89,7 +89,7 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
         Member member = new Member();
         String tid = UUID.randomUUID().toString();
         member.setMember_id(tid);
-        request.getSession().setAttribute("member_id",tid);
+        request.getSession().setAttribute("member_id", tid);
         member.setMember_realname(searchInfo.getU_name());
         member.setMember_frequency(0);
         Calendar calendar = Calendar.getInstance();

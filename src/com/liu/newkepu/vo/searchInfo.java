@@ -32,6 +32,8 @@ public class searchInfo {
     private String check_tel;
     private String p_email;
     private String Kid_price;
+    private int changyong;
+    private int lianxi;
 
     /*常用成绩人编辑和添加页面传来的值*/
     private String Nm1;
@@ -294,6 +296,22 @@ public class searchInfo {
 
     public void setKid_price(String kid_price) {
         Kid_price = kid_price;
+    }
+
+    public int getChangyong() {
+        return changyong;
+    }
+
+    public void setChangyong(int changyong) {
+        this.changyong = changyong;
+    }
+
+    public int getLianxi() {
+        return lianxi;
+    }
+
+    public void setLianxi(int lianxi) {
+        this.lianxi = lianxi;
     }
 
     public String getNm1() {

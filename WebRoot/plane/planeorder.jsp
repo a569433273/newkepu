@@ -5,8 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>预订</title>
     <link href="../css/index1.css" rel="stylesheet" type="text/css"/>
-    <link href="../css/popUp.css" rel="stylesheet" type="text/css"/>
-    <!--弹出框CSS-->
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <!--首页头尾CSS-->
     <script src="../js/jquery-1.6.4.js" type="text/javascript"></script>
@@ -41,11 +39,13 @@
     <script src="../js/check_submit.js" type="text/javascript"></script>
     <!--提交时整体表单验证-->
     <script src="../js/update_delay.js" type="text/javascript"></script>
-    <style type="text/css">
-        #air_name {
-        }
-    </style>
     <!--选中延误险option时 改变价格 选中延误险checkbox-->
+    <script src="../js/cidInfo.js" type="text/javascript"></script>
+    <!---身份证验证-->
+    <script src="../js/show_logmsg.js" type="text/javascript"></script>
+    <!--点击窠浦帮您填出现姓名信息-->
+    <script src="../js/show_Cntmsg.js" type="text/javascript"></script>
+    <!--点击窠浦帮您填出现姓名信息-->
 </head>
 
 <body onload="capture_air();">
@@ -129,10 +129,11 @@
     <div class="peo_info" id="peo_info">
         <div class="top1"></div>
         <div class="top">
-            <div style="float:left; line-height:30px; font-size:12px;"> 乘机人信息</div>
+            <div style="float:left; line-height:30px; font-size:12px;">&nbsp;乘机人信息</div>
             <div style="float:left;margin-top:5px; overflow:hidden;">&nbsp;<img src="../images/auto_write.gif"
-                                                                                style="cursor:pointer;"
-                                                                                class="showdiv"/></div>
+                                                                                style="cursor:pointer;" class="showdiv"
+                                                                                id="shw_div"
+                                                                                onclick="show_logmsg(this.id);"/></div>
             <div style="float:left; line-height:30px; font-size:12px;"><span style="color:#999;">（请准确填写乘机人信息，以免在办理登机时发生问题）</span>
             </div>
         </div>
@@ -144,7 +145,8 @@
                     <div style="float:left; width:710px;">
                         <div style="float:left; width:250px;">
                             <div style="float:left; width:50px; font-size:12px; line-height:20px;">姓名<span
-                                    style="color:#f00;">*</span></div>
+                                    style="color:#f00;">*</span>
+                                <input type="hidden" name="" id="Pbenren0" class="Pbenren"/></div>
                             <div style="float:left;"><input type="text" class="input_val" style="width:60px;"
                                                             name="p_name" id="psg_name0" onkeyup="ck_unm(this.id)"
                                                             onfocus="ck_name1(this.id)"/></div>
@@ -173,7 +175,13 @@
                                                                                   onblur="ck_ageCard(this.id)"/><span
                                     id="psg_card0"></span></div>
                             <div style="float:left; margin-top:2px; overflow:hidden; display:inline;">&nbsp;<input
-                                    name="" type="checkbox" value="" class="usual_psg" checked="checked"/></div>
+                                    name=""
+                                    type="checkbox"
+                                    value=""
+                                    class="usual_psg"
+                                    checked="checked"
+                                    id="lgin_Pmsg0"/>
+                            </div>
                             <div style="float:left; overflow:hidden; font-size:12px; line-height:23px;">
                                 是否保存为常用登机人
                             </div>
@@ -191,10 +199,10 @@
                         <option value="0">0份</option>
                         <option value="2">2份</option>
                     </select>&nbsp;</div>
-                    <div style="float:left; overflow:hidden; font-size:12px; line-height:20px;">保额最高100万 / 份</div>
+                    <div style="float:left; overflow:hidden; font-size:12px; line-height:20px;">保额最高100万/份</div>
                     <div style="float:left; line-height:20px; margin-left:5px; overflow:hidden; cursor:pointer;"
-                         id="add_pf0" onclick="remov_pinfo(this.id)"><img src="../images/wrong.jpg"
-                                                                          style="margin-top:5px;"></div>
+                         id="add_pf0"
+                         onclick="remov_pinfo(this.id)"><img src="../images/wrong.jpg" style="margin-top:5px;"></div>
                 </div>
                 <!--t_1_top1-->
                 <div class="t_1_top1">
@@ -238,35 +246,37 @@
         <div class="peo1_info">
             <div class="top1"></div>
             <div class="top">
-                <div style="float:left; line-height:30px; font-size:12px;"> 联系人信息</div>
+                <div style="float:left; line-height:30px; font-size:12px;">&nbsp;联系人信息</div>
                 <div style="float:left;margin-top:5px; overflow:hidden;">&nbsp;<img src="../images/auto_write.gif"
                                                                                     style="cursor:pointer;"
-                                                                                    class="showdiv"/></div>
+                                                                                    class="showdiv" id="show_Ctmsg"
+                                                                                    onclick="show_Cntmsg()"/></div>
                 <div style="float:left; line-height:30px; font-size:12px;"><span style="color:#999;">（请准确填写乘机人信息，以免在办理登机时发生问题）</span>
                 </div>
             </div>
-            <div class="top2">
-                <div style="float:left; font-size:12px; width:50px;  line-height:20px;">姓名<span
-                        style="color:#f00;">*</span></div>
-                <div style="float:left;">
-                    <input type="text" style="width:120px;" name="ck_name" onfocus="check_name1()"
-                           onkeyup="check_name();" id="ck_name"/>
-                    &nbsp;<span id="ck_nm"></span></div>
-                <div style="float:left;  font-size:12px;  font-size:12px; width:50px;  line-height:20px;">手机<span
-                        style="color:#f00;">*</span></div>
-                <div style="float:left;">
-                    <input name="check_tel" type="text" id="check_tel" onfocus="check_tel1()" onkeyup="ck_tel()"/>
-                    &nbsp;<span id="ck_tl"></span></div>
-                <div style="float:left;  font-size:12px;  font-size:12px; width:80px;  line-height:20px;">电子邮箱</div>
-                <div style="float:left;">
-                    <input type="text" name="p_email" id="p_email" onkeyup="ck_email(this.id)"/>
-                    &nbsp;<span id="p_email1"></span></div>
-                <div style="float:left; margin-top:2px; overflow:hidden; display:inline;">&nbsp;
-                    <input name="input" type="checkbox" value="" checked="checked"/>
-                </div>
-                <div style="float:left; overflow:hidden; font-size:12px; line-height:23px;"> 是否保存为常用联系人</div>
-            </div>
         </div>
+        <div class="top2">
+            <div style="float:left; font-size:12px; width:50px;  line-height:20px;">姓名<span
+                    style="color:#f00;">*</span></div>
+            <div style="float:left;">
+                <input type="text" style="width:120px;" name="ck_name" onfocus="check_name1()"
+                       onkeyup="check_name();" id="ck_name"/>
+                &nbsp;<span id="ck_nm"></span></div>
+            <div style="float:left;  font-size:12px;  font-size:12px; width:50px;  line-height:20px;">手机<span
+                    style="color:#f00;">*</span></div>
+            <div style="float:left;">
+                <input name="check_tel" type="text" id="check_tel" onfocus="check_tel1()" onkeyup="ck_tel()"/>
+                &nbsp;<span id="ck_tl"></span></div>
+            <div style="float:left;  font-size:12px;  font-size:12px; width:80px;  line-height:20px;">电子邮箱</div>
+            <div style="float:left;">
+                <input type="text" name="p_email" id="p_email" onkeyup="ck_email(this.id)"/>
+                &nbsp;<span id="p_email1"></span></div>
+            <div style="float:left; margin-top:2px; overflow:hidden; display:inline;">&nbsp;
+                <input name="input" type="checkbox" value="" checked="checked" onclick="checkbaocunlianxi()"/>
+            </div>
+            <div style="float:left; overflow:hidden; font-size:12px; line-height:23px;"> 是否保存为常用联系人</div>
+        </div>
+    </div>
     </div>
     <!--订单总额-->
     <div class="res_price">
@@ -302,6 +312,7 @@
         <input name="land_Id" type="hidden" id="land_Id" value=""/><!--降落编号-->
         <input name="Kid_price" type="hidden" id="Kid_price" value=""/><!--儿童价格-->
         <input name="pasge_info" type="hidden" id="pasge_info" value=""/><!--乘机人信息-->
+        <input name="lianxi" type="hidden" id="lianxi" value="1"/><!--联系人信息是否保存-->
     </div>
     <!--航空隐藏部分 over-->
     <p>&nbsp;</p>
@@ -343,75 +354,23 @@
 
 </div>
 <!--footer-->
-
-<!--弹出框布部代码-->
-<div class="showbox">
-    <h2 style="text-align:left;">登录<a class="close" href="javascript:">关闭</a></h2>
-
-    <div class="mainlist">
-        <div style="width:300px; height:auto; overflow:hidden;">
-            <div style="width:300px; height:auto; float:left; margin-top:15px; overflow:hidden;">
-                <div style="float:left; font-size:12px;"><input name="ra_u" type="radio" value=""
-                                                                onclick="show_user(this.id)" id="us1"
-                                                                checked="checked"/>普通用户
-                </div>
-                <div style="float:right; margin-right:50px; overflow:hidden; font-size:12px;"><input name="ra_u"
-                                                                                                     type="radio"
-                                                                                                     value="" id="us2"
-                                                                                                     onclick="show_user(this.id)"/>手机动态密码登录
-                </div>
-            </div>
-            <div style="float:left;" id="show_all1">
-                <div class="lg1">
-                    <p style="text-align:left; margin-top:4px; margin-left:35px;"><input type="text" class="input1"/>
-                    </p>
-                </div>
-                <div class="lg2">
-                    <p style="text-align:left; margin-top:4px; margin-left:35px;"><input type="text" class="input1"/>
-                    </p>
-                </div>
-                <div class="lg3">
-                    <div class="lg3_1"><input type="text" class="input2"/></div>
-                    <div class="lg3_2"><img src="../images/code.png"/></div>
-                </div>
-                <div class="lg4">
-                    <div style="float:left;"><input name="" type="checkbox" value=""/></div>
-                    <div style="float:left;"> 两周内自动登录</div>
-                </div>
-                <div class="lg5"><p style="text-align:left; margin-left:30px;"><input type="image"
-                                                                                      src="../images/submit_img.png"/>
-                </p></div>
-                <div class="lg6"><p style="text-align:left; margin-left:220px;"><a href="">免费注册</a></p></div>
-            </div>
-            <div style="float:left;  display:none; overflow:hidden;" id="show_all2">
-                <div class="lg1">
-                    <p style="text-align:left; margin-top:4px; margin-left:35px;"><input type="text" class="input1"/>
-                    </p>
-                </div>
-
-                <div class="lg7">
-                    <div class="lg7_1"><p style="text-align:left; margin-top:4px; margin-left:35px;"><input type="text"
-                                                                                                            class="input3"/>
-                    </p></div>
-                    <div class="lg7_2">&nbsp;&nbsp;<img src="../images/active_img.png"/></div>
-                </div>
-                <div class="lg4">
-                    <div style="float:left;"><input name="" type="checkbox" value=""/></div>
-                    <div style="float:left;"> 两周内自动登录</div>
-                </div>
-                <div class="lg5"><p style="text-align:left; margin-left:30px;"><input type="image"
-                                                                                      src="../images/submit_img.png"/>
-                </p></div>
-                <div class="lg6"><p style="text-align:left; margin-left:220px;"><a href="">免费注册</a></p></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="zhezhao"></div>
-<!--弹出框布部代码 over-->
 <!--鼠标移过显示代码-->
 <div class="m_mouse" id="m_disp">
 </div>
 <!--鼠标移过显示代码 over-->
+<!--登录信息显示部分-->
+<!--乘机人姓名-->
+<div class="show_log_msg" id="show_log_msg">
+    <div class="sh_l_m1" id="sh_l_m1">
+    </div>
+</div>
+<!--乘机人姓名over-->
+<!--常用联系人-->
+<div class="show_log_msg" id="show_Cmsg">
+    <div class="sh_l_m1" id="sh_l_mC">
+    </div>
+</div>
+<!--常用联系人over-->
+<!--登录信息显示部分 over-->
 </body>
 </html>

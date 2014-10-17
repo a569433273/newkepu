@@ -1,6 +1,85 @@
 // JavaScript Document
 //取值航空 及退改签值
+var txml;
+var lxml;
 function capture_air() {
+    //将常用乘客信息写入到页面中
+    $("#sh_l_m1").html("");//将头部插入
+    var plmg_str = "";
+    var plmg_str1 = "";
+    var plmg_str2 = "";
+    var plmg_str3 = "";
+//头部
+    plmg_str = "<div class='sh_l_m_1'><div style='float:left; overflow:hidden; font-size:12px; color:#000; line-height:30px;'>&nbsp;&nbsp;添加乘机人</div><div style='float:right; overflow:hidden; font-size:12px; color:#f00; line-height:30px; cursor:pointer;' onclick='close_msg();'>关闭&nbsp;</div></div>";
+    $("#sh_l_m1").append(plmg_str);//将头部插入
+    plmg_str1 = "<div class='sh_l_m_2' id='sh_l_m_2'></div>";
+    $("#sh_l_m1").append(plmg_str1);
+    plmg_str2 = "<div class='sh_l_m_3' id='sh_l_m_3'></div>"; //姓名插入处
+    $("#sh_l_m_2").append(plmg_str2);
+
+//信息部分
+//将常用乘客信息写入到页面中 over
+//读取常用乘客姓名
+    var travllerurl = "orderajax.action";
+    $.ajax({
+        url: travllerurl,
+        type: 'POST',
+        dataType: 'xml',
+        data: {
+            changyong: 1
+        },
+        error: function () {
+            return false;
+        },
+        success: function (xml) {
+            txml = xml;
+            $(xml).find('Travller').each(function (i) {
+                var plmg_str3 = "";
+                var P_name = $(this).children('name').text();//姓名
+                plmg_str3 = "<div class='m_2_1'><div class='m21'><input type='checkbox' name='' id='add_lgmg" + i + "' class='add_lgmg' onclick='add_lgmsg(this.id)'/></div><div class='m22' id='PL_msg_nm_" + i + "'>姓名</div><input name='' type='hidden' id='len_pAR" + i + "'/></div>";
+                $("#sh_l_m_3").append(plmg_str3);
+                $("#PL_msg_nm_" + i).text(P_name);
+            });
+        }});
+//读取常用乘客姓名 over
+//联系人
+//联系人信息
+    $("#sh_l_mC").html("");//将头部插入
+    var Clmg_str = "";
+    var Clmg_str1 = "";
+    var Clmg_str2 = "";
+    var Clmg_str3 = "";
+//头部
+    Clmg_str = "<div class='sh_l_m_1'><div style='float:left; overflow:hidden; font-size:12px; color:#000; line-height:30px;'>&nbsp;&nbsp;添加联系人</div><div style='float:right; overflow:hidden; font-size:12px; color:#f00; line-height:30px; cursor:pointer;' onclick='cls_Cmsg();'>关闭&nbsp;</div></div>";
+    $("#sh_l_mC").append(Clmg_str);//将头部插入
+    Clmg_str1 = "<div class='sh_l_m_2' id='sh_l_m_C2'></div>";
+    $("#sh_l_mC").append(Clmg_str1);
+    Clmg_str2 = "<div class='sh_l_m_3' id='sh_l_m_C3'></div>"; //姓名插入处
+    $("#sh_l_m_C2").append(Clmg_str2);
+//联系人信息 over
+//读取信息并插入
+    $.ajax({
+        url: travllerurl,
+        type: 'POST',
+        dataType: 'xml',
+        data: {
+            changyong: 0
+        },
+        error: function () {
+            return false;
+        },
+        success: function (xml) {
+            $(xml).find('Travller').each(function (i) {
+                lxml = xml;
+                var Clmg_str3 = "";
+                var C_name = $(this).children('name').text();//姓名
+                Clmg_str3 = "<div class='m_2_1'><div class='m21'><input type='radio' name='Conts' id='add_lgmgC" + i + "' onclick='add_lgmsgC(this.id)'/></div><div class='m22' id='CL_msg_nm_" + i + "'>姓名</div</div>";
+                $("#sh_l_m_C3").append(Clmg_str3);
+                $("#CL_msg_nm_" + i).text(C_name);
+            });
+        }});
+//读取信息并插入over
+//联系人 over
     //取值
     var C1 = window.location.href.split("?")[1];
     var C2 = C1.split("=")[1];

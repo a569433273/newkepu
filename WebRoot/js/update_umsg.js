@@ -36,7 +36,7 @@ function upd_umsg(ins_nm) {
         $("#user_Lmsg1").append(str2); //左部内容插入
         str3 = "<div class='prs_rt2_2' id='user_Rmsg1'></div>";//右部框
         $("#user_msg").append(str3); //插入右部框
-        str4 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>性别：&nbsp;</div><div class='ct_2'><input name='sex' type='radio' value=''  id='pu_sex' onclick='checkputsex()'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='sex' type='radio' value='' id='pu_sex1' onclick='checkputsex()'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
+        str4 = "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>性别：&nbsp;</div><div class='ct_2'><input name='sex' type='radio' value=''  id='pu_sex' onclick='checkputsex(1)'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='sex' type='radio' value='' id='pu_sex1' onclick='checkputsex(2)'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>座机号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_ztel' value=''  style='margin-top:5px; width:130px;' id='pu_ztel'/></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'><span style='color:#f00; line-heigth:30px;'>*</span>证件号：&nbsp;</div><div class='ct_2'><input type='text' autocomplete='off' name='pu_card' value=''  style='margin-top:5px; width:130px;'  id='pu_card' onkeyup='ck_wcrd();' onblur='ck_wbcrd();' />&nbsp;<span id='ck_wcrd'></span></div></div>";
         str4 += "<div class='prs_rt2_11'><div class='ct_1'>所在地：&nbsp;</div><div class='ct_2'><select id='province' onchange='initcity();' name='province'  style='margin-top:5px;'><SCRIPT>creatprovince();</SCRIPT></select>&nbsp;<select name='city' style='margin-top:5px;' id='city'> <option value=''>选择城市</option></select>&nbsp;<span id='ck_wdep'></span></div></div>";
@@ -79,15 +79,15 @@ function upd_umsg(ins_nm) {
         //省份
         var P_len = document.getElementById("province").options.length;
         alert(P_len);
-            for (var I = 1; I < P_len; I++) {
-                alert(I);
-                var TT = document.getElementById("province").options[I].text;
-                if (TT == pu_Depa) {
-                    document.getElementById("province").options[I].selected = "true";
-                    initcity();
-                    break;
-                }
+        for (var I = 1; I < P_len; I++) {
+            alert(I);
+            var TT = document.getElementById("province").options[I].text;
+            if (TT == pu_Depa) {
+                document.getElementById("province").options[I].selected = "true";
+                initcity();
+                break;
             }
+        }
         //城市
         var C_len = document.getElementById("city").options.length;
         if (C_len != 1) {
@@ -208,5 +208,9 @@ function upd_umsg1() {
     }
 }
 function checkputsex(browser) {
-    document.getElementById("pu_tsex").value = browser
+    if (browser == 1) {
+        document.getElementById("pu_tsex").value = "男";
+    } else {
+        document.getElementById("pu_tsex").value = "女";
+    }
 }

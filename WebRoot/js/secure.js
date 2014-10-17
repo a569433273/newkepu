@@ -1,5 +1,16 @@
 // JavaScript Document
 //<!--选中option-->
+function checkbaocunlianxi() {
+    var islianxi = document.getElementById("lianxi").value;
+    if (islianxi == 1) {
+        islianxi = 0;
+    } else {
+        islianxi = 1;
+    }
+    ;
+    document.getElementById("lianxi").value = islianxi;
+}
+
 function secur(s_name) {
     var flag = 0;
     var s1_name = s_name.substr(6);

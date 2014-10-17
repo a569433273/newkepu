@@ -10,7 +10,9 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import com.liu.newkepu.dao.LianxirenDao;
 import com.liu.newkepu.dao.TravellerDao;
+import com.liu.newkepu.model.Lianxiren;
 import com.liu.newkepu.model.Traveller;
 import com.liu.newkepu.util.CreatPNR;
 import com.liu.newkepu.util.ZhengzeUtil;
@@ -46,6 +48,9 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
 
     @Resource
     private TravellerDao travellerDao;
+
+    @Resource
+    private LianxirenDao lianxirenDao;
 
     @Override
     public String execute() throws Exception {
@@ -129,7 +134,16 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         }
         request.setAttribute("order_price", order_price);
 
-        saveorder(order_id, order_state, order_cztime, order_time, flight_company, flight_id, flight_position,
+        if (searchInfo.getLianxi() == 1) {
+            Lianxiren lianxiren = new Lianxiren();
+            lianxiren.setLianxiren_name(flight_lxr);
+            lianxiren.setLianxiren_phone(Integer.valueOf(flight_lxrdh));
+            lianxiren.setLianxiren_email(flight_lxryx);
+            lianxiren.setLianxiren_member_id(order_member_id);
+            lianxirenDao.save(lianxiren);
+        }
+
+        saveorder(order_id, order_state, order_cztime, order_time, order_member_id, flight_company, flight_id, flight_position,
                 flight_from, flight_arrival, flight_from_date, flight_from_time, flight_arrival_date,
                 flight_arrival_time, flight_type, flight_from_site, flight_arrival_site, flight_price, flight_ranyou,
                 flight_jijian, flight_tpm, order_tpm, String.valueOf(order_price), flight_lxr, flight_lxrdh, flight_lxryx);
@@ -293,7 +307,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
      *
      * @author 刘健
      */
-    private void saveorder(String order_id, int order_state, String order_cztime, String order_time,
+    private void saveorder(String order_id, int order_state, String order_cztime, String order_time, String order_member_id,
                            String flight_company, String flight_id, String flight_position, String flight_from,
                            String flight_arrival, String flight_from_date, String flight_from_time,
                            String flight_arrival_date, String flight_arrival_time, String flight_type,
@@ -302,6 +316,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
                            String order_price, String flight_lxr, String flight_lxrdh, String flight_lxryx) {
         Order order = new Order();
         order.setOrder_id(order_id);
+        order.setOrder_member_id(order_member_id);
         order.setOrder_state(order_state);
         order.setOrder_cztime(order_cztime);
         order.setOrder_time(order_time);

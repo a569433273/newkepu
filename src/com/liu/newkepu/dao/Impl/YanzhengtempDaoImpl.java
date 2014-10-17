@@ -25,8 +25,19 @@ public class YanzhengtempDaoImpl implements YanzhengtempDao {
     }
 
     @Override
+    public void delete(Yanzhengtemp yanzhengtemp) {
+        sessionFactory.getCurrentSession().delete(yanzhengtemp);
+    }
+
+    @Override
     public List<Yanzhengtemp> findByshoujihao(String shoujihao) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Yanzhengtemp y where y.shoujihao='" + shoujihao + "'");
         return null;
+    }
+
+    @Override
+    public List<Yanzhengtemp> fingall() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Yanzhengtemp y");
+        return query.list();
     }
 }

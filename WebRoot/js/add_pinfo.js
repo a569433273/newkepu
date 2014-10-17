@@ -139,15 +139,15 @@ function add_pinfo() {
         $("#add_p2" + len_p).append(str2);
         var str3 = "<div style='float:left; width:250px;' id='add_p4" + len_p + "'></div>";
         $("#add_p3" + len_p).append(str3);
-        var str4 = "<div style='float:left; width:50px; font-size:12px; line-height:20px;'>姓名<span style='color:#f00;'>*</span></div><div style='float:left;'><input type='text' class='input_val' style='width:60px;' name='p_name' id='psg_name" + len_p + "' onkeyup='ck_unm(this.id)' onfocus='ck_name1(this.id)'/></div>";
+        var str4 = "<div style='float:left; width:50px; font-size:12px; line-height:20px;'>姓名<span style='color:#f00;'>*</span></div><div style='float:left;'><input type='text' class='input_val' style='width:60px;' name='p_name' id='psg_name" + len_p + "' onkeyup='ck_unm(this.id)' onfocus='ck_name1(this.id)'/><input type='hidden' name='' id='Pbenren" + len_p + "' class='Pbenren' /></div>";
         str4 += " <div style='float:left;'><span id='name_" + len_p + "'></span>&nbsp;<select name='add_age" + len_p + "' class='younger' onchange='yong_litter(this.id)' id='add_age" + len_p + "'><option>成人(>12岁)</option><option>儿童(< 12岁)</option></select></div>";
         $("#add_p4" + len_p).append(str4);
         var str5 = "<div style='width:450px; float:left;' id='add_p5" + len_p + "'></div>";
         $("#add_p3" + len_p).append(str5);
         var str6 = "<div style='float:left; width:60px; font-size:12px; line-height:20px; text-align:right;'>证件号码<span style='color:#f00;'>*</span>&nbsp;</div>";
         str6 += "<div style='float:left; overflow:hidden;'>&nbsp;<select name='p_card' class='which_1' id='p_card" + len_p + "' onchange='set_sex(this.id)'><option>身份证</option><option>护照</option><option>其他</option></select></div>";
-        str6 += "<div style='float:left;' id='card_disp" + len_p + "'>&nbsp;<input type='text' name='p_name' class='hz_val1' style='width:130px;' id='idCard_" + len_p + "' onkeyup='ck_idCard(this.id)' onfocus='ck_idCard1(this.id)' onblur='ck_ageCard(this.id)'><span id='psg_card" + len_p + "'></span></div>";
-        str6 += "<div style='float:left; margin-top:2px; overflow:hidden; display:inline;'>&nbsp;<input name='' class='usual_psg' type='checkbox' value='' checked='checked'/></div>";
+        str6 += "<div style='float:left;' id='card_disp" + len_p + "'>&nbsp;<input type='text' autocomplete='off' name='p_name' class='hz_val1' style='width:130px;' id='idCard_" + len_p + "' onkeyup='ck_idCard(this.id)' onfocus='ck_idCard1(this.id)' onblur='ck_ageCard(this.id)'><span id='psg_card" + len_p + "'></span></div>";
+        str6 += "<div style='float:left; margin-top:2px; overflow:hidden; display:inline;'>&nbsp;<input name='' class='usual_psg' type='checkbox' value='' checked='checked' id='lgin_Pmsg" + len_p + "' /></div>";
         str6 += " <div style='float:left; overflow:hidden; font-size:12px; line-height:23px;'>&nbsp;是否保存为常用登机人</div>";
         $("#add_p5" + len_p).append(str6);
         var str7 = "<div style='float:left; oveflow:hidden;'>&nbsp;<input name='' type='checkbox' checked='checked' value='' id='secur" + len_p + "' class='secur0' onclick='box_ch(this.id)'/><span style='font-size:12px; color:#0068c9;' id='accid_s" + len_p + "'  onmousemove='mouse_disp(this.id);' onmouseout='mouse_hid()'>&nbsp;航意险</span><span style='font-size:12px;'><span style='color:#F00'>30</span>/份</span></div>";
