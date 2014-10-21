@@ -34,6 +34,9 @@ public class searchInfo {
     private String Kid_price;
     private int changyong;
     private int lianxi;
+    private int benren;
+    private String feixingtime;
+
 
     /*常用成绩人编辑和添加页面传来的值*/
     private String Nm1;
@@ -312,6 +315,22 @@ public class searchInfo {
 
     public void setLianxi(int lianxi) {
         this.lianxi = lianxi;
+    }
+
+    public int getBenren() {
+        return benren;
+    }
+
+    public void setBenren(int benren) {
+        this.benren = benren;
+    }
+
+    public String getFeixingtime() {
+        return feixingtime;
+    }
+
+    public void setFeixingtime(String feixingtime) {
+        this.feixingtime = feixingtime;
     }
 
     public String getNm1() {

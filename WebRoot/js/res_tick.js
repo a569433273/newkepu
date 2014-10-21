@@ -14,6 +14,7 @@ function res_tick(id) {
     var tkoff_time = ""//起飞时间
     var land_w1 = "";//降落地点+降落编号
     var land_time = "";//降落时间
+    var flight_time = "";//飞行时间
     var price_v = "";//加密票面价(传)
     var j_money_v = "";//加密净价(传)
     var code_v = "";//经济舱以及折(传
@@ -103,7 +104,10 @@ function res_tick(id) {
             land_time = encodeURI(land_time);//转码
             land_time = encodeURI(land_time);
             //降落地点时间 over
-
+            //飞行时长
+            var fltime = $(this).children('FlightTime').text();
+            flight_time = encodeURI(fltime);
+            flight_time = encodeURI(fltime);
             $(this).find('Class').each(function (t) {//readClass
                 if (t == id_nums) {
                     //折扣 票面价 净价
@@ -280,7 +284,7 @@ function res_tick(id) {
         }//if(ID)
     })//读取ITEM的内容
     var sale1_v = '3.0%'; //返点
-    window.location.href = "planeorder.jsp?id=" + air_name_v + "," + code_v + "," + price_v + "," + sale1_v + "," + j_money_v + "," + viaport_v + "," + tp_hour1 + "," + tp_price + "," + tp_price2 + "," + qg_price1 + "," + qg_price2 + "," + qz_2 + "," + str14 + "," + Yclass_p_val + "," + tkoff_w1 + "," + tkoff_time + "," + land_w1 + "," + land_time + "," + TP_Oil_val + "," + F_No + "," + Tpm_1 + "," + ac_tp + "," + BP_1 + "," + OP_1 + "," + BAT_1 + "," + OAT_1 + "";
+    window.location.href = "planeorder.jsp?id=" + air_name_v + "," + code_v + "," + price_v + "," + sale1_v + "," + j_money_v + "," + viaport_v + "," + tp_hour1 + "," + tp_price + "," + tp_price2 + "," + qg_price1 + "," + qg_price2 + "," + qz_2 + "," + str14 + "," + Yclass_p_val + "," + tkoff_w1 + "," + tkoff_time + "," + land_w1 + "," + land_time + "," + TP_Oil_val + "," + F_No + "," + Tpm_1 + "," + ac_tp + "," + BP_1 + "," + OP_1 + "," + BAT_1 + "," + OAT_1 + "," + flight_time + "";
 
 }
 	

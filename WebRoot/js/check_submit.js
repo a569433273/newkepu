@@ -121,6 +121,7 @@ function ck_submit() {
 
 //统计乘机人个数
 //读乘机人数据
+        var psg_pers = "0";//是否本人
         var psg_nme = ""; //乘机人姓名
         var psg_adult = ""; //是否成人或儿童
         var crd_type = ""; //证件类型
@@ -130,6 +131,24 @@ function ck_submit() {
         var airD_fs = ""; //延误险份数
         var psg_sex = ""; //性别
         var psg_Date = ""; //出生日期
+        //读取本人
+        for (var i = 0; i < allElements.length; i++) {
+            if (allElements[i].className == "Pbenren") {
+                if (i == 0) {
+                    psg_pers = allElements[i].value;
+                }
+                else {
+                    psg_pers = psg_pers + ',' + allElements[i].value;
+                }
+                if (allElements[i].value == psg_pers) {
+
+                } else {
+                    psg_pers = "1";
+                    break;
+                }
+            }
+        }
+        //读取本人 over
         //读取所有姓名
         for (var i = 0; i < allElements.length; i++) {
             if (allElements[i].className == "input_val") {
@@ -350,6 +369,7 @@ function ck_submit() {
             }
         }
         document.getElementById("pasge_info").value = psge_total;//将乘机人信息写入到隐藏框
+        document.getElementById("benren").value = psg_pers;
 
 //将乘机人数据写入到隐藏框中 over
 //将航班信息重新写入到页面中
@@ -422,6 +442,7 @@ function ck_submit() {
         var M9 = M2.split(",")[23];//降落机场对应应英文
         var M10 = M2.split(",")[24];//起飞机场编号
         var M11 = M2.split(",")[25];//降落机场编号
+        var M12 = M2.split(",")[26];//飞行时长
         //机建燃油的价格
         var oil_2 = M4;
         for (var m = 1; m < oil_2.length; m++) {
@@ -541,6 +562,7 @@ function ck_submit() {
         document.getElementById("type_aircft").value = M7; //机型
         document.getElementById("tkoff_Id").value = M10; //起飞编号
         document.getElementById("Kid_price").value = add_y_money;//儿童价格
+        document.getElementById("feixingtime").value = M12;//飞行时长
         if (M11 == null || M11 == "") {
         } else {
             document.getElementById("land_Id").value = M11; //降落编号

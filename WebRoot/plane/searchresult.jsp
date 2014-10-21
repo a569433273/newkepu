@@ -11,32 +11,32 @@
     <!--日历样式-->
     <link href="../css/show_message.css" rel="stylesheet" type="text/css"/>
     <!--提示框样式--->
-    <script src="../js/jquery-1.6.4.js"></script>
-    <script src="../js/doubleDate2.0.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="../js/doubleDate2.0.js"></script>
     <!--日历-->
-    <script src="../js/test.js"></script>
+    <script type="text/javascript" src="../js/test.js"></script>
     <!--航空机场数据及效果-->
-    <script src="../js/air_xml.js"></script>
+    <script type="text/javascript" src="../js/air_xml.js"></script>
     <!--xml解析及效果-->
-    <script src="../js/res_tick.js"></script>
+    <script type="text/javascript" src="../js/res_tick.js"></script>
     <!--预定时传值效果-->
-    <script src="../js/return_t.js"></script>
+    <script type="text/javascript" src="../js/return_t.js"></script>
     <!-- 退票改签效果-->
-    <script src="../js/fold_un.js"></script>
+    <script type="text/javascript" src="../js/fold_un.js"></script>
     <!--查看舱位展开折叠-->
-    <script src="../js/sort_table.js"></script>
+    <script type="text/javascript" src="../js/sort_table.js"></script>
     <!--时间升降序-->
-    <script src="../js/sort_table1.js"></script>
+    <script type="text/javascript" src="../js/sort_table1.js"></script>
     <!--价格升降序-->
-    <script src="../js/sort_air.js"></script>
+    <script type="text/javascript" src="../js/sort_air.js"></script>
     <!--所有航班价格降序-->
-    <script src="../js/air_name.js"></script>
+    <script type="text/javascript" src="../js/air_name.js"></script>
     <!--对应返回航班-->
-    <script src="../js/air_type.js"></script>
+    <script type="text/javascript" src="../js/air_type.js"></script>
     <!--单程往返切换效果-->
-    <script src="../js/base64encode.js"></script>
+    <script type="text/javascript" src="../js/base64encode.js"></script>
     <!--加密码净价票面价-->
-    <script src="../js/show_msg.js"></script>
+    <script type="text/javascript" src="../js/show_msg.js"></script>
     <!--错误提示框-->
     <script>
         $(function () {

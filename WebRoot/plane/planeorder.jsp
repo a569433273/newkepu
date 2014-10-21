@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -20,7 +21,7 @@
     <!--添加乘客-->
     <script src="../js/remove_pinfo.js" type="text/javascript"></script>
     <!--删除乘客-->
-    <script src="../js/pop_up.js" type="text/javascript"></script>
+    <script src="../js/pop_up.js" type="textz/javascript"></script>
     <!--弹出登录框-->
     <script src="../js/show_user.js" type="text/javascript"></script>
     <!--登录中的切换效果-->
@@ -53,9 +54,9 @@
 
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
+        <div class="logo"><a href="../index.jsp"><img alt="" src="../images/logo.jpg"/></a></div>
+        <div class="hd_tel"><img alt="" src="../images/tel.jpg"/></div>
+        <div class="hd_mark"><a href=""><img alt="" src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
                 src="../images/mark2.jpg"></a></div>
         <div style="clear:both;"></div>
     </div>
@@ -98,7 +99,8 @@
             <td width="13%"
                 style="border-top:1px solid #dcf7fb; border-bottom:1px solid #dcf7fb; border-left:1px solid #dcf7fb; color:#0069ca; cursor:pointer;"
                 id="covert3" onclick="covert_table(this.id);"><span>退改签费用标准&nbsp;<img src="../images/up.jpg"
-                                                                                      style="margin-bottom:-5px;"/></span>
+                                                                                      style="margin-bottom:-5px;"
+                                                                                      alt=""/></span>
             </td>
             <td width="13%" style="border-top:1px solid #dcf7fb; border-bottom:1px solid #dcf7fb;">类型</td>
             <td width="13%" style="border-top:1px solid #dcf7fb; border-bottom:1px solid #dcf7fb;">退改签时间点</td>
@@ -313,6 +315,8 @@
         <input name="Kid_price" type="hidden" id="Kid_price" value=""/><!--儿童价格-->
         <input name="pasge_info" type="hidden" id="pasge_info" value=""/><!--乘机人信息-->
         <input name="lianxi" type="hidden" id="lianxi" value="1"/><!--联系人信息是否保存-->
+        <input name="benren" type="hidden" id="benren" value="0"/><!--有无乘机人本人-->
+        <input name="feixingtime" type="hidden" id="feixingtime" value=""/><!--飞行时长-->
     </div>
     <!--航空隐藏部分 over-->
     <p>&nbsp;</p>

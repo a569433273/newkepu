@@ -16,6 +16,11 @@ public class MyflightDaoImpl implements MyflightDao {
     private SessionFactory sessionFactory;
 
     @Override
+    public void save(Myflight myflight) {
+        sessionFactory.getCurrentSession().save(myflight);
+    }
+
+    @Override
     public List<Myflight> findBymember_id(String member_id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Myflight m where m.Myflight_member_id='" + member_id + "'");
         return query.list();

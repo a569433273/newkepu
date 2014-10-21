@@ -10,10 +10,8 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import com.liu.newkepu.dao.LianxirenDao;
-import com.liu.newkepu.dao.TravellerDao;
-import com.liu.newkepu.model.Lianxiren;
-import com.liu.newkepu.model.Traveller;
+import com.liu.newkepu.dao.*;
+import com.liu.newkepu.model.*;
 import com.liu.newkepu.util.CreatPNR;
 import com.liu.newkepu.util.ZhengzeUtil;
 import org.apache.struts2.ServletActionContext;
@@ -24,10 +22,6 @@ import org.dom4j.Element;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Component;
 
-import com.liu.newkepu.dao.OrderDao;
-import com.liu.newkepu.dao.PassengerDao;
-import com.liu.newkepu.model.Order;
-import com.liu.newkepu.model.Passenger;
 import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -51,6 +45,9 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
 
     @Resource
     private LianxirenDao lianxirenDao;
+
+    @Resource
+    private MyflightDao myflightDao;
 
     @Override
     public String execute() throws Exception {
@@ -142,7 +139,9 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
             lianxiren.setLianxiren_member_id(order_member_id);
             lianxirenDao.save(lianxiren);
         }
-
+        if (searchInfo.getBenren() == 1) {
+            saveMyflight(order_id, order_time, order_member_id, flight_company, flight_id, from_cn, arrival_cn, flight_from_date, flight_from_time, flight_arrival_date, flight_arrival_time, flight_type, flight_tpm);
+        }
         saveorder(order_id, order_state, order_cztime, order_time, order_member_id, flight_company, flight_id, flight_position,
                 flight_from, flight_arrival, flight_from_date, flight_from_time, flight_arrival_date,
                 flight_arrival_time, flight_type, flight_from_site, flight_arrival_site, flight_price, flight_ranyou,
@@ -161,6 +160,26 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         orders = orderDao.findByorder_id(order_id);
 
         return "success";
+    }
+
+    private void saveMyflight(String order_id, String order_time, String order_member_id, String flight_company, String flight_id, List<String> from_cn, List<String> arrival_cn, String flight_from_date, String flight_from_time, String flight_arrival_date, String flight_arrival_time, String flight_type, String flight_tpm) {
+        Myflight myflight = new Myflight();
+        myflight.setMyflight_id(UUID.randomUUID().toString());
+        myflight.setMyflight_member_id(order_member_id);
+        myflight.setMyflight_order_id(order_id);
+        myflight.setMyflight_no(flight_id);
+        myflight.setMyflight_from_time(flight_from_time);
+        myflight.setMyflight_from_date(flight_from_date);
+        myflight.setMyflight_from(from_cn.get(0));
+        myflight.setMyflight_arrivate_date(flight_arrival_date);
+        myflight.setMyflight_arrivate_time(flight_arrival_time);
+        myflight.setMyflight_arrivate(arrival_cn.get(0));
+        myflight.setMyflight_company(flight_company);
+        myflight.setMyflight_shichang(searchInfo.getFeixingtime());
+        myflight.setMyflight_tpm(flight_tpm);
+        myflight.setMyflight_type(flight_type);
+        myflight.setMyflight_time(order_time);
+        myflightDao.save(myflight);
     }
 
     private String getpnr(Order order, List<Passenger> passengerPeople) throws DocumentException {

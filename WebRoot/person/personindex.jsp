@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,10 +30,11 @@
 <!--header部分 start-->
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg"></a></div>
+        <div class="logo"><a href="../index.jsp"><img alt="" src="../images/logo.jpg"/></a></div>
+        <div class="hd_tel"><img alt="" src="../images/tel.jpg"/></div>
+        <div class="hd_mark"><a href=""><img alt="" src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img alt=""
+                                                                                                              src="../images/mark2.jpg"></a>
+        </div>
         <div style="clear:both;"></div>
     </div>
 </div>
@@ -46,7 +48,7 @@
         <div class="prs_left">
             <div class="prs_le1">
                 <div class="prs_le_1">
-                    <img src="../images/cat.jpg"/>
+                    <img alt="" src="../images/cat.jpg"/>
                 </div>
                 <div class="prs_le_2">
                     <div class="prs_le_21"><input name="" type="file" class="ipt_file"/></div>
@@ -84,7 +86,8 @@
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;我的资料</span></div>
                     <div class="prs_rt1_2" id="pack1_1"><img src="../images/per_hid.jpg" style="margin-top:3px;"
-                                                             id="pack_1" onclick="cont_disp(this.id);"/>&nbsp;</div>
+                                                             id="pack_1" onclick="cont_disp(this.id);" alt=""/>&nbsp;
+                    </div>
                 </div>
                 <!--我的资料头部 over-->
                 <!--我的资料内容及按钮-->
@@ -194,18 +197,12 @@
     </s:iterator>
     <!--我的资料内容 over-->
     <!--按钮-->
-    <div class="prs_updt" id="prs_updt"><img class="inst1" id="inst1" src="../images/per_udp1.png"
+    <div class="prs_updt" id="prs_updt"><img alt="" class="inst1" id="inst1" src="../images/per_udp1.png"
                                              onclick="upd_umsg(this.id)"/>
 
         <p>&nbsp;</p></div>
     <!--按钮 over-->
-    </div>
-    <!--我的资料内容及按钮 over-->
-    </div>
-    <!--我的资料 over-->
-    </div>
     <div style="clear:both;"></div>
-    </div>
     <!--中部 over-->
 </form>
 <p>&nbsp;</p>
