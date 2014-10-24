@@ -108,6 +108,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
 
         String flight_arrival_site = searchInfo.getLand_Id();
 
+        //需改为原始票面价
         String flight_price = searchInfo.getNet_Price_1();
 
         String[] shui = searchInfo.getMach_oil().split("/");
