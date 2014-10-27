@@ -1,14 +1,5 @@
 //分页效果
 function goPage(pno,psize,p_nl){
-   /*省略号*/
-    $(".mComm3_22").each(function (i) {
-            var divH = $(this).height();
-            var $p = $("p", $(this)).eq(0);
-            while ($p.outerHeight() > divH) {
-                $p.text($p.text().replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "..."));
-            };
-        });
-	/*省略号*/
    document.getElementById("Pg_1").innerHTML = "";
 	var tby1_nm="tb_tab";
 	var pge1_nm="page_total";
@@ -34,8 +25,8 @@ function goPage(pno,psize,p_nl){
 			irow.style.display = "none";
 		}
 	}
-	var tempStr = "<span style='font-size:12px; line-heigth:25px;'>共"+(num-1)+"条记录 分"+totalPage+"页    当前第</span>"
-	 tempStr+="<span style='color:#f00; line-height:25px; font-size:12px;'>"+currentPage+"</span>";
+	var tempStr = "<span style='font-size:12px; line-heigth:25px;'>参会人员共"+(num-1)+"条记录 分"+totalPage+"页    当前第</span>"
+	 tempStr+="<span style='color:#f00; line-height:25px; font-size:14px;'>"+currentPage+"</span>";
 	 tempStr+="<span style='line-height:25px; font-size:12px;'>页&nbsp;</span>";
 	if(currentPage>1){
 		tempStr += "<a href='#' onClick='goPage("+(currentPage-1)+","+psize+","+(currentPage-1)+")' class='a_page'>上一页</a>"; 

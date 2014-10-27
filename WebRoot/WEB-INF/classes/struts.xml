@@ -37,6 +37,10 @@
         </action>
         <action name="orderajax" class="orderajax">
         </action>
+        <action name="searchmeeting" class="searchmeeting">
+            <result name="success">/meeting/meetingbasic.jsp</result>
+            <result name="faild">/person/personzhuce.jsp</result>
+        </action>
     </package>
 </struts>
 	

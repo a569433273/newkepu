@@ -1,5 +1,6 @@
 package com.liu.newkepu.vo;
 
+@SuppressWarnings("ALL")
 public class searchInfo {
 
     /* 登陆页面传来的值 */
@@ -64,6 +65,9 @@ public class searchInfo {
     private int pu_crdtp;
     private String pu_date;
     private String pu_resu;
+
+    //会议搜索页面传来的值
+    private String Mt_nm;
 
     public String getUsername() {
         return username;
@@ -499,6 +503,14 @@ public class searchInfo {
 
     public void setPu_resu(String pu_resu) {
         this.pu_resu = pu_resu;
+    }
+
+    public String getMt_nm() {
+        return Mt_nm;
+    }
+
+    public void setMt_nm(String mt_nm) {
+        Mt_nm = mt_nm;
     }
 }
 

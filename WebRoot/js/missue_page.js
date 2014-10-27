@@ -1,7 +1,7 @@
 //分页效果
 function goPage(pno,psize,p_nl){
-   /*省略号*/
-    $(".mComm3_22").each(function (i) {
+	/*省略号*/
+    $(".m_sue_2").each(function (i) {
             var divH = $(this).height();
             var $p = $("p", $(this)).eq(0);
             while ($p.outerHeight() > divH) {
