@@ -69,6 +69,17 @@ public class searchInfo {
     //会议搜索页面传来的值
     private String Mt_nm;
 
+    //会议编辑页面传来的值
+    private String Mdet_depart;
+    private String Mdet_name;
+    private String Mdet_city;
+    private String Mdet_where;
+    private int Mdet_pnum;
+    private String Mdet_report;
+    private int Mdet_partnum;
+    private int Mdet_money;
+    private int chuliid;
+
     public String getUsername() {
         return username;
     }
@@ -511,6 +522,78 @@ public class searchInfo {
 
     public void setMt_nm(String mt_nm) {
         Mt_nm = mt_nm;
+    }
+
+    public String getMdet_depart() {
+        return Mdet_depart;
+    }
+
+    public void setMdet_depart(String mdet_depart) {
+        Mdet_depart = mdet_depart;
+    }
+
+    public String getMdet_name() {
+        return Mdet_name;
+    }
+
+    public void setMdet_name(String mdet_name) {
+        Mdet_name = mdet_name;
+    }
+
+    public String getMdet_city() {
+        return Mdet_city;
+    }
+
+    public void setMdet_city(String mdet_city) {
+        Mdet_city = mdet_city;
+    }
+
+    public String getMdet_where() {
+        return Mdet_where;
+    }
+
+    public void setMdet_where(String mdet_where) {
+        Mdet_where = mdet_where;
+    }
+
+    public int getMdet_pnum() {
+        return Mdet_pnum;
+    }
+
+    public void setMdet_pnum(int mdet_pnum) {
+        Mdet_pnum = mdet_pnum;
+    }
+
+    public String getMdet_report() {
+        return Mdet_report;
+    }
+
+    public void setMdet_report(String mdet_report) {
+        Mdet_report = mdet_report;
+    }
+
+    public int getMdet_partnum() {
+        return Mdet_partnum;
+    }
+
+    public void setMdet_partnum(int mdet_partnum) {
+        Mdet_partnum = mdet_partnum;
+    }
+
+    public int getMdet_money() {
+        return Mdet_money;
+    }
+
+    public void setMdet_money(int mdet_money) {
+        Mdet_money = mdet_money;
+    }
+
+    public int getChuliid() {
+        return chuliid;
+    }
+
+    public void setChuliid(int chuliid) {
+        this.chuliid = chuliid;
     }
 }
 

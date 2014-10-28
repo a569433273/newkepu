@@ -122,7 +122,7 @@
                         <!--右部图片-->
                         <div class="mDetail1_right">
                             <img src="../images/meeting_dimg1.gif" alt=""/>
-                            <input id="Mdet_id" name="Mdet_id" value="<s:property value='meeting_id'></s:property>"/>
+                            <input id="chuliid" name="chuliid" value="0"/>
                         </div>
                         <!--右部图片over-->
                     </div>
