@@ -27,13 +27,13 @@ public class searchmeetingbus extends ActionSupport implements ModelDriven<Objec
         HttpServletRequest request = ServletActionContext.getRequest();
         ZhengzeUtil zhengzeUtil = new ZhengzeUtil();
         zixuns = zixunDao.findBymember_id(request.getSession().getAttribute("meeting_id").toString());
-        for (int i=0;i< zixuns.size();i++){
-            int firstp = zixuns.get(i).getZixun_neirong().indexOf("</p>");
-            List<String> thestt = zhengzeUtil.zhengze(zixuns.get(i).getZixun_neirong().substring(0,firstp),"[\\u4e00-\\u9fa5]");
+        for (Zixun zixun : zixuns) {
+            int firstp = zixun.getZixun_neirong().indexOf("</p>");
+            List<String> thestt = zhengzeUtil.zhengze(zixun.getZixun_neirong().substring(0, firstp), "[\\u4e00-\\u9fa5]");
             if (thestt.size() > 70) {
-                zixuns.get(i).setZixun_neirong( zixuns.get(i).getZixun_neirong().substring(0,zixuns.get(i).getZixun_neirong().lastIndexOf(thestt.get(70))) + "</p>");
+                zixun.setZixun_neirong(zixun.getZixun_neirong().substring(0, zixun.getZixun_neirong().lastIndexOf(thestt.get(70))) + "</p>");
             } else {
-                zixuns.get(i).setZixun_neirong( zixuns.get(i).getZixun_neirong().substring(0,zixuns.get(i).getZixun_neirong().lastIndexOf(thestt.get(thestt.size()))) + "</p>");
+                zixun.setZixun_neirong(zixun.getZixun_neirong().substring(0, zixun.getZixun_neirong().lastIndexOf(thestt.get(thestt.size()))) + "</p>");
             }
         }
         return "success";

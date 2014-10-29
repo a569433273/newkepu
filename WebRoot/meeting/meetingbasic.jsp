@@ -48,7 +48,7 @@
 </div>
 <!--nav over-->
 <!--中间内容-->
-<form action="#" method="post" name="">
+<form action="meetingchuli.action" method="post" name="">
     <div class="prs_mid">
         <!--左部-->
         <div class="prs_left">
@@ -57,9 +57,9 @@
                 <div class="prs_le_3">
                     <ul>
                         <li class="prs_clk"  id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">基本信息</a></li>
-                        <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_comm.html">商务资讯</a></li>
+                        <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk" href="searchmeetingbus.action">商务资讯</a></li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_part.html">参会人员</a></li>
-                        <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_issue.html">议题日程</a></li>
+                        <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk" href="meetingricheng.action">议题日程</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_photo.html">会议照片</a></li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_notice.html">通知</a></li>
                     </ul>

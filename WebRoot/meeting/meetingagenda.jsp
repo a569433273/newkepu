@@ -5,13 +5,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>会议管理--商业资讯</title>
+    <title>会议管理--议题日程</title>
     <link href="../css/index.css" rel="stylesheet" type="text/css" />
     <link href="../css/meeting.css" rel="stylesheet" type="text/css" />
     <link href="../css/person_ctr.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
-    <script type="text/javascript" src="../js/mComm_ipt.js"></script><!--搜索文本框效果-->
-    <script type="text/javascript" src="../js/page.js"></script><!--分页效果-->
+    <script type="text/javascript" src="../js/prs_show.js"></script><!--点击左部右部出现内容-->
+    <script type="text/javascript" src="../js/mIssue_hover.js"></script><!--鼠标划过换颜色-->
+    <script type="text/javascript" src="../js/missue_page.js"></script><!--分页效果以及省略号效果-->
 </head>
 <body onload="goPage(1,3,1)">
 <!--header部分 start-->
@@ -47,9 +48,9 @@
                 <div class="prs_le_3">
                     <ul>
                         <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk" href="searchmeeting.action">基本信息</a></li>
-                        <li class="prs_clk"  id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">商务资讯</a></li>
-                        <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_part.html">参会人员</a></li>
-                        <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk" href="meetingricheng.action">议题日程</a></li>
+                        <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk" href="searchmeetingbus.action">商务资讯</a></li>
+                        <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_part.html">参会人员</a></li>
+                        <li class="prs_clk"  id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">议题日程</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_photo.html">会议照片</a></li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk" href="meeting_notice.html">通知</a></li>
                     </ul>
@@ -60,74 +61,62 @@
         <!--左部 over-->
         <!--右部-->
         <div class="mComm_right">
-            <!--商务资讯-->
+
             <div class="prs_rt" id="prsC_6">
-                <!--商务头部-->
+                <!--议题和日程头部-->
                 <div class="prs_rt1">
-                    <div class="prs_rt1_1"><span>&nbsp;商务资讯</span></div>
+                    <div class="prs_rt1_1"><span>&nbsp;议题和日程</span></div>
                 </div>
-                <!--商务头部 over-->
-                <!--我的会议内容-->
+                <!--议题和日程头部 over-->
+                <!--议题内容-->
                 <div class="prs_fna" id="pack6">
-                    <!--内容部分-->
-                    <div class="mComm_1">
-                        <!--搜索部分-->
-                        <div class="m_Cm_1">
-                            <div class="m_Cm1_1">
-                                <div class="m_Cm1_11">
-                                    <input type="text" name=""  id="mComm_ipt" style="width:230px; height:18px; border:1px solid #ccc; color:#d3cfcf;" value="请输入要搜索的内容或日期" onfocus="mComm_ipthid()" onblur="mComm_iptshow()"/>
-                                </div>
-                                <div class="m_Cm1_12">
-                                    &nbsp;&nbsp;<input type="image" name="" src="../images/Mcomm_iptimg.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!--搜索部分-->
-                        <s:iterator value="zixuns" status="status">
-                        <!--商务资讯信息-->
-                        <div class="mComm_2">
+                    <div class="mIssue_1">
+                        <div class="MIssue1_1">
                             <table id="tb_tab">
                                 <tr></tr>
-                                <!--资讯内容1-->
+                                <!--第一个议程-->
+                                <s:iterator value="huiyitongzhis">
                                 <tr>
                                     <td>
-                                        <div class="mComm_3">
-                                            <!--标题-->
-                                            <div class="mComm3_1">
-                                                <p><span style="color:#f00; font-size:14px;"><s:property value="#status.count"/></span> <a href=""><s:property value="zixun_biaoti"></s:property></a><span style="color:#545454; font-size:12px; font-weight:normal;">[<s:property value="zixun_date"></s:property>]</span></p>
-                                            </div>
-                                            <!--标题over-->
-                                            <!--内容部分-->
-                                            <div class="mComm3_2">
-                                                <div class="mComm3_21">
-                                                    <img src="../images/Meeting_img1.gif" alt=""/>
+                                        <div class="M_Iss_1" id="M_Iss_1" onmouseover="Missue_over(this.id)" onmouseout="Missue_out(this.id)">
+                                            <div style="width:720px; height:20px; float:left;"></div><!--控制距上20px; 无内容-->
+                                            <div class="M_Iss1_1">
+                                                <!--左部-->
+                                                <div class="M_Iss1_left">
+                                                    <img src="../images/Missue_img1.jpg" class="missue_img" alt=""/>
                                                 </div>
-                                                <div class="mComm3_22">
-                                                    <s:property value="zixun_neirong"></s:property>
+                                                <!--左部 over-->
+                                                <!--右部-->
+                                                <div class="M_Iss1_right">
+                                                    <div class="m_sue_1">
+                                                        <p><s:property value="hytz_bt"></s:property><span class="M_I_sp1">[<s:property value="hytz_date"></s:property>]</span>&nbsp;&nbsp;<span><a href="">查看详情</a></span></p>
+                                                    </div>
+                                                    <div class="m_sue_2">
+                                                        <p><s:property value="hytz_nr"></s:property></p>
+                                                    </div>
                                                 </div>
+                                                <!--右部 over-->
                                             </div>
-                                            <!--内容部分 over-->
+                                            <div style="width:720px; height:20px; float:left;"></div><!--控制距下20px; 无内容-->
                                         </div>
                                     </td>
                                 </tr>
+                                <!--第一个议程 over-->
                                 </s:iterator>
-                                <!--资讯内容1 over-->
                             </table>
                         </div>
-                        <!--商务资讯信息 over-->
                         <!--分页效果-->
-                        <div class="mComm_4" id="page_total" >
-                            <div class="mcommPg_1" id="Pg_1">
+                        <div class="missue_pge" id="page_total" >
+                            <div class="missue_pge_1" id="Pg_1">
                             </div>
                         </div>
                         <!--分页效果over-->
                     </div>
-                    <!--内容部分over-->
                 </div>
-                <!--商务资讯 over-->
+                <!--议题内容-->
             </div>
-            <!--右部 over-->
         </div>
+        <!--右部 over-->
         <div style="clear:both;"></div>
     </div>
 </form>

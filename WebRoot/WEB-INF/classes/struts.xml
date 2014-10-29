@@ -47,6 +47,11 @@
         <action name="searchmeetingbus" class="searchmeetingbus">
             <result name="success">/meeting/meetingbusiness.jsp</result>
         </action>
+        <action name="meetingricheng" class="meetingricheng">
+            <result name="success">/meeting/meetingagenda.jsp</result>
+        </action>
+        <action name="meetingtongzhi" class="meetingtongzhi">
+        </action>
     </package>
 </struts>
 	
