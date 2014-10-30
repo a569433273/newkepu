@@ -51,6 +51,13 @@
             <result name="success">/meeting/meetingagenda.jsp</result>
         </action>
         <action name="meetingtongzhi" class="meetingtongzhi">
+            <result name="success">/meeting/meetingtongzhi.jsp</result>
+        </action>
+        <action name="meetingtupian" class="meetingtupian">
+            <result name="success">/meeting/meetingpicture.jsp</result>
+        </action>
+        <action name="meetingattend" class="meetingattend">
+            <result name="success">/meeting/meetingattend.jsp</result>
         </action>
     </package>
 </struts>

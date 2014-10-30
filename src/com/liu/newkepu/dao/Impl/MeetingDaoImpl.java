@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("MeetingDao")
-public class MeetingDaoImpl implements MeetingDao{
+public class MeetingDaoImpl implements MeetingDao {
 
     @Resource
     private SessionFactory sessionFactory;

@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("searchmeeting")
-public class searchmeeting extends ActionSupport implements ModelDriven<Object>{
+public class searchmeeting extends ActionSupport implements ModelDriven<Object> {
 
     private searchInfo searchInfo = new searchInfo();
 
     @Resource
     private MeetingDao meetingDao;
 
-    private  List<Meeting> meetings;
+    private List<Meeting> meetings;
 
     @Override
     public String execute() throws Exception {

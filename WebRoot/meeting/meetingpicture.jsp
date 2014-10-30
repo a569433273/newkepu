@@ -5,15 +5,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>会议管理--商业资讯</title>
+    <title>会议管理--会议照片</title>
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <link href="../css/meeting.css" rel="stylesheet" type="text/css"/>
     <link href="../css/person_ctr.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
-    <script type="text/javascript" src="../js/mComm_ipt.js"></script>
-    <!--搜索文本框效果-->
-    <script type="text/javascript" src="../js/page.js"></script>
+    <script type="text/javascript" src="../js/prs_show.js"></script>
+    <!--点击左部右部出现内容-->
+    <script type="text/javascript" src="../js/Mphoto_page.js"></script>
     <!--分页效果-->
+    <script type="text/javascript" src="../js/mPhoto_mouse.js"></script>
+    <!--鼠标移上移下效果-->
+    <script src="../js/FancyZoom.js" type="text/javascript"></script>
+    <!--图片放大效果-->
+    <script src="../js/FancyZoomHTML.js" type="text/javascript"></script>
+    <!--图片放大效果html-->
 </head>
 <body onload="goPage(1,3,1)">
 <!--header部分 start-->
@@ -50,18 +56,18 @@
                 <div class="prs_le_3">
                     <ul>
                         <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="searchmeeting.action">基本信息</a>
-                        </li>
-                        <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">商务资讯</a>
+                                                                                    href="meeting_detail.html">基本信息</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_part.html">参会人员</a>
+                                                                                    href="meeting_comm.html">商务资讯</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meetingricheng.action">议题日程</a>
+                                                                                    href="meeting_part.html">参会人员</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_photo.html">会议照片</a>
+                                                                                    href="meeting_issue.html">议题日程</a>
+                        </li>
+                        <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">会议照片</a>
                         </li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="meeting_notice.html">通知</a>
@@ -74,85 +80,68 @@
         <!--左部 over-->
         <!--右部-->
         <div class="mComm_right">
-            <!--商务资讯-->
+            <!--会议照片-->
             <div class="prs_rt" id="prsC_6">
-                <!--商务头部-->
+                <!--会议照片头部-->
                 <div class="prs_rt1">
-                    <div class="prs_rt1_1"><span>&nbsp;商务资讯</span></div>
+                    <div class="prs_rt1_1"><span>&nbsp;会议照片</span></div>
                 </div>
-                <!--商务头部 over-->
-                <!--我的会议内容-->
+                <!--会议照片头部 over-->
+                <!--会议照片内容-->
                 <div class="prs_fna" id="pack6">
-                    <!--内容部分-->
-                    <div class="mComm_1">
-                        <!--搜索部分-->
-                        <div class="m_Cm_1">
-                            <div class="m_Cm1_1">
-                                <div class="m_Cm1_11">
-                                    <input type="text" name="" id="mComm_ipt"
-                                           style="width:230px; height:18px; border:1px solid #ccc; color:#d3cfcf;"
-                                           value="请输入要搜索的内容或日期" onfocus="mComm_ipthid()" onblur="mComm_iptshow()"/>
-                                </div>
-                                <div class="m_Cm1_12">
-                                    &nbsp;&nbsp;<input type="image" name="" src="../images/Mcomm_iptimg.jpg"/>
-                                </div>
-                            </div>
-                        </div>
-                        <!--搜索部分-->
-                        <s:iterator value="zixuns" status="status">
-                        <!--商务资讯信息-->
-                        <div class="mComm_2">
-                            <table id="tb_tab">
-                                <tr></tr>
-                                <!--资讯内容1-->
-                                <tr>
+                    <div class="mphoto_1">
+                        <table id="tb_tab">
+                            <tr></tr>
+                            <!--第一组图片-->
+                            <tr>
+                                <s:iterator value="huiyitupians">
                                     <td>
-                                        <div class="mComm_3">
-                                            <!--标题-->
-                                            <div class="mComm3_1">
-                                                <p><span style="color:#f00; font-size:14px;"><s:property
-                                                        value="#status.count"/></span> <a href=""><s:property
-                                                        value="zixun_biaoti"></s:property></a><span
-                                                        style="color:#545454; font-size:12px; font-weight:normal;">[<s:property
-                                                        value="zixun_date"></s:property>]</span></p>
-                                            </div>
-                                            <!--标题over-->
-                                            <!--内容部分-->
-                                            <div class="mComm3_2">
-                                                <div class="mComm3_21">
-                                                    <img src="../images/Meeting_img1.gif" alt=""/>
+                                        <div class="mphoto1_1" id="mphotom_1" onmouseover="mPhoto_mover(this.id)"
+                                             onmouseout="mPhoto_mout(this.id)">
+                                            <div class="m_pho1_1">
+                                                <!--图片部分-->
+                                                <div class="m_pho11_1">
+                                                    <a href="<s:property value='hytp_url'></s:property>"><img
+                                                            src="<s:property value='hytp_weburl'></s:property>"
+                                                            border="0" style="width:135px; height:100px;"
+                                                            title="点击可放大参览" alt=""/></a>
                                                 </div>
-                                                <div class="mComm3_22">
-                                                    <s:property value="zixun_neirong"></s:property>
+                                                <!--图片部分over-->
+                                                <!--仍字部分-->
+                                                <div class="m_pho11_2">
+                                                        <%--<div class="m_pho11_ft">--%>
+                                                        <%--<span>李一一</span>--%>
+                                                        <%--</div>--%>
+                                                    <div class="m_pho11_ftR">
+                                                        <span><s:property value="hytp_time"></s:property></span>
+                                                    </div>
                                                 </div>
+                                                <!--仍字部分-->
                                             </div>
-                                            <!--内容部分 over-->
                                         </div>
                                     </td>
-                                </tr>
                                 </s:iterator>
-                                <!--资讯内容1 over-->
-                            </table>
-                        </div>
-                        <!--商务资讯信息 over-->
-                        <!--分页效果-->
-                        <div class="mComm_4" id="page_total">
-                            <div class="mcommPg_1" id="Pg_1">
-                            </div>
-                        </div>
-                        <!--分页效果over-->
+                            </tr>
+                            <!--第四组图片 over-->
+                        </table>
                     </div>
-                    <!--内容部分over-->
+                    <!--分页效果-->
+                    <div class="mPhotopge_4" id="page_total">
+                        <div class="mPhotopge_1" id="Pg_1">
+                        </div>
+                    </div>
+                    <!--分页效果over-->
+
                 </div>
-                <!--商务资讯 over-->
+                <!--会议照片内容-->
             </div>
-            <!--右部 over-->
+            <!--会议照片 over-->
         </div>
+        <!--右部 over-->
         <div style="clear:both;"></div>
     </div>
 </form>
 <!--中间内容 over-->
-<!--商务资讯 over-->
 <!--foodter-->
 <div class="total1">
     <div class="sear_footer">
@@ -184,5 +173,6 @@
         </div>
     </div>
 </div>
+<!--foodter-->
 </body>
 </html>

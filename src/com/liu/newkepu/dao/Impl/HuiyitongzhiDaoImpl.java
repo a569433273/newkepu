@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("HuiyitongzhiDao")
-public class HuiyitongzhiDaoImpl implements HuiyitongzhiDao{
+public class HuiyitongzhiDaoImpl implements HuiyitongzhiDao {
 
     @Resource
     private SessionFactory sessionFactory;

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("meetingricheng")
-public class meetingricheng extends ActionSupport implements ModelDriven<Object>{
+public class meetingricheng extends ActionSupport implements ModelDriven<Object> {
 
     private searchInfo searchInfo = new searchInfo();
 

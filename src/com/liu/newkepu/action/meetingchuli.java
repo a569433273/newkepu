@@ -13,20 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("meetingchuli")
-public class meetingchuli extends ActionSupport implements ModelDriven<Object>{
+public class meetingchuli extends ActionSupport implements ModelDriven<Object> {
 
     private searchInfo searchInfo = new searchInfo();
 
     @Resource
     private MeetingDao meetingDao;
 
-    private  List<Meeting> meetings;
+    private List<Meeting> meetings;
 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         //0为update
-        if (searchInfo.getChuliid() == 0){
+        if (searchInfo.getChuliid() == 0) {
             meetings = meetingDao.findbymeeting_id(request.getSession().getAttribute("meeting_id").toString());
             Meeting meeting = meetings.get(0);
             meeting.setMeeting_zzdw(searchInfo.getMdet_depart());

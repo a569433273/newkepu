@@ -1,81 +1,451 @@
 ﻿@charset "utf-8";
 /* CSS Document */
-*{margin:0 auto; padding:0;}
-body{text-align:center; background:#fff;}
-img,a{border:none;}
-a {blr:expression(this.onFocus=this.blur()); outline: none;}
-p{margin:0; padding:0;}
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background: #fff;
+}
+
+img, a {
+    border: none;
+}
+
+a {
+    blr: expression(this.onFocus=this.blur());
+    outline: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 /*验证码*/
-.code{letter-spacing:2px; font-weight:bold; background-image:url(../images/ver_code.jpg); font-family:Arial; font-style:italic; border:0;font-size:12px;}
-.unchanged{border:0;}
+.code {
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-image: url(../images/ver_code.jpg);
+    font-family: Arial;
+    font-style: italic;
+    border: 0;
+    font-size: 12px;
+}
+
+.unchanged {
+    border: 0;
+}
+
 /*验证码 over*/
-.total{width:985px; height:auto; overflow:hidden;}
+.total {
+    width: 985px;
+    height: auto;
+    overflow: hidden;
+}
+
 /*header*/
-.header{width:985px; height:80px; overflow:hidden; float:left;}
-.logo{width:110px; height:79px; float:left;}
-.hd_tel{width:180px; height:31px; float:left; margin-top:41px; margin-left:20px; display:inline;}
-.hd_mark{width:110px; height:38px; float:right; margin-top:40px; margin-right:10px; display:inline;}
+.header {
+    width: 985px;
+    height: 80px;
+    overflow: hidden;
+    float: left;
+}
+
+.logo {
+    width: 110px;
+    height: 79px;
+    float: left;
+}
+
+.hd_tel {
+    width: 180px;
+    height: 31px;
+    float: left;
+    margin-top: 41px;
+    margin-left: 20px;
+    display: inline;
+}
+
+.hd_mark {
+    width: 110px;
+    height: 38px;
+    float: right;
+    margin-top: 40px;
+    margin-right: 10px;
+    display: inline;
+}
+
 /*登录部分*/
-.login_part{width:985px; height:45px; float:left; background:url(../images/bar_bule.jpg) repeat-x left center;}
-.login_left{width:410px; height:15px; line-height:15px; float:left; margin-top:16px; display:inline; color:#fff; font-size:12px; margin-left:350px;}
-.input_w_h{width:80px; height:12px;}
-.lg_mid{ width:45px; height:15px; float:left; margin-top:15px; display:inline;}
-.login_right{width:120px; height:22px; float:left; margin-top:11px; margin-left:40px; display:inline;}
+.login_part {
+    width: 985px;
+    height: 45px;
+    float: left;
+    background: url(../images/bar_bule.jpg) repeat-x left center;
+}
+
+.login_left {
+    width: 410px;
+    height: 15px;
+    line-height: 15px;
+    float: left;
+    margin-top: 16px;
+    display: inline;
+    color: #fff;
+    font-size: 12px;
+    margin-left: 350px;
+}
+
+.input_w_h {
+    width: 80px;
+    height: 12px;
+}
+
+.lg_mid {
+    width: 45px;
+    height: 15px;
+    float: left;
+    margin-top: 15px;
+    display: inline;
+}
+
+.login_right {
+    width: 120px;
+    height: 22px;
+    float: left;
+    margin-top: 11px;
+    margin-left: 40px;
+    display: inline;
+}
+
 /*首页中间部分*/
-.in_mid{width:985px; height:auto; overflow:hidden; float:left;  display:inline;}
+.in_mid {
+    width: 985px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    display: inline;
+}
+
 /*左边部分*/
-.in_left{width:795px; height:auto; overflow:hidden; float:left;}
-.in_left1{width:350px; height:auto; overflow:hidden; float:left;}
-.comm_first{width:350px; height: auto; overflow:hidden; float:left; margin-top:5px; display:inline;}
-.comm_img{width:85px; height:65px; float:left; margin-left:5px; display:inline;}
-.comm_f_cont{width:240px; height:65px; float:left; margin-left:10px; display:inline; }
-.comm_f_cont p{font-size:12px; color:#000; text-align:left; line-height:18px;}
-.comm_f_cont p a{color:#000; text-decoration:none;}
-.comm_f_cont p a:hover{text-decoration:underline;}
-.in_left1 .comm_cont{width:350px; height:auto; overflow:hidden; float:left; margin-top:8px;  border-top:1px dotted #a8a8a8; display:inline;}
-.in_left1 .comm_cont ul{list-style-type:none; margin-top:5px; margin-left:5px; width:330px;}
-.in_left1 .comm_cont ul li{line-height:20px;  font-size:12px; color:#000; text-align:left;}
-.in_left1 .litter_m{background:url(../images/r_delta.jpg) no-repeat left center; float:left; text-indent:1em;}
-.in_left1 .litter_m a{text-decoration:none; color:#000;}
-.in_left1 .litter_m a:hover{text-decoration:underline;}
-.in_left1 .new_mark{background:url(../images/new_red.jpg) no-repeat left center; width:10px; float:left;}
-.in_left1 .li_right{float:right;}
+.in_left {
+    width: 795px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
 
-.footer{width:795px; height:auto; overflow:hidden; float:left; margin-top:15px; display:inline; border-top:1px solid #828487;}
-.footer1{float:left; margin-top:15px; margin-left:15px; display:inline;}
-.footer1 p{font-size:12px; color:#000; text-align:left; line-height:20px;}
-.footer1 p a{color:#000; text-decoration:none;}
-.footer1 p a:hover{text-decoration:underline;}
-.footer2{float:right; margin-top:15px; margin-left:15px; display:inline;}
-.footer2 p{font-size:12px; color:#000; text-align:left; line-height:20px;}
-.footer2 p a{color:#000; text-decoration:none;}
-.footer2 p a:hover{text-decoration:underline;}
+.in_left1 {
+    width: 350px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.comm_first {
+    width: 350px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 5px;
+    display: inline;
+}
+
+.comm_img {
+    width: 85px;
+    height: 65px;
+    float: left;
+    margin-left: 5px;
+    display: inline;
+}
+
+.comm_f_cont {
+    width: 240px;
+    height: 65px;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+}
+
+.comm_f_cont p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 18px;
+}
+
+.comm_f_cont p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.comm_f_cont p a:hover {
+    text-decoration: underline;
+}
+
+.in_left1 .comm_cont {
+    width: 350px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 8px;
+    border-top: 1px dotted #a8a8a8;
+    display: inline;
+}
+
+.in_left1 .comm_cont ul {
+    list-style-type: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 330px;
+}
+
+.in_left1 .comm_cont ul li {
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+}
+
+.in_left1 .litter_m {
+    background: url(../images/r_delta.jpg) no-repeat left center;
+    float: left;
+    text-indent: 1em;
+}
+
+.in_left1 .litter_m a {
+    text-decoration: none;
+    color: #000;
+}
+
+.in_left1 .litter_m a:hover {
+    text-decoration: underline;
+}
+
+.in_left1 .new_mark {
+    background: url(../images/new_red.jpg) no-repeat left center;
+    width: 10px;
+    float: left;
+}
+
+.in_left1 .li_right {
+    float: right;
+}
+
+.footer {
+    width: 795px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 15px;
+    display: inline;
+    border-top: 1px solid #828487;
+}
+
+.footer1 {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: inline;
+}
+
+.footer1 p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 20px;
+}
+
+.footer1 p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer1 p a:hover {
+    text-decoration: underline;
+}
+
+.footer2 {
+    float: right;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: inline;
+}
+
+.footer2 p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 20px;
+}
+
+.footer2 p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer2 p a:hover {
+    text-decoration: underline;
+}
+
 /*右边部分*/
-.in_rigth{width:175px; height:auto; overflow:hidden; float:right;}
-.in_rigth .nav{width:175px; height:auto; overflow:hidden; float:right;}
-.in_rigth .nav .img{margin-bottom:14px;}
-.in_rigth .org{width:175px; height:auto; overflow:hidden; float:right; margin-top:20px; display:inline;}
-.fore{width:100px; float:right; height:30px;}
-.fore1{width:36px; height:27px; background:url(../images/red_spuare.jpg) no-repeat bottom center; float:left; font-size:12px; color:#fff; line-height:20px;}
-.fore2{width:36px; height:27px; float:left; font-size:12px; color:#000; line-height:20px; }
-.spera{width:5px; height:13px; line-height:13px; border-right:1px dotted #a8a8a8; float:left; margin-top:5px; display:inline; }
-.fr_cont1{width:175px; height:auto; overflow:hidden; float:left;}
-.fr_cont1 p{font-size:12px; color:#000; text-align:left; line-height:18px; margin-left:10px;}
-.fr_cont1 p a{color:#000; text-decoration:none;}
-.fr_cont1 p a:hover{text-decoration:underline;}
-.fr_cont2{width:175px; height:auto; overflow:hidden; float:left;}
-.fr_cont2 p{font-size:12px; color:#000; text-align:left; line-height:18px; margin-left:10px;}
-.fr_cont2 p a{color:#000; text-decoration:none;}
-.fr_cont2 p a:hover{text-decoration:underline;}
-/*航班部分*/
-.search_mid{width:1130px; height:auto; overflow:hidden; float:left;}
+.in_rigth {
+    width: 175px;
+    height: auto;
+    overflow: hidden;
+    float: right;
+}
 
+.in_rigth .nav {
+    width: 175px;
+    height: auto;
+    overflow: hidden;
+    float: right;
+}
+
+.in_rigth .nav .img {
+    margin-bottom: 14px;
+}
+
+.in_rigth .org {
+    width: 175px;
+    height: auto;
+    overflow: hidden;
+    float: right;
+    margin-top: 20px;
+    display: inline;
+}
+
+.fore {
+    width: 100px;
+    float: right;
+    height: 30px;
+}
+
+.fore1 {
+    width: 36px;
+    height: 27px;
+    background: url(../images/red_spuare.jpg) no-repeat bottom center;
+    float: left;
+    font-size: 12px;
+    color: #fff;
+    line-height: 20px;
+}
+
+.fore2 {
+    width: 36px;
+    height: 27px;
+    float: left;
+    font-size: 12px;
+    color: #000;
+    line-height: 20px;
+}
+
+.spera {
+    width: 5px;
+    height: 13px;
+    line-height: 13px;
+    border-right: 1px dotted #a8a8a8;
+    float: left;
+    margin-top: 5px;
+    display: inline;
+}
+
+.fr_cont1 {
+    width: 175px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.fr_cont1 p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 18px;
+    margin-left: 10px;
+}
+
+.fr_cont1 p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.fr_cont1 p a:hover {
+    text-decoration: underline;
+}
+
+.fr_cont2 {
+    width: 175px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.fr_cont2 p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 18px;
+    margin-left: 10px;
+}
+
+.fr_cont2 p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.fr_cont2 p a:hover {
+    text-decoration: underline;
+}
+
+/*航班部分*/
+.search_mid {
+    width: 1130px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
 
 /*查询底部*/
-.total1{width:985px; height:auto; overflow:hidden;}
-.total1 .sear_footer{width:985px; height:auto; overflow:hidden; float:left; margin-top:15px; display:inline; border-top:1px solid #828487;}
-.total1 .sear_footer1{float:left; margin-top:15px; margin-left:15px; display:inline;}
-.total1 .sear_footer1 p{font-size:12px; color:#000; text-align:left; line-height:20px;}
-.total1 .sear_footer1 p a{color:#000; text-decoration:none;}
-.total1 .sear_footer1 p a:hover{text-decoration:underline;}
+.total1 {
+    width: 985px;
+    height: auto;
+    overflow: hidden;
+}
+
+.total1 .sear_footer {
+    width: 985px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 15px;
+    display: inline;
+    border-top: 1px solid #828487;
+}
+
+.total1 .sear_footer1 {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: inline;
+}
+
+.total1 .sear_footer1 p {
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+    line-height: 20px;
+}
+
+.total1 .sear_footer1 p a {
+    color: #000;
+    text-decoration: none;
+}
+
+.total1 .sear_footer1 p a:hover {
+    text-decoration: underline;
+}
 

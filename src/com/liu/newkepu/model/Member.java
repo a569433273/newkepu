@@ -26,6 +26,7 @@ public class Member {
     private String member_sheng;
     private String member_shi;
     private int member_fandian;
+    private String member_workaddress;
     private String member_workname;
     private String member_yqm;
     private String member_hyyqm;
@@ -182,6 +183,14 @@ public class Member {
 
     public void setMember_fandian(int member_fandian) {
         this.member_fandian = member_fandian;
+    }
+
+    public String getMember_workaddress() {
+        return member_workaddress;
+    }
+
+    public void setMember_workaddress(String member_workaddress) {
+        this.member_workaddress = member_workaddress;
     }
 
     public String getMember_workname() {
