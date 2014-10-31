@@ -5,17 +5,17 @@ function upd_mdetail() {
     var str2 = "";
     //读取内容
 
-    var depart_M = document.getElementById("Mdet_depart1").value;
+    var depart_M = document.getElementById("Mdet_depart1").innerHTML;
 
-    var name_M = document.getElementById("Mdet_name1").value;
+    var name_M = document.getElementById("Mdet_name1").innerHTML;
 
-    var city_M = document.getElementById("Mdet_city1").value;
+    var city_M = document.getElementById("Mdet_city1").innerHTML;
 
-    var where_M = document.getElementById("Mdet_where1").value;
-    var Pnum_M = document.getElementById("Mdet_pnum1").value;
-    var report_M = document.getElementById("Mdet_report1").value;
-    var partnum_M = document.getElementById("Mdet_partnum1").value;
-    var money_M = document.getElementById("Mdet_money1").value;
+    var where_M = document.getElementById("Mdet_where1").innerHTML;
+    var Pnum_M = document.getElementById("Mdet_pnum1").innerHTML;
+    var report_M = document.getElementById("Mdet_report1").innerHTML;
+    var partnum_M = document.getElementById("Mdet_partnum1").innerHTML;
+    var money_M = document.getElementById("Mdet_money1").innerHTML;
     var money_M = parseInt(money_M);
     var partnum_M = parseInt(partnum_M);
     var Pnum_M = parseInt(Pnum_M);

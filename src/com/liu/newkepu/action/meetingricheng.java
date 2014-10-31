@@ -28,13 +28,17 @@ public class meetingricheng extends ActionSupport implements ModelDriven<Object>
         HttpServletRequest request = ServletActionContext.getRequest();
         ZhengzeUtil zhengzeUtil = new ZhengzeUtil();
         huiyitongzhis = huiyitongzhiDao.findBymember_id(request.getSession().getAttribute("meeting_id").toString());
-        for (Huiyitongzhi huiyitongzhi : huiyitongzhis) {
-            int firstp = huiyitongzhi.getHytz_nr().indexOf("</p>");
-            List<String> thestt = zhengzeUtil.zhengze(huiyitongzhi.getHytz_nr().substring(0, firstp), "[\\u4e00-\\u9fa5]");
-            if (thestt.size() > 70) {
-                huiyitongzhi.setHytz_nr(huiyitongzhi.getHytz_nr().substring(0, huiyitongzhi.getHytz_nr().lastIndexOf(thestt.get(70))) + "</p>");
-            } else {
-                huiyitongzhi.setHytz_nr(huiyitongzhi.getHytz_nr().substring(0, huiyitongzhi.getHytz_nr().lastIndexOf(thestt.get(thestt.size()))) + "</p>");
+        if (huiyitongzhis.size() > 0) {
+            for (Huiyitongzhi huiyitongzhi : huiyitongzhis) {
+                int firstp = huiyitongzhi.getHytz_nr().indexOf("</p>");
+                List<String> thestt = zhengzeUtil.zhengze(huiyitongzhi.getHytz_nr().substring(0, firstp), "[\\u4e00-\\u9fa5]");
+                if (thestt.size() > 0) {
+                    if (thestt.size() > 70) {
+                        huiyitongzhi.setHytz_nr(huiyitongzhi.getHytz_nr().substring(0, huiyitongzhi.getHytz_nr().lastIndexOf(thestt.get(70))) + "</p>");
+                    } else {
+                        huiyitongzhi.setHytz_nr(huiyitongzhi.getHytz_nr().substring(0, huiyitongzhi.getHytz_nr().lastIndexOf(thestt.get(thestt.size() - 1))) + "</p>");
+                    }
+                }
             }
         }
         return "success";

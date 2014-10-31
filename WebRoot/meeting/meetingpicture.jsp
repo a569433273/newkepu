@@ -56,21 +56,21 @@
                 <div class="prs_le_3">
                     <ul>
                         <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_detail.html">基本信息</a>
+                                                                                    href="searchmeeting.action">基本信息</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_comm.html">商务资讯</a>
+                                                                                    href="searchmeetingbus.action">商务资讯</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_part.html">参会人员</a>
+                                                                                    href="meetingattend.action">参会人员</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_issue.html">议题日程</a>
+                                                                                    href="meetingricheng.action">议题日程</a>
                         </li>
                         <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">会议照片</a>
                         </li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_notice.html">通知</a>
+                                                                                    href="meetingtongzhi.action">通知</a>
                         </li>
                     </ul>
                 </div>
@@ -91,8 +91,6 @@
                 <div class="prs_fna" id="pack6">
                     <div class="mphoto_1">
                         <table id="tb_tab">
-                            <tr></tr>
-                            <!--第一组图片-->
                             <tr>
                                 <s:iterator value="huiyitupians">
                                     <td>
@@ -101,7 +99,8 @@
                                             <div class="m_pho1_1">
                                                 <!--图片部分-->
                                                 <div class="m_pho11_1">
-                                                    <a href="<s:property value='hytp_url'></s:property>"><img
+                                                    <a href="<s:property value='hytp_url'></s:property>"
+                                                       class="Meetingph_num"><img
                                                             src="<s:property value='hytp_weburl'></s:property>"
                                                             border="0" style="width:135px; height:100px;"
                                                             title="点击可放大参览" alt=""/></a>

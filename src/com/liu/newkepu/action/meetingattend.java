@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component("meetingattend")
@@ -25,20 +26,24 @@ public class meetingattend extends ActionSupport implements ModelDriven<Object> 
     @Resource
     private MemberDao memberDao;
 
-    private List<Member> memberscanjia = null;
+    private List<Member> memberscanjia = new ArrayList<>();
 
-    private List<Member> membersfaqi = null;
+    private List<Member> membersfaqi = new ArrayList<>();
 
-    private List<Member> membersguanli = null;
+    private List<Member> membersguanli = new ArrayList<>();
 
-    private List<Member> membersxieban = null;
+    private List<Member> membersxieban = new ArrayList<>();
 
     @Override
     public String execute() throws Exception {
+        membersfaqi.clear();
+        memberscanjia.clear();
+        membersxieban.clear();
+        membersguanli.clear();
         HttpServletRequest request = ServletActionContext.getRequest();
         List<Meetingren> meetingrens = meetingrenDao.findBymeeting_id(request.getSession().getAttribute("meeting_id").toString());
         for (Meetingren meetingren : meetingrens) {
-            Member member = memberDao.load(meetingren.getMember_id());
+            Member member = memberDao.findBymember_id(meetingren.getMember_id()).get(0);
             if (meetingren.getIsflag() == 0) {
                 membersfaqi.add(member);
             } else {

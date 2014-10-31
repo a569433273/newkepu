@@ -1,6 +1,7 @@
 //分页效果
 function goPage(pno, psize, p_nl) {
     setupZoom();
+    var dd = 0;
     document.getElementById("Pg_1").innerHTML = "";
     var tby1_nm = "tb_tab";
     var pge1_nm = "page_total";
@@ -26,7 +27,17 @@ function goPage(pno, psize, p_nl) {
             irow.style.display = "none";
         }
     }
-    var tempStr = "<span style='font-size:12px; line-heigth:25px;'>共" + (num - 1) * 4 + "条记录 分" + totalPage + "页    当前第</span>"
+    //统计图片个数
+    var classElements = [], allElements = document.getElementsByTagName('*');
+    for (var D = 0; D < allElements.length; D++) {
+
+        if (allElements[D].className == "Meetingph_num") {
+            dd = dd + 1;
+
+        }
+    }
+    //统计图片个数over
+    var tempStr = "<span style='font-size:12px; line-heigth:25px;'>共" + dd + "条记录 分" + totalPage + "页    当前第</span>"
     tempStr += "<span style='color:#f00; line-height:25px; font-size:12px;'>" + currentPage + "</span>";
     tempStr += "<span style='line-height:25px; font-size:12px;'>页&nbsp;</span>";
     if (currentPage > 1) {

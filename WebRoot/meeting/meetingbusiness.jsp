@@ -55,16 +55,16 @@
                         <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">商务资讯</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_part.html">参会人员</a>
+                                                                                    href="meetingattend.action">参会人员</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="meetingricheng.action">议题日程</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_photo.html">会议照片</a>
+                                                                                    href="meetingtupian.action">会议照片</a>
                         </li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_notice.html">通知</a>
+                                                                                    href="meetingtongzhi.action">通知</a>
                         </li>
                     </ul>
                 </div>
@@ -123,7 +123,7 @@
                                                     <img src="../images/Meeting_img1.gif" alt=""/>
                                                 </div>
                                                 <div class="mComm3_22">
-                                                    <s:property value="zixun_neirong"></s:property>
+                                                    <s:property value="zixun_neirong" escape="false"></s:property>
                                                 </div>
                                             </div>
                                             <!--内容部分 over-->

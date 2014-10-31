@@ -58,15 +58,15 @@
                                                                                     href="searchmeetingbus.action">商务资讯</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_part.html">参会人员</a>
+                                                                                    href="meetingattend.action">参会人员</a>
                         </li>
                         <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">议题日程</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_photo.html">会议照片</a>
+                                                                                    href="meetingtupian.action">会议照片</a>
                         </li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_notice.html">通知</a>
+                                                                                    href="meetingtongzhi.action">通知</a>
                         </li>
                     </ul>
                 </div>
@@ -112,7 +112,8 @@
                                                                     href="">查看详情</a></span></p>
                                                         </div>
                                                         <div class="m_sue_2">
-                                                            <p><s:property value="hytz_nr"></s:property></p>
+                                                            <p><s:property value="hytz_nr"
+                                                                           escape="false"></s:property></p>
                                                         </div>
                                                     </div>
                                                     <!--右部 over-->

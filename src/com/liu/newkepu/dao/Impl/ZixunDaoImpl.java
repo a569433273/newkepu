@@ -22,7 +22,7 @@ public class ZixunDaoImpl implements ZixunDao {
 
     @Override
     public List<Zixun> findBymember_id(String member_id) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Zixun z where z.zixun_meeting_id=" + member_id + "'");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Zixun z where z.zixun_meeting_id='" + member_id + "'");
         return query.list();
     }
 }

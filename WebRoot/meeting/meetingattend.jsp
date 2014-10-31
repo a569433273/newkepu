@@ -47,21 +47,21 @@
                 <div class="prs_le_3">
                     <ul>
                         <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_detail.html">基本信息</a>
+                                                                                    href="searchmeeting.action">基本信息</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_comm.html">商务资讯</a>
+                                                                                    href="searchmeetingbus.action">商务资讯</a>
                         </li>
                         <li class="prs_clk" id="prs_2" onclick="prs_show(this.id)"><a class="li_aClk" href="#">参会人员</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_issue.html">议题日程</a>
+                                                                                    href="meetingricheng.action">议题日程</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_photo.html">会议照片</a>
+                                                                                    href="meetingtupian.action">会议照片</a>
                         </li>
                         <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="meeting_notice.html">通知</a>
+                                                                                    href="meetingtongzhi.action">通知</a>
                         </li>
                     </ul>
                 </div>
@@ -187,7 +187,8 @@
                         <!--会议协办员 over-->
                         <!--参会人员-->
                         <div class="partM1_1">
-                            <iframe name="right2_tt" frameborder="0" width="710" scrolling="no" src="mpart_frame.html"
+                            <iframe name="right2_tt" frameborder="0" width="710" scrolling="no"
+                                    src="meetingattendlist.jsp"
                                     id="frame_content"></iframe>
                             <!--引数参会人员数据-->
                         </div>
