@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,10 +20,10 @@
 <!--header部分 start-->
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg"></a></div>
+        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg" alt=""/></a></div>
+        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
+        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
+                src="../images/mark2.jpg" alt=""></a></div>
         <div style="clear:both;"></div>
     </div>
 </div>
@@ -35,7 +36,7 @@
         <div class="prs_left">
             <div class="prs_le1">
                 <div class="prs_le_1">
-                    <img src="../images/cat.jpg"/>
+                    <img src="../images/cat.jpg" alt=""/>
                 </div>
                 <div class="prs_le_2">
                     <div class="prs_le_21"><input name="" type="file" class="ipt_file"/></div>
@@ -54,7 +55,7 @@
                                                                                     href="persontcaiwu.action">财务中心</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="prs_order.html">订单管理</a></li>
+                                                                                    href="personorder.action">订单管理</a></li>
                         <li class="prs_clk" id="prs_5" onclick="prs_show(this.id)"><a class="li_aClk" href="#">我的航程</a>
                         </li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
@@ -73,7 +74,7 @@
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;我的航程</span></div>
                     <div class="prs_rt1_2" id="pack1_5"><img src="../images/per_hid.jpg" style="margin-top:3px;"
-                                                             id="pack_5" onclick="cont_disp(this.id);"/>&nbsp;</div>
+                                                             id="pack_5" onclick="cont_disp(this.id);" alt=""/>&nbsp;</div>
                 </div>
                 <!--我的航程 over-->
                 <!--我的航程内容-->
@@ -81,7 +82,7 @@
                     <div class="prs_voyage">
                         <!--航程头部-->
                         <div class="prs_voyage1">
-                            <p>总飞行公里数：<span style="color:#f00; font-size:14px; font-weight:bold">1000</span>公里</span>
+                            <p>总飞行公里数：<span style="color:#f00; font-size:14px; font-weight:bold">1000</span>公里
                                 <span style="margin-left:40px;">总飞行时长<span
                                         style="color:#f00; font-size:14px; font-weight:bold">20</span>小时<span
                                         style="color:#f00; font-size:14px; font-weight:bold">15</span>分钟</span></p>

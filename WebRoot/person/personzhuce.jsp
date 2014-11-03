@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -22,10 +23,10 @@
 <!--header部分 start-->
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg"></a></div>
+        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg" alt=""/></a></div>
+        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
+        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
+                src="../images/mark2.jpg" alt=""></a></div>
         <div style="clear:both;"></div>
     </div>
 </div>
@@ -108,7 +109,7 @@
                         <div class="u_1">邀请码：</div>
                         <div class="u_2"><input type="text" name="u_weck" class="u_2_1" id="u_weck"
                                                 onfocus="ck_Weck(this.id)" onkeyup="ck_Weck(this.id)"/></div>
-                        <div style="u_3"></div>
+                        <div class="u_3"></div>
                         <div class="u_6" id="ck_weck"></div>
                     </div>
                     <!--邀请码 over-->
@@ -118,7 +119,7 @@
                         <div class="u_2"><input type="text" name="u_code" class="u_2_1" id="u_code"
                                                 onkeyup="ck_Code(this.id)" onfocus="ck_Code(this.id)"/></div>
                         <div class="u_6" id="ck_code"></div>
-                        <div class="u_4"><img src="../images/res_code.jpg" style="margin-top:4px; cursor:pointer;"/>
+                        <div class="u_4"><img src="../images/res_code.jpg" style="margin-top:4px; cursor:pointer;" alt=""/>
                         </div>
                     </div>
                     <!--验证码 over-->
@@ -146,7 +147,7 @@
                     </div>
                     <div class="reg_MR2_1">
                         <div style="float:left; width:289px; height:116px; margin-top:10px; display:inline;"><img
-                                src="../images/res_imgair.jpg"/></div>
+                                src="../images/res_imgair.jpg" alt=""/></div>
                     </div>
                 </div>
             </div>

@@ -41,6 +41,9 @@
             <result name="success">/meeting/meetingbasic.jsp</result>
             <result name="faild">/person/personzhuce.jsp</result>
         </action>
+        <action name="personorder" class="personorder">
+            <result name="success">/person/personorder.jsp</result>
+        </action>
         <action name="meetingchuli" class="meetingchuli">
             <result name="success">/meeting/meetingbasic.jsp</result>
         </action>

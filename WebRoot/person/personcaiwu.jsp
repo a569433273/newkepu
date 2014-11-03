@@ -1,3 +1,4 @@
+<%--suppress ALL --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -61,7 +62,7 @@
                         <li class="prs_clk" id="prs_3" onclick="prs_show(this.id)"><a class="li_aClk" href="#">财务中心</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="prs_order.html">订单管理</a></li>
+                                                                                    href="personorder.actoonl">订单管理</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="persontmyflight.action">我的航程</a>
                         </li>
