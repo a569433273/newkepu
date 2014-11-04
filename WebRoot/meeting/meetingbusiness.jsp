@@ -79,6 +79,7 @@
                 <!--商务头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;商务资讯</span></div>
+                    <div class="prs_comm_adinf"><div class="comm_add1"><a href=""><img src="../images/mComm_addimg.jpg"/></a></div><div class="comm_add2"><p>(添加商务资讯信息)</p></div></div>
                 </div>
                 <!--商务头部 over-->
                 <!--我的会议内容-->
@@ -111,10 +112,11 @@
                                             <!--标题-->
                                             <div class="mComm3_1">
                                                 <p><span style="color:#f00; font-size:14px;"><s:property
-                                                        value="#status.count"/></span> <a href=""><s:property
-                                                        value="zixun_biaoti"></s:property></a><span
+                                                        value="#status.count"/></span><s:property
+                                                        value="zixun_biaoti"></s:property><span
                                                         style="color:#545454; font-size:12px; font-weight:normal;">[<s:property
-                                                        value="zixun_date"></s:property>]</span></p>
+                                                        value="zixun_date"></s:property>]</span><span><a href="m_comm_detail.html">查看详情</a></span></p>
+
                                             </div>
                                             <!--标题over-->
                                             <!--内容部分-->

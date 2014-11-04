@@ -13,6 +13,7 @@
     <script src="../js/prs_show.js"></script>
     <!--点击左部右部出现内容-->
     <script src="../js/page.js"></script>
+    <script type="text/javascript" src="../js/notice_popup.js"></script>
     <!--分页效果-->
 </head>
 <body onload="goPage(1,10,1)">
@@ -34,7 +35,7 @@
     <ul>
         <li><a href="">首页</a></li>
         <li><a href="">航空订票</a></li>
-        <li><a href="index.html">会议管理</a></li>
+        <li><a href="#">会议管理</a></li>
         <li><a href="">目的地服务</a></li>
         <li><a href="">商务礼品</a></li>
     </ul>
@@ -89,7 +90,7 @@
                                 <tr style="width:0px; height:0px;">
                                     <td style="width:0px; height:0px;"></td>
                                 </tr>
-                                <s:iterator value="huiyijinjitongzhis">
+                                <s:iterator value="huiyijinjitongzhis" status="status">
                                     <tr>
                                         <td>
                                             <div class="m_Notice1_1">
@@ -97,7 +98,7 @@
                                                 <div class="m_Ntc1_1"><img src="../images/Mnotice_img1.jpg"/></div>
                                                 <!--小图标 over-->
                                                 <!--文字-->
-                                                <div class="m_Ntc1_2"><p>&nbsp;<a href=""><s:property
+                                                <div class="m_Ntc1_2"><p>&nbsp;<a href="" id="Mnot_detail_<s:property value='#status.count'/>" onclick="return notice_popup(this.id)"><s:property
                                                         value="hyjjtz_nr"></s:property></a></p></div>
                                                 <!--文字 over-->
                                                 <!--时间日期-->
@@ -128,6 +129,24 @@
 <!--中间内容 over-->
 <!--商务资讯 over-->
 <!--foodter-->
+<!--搜索弹出框-->
+<div class="mNotice_div" >
+    <!--头部-->
+    <div class="mNt_1"  id="mNt_1">
+        <div class="mNt1_1"><span>&nbsp;通知详情</span></div>
+        <div class="mNt1_2"><img src="../images/closebox.png" style="cursor:pointer;" onclick="noticed_close()"/></div>
+    </div>
+    <!--头部over-->
+    <!--内容-->
+    <div class="mNt_2" id="mNt_2">
+        <div class="mNt2_1" >
+            <p id="mNt2_1">青海导游吕玉青海导游吕玉龙18997268728青海导游吕玉龙8997268728青海导游吕玉龙18997268728青海导游吕玉龙18997268728青海导游吕玉龙18997268728</p>
+        </div>
+    </div>
+    <!--内容over-->
+</div>
+<div id="z_h"></div>
+<!--搜索弹出框-->
 <div class="total1">
     <div class="sear_footer">
         <div class="sear_footer1" style="margin-left:50px;">

@@ -58,12 +58,12 @@
                                                                                     href="persontravller.actionl">常用乘机人</a>
                         </li>
                         <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontcaiwu.action">财务中心</a>
+                                                                                    href="personcaiwu.action">财务中心</a>
                         </li>
                         <li class="prs_clk" id="prs_4" onclick="prs_show(this.id)"><a class="li_aClk" href="#">订单管理</a>
                         </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontmyflight.action">我的航程</a>
+                                                                                    href="personmyflight.action">我的航程</a>
                         </li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_meeting.html">我的会议</a>
@@ -153,10 +153,10 @@
                                             <td width="5%"><input name="ord_sl" type="radio" value=""/></td>
                                             <td width="15%" style="cursor:pointer;" id="ord_mg1" onclick="ord_dmsg()">
                                                 <span class="s_pcb"><a
-                                                        href="order_detail.html">AS2014061145179</a></span></td>
+                                                        href="personorderdetail.action?theorder=<s:property value='order_id'></s:property>"><s:property value="order_id"></s:property></a></span></td>
                                             <td width="5%" id="ord_mg1_ty">单程</td>
                                             <td width="8%" id="ord_mg1_anm"><s:property
-                                                    value="flight_company"></s:property></td>
+                                                    value="flight_tpm"></s:property></td>
                                             <td width="13%" id="ord_mg1_arl"><s:property
                                                     value="flight_from"></s:property><br/> 到 <br/><s:property
                                                     value="flight_arrival"></s:property></td>
@@ -164,7 +164,7 @@
                                                     value="flight_from_date"></s:property><s:property
                                                     value="flight_from_time"></s:property></td>
                                             <td width="8%" id="ord_mg1_arno"><s:property
-                                                    value="flight_tpm"></s:property><s:property
+                                                    value="flight_company"></s:property><s:property
                                                     value="flight_id"></s:property></td>
                                             <td width="8%" id="ord_mg1_artl"><s:property
                                                     value="order_price"></s:property></td>

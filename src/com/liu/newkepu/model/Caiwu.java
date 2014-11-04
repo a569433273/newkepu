@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "kepu_vmercord")
+@Table(name = "kepu_vmrecord")
 public class Caiwu {
     private String vmrecord_id;
     private String vmrecord_zhanghao;

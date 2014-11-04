@@ -3,48 +3,52 @@ package com.liu.newkepu.action;
 import com.liu.newkepu.dao.FlightnameDao;
 import com.liu.newkepu.dao.HangkonggsDao;
 import com.liu.newkepu.dao.OrderDao;
+import com.liu.newkepu.dao.PassengerDao;
 import com.liu.newkepu.model.Hangkonggs;
 import com.liu.newkepu.model.Order;
+import com.liu.newkepu.model.Passenger;
 import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import org.apache.struts2.ServletActionContext;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-@Component("personorder")
-public class personorder extends ActionSupport implements ModelDriven<Object>{
+@Component("personorderdetail")
+public class personorderdetail extends ActionSupport implements ModelDriven<Object>{
     private searchInfo searchInfo = new searchInfo();
 
     @Resource
     private OrderDao orderDao;
 
     @Resource
-    private FlightnameDao flightnameDao;
-
-    private List<Order> orders;
+    private PassengerDao passengerDao;
 
     @Resource
-    private SessionFactory sessionFactory;
+    private FlightnameDao flightnameDao;
 
     @Resource
     private HangkonggsDao hangkonggsDao;
 
+    @Resource
+    private SessionFactory sessionFactory;
+
+    private List<Order> orders;
+
+    private List<Passenger> passengers;
+
     @Override
     public String execute() throws Exception {
-        HttpServletRequest request = ServletActionContext.getRequest();
-        orders = orderDao.findBymember_id(request.getSession().getAttribute("member_id").toString());
+        orders = orderDao.findByorder_id(searchInfo.getTheorder());
+        passengers = passengerDao.findByorder_id(searchInfo.getTheorder());
         for (Order order : orders) {
             sessionFactory.getCurrentSession().evict(order);
             List<Hangkonggs> hangkonggses = hangkonggsDao.findBycode(order.getFlight_company());
             order.setFlight_tpm(hangkonggses.get(0).getGongsiname());
-            order.setFlight_from(flightnameDao.findBysanzima(order.getFlight_from()).getChengshi());
-            order.setFlight_arrival(flightnameDao.findBysanzima(order.getFlight_arrival()).getChengshi());
+            order.setFlight_from(flightnameDao.findBysanzima(order.getFlight_from()).getJichang());
+            order.setFlight_arrival(flightnameDao.findBysanzima(order.getFlight_arrival()).getJichang());
             switch (order.getOrder_state()) {
                 case 0:
                     order.setBack_tpm("未确认");
@@ -101,5 +105,13 @@ public class personorder extends ActionSupport implements ModelDriven<Object>{
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(List<Passenger> passengers) {
+        this.passengers = passengers;
     }
 }

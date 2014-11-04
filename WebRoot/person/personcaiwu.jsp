@@ -9,6 +9,7 @@
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <link href="../css/person_ctr.css" rel="stylesheet" type="text/css"/>
     <link href="../css/doubleDate.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/meeting.css" rel="stylesheet" type="text/css" />
     <!--日历样式-->
     <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
     <script type="text/javascript" src="../js/page1.js"></script>
@@ -28,14 +29,26 @@
 <!--header部分 start-->
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg"></a></div>
+        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg" alt=""/></a></div>
+        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
+        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
+                src="../images/mark2.jpg" alt=""></a></div>
         <div style="clear:both;"></div>
     </div>
 </div>
 <!--header部分 over-->
+<p>&nbsp;</p>
+<!--nav-->
+<div class="meeting_nav">
+    <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../plane/search_air.html">航空订票</a></li>
+        <li><a href="index.html">会议管理</a></li>
+        <li><a href="">目的地服务</a></li>
+        <li><a href="">商务礼品</a></li>
+    </ul>
+</div>
+<!--nav over-->
 <p>&nbsp;</p>
 <!--中部-->
 <form action="#" method="post" name="">
@@ -44,7 +57,7 @@
         <div class="prs_left">
             <div class="prs_le1">
                 <div class="prs_le_1">
-                    <img src="../images/cat.jpg"/>
+                    <img src="../images/cat.jpg" alt=""/>
                 </div>
                 <div class="prs_le_2">
                     <div class="prs_le_21"><input name="" type="file" class="ipt_file"/></div>
@@ -64,7 +77,7 @@
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="personorder.actoonl">订单管理</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontmyflight.action">我的航程</a>
+                                                                                    href="personmyflight.action">我的航程</a>
                         </li>
                         <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="prs_meeting.html">我的会议</a>
@@ -82,7 +95,7 @@
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;财务中心</span></div>
                     <div class="prs_rt1_2" id="pack1_3"><img src="../images/per_hid.jpg" style="margin-top:3px;"
-                                                             id="pack_3" onclick="cont_disp(this.id);"/>&nbsp;</div>
+                                                             id="pack_3" onclick="cont_disp(this.id);" alt=""/>&nbsp;</div>
                 </div>
                 <!--财务头部头部 over-->
                 <!--财务内容-->

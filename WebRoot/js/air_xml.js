@@ -49,9 +49,9 @@ $(document)
                     var TPM = $(this).children('TPM').text();
                     var TPM_int = parseInt(TPM);
                     if (TPM_int >= 800) {
-                        var tmp_ioil = 110;
+                        var tmp_ioil = 70;
                     } else {
-                        var tmp_ioil = 60;
+                        var tmp_ioil = 40;
                     }//油价
                     var FlightNo = $(this).children('FlightNo').text();
                     var FlightNo = Carrier + FlightNo;//航班号

@@ -80,6 +80,9 @@ public class searchInfo {
     private int Mdet_money;
     private int chuliid;
 
+    //订单管理页面传来的值
+    private String theorder;
+
     public String getUsername() {
         return username;
     }
@@ -594,6 +597,14 @@ public class searchInfo {
 
     public void setChuliid(int chuliid) {
         this.chuliid = chuliid;
+    }
+
+    public String getTheorder() {
+        return theorder;
+    }
+
+    public void setTheorder(String theorder) {
+        this.theorder = theorder;
     }
 }
 

@@ -85,6 +85,7 @@
                 <!--会议照片头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;会议照片</span></div>
+                    <div class="mphoto_up1"><div class="mph_up1_1"><input name="" type="file" title="仅支持jpg,png格式图片" class="up_file" size="5"/></div><div class="mph_up1_2"><p>(仅支持jpg,png格式图片)</p></div></div>
                 </div>
                 <!--会议照片头部 over-->
                 <!--会议照片内容-->

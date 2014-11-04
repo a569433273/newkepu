@@ -75,6 +75,7 @@
                     <div class="prs_rt1_1"><span>&nbsp;机票订单详情</span></div>
                 </div>
                 <!--订单头部 over-->
+                <s:iterator value="orders">
                 <!--订单管理内容-->
                 <div class="prs_fna" id="pack4">
                     <!--查看详细内容部分-->
@@ -84,10 +85,10 @@
                         <!--订单头部 over-->
                         <!--订单金额-->
                         <div class="prs_ordmg1_2" id="prs_ordmg1_2">
-                            <p><span>订单金额:</span><span style="font-size:14px; color:#f00;">1000</span><span
+                            <p><span>订单金额:</span><span style="font-size:14px; color:#f00;"><s:property value="order_price"></s:property></span><span
                                     style="margin-left:60px;">订单状态：</span><span
-                                    style="font-size:14px; color:#f00;">已出票</span><span
-                                    style="margin-left:60px;">PNR:</span><span style="font-size:14px; color:#f00;">JTVXTD</span>
+                                    style="font-size:14px; color:#f00;"><s:property value="back_tpm"></s:property></span><span
+                                    style="margin-left:60px;">PNR:</span><span style="font-size:14px; color:#f00;"><s:property value="peoplePNR"></s:property></span>
                             </p>
                         </div>
                         <!--订单金额 over-->
@@ -110,16 +111,16 @@
                                         <td width="10%">退改签</td>
                                     </tr>
                                     <tr align="center" height="50">
-                                        <td width="12%">中国国际航空</td>
-                                        <td width="8%">CA601</td>
-                                        <td width="5%">Y</td>
-                                        <td width="13%">北京首都机场</td>
-                                        <td width="13%">沈阳机场机场</td>
-                                        <td width="10%">2014-01-02<br/>06:20</td>
-                                        <td width="10%">2014-01-02<br/>09:20</td>
-                                        <td width="5%">32A</td>
+                                        <td width="12%"><s:property value="flight_tpm"></s:property></td>
+                                        <td width="8%"><s:property value="flight_company"></s:property><s:property value="flight_id"></s:property></td>
+                                        <td width="5%"><s:property value="flight_position"></s:property></td>
+                                        <td width="13%"><s:property value="flight_from"></s:property></td>
+                                        <td width="13%"><s:property value="flight_arrival"></s:property></td>
+                                        <td width="10%"><s:property value="flight_from_date"></s:property><br/><s:property value="flight_from_time"></s:property></td>
+                                        <td width="10%"><s:property value="flight_arrival_date"></s:property><br/><s:property value="flight_arrival_time"></s:property></td>
+                                        <td width="5%"><s:property value="flight_type"></s:property></td>
                                         <td width="8%">3.0%</td>
-                                        <td width="8%">1000</td>
+                                        <td width="8%"><s:property value="order_price"></s:property></td>
                                         <td width="10%" style="cursor:pointer; color:#0065ce;" id="ord_detail1"
                                             onmouseover="disp_ordmg()" onmouseout="hid_ordmg()">查看详情
                                         </td>
@@ -153,8 +154,9 @@
                                         <td width="15%">意外险保单号</td>
                                         <td width="15%">票号</td>
                                     </tr>
+                                    <s:iterator value="passengers">
                                     <tr align="center" height="50">
-                                        <td width="10%">李一一</td>
+                                        <td width="10%"><s:property value="passenger_name"></s:property></td>
                                         <td width="8%">成人</td>
                                         <td width="8%">身份证</td>
                                         <td width="15%">2130929199021452581</td>
@@ -164,6 +166,7 @@
                                         <td width="15%">AS2014061145179</td>
                                         <td width="15%">AS2014061145179</td>
                                     </tr>
+                                    </s:iterator>
                                 </table>
                             </div>
                         </div>
@@ -195,6 +198,7 @@
                 <!--订单管理内容 over-->
             </div>
             <!--订单管理 over-->
+            </s:iterator>
         </div>
         <div style="clear:both;"></div>
     </div>

@@ -81,6 +81,7 @@
                 <!--议题和日程头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;议题和日程</span></div>
+                    <div class="prs_comm_adinf"><div class="comm_add1"><a href=""><img src="../images/mComm_addimg.jpg"/></a></div><div class="comm_add2"><p>(添加议题日程信息)</p></div></div>
                 </div>
                 <!--议题和日程头部 over-->
                 <!--议题内容-->
