@@ -1,7 +1,9 @@
 package com.liu.newkepu.dao;
 
-/**
- * Created by Administrator on 2014/11/5.
- */
-public class ssDao {
+import com.liu.newkepu.model.Hangkonggs;
+
+import java.util.List;
+
+public interface ssDao {
+    public List<Hangkonggs> findBycode(String code);
 }
