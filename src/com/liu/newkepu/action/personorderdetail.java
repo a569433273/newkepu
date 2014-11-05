@@ -35,15 +35,16 @@ public class personorderdetail extends ActionSupport implements ModelDriven<Obje
     @Resource
     private SessionFactory sessionFactory;
 
-    private List<Order> orders;
+    private List<Order> ordersdetail;
 
     private List<Passenger> passengers;
 
     @Override
     public String execute() throws Exception {
-        orders = orderDao.findByorder_id(searchInfo.getTheorder());
+        ordersdetail = orderDao.findByorder_id(searchInfo.getTheorder());
         passengers = passengerDao.findByorder_id(searchInfo.getTheorder());
-        for (Order order : orders) {
+
+        for (Order order : ordersdetail) {
             sessionFactory.getCurrentSession().evict(order);
             List<Hangkonggs> hangkonggses = hangkonggsDao.findBycode(order.getFlight_company());
             order.setFlight_tpm(hangkonggses.get(0).getGongsiname());
@@ -99,12 +100,12 @@ public class personorderdetail extends ActionSupport implements ModelDriven<Obje
         return searchInfo;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<Order> getOrdersdetail() {
+        return ordersdetail;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setOrdersdetail(List<Order> ordersdetail) {
+        this.ordersdetail = ordersdetail;
     }
 
     public List<Passenger> getPassengers() {

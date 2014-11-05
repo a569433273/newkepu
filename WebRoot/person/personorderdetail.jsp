@@ -75,7 +75,7 @@
                     <div class="prs_rt1_1"><span>&nbsp;机票订单详情</span></div>
                 </div>
                 <!--订单头部 over-->
-                <s:iterator value="orders">
+                <s:iterator value="ordersdetail">
                 <!--订单管理内容-->
                 <div class="prs_fna" id="pack4">
                     <!--查看详细内容部分-->
@@ -85,10 +85,14 @@
                         <!--订单头部 over-->
                         <!--订单金额-->
                         <div class="prs_ordmg1_2" id="prs_ordmg1_2">
-                            <p><span>订单金额:</span><span style="font-size:14px; color:#f00;"><s:property value="order_price"></s:property></span><span
+                            <p><span>订单金额:</span><span style="font-size:14px; color:#f00;"><s:property
+                                    value="order_price"></s:property></span><span
                                     style="margin-left:60px;">订单状态：</span><span
-                                    style="font-size:14px; color:#f00;"><s:property value="back_tpm"></s:property></span><span
-                                    style="margin-left:60px;">PNR:</span><span style="font-size:14px; color:#f00;"><s:property value="peoplePNR"></s:property></span>
+                                    style="font-size:14px; color:#f00;"><s:property
+                                    value="back_tpm"></s:property></span><span
+                                    style="margin-left:60px;">PNR:</span><span
+                                    style="font-size:14px; color:#f00;"><s:property
+                                    value="peoplePNR"></s:property></span>
                             </p>
                         </div>
                         <!--订单金额 over-->
@@ -112,12 +116,17 @@
                                     </tr>
                                     <tr align="center" height="50">
                                         <td width="12%"><s:property value="flight_tpm"></s:property></td>
-                                        <td width="8%"><s:property value="flight_company"></s:property><s:property value="flight_id"></s:property></td>
+                                        <td width="8%"><s:property value="flight_company"></s:property><s:property
+                                                value="flight_id"></s:property></td>
                                         <td width="5%"><s:property value="flight_position"></s:property></td>
                                         <td width="13%"><s:property value="flight_from"></s:property></td>
                                         <td width="13%"><s:property value="flight_arrival"></s:property></td>
-                                        <td width="10%"><s:property value="flight_from_date"></s:property><br/><s:property value="flight_from_time"></s:property></td>
-                                        <td width="10%"><s:property value="flight_arrival_date"></s:property><br/><s:property value="flight_arrival_time"></s:property></td>
+                                        <td width="10%"><s:property
+                                                value="flight_from_date"></s:property><br/><s:property
+                                                value="flight_from_time"></s:property></td>
+                                        <td width="10%"><s:property
+                                                value="flight_arrival_date"></s:property><br/><s:property
+                                                value="flight_arrival_time"></s:property></td>
                                         <td width="5%"><s:property value="flight_type"></s:property></td>
                                         <td width="8%">3.0%</td>
                                         <td width="8%"><s:property value="order_price"></s:property></td>
@@ -155,17 +164,30 @@
                                         <td width="15%">票号</td>
                                     </tr>
                                     <s:iterator value="passengers">
-                                    <tr align="center" height="50">
-                                        <td width="10%"><s:property value="passenger_name"></s:property></td>
-                                        <td width="8%">成人</td>
-                                        <td width="8%">身份证</td>
-                                        <td width="15%">2130929199021452581</td>
-                                        <td width="8%">1份</td>
-                                        <td width="15%">AS2014061145179</td>
-                                        <td width="8%">1份</td>
-                                        <td width="15%">AS2014061145179</td>
-                                        <td width="15%">AS2014061145179</td>
-                                    </tr>
+                                        <tr align="center" height="50">
+                                            <td width="10%"><s:property value="passenger_name"></s:property></td>
+                                            <s:if test="passenger_type == 0">
+                                                <td width="8%">成人</td>
+                                            </s:if>
+                                            <s:else>
+                                                <td width="8%">儿童</td>
+                                            </s:else>
+                                            <s:if test="passenger_paperstype == 0">
+                                                <td width="8%">身份证</td>
+                                            </s:if>
+                                            <s:elseif test="passenger_paperstype == 1">
+                                                <td width="8%">护照</td>
+                                            </s:elseif>
+                                            <s:elseif test="passenger_paperstype == 4">
+                                                <td width="8%">其他</td>
+                                            </s:elseif>
+                                            <td width="15%"><s:property value="passenger_papernum"></s:property></td>
+                                            <td width="8%"><s:property value="passenger_hangyixian"></s:property>份</td>
+                                            <td width="15%"><s:property value="passenger_hangyixianhao"></s:property></td>
+                                            <td width="8%"><s:property value="passenger_yanwuxian"></s:property>份</td>
+                                            <td width="15%"><s:property value="passenger_yanwuxianhao"></s:property></td>
+                                            <td width="15%"><s:property value="passenger_ticketnum"></s:property></td>
+                                        </tr>
                                     </s:iterator>
                                 </table>
                             </div>
@@ -183,9 +205,9 @@
                                         <td width="50%"></td>
                                     </tr>
                                     <tr align="center" height="50">
-                                        <td width="10%">李一一</td>
-                                        <td width="13%">18725845962</td>
-                                        <td width="13%">785688552@qq.com</td>
+                                        <td width="10%"><s:property value="flight_lxr"></s:property></td>
+                                        <td width="13%"><s:property value="flight_lxrdh"></s:property></td>
+                                        <td width="13%"><s:property value="flight_lxryx"></s:property></td>
                                         <td width="50%"></td>
                                     </tr>
                                 </table>
