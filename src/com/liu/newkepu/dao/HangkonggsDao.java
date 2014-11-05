@@ -4,6 +4,6 @@ import com.liu.newkepu.model.Hangkonggs;
 
 import java.util.List;
 
-public interface ssDao {
+public interface HangkonggsDao {
     public List<Hangkonggs> findBycode(String code);
 }
