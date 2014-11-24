@@ -7,6 +7,7 @@ import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -20,6 +21,9 @@ public class searchmeetingbus extends ActionSupport implements ModelDriven<Objec
     @Resource
     private ZixunDao zixunDao;
 
+    @Resource
+    private SessionFactory sessionFactory;
+
     private List<Zixun> zixuns;
 
     @Override
@@ -29,6 +33,7 @@ public class searchmeetingbus extends ActionSupport implements ModelDriven<Objec
         zixuns = zixunDao.findBymember_id(request.getSession().getAttribute("meeting_id").toString());
         if (zixuns.size() > 0) {
             for (Zixun zixun : zixuns) {
+                sessionFactory.getCurrentSession().evict(zixun);
                 int firstp = zixun.getZixun_neirong().indexOf("</p>");
                 List<String> thestt = zhengzeUtil.zhengze(zixun.getZixun_neirong().substring(0, firstp), "[\\u4e00-\\u9fa5]");
                 if (thestt.size() > 0) {

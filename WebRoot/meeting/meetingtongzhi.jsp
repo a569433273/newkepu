@@ -9,10 +9,10 @@
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <link href="../css/meeting.css" rel="stylesheet" type="text/css"/>
     <link href="../css/person_ctr.css" rel="stylesheet" type="text/css"/>
-    <script src="../js/jquery-1.6.4.js"></script>
-    <script src="../js/prs_show.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="../js/prs_show.js"></script>
     <!--点击左部右部出现内容-->
-    <script src="../js/page.js"></script>
+    <script type="text/javascript" src="../js/page.js"></script>
     <script type="text/javascript" src="../js/notice_popup.js"></script>
     <!--分页效果-->
 </head>
@@ -20,9 +20,9 @@
 <!--header部分 start-->
 <div class="total">
     <div class="header">
-        <div class="logo"><a href="../index.html"><img src="../images/logo.jpg"/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg"/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
+        <div class="logo"><a href="../index.html"><img src="../images/logo.jpg" alt=""/></a></div>
+        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
+        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
                 src="../images/mark2.jpg"></a></div>
         <div style="clear:both;"></div>
     </div>
@@ -95,7 +95,7 @@
                                         <td>
                                             <div class="m_Notice1_1">
                                                 <!--小图标-->
-                                                <div class="m_Ntc1_1"><img src="../images/Mnotice_img1.jpg"/></div>
+                                                <div class="m_Ntc1_1"><img src="../images/Mnotice_img1.jpg" alt=""/></div>
                                                 <!--小图标 over-->
                                                 <!--文字-->
                                                 <div class="m_Ntc1_2"><p>&nbsp;<a href="" id="Mnot_detail_<s:property value='#status.count'/>" onclick="return notice_popup(this.id)"><s:property
@@ -134,13 +134,13 @@
     <!--头部-->
     <div class="mNt_1"  id="mNt_1">
         <div class="mNt1_1"><span>&nbsp;通知详情</span></div>
-        <div class="mNt1_2"><img src="../images/closebox.png" style="cursor:pointer;" onclick="noticed_close()"/></div>
+        <div class="mNt1_2"><img src="../images/closebox.png" style="cursor:pointer;" onclick="noticed_close()" alt=""/></div>
     </div>
     <!--头部over-->
     <!--内容-->
     <div class="mNt_2" id="mNt_2">
         <div class="mNt2_1" >
-            <p id="mNt2_1">青海导游吕玉青海导游吕玉龙18997268728青海导游吕玉龙8997268728青海导游吕玉龙18997268728青海导游吕玉龙18997268728青海导游吕玉龙18997268728</p>
+            <p id="mNt2_1"></p>
         </div>
     </div>
     <!--内容over-->

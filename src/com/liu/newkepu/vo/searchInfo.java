@@ -66,6 +66,16 @@ public class searchInfo {
     private String pu_date;
     private String pu_resu;
 
+    //会议发起页面传来的值
+    private String Minti_depart;
+    private String Minti_name;
+    private String Minti_city;
+    private String Minti_where;
+    private int Minti_pnum;
+    private String Minti_date;
+    private int Minti_dnum;
+    private int Minti_money;
+
     //会议搜索页面传来的值
     private String Mt_nm;
 
@@ -79,6 +89,12 @@ public class searchInfo {
     private int Mdet_partnum;
     private int Mdet_money;
     private int chuliid;
+
+    //会议商务咨询点击查看详情传来的值
+    private String zxid;
+
+    //会议议题日程点击查看详情传来的值
+    private String tzid;
 
     //订单管理页面传来的值
     private String theorder;
@@ -519,6 +535,70 @@ public class searchInfo {
         this.pu_resu = pu_resu;
     }
 
+    public String getMinti_depart() {
+        return Minti_depart;
+    }
+
+    public void setMinti_depart(String minti_depart) {
+        Minti_depart = minti_depart;
+    }
+
+    public String getMinti_name() {
+        return Minti_name;
+    }
+
+    public void setMinti_name(String minti_name) {
+        Minti_name = minti_name;
+    }
+
+    public String getMinti_city() {
+        return Minti_city;
+    }
+
+    public void setMinti_city(String minti_city) {
+        Minti_city = minti_city;
+    }
+
+    public String getMinti_where() {
+        return Minti_where;
+    }
+
+    public void setMinti_where(String minti_where) {
+        Minti_where = minti_where;
+    }
+
+    public int getMinti_pnum() {
+        return Minti_pnum;
+    }
+
+    public void setMinti_pnum(int minti_pnum) {
+        Minti_pnum = minti_pnum;
+    }
+
+    public String getMinti_date() {
+        return Minti_date;
+    }
+
+    public void setMinti_date(String minti_date) {
+        Minti_date = minti_date;
+    }
+
+    public int getMinti_dnum() {
+        return Minti_dnum;
+    }
+
+    public void setMinti_dnum(int minti_dnum) {
+        Minti_dnum = minti_dnum;
+    }
+
+    public int getMinti_money() {
+        return Minti_money;
+    }
+
+    public void setMinti_money(int minti_money) {
+        Minti_money = minti_money;
+    }
+
     public String getMt_nm() {
         return Mt_nm;
     }
@@ -597,6 +677,22 @@ public class searchInfo {
 
     public void setChuliid(int chuliid) {
         this.chuliid = chuliid;
+    }
+
+    public String getZxid() {
+        return zxid;
+    }
+
+    public void setZxid(String zxid) {
+        this.zxid = zxid;
+    }
+
+    public String getTzid() {
+        return tzid;
+    }
+
+    public void setTzid(String tzid) {
+        this.tzid = tzid;
     }
 
     public String getTheorder() {

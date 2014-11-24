@@ -53,8 +53,14 @@
         <action name="searchmeetingbus" class="searchmeetingbus">
             <result name="success">/meeting/meetingbusiness.jsp</result>
         </action>
+        <action name="meetingbusdetail" class="meetingbusdetail">
+            <result name="success">/meeting/meetingbusdetail.jsp</result>
+        </action>
         <action name="meetingricheng" class="meetingricheng">
             <result name="success">/meeting/meetingagenda.jsp</result>
+        </action>
+        <action name="meetingrichengdetail" class="meetingrichengdetail">
+            <result name="success">/meeting/meetingagendadetail.jsp</result>
         </action>
         <action name="meetingtongzhi" class="meetingtongzhi">
             <result name="success">/meeting/meetingtongzhi.jsp</result>
@@ -64,6 +70,10 @@
         </action>
         <action name="meetingattend" class="meetingattend">
             <result name="success">/meeting/meetingattend.jsp</result>
+        </action>
+        <action name="meetingopen" class="meetingopen">
+            <result name="success">/meeting/meetingbasic.jsp</result>
+            <result name="faild">/index.jsp</result>
         </action>
     </package>
 </struts>

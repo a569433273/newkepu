@@ -21,6 +21,12 @@ public class HuiyitongzhiDaoImpl implements HuiyitongzhiDao {
     }
 
     @Override
+    public List<Huiyitongzhi> findByhytzid(String hytzid) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Huiyitongzhi h where h.hytz_id='" + hytzid + "'");
+        return query.list();
+    }
+
+    @Override
     public List<Huiyitongzhi> findBymember_id(String member_id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Huiyitongzhi h where h.hytz_meeting_id='" + member_id + "'");
         return query.list();
