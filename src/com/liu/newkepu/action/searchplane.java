@@ -293,6 +293,9 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                             classElement.addAttribute("Price", fdprices.get(i)
                                     .getPrice());
                             classElement.addAttribute("Ext", "");
+                            classElement.addAttribute("tuipiao", "");
+                            classElement.addAttribute("gaiqi", "");
+                            classElement.addAttribute("qianzhuan", "");
                         }
                     }
                 }
@@ -346,6 +349,9 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                                             pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
                                             classElement.addAttribute("Price", String.valueOf(pricess));
                                             classElement.addAttribute("Ext", "");
+                                            classElement.addAttribute("tuipiao", cuxiaozhengce.getCxzc_tuipiao());
+                                            classElement.addAttribute("gaiqi", cuxiaozhengce.getCxzc_gaiqian());
+                                            classElement.addAttribute("qianzhuan", cuxiaozhengce.getCxzc_qianzhuan());
                                         }
                                     }
                                 }
@@ -370,15 +376,21 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
         for (Iterator<?> iterator = classes.elementIterator(); iterator
                 .hasNext(); ) {
             Element tgq = (Element) iterator.next();
-            tgq.addAttribute("tuipiao", "");
-            tgq.addAttribute("gaiqi", "");
-            tgq.addAttribute("qianzhuan", "");
+//            tgq.addAttribute("tuipiao", "");
+//            tgq.addAttribute("gaiqi", "");
+//            tgq.addAttribute("qianzhuan", "");
             for (int i = 0; i < tuigais.size(); i++) {
                 if (tgq.attributeValue("Code").equals(
                         tuigais.get(i).getCangwei())) {
-                    tgq.addAttribute("tuipiao", tuigais.get(i).getTuipiao());
-                    tgq.addAttribute("gaiqi", tuigais.get(i).getGaiqi());
-                    tgq.addAttribute("qianzhuan", tuigais.get(i).getQianzhuan());
+                    if (tgq.attribute("tupiao").getValue().equals("")) {
+                        tgq.addAttribute("tuipiao", tuigais.get(i).getTuipiao());
+                    }
+                    if (tgq.attribute("gaiqi").getValue().equals("")) {
+                        tgq.addAttribute("gaiqi", tuigais.get(i).getGaiqi());
+                    }
+                    if (tgq.attribute("qianzhuan").getValue().equals("")) {
+                        tgq.addAttribute("qianzhuan", tuigais.get(i).getQianzhuan());
+                    }
                 }
             }
         }
