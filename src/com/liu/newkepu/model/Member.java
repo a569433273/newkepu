@@ -31,6 +31,7 @@ public class Member {
     private String member_yqm;
     private String member_hyyqm;
     private String member_zuoji;
+    private int member_shstate;
 
     @Id
     public String getMember_id() {
@@ -223,5 +224,13 @@ public class Member {
 
     public void setMember_zuoji(String member_zuoji) {
         this.member_zuoji = member_zuoji;
+    }
+
+    public int getMember_shstate() {
+        return member_shstate;
+    }
+
+    public void setMember_shstate(int member_shstate) {
+        this.member_shstate = member_shstate;
     }
 }

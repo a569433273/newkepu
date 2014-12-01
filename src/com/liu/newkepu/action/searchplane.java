@@ -11,8 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.liu.newkepu.dao.*;
+import com.liu.newkepu.model.*;
 import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -20,16 +23,8 @@ import org.dom4j.Element;
 import org.springframework.stereotype.Component;
 import org.tempuri.Service;
 
-import com.liu.newkepu.dao.FdpriceDao;
-import com.liu.newkepu.dao.FlightnameDao;
-import com.liu.newkepu.dao.HangbanDao;
-import com.liu.newkepu.dao.TuigaiDao;
-import com.liu.newkepu.model.Fdprice;
-import com.liu.newkepu.model.Flightname;
-import com.liu.newkepu.model.Tuigai;
 import com.liu.newkepu.util.ZhengzeUtil;
 import com.liu.newkepu.vo.searchInfo;
-import com.liu.newkepu.model.Hangban;
 import com.liu.newkepu.util.riqizhuan;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -51,11 +46,40 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
     @Resource
     private TuigaiDao tuigaiDao;
 
+    @Resource
+    private CuxiaozhengceDao cuxiaozhengceDao;
+
+    private List<Cuxiaozhengce> cuxiaozhengces;
+
     @Override
     public String execute() throws Exception {
+        riqizhuan riqizhuan = new riqizhuan();
+        Calendar calendar = Calendar.getInstance();
+        DateFormat timedf = new SimpleDateFormat("yyyy-MM-dd");
+        String riqi = timedf.format(calendar.getTime());
+
         String from = getsanzima(searchInfo.getFrom());
         String arrival = getsanzima(searchInfo.getArrival());
-        String resultsString = searchresult(from, arrival);
+        String resultsString = searchresult(from, arrival, riqi);
+
+        HttpServletRequest request = ServletActionContext.getRequest();
+        if (Integer.valueOf(request.getSession().getAttribute("meeting_shstate").toString()) == 1) {
+            cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(2, from, arrival);
+        } else {
+            cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(0, from, arrival);
+        }
+        for (int i = 0; i < cuxiaozhengces.size(); i++) {
+            if (Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_startime())) <= Integer.valueOf(riqi.replaceAll("-", "")) & Integer.valueOf(riqi.replaceAll("-", "")) <= Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_endtime()))) {
+            } else {
+                cuxiaozhengces.remove(i);
+                i--;
+            }
+            if (Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_chupiaostartime())) <= Integer.valueOf(searchInfo.getFromdata().replaceAll("-", "")) & Integer.valueOf(riqi.replaceAll("-", "")) <= Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_chupiaoendtime()))) {
+            } else {
+                cuxiaozhengces.remove(i);
+                i--;
+            }
+        }
 
         List<Fdprice> fdprices = getFdprices(from, arrival);
         shihefdprice(fdprices);
@@ -69,7 +93,12 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             } else {
                 // savehangban(item);
                 removeuseable(item);
-                addpricetoXML(item, fdprices);
+                if (Integer.valueOf(request.getSession().getAttribute("meeting_shstate").toString()) == 1) {
+                    addcuxiaopricetoXML(item,cuxiaozhengces,fdprices);
+                    addpricetoXML(item, fdprices);
+                } else {
+                    addcuxiaopricetoXML(item,cuxiaozhengces,fdprices);
+                }
                 addtuigai(item);
                 addjichang(item);
             }
@@ -149,11 +178,9 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * @return 查询接口返回的XML
      * @author 刘健
      */
-    private String searchresult(String from, String arrival) {
+    private String searchresult(String from, String arrival, String riqi) {
         String time = "0000";
         Calendar calendar = Calendar.getInstance();
-        DateFormat timedf = new SimpleDateFormat("yyyy-MM-dd");
-        String riqi = timedf.format(calendar.getTime());
         if (searchInfo.getFromdata().equals(riqi)) {
             DateFormat dateFormat = new SimpleDateFormat("HHmm");
             time = dateFormat.format(calendar.getTime());
@@ -271,6 +298,62 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                 }
             }
             item.remove(item.element("UsableClass"));
+        }
+    }
+
+    /**
+     * 给XML添加促销价格
+     *
+     * @param item     添加价格的节点
+     * @param fdprices 添加进XML的价格
+     * @author 刘健
+     */
+    private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, List<Fdprice> fdprices) {
+        String UsableClass[] = item.elementText("UsableClass").split(" ");
+        Element classesElement = item.addElement("Classes");
+        int hastheflight = 0;
+        for (Cuxiaozhengce cuxiaozhengce : cuxiaozhengces) {
+            // 根据航空公司，起飞地，目的地，添加价格
+            if (cuxiaozhengce.getCxzc_company().equals(item.element("Carrier").getText())) {
+                if (cuxiaozhengce.getCxzc_flight_id().equals("All")) {
+                    hastheflight = 1;
+                } else {
+                    String[] flid = cuxiaozhengce.getCxzc_flight_id().split(",");
+                    for (String aFlid : flid) {
+                        if (item.elementText("FlightNo").equals(aFlid)) {
+                            hastheflight = 1;
+                            break;
+                        }
+                    }
+                }
+                if (hastheflight == 1) {
+                    String[] cangwei = cuxiaozhengce.getCxzc_cangwei().split("/");
+                    for (String string : UsableClass) {
+                        if (string == null || string.isEmpty()) {
+                        } else {
+                            for (String aCangwei : cangwei) {
+                                if (string.substring(0, 1).equals(aCangwei)) {
+                                    for (Fdprice fdprice : fdprices) {
+                                        if (string.substring(0, 1).equals(
+                                                fdprice.getCangwei())) {
+                                            Element classElement = classesElement
+                                                    .addElement("Class");
+                                            classElement.addAttribute("Code",
+                                                    string.substring(0, 1));
+                                            classElement.addAttribute("Seat",
+                                                    string.substring(1, 2));
+                                            int pricess = Integer.valueOf(fdprice.getPrice());
+                                            pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
+                                            classElement.addAttribute("Price", String.valueOf(pricess));
+                                            classElement.addAttribute("Ext", "");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
