@@ -75,7 +75,7 @@
                         <li class="prs_clk" id="prs_3" onclick="prs_show(this.id)"><a class="li_aClk" href="#">财务中心</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="personorder.actoonl">订单管理</a></li>
+                                                                                    href="personorder.action">订单管理</a></li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="personmyflight.action">我的航程</a>
                         </li>

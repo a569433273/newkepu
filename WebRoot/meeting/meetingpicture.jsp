@@ -47,7 +47,7 @@
 </div>
 <!--nav over-->
 <!--中间内容-->
-<form action="#" method="post" name="">
+<%--<form action="#" method="post" name="">--%>
     <div class="prs_mid">
         <!--左部-->
         <div class="prs_left">
@@ -85,7 +85,13 @@
                 <!--会议照片头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;会议照片</span></div>
-                    <div class="mphoto_up1"><div class="mph_up1_1"><input name="" type="file" title="仅支持jpg,png格式图片" class="up_file" size="5"/></div><div class="mph_up1_2"><p>(仅支持jpg,png格式图片)</p></div></div>
+                    <s:form action="uploadimages.action" enctype="multipart/form-data" method="post" namespace="/" theme="simple">
+                        <s:file name="upload" label="仅支持jpg,png格式图片"></s:file>
+                        <s:submit value="上传"></s:submit>
+                    </s:form>
+                    <div class="mphoto_up1">
+
+                        <div class="mph_up1_2"><p>(仅支持jpg,png格式图片)</p></div></div>
                 </div>
                 <!--会议照片头部 over-->
                 <!--会议照片内容-->
@@ -140,7 +146,7 @@
         <!--右部 over-->
         <div style="clear:both;"></div>
     </div>
-</form>
+<%--</form>--%>
 <!--中间内容 over-->
 <!--foodter-->
 <div class="total1">

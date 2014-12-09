@@ -13,6 +13,7 @@ public class Huiyitupian {
     private String hytp_iosurl;
     private String hytp_andurl;
     private String hytp_weburl;
+    private String hytp_webyuanurl;
     private String hytp_time;
     private String hytp_tpname;
     private int hytp_isdel;
@@ -64,6 +65,14 @@ public class Huiyitupian {
 
     public void setHytp_weburl(String hytp_weburl) {
         this.hytp_weburl = hytp_weburl;
+    }
+
+    public String getHytp_webyuanurl() {
+        return hytp_webyuanurl;
+    }
+
+    public void setHytp_webyuanurl(String hytp_webyuanurl) {
+        this.hytp_webyuanurl = hytp_webyuanurl;
     }
 
     public String getHytp_time() {

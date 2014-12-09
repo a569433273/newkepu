@@ -75,6 +75,9 @@
             <result name="success">/meeting/meetingbasic.jsp</result>
             <result name="faild">/index.jsp</result>
         </action>
+        <action name="uploadimages" class="uploadimages">
+            <result name="success" type="redirect">meetingtupian.action</result>
+        </action>
     </package>
 </struts>
 	
