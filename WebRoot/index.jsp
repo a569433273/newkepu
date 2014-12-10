@@ -241,10 +241,10 @@
 <!--右边部分-->
 <div class="in_rigth">
     <div class="nav">
-        <div class="img"><a href="plane/planesearch.jsp"><img src="images/nav_ticket.jpg"/></a></div>
-        <div class="img"><a href=""><img src="images/nav_meeting.jpg"/></a></div>
-        <div class="img"><a href=""><img src="images/nav_adress.jpg"/></a></div>
-        <div class="img"><a href=""><img src="images/nav_comm.jpg"/></a></div>
+        <div class="img"><a href="plane/planesearch.jsp"><img src="images/nav_ticket.jpg" alt="航空订票"/></a></div>
+        <div class="img"><a href="meeting/meetingindex.jsp"><img src="images/nav_meeting.jpg" alt="会议管理"/></a></div>
+        <div class="img"><a href=""><img src="images/nav_adress.jpg" alt="目的地服务"/></a></div>
+        <div class="img"><a href=""><img src="images/nav_comm.jpg" alt="商务礼品"/></a></div>
         <div style="clear:both;"></div>
     </div>
     <div class="org">
