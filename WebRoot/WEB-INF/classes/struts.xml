@@ -78,6 +78,9 @@
         <action name="uploadimages" class="uploadimages">
             <result name="success" type="redirect">meetingtupian.action</result>
         </action>
+        <action name="uploadmessage" class="uploadmessage">
+            <result name="success">/ueditor/index.html</result>
+        </action>
     </package>
 </struts>
 	

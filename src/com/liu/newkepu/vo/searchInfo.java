@@ -99,6 +99,8 @@ public class searchInfo {
     //订单管理页面传来的值
     private String theorder;
 
+    private String editor;
+
     public String getUsername() {
         return username;
     }
@@ -701,6 +703,14 @@ public class searchInfo {
 
     public void setTheorder(String theorder) {
         this.theorder = theorder;
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor;
     }
 }
 

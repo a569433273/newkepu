@@ -19,7 +19,7 @@ public class yanzhentask {
     @Resource
     private YanzhengtempDao yanzhengtempDao;
 
-    @Scheduled(cron = "0 0/5 * * * ?")
+//    @Scheduled(cron = "0 0/5 * * * ?")
     public void yanzhengtask() {
         Calendar calendar = Calendar.getInstance();
         DateFormat fenzhongformat = new SimpleDateFormat("mm");

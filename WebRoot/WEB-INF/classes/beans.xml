@@ -78,4 +78,5 @@
             <tx:method name="find" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
+
 </beans>
