@@ -100,6 +100,7 @@ public class searchInfo {
     private String theorder;
 
     private String editor;
+    private String huiyibiaotibj;
 
     public String getUsername() {
         return username;
@@ -711,6 +712,14 @@ public class searchInfo {
 
     public void setEditor(String editor) {
         this.editor = editor;
+    }
+
+    public String getHuiyibiaotibj() {
+        return huiyibiaotibj;
+    }
+
+    public void setHuiyibiaotibj(String huiyibiaotibj) {
+        this.huiyibiaotibj = huiyibiaotibj;
     }
 }
 

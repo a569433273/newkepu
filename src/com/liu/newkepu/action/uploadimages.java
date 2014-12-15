@@ -32,8 +32,6 @@ public class uploadimages extends ActionSupport implements ModelDriven<Object> {
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         String lujing = request.getSession().getServletContext().getRealPath("/upload");
-        //带http://localhost:8080/TEST/test 类似的地址
-        ServletActionContext.getRequest().getRequestURL();
         String yuantulujing = lujing+"/images/meeting/"+request.getSession().getAttribute("meeting_id").toString() +"/Yuan/"+fileName;
         InputStream is = new FileInputStream(upload);
         OutputStream os = new FileOutputStream(yuantulujing);
