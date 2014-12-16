@@ -23,7 +23,7 @@ public class meetingopen extends ActionSupport implements ModelDriven<Object> {
     @Resource
     private MeetingDao meetingDao;
 
-    private  List<Meeting> meetings;
+    private List<Meeting> meetings;
 
     @Override
     public String execute() throws Exception {

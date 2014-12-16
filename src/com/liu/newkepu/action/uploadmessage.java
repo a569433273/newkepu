@@ -16,7 +16,7 @@ import java.util.Calendar;
 import java.util.UUID;
 
 @Component("uploadmessage")
-public class uploadmessage extends ActionSupport implements ModelDriven<Object>{
+public class uploadmessage extends ActionSupport implements ModelDriven<Object> {
     private searchInfo searchInfo = new searchInfo();
 
     @Resource

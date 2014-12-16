@@ -95,10 +95,13 @@
                                         <td>
                                             <div class="m_Notice1_1">
                                                 <!--小图标-->
-                                                <div class="m_Ntc1_1"><img src="../images/Mnotice_img1.jpg" alt=""/></div>
+                                                <div class="m_Ntc1_1"><img src="../images/Mnotice_img1.jpg" alt=""/>
+                                                </div>
                                                 <!--小图标 over-->
                                                 <!--文字-->
-                                                <div class="m_Ntc1_2"><p>&nbsp;<a href="" id="Mnot_detail_<s:property value='#status.count'/>" onclick="return notice_popup(this.id)"><s:property
+                                                <div class="m_Ntc1_2"><p>&nbsp;<a href=""
+                                                                                  id="Mnot_detail_<s:property value='#status.count'/>"
+                                                                                  onclick="return notice_popup(this.id)"><s:property
                                                         value="hyjjtz_nr"></s:property></a></p></div>
                                                 <!--文字 over-->
                                                 <!--时间日期-->
@@ -130,16 +133,17 @@
 <!--商务资讯 over-->
 <!--foodter-->
 <!--搜索弹出框-->
-<div class="mNotice_div" >
+<div class="mNotice_div">
     <!--头部-->
-    <div class="mNt_1"  id="mNt_1">
+    <div class="mNt_1" id="mNt_1">
         <div class="mNt1_1"><span>&nbsp;通知详情</span></div>
-        <div class="mNt1_2"><img src="../images/closebox.png" style="cursor:pointer;" onclick="noticed_close()" alt=""/></div>
+        <div class="mNt1_2"><img src="../images/closebox.png" style="cursor:pointer;" onclick="noticed_close()" alt=""/>
+        </div>
     </div>
     <!--头部over-->
     <!--内容-->
     <div class="mNt_2" id="mNt_2">
-        <div class="mNt2_1" >
+        <div class="mNt2_1">
             <p id="mNt2_1"></p>
         </div>
     </div>

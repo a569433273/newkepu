@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component("personorder")
-public class personorder extends ActionSupport implements ModelDriven<Object>{
+public class personorder extends ActionSupport implements ModelDriven<Object> {
     private searchInfo searchInfo = new searchInfo();
 
     @Resource

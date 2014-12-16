@@ -32,7 +32,7 @@ public class uploadimages extends ActionSupport implements ModelDriven<Object> {
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         String lujing = request.getSession().getServletContext().getRealPath("/upload");
-        String yuantulujing = lujing+"/images/meeting/"+request.getSession().getAttribute("meeting_id").toString() +"/Yuan/"+fileName;
+        String yuantulujing = lujing + "/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Yuan/" + fileName;
         InputStream is = new FileInputStream(upload);
         OutputStream os = new FileOutputStream(yuantulujing);
         byte buffer[] = new byte[8192];
@@ -44,7 +44,7 @@ public class uploadimages extends ActionSupport implements ModelDriven<Object> {
         is.close();
         Thumbnails.of(yuantulujing).scale(1.00f).toFile(lujing + "/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Mobile/" + fileName);
         Thumbnails.of(yuantulujing).size(106, 106).toFile(lujing + "/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/IOS/" + fileName);
-        Thumbnails.of(yuantulujing).size(106, 106).toFile(lujing+"/images/meeting/"+request.getSession().getAttribute("meeting_id").toString() +"/Android/"+fileName);
+        Thumbnails.of(yuantulujing).size(106, 106).toFile(lujing + "/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Android/" + fileName);
         Thumbnails.of(yuantulujing).size(135, 100).toFile(lujing + "/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Suo/" + fileName);
 
         Huiyitupian huiyitupian = new Huiyitupian();

@@ -48,28 +48,29 @@
     </div>
     <!--详情标题 over-->
     <s:iterator value="huiyitongzhidetails">
-    <!--应添加内容部分-->
-    <div class="Missu_dt1">
-        <div class="Missu_dt1_1">
-            <!--文字标题-->
-            <div class="Missu_dt2">
-                <p> <s:property value="hytz_bt"></s:property>[<s:property value="hytz_date"></s:property>]</p>
+        <!--应添加内容部分-->
+        <div class="Missu_dt1">
+            <div class="Missu_dt1_1">
+                <!--文字标题-->
+                <div class="Missu_dt2">
+                    <p><s:property value="hytz_bt"></s:property>[<s:property value="hytz_date"></s:property>]</p>
+                </div>
+                <!--文字标题over-->
+                <!--正文-->
+                <div class="Missu_dt3">
+                    <s:property value="hytz_nr" escape="false"></s:property>
+                </div>
+                <!--正文-->
+                <!--返回上一页-->
+                <div class="Missu_back">
+                    <p style="text-align:left;"><img src="../images/issue_back.jpg" style="cursor:pointer;"
+                                                     title="返回上一个页面"
+                                                     onclick="Missue_back();" alt=""/></p>
+                </div>
+                <!--返回上一页 over-->
             </div>
-            <!--文字标题over-->
-            <!--正文-->
-            <div class="Missu_dt3">
-                <s:property value="hytz_nr" escape="false"></s:property>
-            </div>
-            <!--正文-->
-            <!--返回上一页-->
-            <div class="Missu_back">
-                <p style="text-align:left;"><img src="../images/issue_back.jpg" style="cursor:pointer;" title="返回上一个页面"
-                                                 onclick="Missue_back();" alt=""/></p>
-            </div>
-            <!--返回上一页 over-->
         </div>
-    </div>
-    <!--应添加内容部分-->
+        <!--应添加内容部分-->
     </s:iterator>
 </div>
 <!--中间内容部分over-->

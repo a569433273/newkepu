@@ -119,7 +119,8 @@
                         <div class="u_2"><input type="text" name="u_code" class="u_2_1" id="u_code"
                                                 onkeyup="ck_Code(this.id)" onfocus="ck_Code(this.id)"/></div>
                         <div class="u_6" id="ck_code"></div>
-                        <div class="u_4"><img src="../images/res_code.jpg" style="margin-top:4px; cursor:pointer;" alt=""/>
+                        <div class="u_4"><img src="../images/res_code.jpg" style="margin-top:4px; cursor:pointer;"
+                                              alt=""/>
                         </div>
                     </div>
                     <!--验证码 over-->

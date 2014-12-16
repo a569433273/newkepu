@@ -5,5 +5,5 @@ import com.liu.newkepu.model.Cuxiaozhengce;
 import java.util.List;
 
 public interface CuxiaozhengceDao {
-    public List<Cuxiaozhengce> findByhybsandother(int hybs,String from, String arrival);
+    public List<Cuxiaozhengce> findByhybsandother(int hybs, String from, String arrival);
 }

@@ -153,7 +153,8 @@
                                             <td width="5%"><input name="ord_sl" type="radio" value=""/></td>
                                             <td width="15%" style="cursor:pointer;" id="ord_mg1" onclick="ord_dmsg()">
                                                 <span class="s_pcb"><a
-                                                        href="personorderdetail.action?theorder=<s:property value='order_id'></s:property>"><s:property value="order_id"></s:property></a></span></td>
+                                                        href="personorderdetail.action?theorder=<s:property value='order_id'></s:property>"><s:property
+                                                        value="order_id"></s:property></a></span></td>
                                             <td width="5%" id="ord_mg1_ty">单程</td>
                                             <td width="8%" id="ord_mg1_anm"><s:property
                                                     value="flight_tpm"></s:property></td>

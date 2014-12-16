@@ -47,6 +47,9 @@
         <action name="personorderdetail" class="personorderdetail">
             <result name="success">/person/personorderdetail.jsp</result>
         </action>
+        <action name="personpoint" class="personpoint">
+            <result name="success">/person/pesronpoint.jsp</result>
+        </action>
         <action name="meetingchuli" class="meetingchuli">
             <result name="success">/meeting/meetingbasic.jsp</result>
         </action>

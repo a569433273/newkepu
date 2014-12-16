@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("meetingbusdetail")
-public class meetingbusdetail extends ActionSupport implements ModelDriven<Object>{
+public class meetingbusdetail extends ActionSupport implements ModelDriven<Object> {
     private searchInfo searchInfo = new searchInfo();
 
     @Resource
@@ -24,6 +24,7 @@ public class meetingbusdetail extends ActionSupport implements ModelDriven<Objec
         zixundetails = zixunDao.findByzixunid(searchInfo.getZxid());
         return "success";
     }
+
     @Override
     public Object getModel() {
         return searchInfo;

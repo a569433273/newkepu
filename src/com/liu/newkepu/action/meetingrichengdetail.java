@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("meetingrichengdetail")
-public class meetingrichengdetail extends ActionSupport implements ModelDriven<Object>{
+public class meetingrichengdetail extends ActionSupport implements ModelDriven<Object> {
     private searchInfo searchInfo = new searchInfo();
 
 

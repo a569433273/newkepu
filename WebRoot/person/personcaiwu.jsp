@@ -9,7 +9,7 @@
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <link href="../css/person_ctr.css" rel="stylesheet" type="text/css"/>
     <link href="../css/doubleDate.css" rel="stylesheet" type="text/css"/>
-    <link href="../css/meeting.css" rel="stylesheet" type="text/css" />
+    <link href="../css/meeting.css" rel="stylesheet" type="text/css"/>
     <!--日历样式-->
     <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>
     <script type="text/javascript" src="../js/page1.js"></script>
@@ -75,7 +75,8 @@
                         <li class="prs_clk" id="prs_3" onclick="prs_show(this.id)"><a class="li_aClk" href="#">财务中心</a>
                         </li>
                         <li class="prs_1" id="prs_4" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="personorder.action">订单管理</a></li>
+                                                                                    href="personorder.action">订单管理</a>
+                        </li>
                         <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
                                                                                     href="personmyflight.action">我的航程</a>
                         </li>
@@ -95,7 +96,8 @@
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;财务中心</span></div>
                     <div class="prs_rt1_2" id="pack1_3"><img src="../images/per_hid.jpg" style="margin-top:3px;"
-                                                             id="pack_3" onclick="cont_disp(this.id);" alt=""/>&nbsp;</div>
+                                                             id="pack_3" onclick="cont_disp(this.id);" alt=""/>&nbsp;
+                    </div>
                 </div>
                 <!--财务头部头部 over-->
                 <!--财务内容-->

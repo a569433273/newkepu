@@ -94,10 +94,10 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                 // savehangban(item);
                 removeuseable(item);
                 if (Integer.valueOf(request.getSession().getAttribute("meeting_shstate").toString()) == 1) {
-                    addcuxiaopricetoXML(item,cuxiaozhengces,fdprices);
+                    addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
                     addpricetoXML(item, fdprices);
                 } else {
-                    addcuxiaopricetoXML(item,cuxiaozhengces,fdprices);
+                    addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
                 }
                 addtuigai(item);
                 addjichang(item);

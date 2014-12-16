@@ -846,3 +846,222 @@ a.li_anlk:hover {
 }
 
 /*我的航程 over*/
+/*我的积分*/
+.prs_points {
+    width: 750px;
+    height: auto;
+    overflow: hidden;
+}
+
+.prs_pnts_1 {
+    width: 748px;
+    height: 70px;
+    float: left;
+    background: #ffffeb;
+    border: 1px solid #fbd5a7;
+    margin-top: 30px;
+    display: inline;
+}
+
+.prs_pnts1_1 {
+    width: 748px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+    display: inline;
+}
+
+.prs_pnts11_1 {
+    width: 210px;
+    height: 30px;
+    float: left;
+}
+
+.prs_pnts11_1 p {
+    font-size: 14px;
+    color: #545454;
+    text-align: left;
+    font-weight: bold;
+    line-height: 30px;
+    margin-left: 20px;
+}
+
+.prs_pnts11_2 {
+    width: 400px;
+    height: 30px;
+    float: left;
+}
+
+.prs_pnts11_2 .prs_p2_1 {
+    width: 75px;
+    height: 30px;
+    float: left;
+}
+
+.prs_pnts11_2 .prs_p2_1 p {
+    text-align: left;
+    color: #545454;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.prs_pnts11_2 .prs_p2_2 {
+    width: 130px;
+    height: 30px;
+    float: left;
+}
+
+.prs_pnts_2 {
+    width: 750px;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-top: 25px;
+    display: inline;
+}
+
+.prs_pnts2_1 {
+    width: 750px;
+    height: 41px;
+    float: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.prs_pnts21_1 {
+    width: 280px;
+    height: 40px;
+    float: left;
+}
+
+.prs_pnts21_1 ul {
+    width: 280px;
+    height: 40px;
+    list-style-type: none;
+}
+
+.prs_pnts21_1 ul li {
+    width: 85px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 3px;
+    font-size: 14px;
+}
+
+.prs_pntsli_hover {
+    background: url(../images/points_tab1.jpg) no-repeat;
+}
+
+.prs_pntsli_bg {
+    background: #eeeded;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.prs_pnts2_2 {
+    width: 750px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+}
+
+.prs_pnts22_1 {
+    width: 700px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-left: 10px;
+    display: inline;
+    margin-top: 10px;
+}
+
+.prs_pnts22_2 {
+    float: left;
+    width: 620px;
+    height: auto;
+    overflow: hidden;
+}
+
+.prs_pnts22_1 table {
+    width: 620px;
+    height: auto;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.prs_pnts22_1 table .tr_frst {
+    width: 620px;
+    height: 30px;
+    background: #e5fafb;
+}
+
+.prs_pnts22_1 table tr {
+    height: 30px;
+}
+
+.prs_pnts22_3 {
+    width: 620px;
+    height: 30px;
+    float: left;
+    text-align: left;
+}
+
+.prs_pnts22_3 p {
+    line-height: 30px;
+    font-size: 12px;
+    text-align: left;
+    color: #0089cf;
+}
+
+.prs_pnts22_3 p span {
+    color: #f00;
+}
+
+.prs_pnts22_4 {
+    width: 720px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    margin-left: 15px;
+    display: inline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.prs_pnts22_4 p {
+    text-align: left;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+/*分页积分*/
+.prs_pnts22_5 {
+    width: 620px;
+    height: auto;
+    overflow: hidden;
+    float: left;
+    text-align: left;
+    margin-bottom: 10px;
+    display: inline;
+}
+
+.prs_pnts22_6 {
+    width: 620px;
+    height: 30px;
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+    border-top: 1px dashed #ccc;
+}
+
+.prs_pnts22_6 span {
+    font-size: 12px;
+}
+
+.a_page2 {
+    color: #f00;
+    font-size: 12px;
+}

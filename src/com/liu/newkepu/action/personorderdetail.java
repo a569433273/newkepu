@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Component("personorderdetail")
-public class personorderdetail extends ActionSupport implements ModelDriven<Object>{
+public class personorderdetail extends ActionSupport implements ModelDriven<Object> {
     private searchInfo searchInfo = new searchInfo();
 
     @Resource

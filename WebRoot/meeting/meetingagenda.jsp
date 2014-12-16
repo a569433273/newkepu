@@ -81,7 +81,11 @@
                 <!--议题和日程头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;议题和日程</span></div>
-                    <div class="prs_comm_adinf"><div class="comm_add1"><a href="meetingaddagenda.jsp"><img src="../images/mComm_addimg.jpg" alt=""/></a></div><div class="comm_add2"><p>(添加议题日程信息)</p></div></div>
+                    <div class="prs_comm_adinf">
+                        <div class="comm_add1"><a href="meetingaddagenda.jsp"><img src="../images/mComm_addimg.jpg"
+                                                                                   alt=""/></a></div>
+                        <div class="comm_add2"><p>(添加议题日程信息)</p></div>
+                    </div>
                 </div>
                 <!--议题和日程头部 over-->
                 <!--议题内容-->
@@ -115,7 +119,7 @@
                                                         </div>
                                                         <div class="m_sue_2">
                                                             <s:property value="hytz_nr"
-                                                                           escape="false"></s:property>
+                                                                        escape="false"></s:property>
                                                         </div>
                                                     </div>
                                                     <!--右部 over-->

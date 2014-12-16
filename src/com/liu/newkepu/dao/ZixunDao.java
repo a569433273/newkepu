@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ZixunDao {
     public void save(Zixun zixun);
+
     public List<Zixun> findByzixunid(String zixunid);
+
     public List<Zixun> findBymember_id(String member_id);
 }

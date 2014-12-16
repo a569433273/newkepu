@@ -183,9 +183,11 @@
                                             </s:elseif>
                                             <td width="15%"><s:property value="passenger_papernum"></s:property></td>
                                             <td width="8%"><s:property value="passenger_hangyixian"></s:property>份</td>
-                                            <td width="15%"><s:property value="passenger_hangyixianhao"></s:property></td>
+                                            <td width="15%"><s:property
+                                                    value="passenger_hangyixianhao"></s:property></td>
                                             <td width="8%"><s:property value="passenger_yanwuxian"></s:property>份</td>
-                                            <td width="15%"><s:property value="passenger_yanwuxianhao"></s:property></td>
+                                            <td width="15%"><s:property
+                                                    value="passenger_yanwuxianhao"></s:property></td>
                                             <td width="15%"><s:property value="passenger_ticketnum"></s:property></td>
                                         </tr>
                                     </s:iterator>
