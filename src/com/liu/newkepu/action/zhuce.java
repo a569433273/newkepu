@@ -113,6 +113,7 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
         member.setMember_workname("");
         member.setMember_yqm(searchInfo.getU_weck());
         member.setMember_hyyqm("");
+        member.setMember_level(0);
         memberDao.save(member);
     }
 

@@ -48,6 +48,7 @@ public class personpoint extends ActionSupport implements ModelDriven<Object>{
         xunizhanghus = xunizhanghuDao.findBymemberid(request.getSession().getAttribute("meeting_id").toString());
         jifenjilus = jifenjiluDao.findBymemberid(request.getSession().getAttribute("meeting_id").toString());
         membersbenren = memberDao.findBymember_id(request.getSession().getAttribute("meeting_id").toString());
+        membersbenren.get(0).getMember_yqm();
         return "success";
     }
 

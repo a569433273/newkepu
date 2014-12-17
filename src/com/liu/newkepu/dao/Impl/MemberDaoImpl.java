@@ -40,6 +40,12 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     @Override
+    public List<Member> findBymember_yqm(String member_yqm) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_yqm='" + member_yqm + "'");
+        return query.list();
+    }
+
+    @Override
     public Member load(String member_id) {
         Member member = (Member) sessionFactory.getCurrentSession().load(Member.class, member_id);
         return member;

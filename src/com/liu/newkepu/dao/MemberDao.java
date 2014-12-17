@@ -14,6 +14,8 @@ public interface MemberDao {
 
     public List<Member> findBymember_phone(String member_phone);
 
+    public List<Member> findBymember_yqm(String member_yqm);
+
     public Member load(String member_id);
 
     public void update(Member member);
