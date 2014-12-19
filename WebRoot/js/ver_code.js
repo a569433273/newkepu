@@ -18,6 +18,7 @@ function createCode() {
 }
 
 function validate() {
+    alert(code);
     var inputCode = document.getElementById("id_code").value;
     inputCode = inputCode.toUpperCase();
     if (inputCode.length <= 0) {

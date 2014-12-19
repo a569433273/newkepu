@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Component("MemberDao")
 public class MemberDaoImpl implements MemberDao {
@@ -40,8 +41,14 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     @Override
-    public List<Member> findBymember_yqm(String member_yqm) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Member m where m.member_yqm='" + member_yqm + "'");
+    public List<String> findThenumofyqm(String member_yqm) {
+        Query query = sessionFactory.getCurrentSession().createQuery("select count(*) as zongshu from Member m where member_hyyqm='" + member_yqm + "'");
+        return query.list();
+    }
+
+    @Override
+    public List<Map> findThesecond(String member_yqm) {
+        Query query = sessionFactory.getCurrentSession().createQuery("select new map(member_realname,member_phone,member_level,(select count(*) from Member where member_hyyqm=m.member_yqm) as countNum) from Member m where member_hyyqm='" + member_yqm + "' order by member_level desc,countNum desc");
         return query.list();
     }
 

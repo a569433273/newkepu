@@ -15,8 +15,8 @@
     <meta name="description" content="窠浦"/>
     <meta name="keywords" content="窠浦航空，窠浦官网，窠浦退票，航空，退票，关于窠浦，wF8PRUDGBcLZ0fWloGaGwDUpUXU"/>
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
-    <script src="js/index.js"></script>
-    <script src="js/ver_code.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/ver_code.js"></script>
 </head>
 
 <body onload="createCode()">
@@ -45,7 +45,7 @@
                                                                                  id="password"
                                                                                  class="input_w_h"/></div>
                 <div style="float:left; margin-left:5px; display:inline;">验证码：</div>
-                <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="id_code"
+                <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="id_code" id="id_code"
                                                                                  class="input_w_h"/></div>
             </div>
             <div class="lg_mid">

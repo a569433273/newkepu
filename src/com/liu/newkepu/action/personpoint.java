@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @Component("personpoint")
 public class personpoint extends ActionSupport implements ModelDriven<Object>{
@@ -38,17 +39,15 @@ public class personpoint extends ActionSupport implements ModelDriven<Object>{
     private List<Jifenjilu> jifenjilus;
     private List<Xunizhanghu> xunizhanghus;
 
-    private List<Member> membersbenren;
-    private List<Member> members;
+    private List<Map> memberseconds;
 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         guizes = guizeDao.findBygzid("jifenguize12");
-        xunizhanghus = xunizhanghuDao.findBymemberid(request.getSession().getAttribute("meeting_id").toString());
-        jifenjilus = jifenjiluDao.findBymemberid(request.getSession().getAttribute("meeting_id").toString());
-        membersbenren = memberDao.findBymember_id(request.getSession().getAttribute("meeting_id").toString());
-        membersbenren.get(0).getMember_yqm();
+        xunizhanghus = xunizhanghuDao.findBymemberid(request.getSession().getAttribute("member_id").toString());
+        jifenjilus = jifenjiluDao.findBymemberid(request.getSession().getAttribute("member_id").toString());
+        memberseconds = memberDao.findThesecond(request.getSession().getAttribute("member_yqm").toString());
         return "success";
     }
 
@@ -81,19 +80,11 @@ public class personpoint extends ActionSupport implements ModelDriven<Object>{
         this.xunizhanghus = xunizhanghus;
     }
 
-    public List<Member> getMembersbenren() {
-        return membersbenren;
+    public List<Map> getMemberseconds() {
+        return memberseconds;
     }
 
-    public void setMembersbenren(List<Member> membersbenren) {
-        this.membersbenren = membersbenren;
-    }
-
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
+    public void setMemberseconds(List<Map> memberseconds) {
+        this.memberseconds = memberseconds;
     }
 }

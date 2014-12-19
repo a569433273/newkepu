@@ -32,6 +32,8 @@ public class denglu extends ActionSupport implements ModelDriven<Object> {
             request.getSession().setAttribute("member_id", members.get(0).getMember_id());
             request.getSession().setAttribute("member_realname", members.get(0).getMember_realname());
             request.getSession().setAttribute("member_shstate", members.get(0).getMember_shstate());
+            request.getSession().setAttribute("member_level",members.get(0).getMember_level());
+            request.getSession().setAttribute("member_yqm",members.get(0).getMember_yqm());
             return "success";
         }
         request.getSession().setAttribute("member_id", null);

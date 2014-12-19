@@ -141,9 +141,7 @@
                             <div class="prs_pnts2_2" id="li_points_1">
                                 <div class="prs_pnts22_1">
                                     <div class="prs_pnts22_3">
-                                        <s:iterator value="membersbenren">
-                                        <p>您现在是<span id="star_points"><s:property value="member_level"></s:property>星会员</span>，共<span id="num_points">10</span>人</p>
-                                        </s:iterator>
+                                        <p>您现在是<span id="star_points"><%= session.getAttribute("member_level")%>星会员</span>，共<span id="num_points">10</span>人</p>
                                     </div>
                                     <div class="prs_pnts22_2">
                                         <table id="pnts_tb1">
@@ -154,41 +152,23 @@
                                                 <td width="30%">浦小屋人数</td>
                                             </tr>
                                             <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
+                                            <s:iterator value="memberseconds" id="entry">
+                                                <s:iterator value="#entry">
+                                                    <s:if test="key == 0">
+                                                <td width="15%"><s:property value="value"></s:property></td>
+                                                    </s:if>
+                                                    <s:elseif test="key == 1">
+                                                <td width="20%"><s:property value="value"></s:property></td>
+                                                    </s:elseif>
+                                                    <s:elseif test="key == 2">
+                                                <td width="20%"><s:property value="value"></s:property>星会员</td>
+                                                    </s:elseif>
+                                                    <s:else>
+                                                <td width="30%"><s:property value="value"></s:property>人</td>
+                                                    </s:else>
+                                                </s:iterator>
                                             </tr>
-                                            <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
-                                            </tr>
-                                            <tr>
-                                                <td width="15%">李小一</td>
-                                                <td width="20%">1871785255</td>
-                                                <td width="20%">1星会员</td>
-                                                <td width="30%">5人</td>
-                                            </tr>
+                                            </s:iterator>
                                         </table>
                                     </div>
                                     <!--分页效果-->
@@ -215,7 +195,9 @@
                             <div class="prs_pnts1_1">
                                 <!--总额数字-->
                                 <div class="prs_pnts11_1">
-                                    <p>积分总额:<span style="color:#F00; font-size:16px;">&nbsp;1500</span></p>
+                                    <p>积分总额:<span style="color:#F00; font-size:16px;">&nbsp;
+                                    <s:iterator value="xunizhanghus"><s:property value="vmoney_jifen"></s:property></s:iterator>
+                                    </span></p>
                                 </div>
                                 <!--总额数字 over-->
                                 <!--星级-->

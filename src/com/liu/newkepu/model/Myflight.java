@@ -22,7 +22,7 @@ public class Myflight {
     private String Myflight_tpm;
     private String Myflight_type;
     private String Myflight_time;
-    private String Myflight_ispay;
+    private int Myflight_ispay;
 
     @Id
     public String getMyflight_id() {
@@ -145,11 +145,11 @@ public class Myflight {
         Myflight_time = myflight_time;
     }
 
-    public String getMyflight_ispay() {
+    public int getMyflight_ispay() {
         return Myflight_ispay;
     }
 
-    public void setMyflight_ispay(String myflight_ispay) {
+    public void setMyflight_ispay(int myflight_ispay) {
         Myflight_ispay = myflight_ispay;
     }
 }

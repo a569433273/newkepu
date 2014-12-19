@@ -23,40 +23,42 @@ function gotoPage(pno, psize, p_nl) {
             irow.style.display = "none";
         }
     }
-    var tempStr = "<span style='font-size:14px; line-heigth:25px;'>共" + (num - 1) + "条记录 分" + totalPage + "页    当前第</span>"
-    tempStr += "<span style='color:#f00; line-height:25px; font-size:14px;'>" + currentPage + "</span>";
-    tempStr += "<span style='line-height:25px; font-size:14px;'>页&nbsp;</span>";
-    if (currentPage > 1) {
-        tempStr += "<a href='#' onClick='gotoPage(" + (currentPage - 1) + "," + psize + "," + (currentPage - 1) + ")' class='a_page'>上一页</a>";
-    } else {
-        tempStr += "<span >上一页</span>";
-    }
-    //页码
-    for (var k = 1; k <= totalPage; k++) {
-        tempStr += "<a href='#' onClick='gotoPage(" + (k) + "," + psize + " ," + k + ")' id='p_len" + k + "' style='margin-left:5px;' class='a_page'>" + k + "</a>  "
-    }
-    if (currentPage < totalPage) {
-        tempStr += "<a href='#' onClick='gotoPage(" + (currentPage + 1) + "," + psize + "," + (currentPage + 1) + ")'  style='margin-left:5px;' class='a_page'>下一页</a>";
-    }
-    else {
-        tempStr += "<span style='margin-left:5px;'>下一页</span>";
-    }
-    if (currentPage > 1) {
+    if(num > 1) {
+        var tempStr = "<span style='font-size:14px; line-heigth:25px;'>共" + (num - 1) + "条记录 分" + totalPage + "页    当前第</span>"
+        tempStr += "<span style='color:#f00; line-height:25px; font-size:14px;'>" + currentPage + "</span>";
+        tempStr += "<span style='line-height:25px; font-size:14px;'>页&nbsp;</span>";
+        if (currentPage > 1) {
+            tempStr += "<a href='#' onClick='gotoPage(" + (currentPage - 1) + "," + psize + "," + (currentPage - 1) + ")' class='a_page'>上一页</a>";
+        } else {
+            tempStr += "<span >上一页</span>";
+        }
+        //页码
+        for (var k = 1; k <= totalPage; k++) {
+            tempStr += "<a href='#' onClick='gotoPage(" + (k) + "," + psize + " ," + k + ")' id='p_len" + k + "' style='margin-left:5px;' class='a_page'>" + k + "</a>  "
+        }
+        if (currentPage < totalPage) {
+            tempStr += "<a href='#' onClick='gotoPage(" + (currentPage + 1) + "," + psize + "," + (currentPage + 1) + ")'  style='margin-left:5px;' class='a_page'>下一页</a>";
+        }
+        else {
+            tempStr += "<span style='margin-left:5px;'>下一页</span>";
+        }
+        if (currentPage > 1) {
 
-        tempStr += "<a href='#' onClick='gotoPage(" + (1) + "," + psize + "," + 1 + ")' style='margin-left:5px;' class='a_page'>首页</a>";
+            tempStr += "<a href='#' onClick='gotoPage(" + (1) + "," + psize + "," + 1 + ")' style='margin-left:5px;' class='a_page'>首页</a>";
 
-    } else {
-        tempStr += "<span class='a_sep1' style='margin-left:5px;'>首页</span>";
-    }
+        } else {
+            tempStr += "<span class='a_sep1' style='margin-left:5px;'>首页</span>";
+        }
 
-    if (currentPage < totalPage) {
-        tempStr += "<a href='#' onClick='gotoPage(" + (totalPage) + "," + psize + "," + (totalPage) + ")'  style='margin-left:5px;' class='a_page'>尾页</a>";
-    } else {
-        tempStr += "<span  style='margin-left:5px;'>尾页</span>";
+        if (currentPage < totalPage) {
+            tempStr += "<a href='#' onClick='gotoPage(" + (totalPage) + "," + psize + "," + (totalPage) + ")'  style='margin-left:5px;' class='a_page'>尾页</a>";
+        } else {
+            tempStr += "<span  style='margin-left:5px;'>尾页</span>";
+        }
+        document.getElementById("pg1_all").innerHTML = tempStr;
+        var pa_name = "p_len" + p_nl;
+        document.getElementById(pa_name).className = "a_page1";
     }
-    document.getElementById("pg1_all").innerHTML = tempStr;
-    var pa_name = "p_len" + p_nl;
-    document.getElementById(pa_name).className = "a_page1";
     document.getElementById("ord_date").value = get7dt();
     document.getElementById("ord_date1").value = getdt();
 
