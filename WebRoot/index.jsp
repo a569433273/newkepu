@@ -24,10 +24,10 @@
 <p>&nbsp;</p>
 <!--header部分 start-->
 <div class="header">
-    <div class="logo"><a href="index.jsp"><img src="images/logo.jpg"/></a></div>
-    <div class="hd_tel"><img src="images/tel.jpg"/></div>
-    <div class="hd_mark"><a href=""><img src="images/mark1.jpg"></a>&nbsp;&nbsp;<a href=""><img
-            src="images/mark2.jpg"></a></div>
+    <div class="logo"><a href="index.jsp"><img src="images/logo.jpg" alt=""/></a></div>
+    <div class="hd_tel"><img src="images/tel.jpg" alt=""/></div>
+    <div class="hd_mark"><a href=""><img src="images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
+            src="images/mark2.jpg" alt=""></a></div>
     <div style="clear:both;"></div>
 </div>
 <!--header部分 over-->
@@ -53,10 +53,10 @@
                        style="width: 45px; height:15px;  display:inline-block; "/>
             </div>
             <div class="login_right">
-                <input type="image" name="login" onclick="validate()" src="images/login.jpg"/>&nbsp;&nbsp;&nbsp;<input
+                <input type="image" name="login" onclick="validate();return false" src="images/login.jpg"/>&nbsp;&nbsp;&nbsp;<input
                     name="reg"
                     type="image"
-                    src="images/reg.jpg"/>
+                    src="images/reg.jpg" onclick="window.location.href='person/personzhuce.jsp';return false"/>
             </div>
             <div style="clear:both;"></div>
         </div>
@@ -66,7 +66,8 @@
     <div class="login_part">
         <div class="login_left">
             <div style="float:right;"><%=request.getSession().getAttribute("member_realname")%>
-                <a href="personmessage.action">个人中心</a></div>
+                <a href="personmessage.action">个人中心</a>
+            <a href="denglu.action?tuichu=1">退出</a></div>
         </div>
     </div>
 </s:else>

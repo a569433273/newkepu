@@ -27,6 +27,11 @@ public class denglu extends ActionSupport implements ModelDriven<Object> {
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
+        if (searchInfo.getTuichu() == 1) {
+            request.getSession().setAttribute("member_id", null);
+            searchInfo.setTuichu(0);
+            return "success";
+        }
         List<Member> members = memberDao.findBynameandpassword(searchInfo.getUsername(), searchInfo.getPassword());
         if (members.size() > 0) {
             request.getSession().setAttribute("member_id", members.get(0).getMember_id());

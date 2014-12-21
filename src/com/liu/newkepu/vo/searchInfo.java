@@ -6,6 +6,7 @@ public class searchInfo {
     /* 登陆页面传来的值 */
     private String username;
     private String password;
+    private int tuichu;
 
     /* 查询页面传来的值 */
     private String from;
@@ -116,6 +117,14 @@ public class searchInfo {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getTuichu() {
+        return tuichu;
+    }
+
+    public void setTuichu(int tuichu) {
+        this.tuichu = tuichu;
     }
 
     /**
