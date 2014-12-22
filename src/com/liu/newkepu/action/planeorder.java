@@ -133,12 +133,17 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         request.setAttribute("order_price", order_price);
 
         if (searchInfo.getLianxi() == 1) {
-            Lianxiren lianxiren = new Lianxiren();
-            lianxiren.setLianxiren_name(flight_lxr);
-            lianxiren.setLianxiren_phone(Integer.valueOf(flight_lxrdh));
-            lianxiren.setLianxiren_email(flight_lxryx);
-            lianxiren.setLianxiren_member_id(order_member_id);
-            lianxirenDao.save(lianxiren);
+            List<Lianxiren> lianxirens = lianxirenDao.fingThechongfu(order_member_id, flight_lxr, flight_lxrdh);
+            if (lianxirens.size() > 0) {
+            } else {
+                Lianxiren lianxiren = new Lianxiren();
+                lianxiren.setLianxiren_id(UUID.randomUUID().toString());
+                lianxiren.setLianxiren_name(flight_lxr);
+                lianxiren.setLianxiren_phone(flight_lxrdh);
+                lianxiren.setLianxiren_email(flight_lxryx);
+                lianxiren.setLianxiren_member_id(order_member_id);
+                lianxirenDao.save(lianxiren);
+            }
         }
         if (searchInfo.getBenren() == 1) {
             saveMyflight(order_id, order_time, order_member_id, flight_company, flight_id, from_cn, arrival_cn, flight_from_date, flight_from_time, flight_arrival_date, flight_arrival_time, flight_type, flight_tpm);

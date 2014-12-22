@@ -71,8 +71,8 @@ function yong_litter(id_name) {
     var str8 = parseInt(str7);//油价
     var add_money = parseInt(M3) + str4 + str8;//添加时要添加的钱数
     var childstr8 = parseInt(str8 / 2);
-    if (childstr8 == '55') {
-        childstr8 = 50;
+    if (childstr8 == '15') {
+        childstr8 = 10;
     }
     //油价 逢5进1
     var str8_y = parseInt(M5 / 2);
@@ -81,7 +81,7 @@ function yong_litter(id_name) {
     var str8_y_len = str8_y_str.length;//统计长度
     var str8_last = str8_y_str.substr(str8_y_len - 1, 1);
     if (str8_last >= '5' || str8_last >= '5' && str8_last != '0') {
-        var str8_lt_int = parseInt(str8_y) + 5;//儿童油价
+        var str8_lt_int = parseInt(str8_y) - 5;//儿童油价
     }
     else {
         var str8_lt_int = str8_y;//儿童油价
@@ -89,7 +89,7 @@ function yong_litter(id_name) {
     //油价 逢5进1 over
 
     //单个童价格
-    var add_y_money = str8_lt_int + childstr8;
+    var add_y_money = str8_lt_int + childstr8 +str4;
     //机建燃油的价格 over
 //读取url里面的数据
 

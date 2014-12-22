@@ -24,7 +24,7 @@ public class OrderDaoImpl implements OrderDao {
 
     @Override
     public List<Order> findByorder_id(String order_id) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Order o where o.order_id='" + order_id + "'");
+        Query query = sessionFactory.getCurrentSession().createQuery("from Order o where o.order_id='" + order_id + "' order by order_time desc");
         return query.list();
     }
 

@@ -61,9 +61,10 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
         String from = getsanzima(searchInfo.getFrom());
         String arrival = getsanzima(searchInfo.getArrival());
         String resultsString = searchresult(from, arrival, riqi);
+        System.out.println(resultsString);
 
         HttpServletRequest request = ServletActionContext.getRequest();
-        if (Integer.valueOf(request.getSession().getAttribute("meeting_shstate").toString()) == 1) {
+        if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
             cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(2, from, arrival);
         } else {
             cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(0, from, arrival);
@@ -93,11 +94,11 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             } else {
                 // savehangban(item);
                 removeuseable(item);
-                if (Integer.valueOf(request.getSession().getAttribute("meeting_shstate").toString()) == 1) {
+                if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
                     addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
-                    addpricetoXML(item, fdprices);
                 } else {
                     addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
+                    addpricetoXML(item, fdprices);
                 }
                 addtuigai(item);
                 addjichang(item);
@@ -185,7 +186,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             DateFormat dateFormat = new SimpleDateFormat("HHmm");
             time = dateFormat.format(calendar.getTime());
         }
-        String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=119.161.188.35;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
+        String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=58.132.171.39;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
         String request = "<?xml version='1.0'?><ABE_AVDataset_1_2><From>"
                 + from
                 + "</From><Arrive>"
@@ -268,7 +269,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      */
     private void addpricetoXML(Element item, List<Fdprice> fdprices) {
         String UsableClass[] = item.elementText("UsableClass").split(" ");
-        Element classesElement = item.addElement("Classes");
+        Element classesElement = item.element("Classes");
         for (int i = 0; i < fdprices.size(); i++) {
             // 根据航空公司，起飞地，目的地，添加价格
             if (fdprices.get(i).getHangkonggongsi()
@@ -292,7 +293,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                                     string.substring(1, 2));
                             classElement.addAttribute("Price", fdprices.get(i)
                                     .getPrice());
-                            classElement.addAttribute("Ext", "");
+                            classElement.addAttribute("Ext", "0");
                             classElement.addAttribute("tuipiao", "");
                             classElement.addAttribute("gaiqi", "");
                             classElement.addAttribute("qianzhuan", "");
@@ -312,7 +313,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * @author 刘健
      */
     private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, List<Fdprice> fdprices) {
-        String UsableClass[] = item.elementText("UsableClass").split(" ");
+        String UsableClass[] = item.element("UsableClass").getText().split(" ");
         Element classesElement = item.addElement("Classes");
         int hastheflight = 0;
         for (Cuxiaozhengce cuxiaozhengce : cuxiaozhengces) {
@@ -348,7 +349,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                                             int pricess = Integer.valueOf(fdprice.getPrice());
                                             pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
                                             classElement.addAttribute("Price", String.valueOf(pricess));
-                                            classElement.addAttribute("Ext", "");
+                                            classElement.addAttribute("Ext", "1");
                                             classElement.addAttribute("tuipiao", cuxiaozhengce.getCxzc_tuipiao());
                                             classElement.addAttribute("gaiqi", cuxiaozhengce.getCxzc_gaiqian());
                                             classElement.addAttribute("qianzhuan", cuxiaozhengce.getCxzc_qianzhuan());
@@ -382,13 +383,13 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             for (int i = 0; i < tuigais.size(); i++) {
                 if (tgq.attributeValue("Code").equals(
                         tuigais.get(i).getCangwei())) {
-                    if (tgq.attribute("tupiao").getValue().equals("")) {
+                    if (tgq.attribute("tuipiao").getValue() == null||tgq.attribute("tuipiao").getValue().equals("")) {
                         tgq.addAttribute("tuipiao", tuigais.get(i).getTuipiao());
                     }
-                    if (tgq.attribute("gaiqi").getValue().equals("")) {
+                    if (tgq.attribute("gaiqi").getValue() == null||tgq.attribute("gaiqi").getValue().equals("")) {
                         tgq.addAttribute("gaiqi", tuigais.get(i).getGaiqi());
                     }
-                    if (tgq.attribute("qianzhuan").getValue().equals("")) {
+                    if (tgq.attribute("qianzhuan").getValue() == null||tgq.attribute("qianzhuan").getValue().equals("")) {
                         tgq.addAttribute("qianzhuan", tuigais.get(i).getQianzhuan());
                     }
                 }

@@ -24,4 +24,10 @@ public class LianxirenDaoImpl implements LianxirenDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from Lianxiren l where l.lianxiren_member_id='" + member_id + "'");
         return query.list();
     }
+
+    @Override
+    public List<Lianxiren> fingThechongfu(String member_id, String lianxiren_name, String lianxiren_phone) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Lianxiren l where l.lianxiren_member_id='" + member_id + "' and lianxiren_name='" + lianxiren_name + "' and lianxiren_phone='" + lianxiren_phone + "'");
+        return query.list();
+    }
 }

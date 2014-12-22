@@ -21,7 +21,7 @@ import javax.xml.ws.WebServiceClient;
  * <p>
  * </p>
  */
-@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "http://119.161.188.35:570/WebABE.asmx?wsdl")
+@WebServiceClient(name = "Service", targetNamespace = "http://tempuri.org/", wsdlLocation = "http://58.132.171.39:570/WebABE.asmx?wsdl")
 public class Service extends javax.xml.ws.Service {
 
     private final static URL SERVICE_WSDL_LOCATION;
@@ -33,9 +33,9 @@ public class Service extends javax.xml.ws.Service {
         try {
             URL baseUrl;
             baseUrl = org.tempuri.Service.class.getResource(".");
-            url = new URL(baseUrl, "http://119.161.188.35:570/WebABE.asmx?wsdl");
+            url = new URL(baseUrl, "http://58.132.171.39:570/WebABE.asmx?wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://119.161.188.35:570/WebABE.asmx?wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'http://58.132.171.39:570/WebABE.asmx?wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         SERVICE_WSDL_LOCATION = url;

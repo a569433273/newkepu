@@ -104,9 +104,11 @@
                 <div class="prs_fna" id="pack3">
                     <!--总的金额-->
                     <div class="prs_fna1">
-                        <p><span>账户余额:</span><span class="p_spn">¥1000</span><span
-                                style="margin-left:80px;">消费金额:</span><span class="p_spn"> ¥1000</span><span
-                                style="margin-left:80px;">受信额度:</span><span class="p_spn"> ¥1000</span></p>
+                        <s:iterator value="xunizhanghus">
+                        <p><span>账户余额:</span><span class="p_spn"><s:property value="vmoney_number"></s:property></span><span
+                                style="margin-left:80px;">消费金额:</span><span class="p_spn"><s:property value="vmoney_totalspend"></s:property></span><span
+                                style="margin-left:80px;">受信额度:</span><span class="p_spn"><s:property value="vmoney_cardnum"></s:property></span></p>
+                        </s:iterator>
                     </div>
                     <!--总的金额over-->
                     <!--账单明细-->

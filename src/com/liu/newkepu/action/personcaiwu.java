@@ -1,7 +1,9 @@
 package com.liu.newkepu.action;
 
 import com.liu.newkepu.dao.CaiwuDao;
+import com.liu.newkepu.dao.XunizhanghuDao;
 import com.liu.newkepu.model.Caiwu;
+import com.liu.newkepu.model.Xunizhanghu;
 import com.liu.newkepu.vo.searchInfo;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -20,12 +22,18 @@ public class personcaiwu extends ActionSupport implements ModelDriven<Object> {
     @Resource
     private CaiwuDao caiwuDao;
 
+    @Resource
+    private XunizhanghuDao xunizhanghuDao;
+
     private List<Caiwu> caiwus;
+
+    private List<Xunizhanghu> xunizhanghus;
 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         caiwus = caiwuDao.findBymember_id(request.getSession().getAttribute("member_id").toString());
+        xunizhanghus = xunizhanghuDao.findBymemberid(request.getSession().getAttribute("member_id").toString());
         return "success";
     }
 
@@ -40,5 +48,13 @@ public class personcaiwu extends ActionSupport implements ModelDriven<Object> {
 
     public void setCaiwus(List<Caiwu> caiwus) {
         this.caiwus = caiwus;
+    }
+
+    public List<Xunizhanghu> getXunizhanghus() {
+        return xunizhanghus;
+    }
+
+    public void setXunizhanghus(List<Xunizhanghu> xunizhanghus) {
+        this.xunizhanghus = xunizhanghus;
     }
 }

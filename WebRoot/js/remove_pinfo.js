@@ -49,7 +49,7 @@ function remov_pinfo(id_name) {
         var str8_y_len = str8_y_str.length;//统计长度
         var str8_last = str8_y_str.substr(str8_y_len - 1, 1);
         if (str8_last >= '5' || str8_last >= '5' && str8_last != '0') {
-            var str8_lt_int = parseInt(str8_y) + 5;//儿童油价
+            var str8_lt_int = parseInt(str8_y) - 5;//儿童油价
         }
         else {
             var str8_lt_int = str8_y;//儿童油价

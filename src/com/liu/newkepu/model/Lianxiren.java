@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class Lianxiren {
     private String lianxiren_id;
     private String lianxiren_name;
-    private int lianxiren_phone;
+    private String lianxiren_phone;
     private String lianxiren_email;
     private String lianxiren_member_id;
 
@@ -30,11 +30,11 @@ public class Lianxiren {
         this.lianxiren_name = lianxiren_name;
     }
 
-    public int getLianxiren_phone() {
+    public String getLianxiren_phone() {
         return lianxiren_phone;
     }
 
-    public void setLianxiren_phone(int lianxiren_phone) {
+    public void setLianxiren_phone(String lianxiren_phone) {
         this.lianxiren_phone = lianxiren_phone;
     }
 

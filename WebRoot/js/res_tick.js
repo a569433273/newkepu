@@ -50,9 +50,9 @@ function res_tick(id) {
             Tpm_1 = TPM;
             var TPM_int = parseInt(TPM);
             if (TPM_int >= 800) {
-                TP_Oil_val = "¥50/¥" + 110;
-            } else {
                 TP_Oil_val = "¥50/¥" + 60;
+            } else {
+                TP_Oil_val = "¥50/¥" + 30;
             }//油价(传)
             TP_Oil_val = encodeURI(TP_Oil_val);//转码
             TP_Oil_val = encodeURI(TP_Oil_val);

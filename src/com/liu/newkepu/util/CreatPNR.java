@@ -32,7 +32,7 @@ public class CreatPNR {
         String BirthDay = "";
         String MobilePhone = order.getFlight_lxrdh();
 
-        String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=119.161.188.35;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
+        String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=58.132.171.39;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
         String requestBase = "<?xml version=\"1.0\" encoding=\"gb2312\"?><ABE_CreatePNR_1_2><TicketLimitDate>"
                 + TicketLimitDate
                 + "</TicketLimitDate><TicketLimitTime>"
