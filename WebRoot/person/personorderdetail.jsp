@@ -15,57 +15,11 @@
     <!--点击左部右部出现内容-->
 </head>
 <body>
-<!--header部分 start-->
-<div class="total">
-    <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg" alt=""/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg" alt=""></a></div>
-        <div style="clear:both;"></div>
-    </div>
-</div>
-<!--header部分 over-->
+<jsp:include page="../head.jsp"></jsp:include>
 <p>&nbsp;</p>
 <!--中部-->
 <form action="#" method="post" name="">
-    <div class="prs_mid">
-        <!--左部-->
-        <div class="prs_left">
-            <div class="prs_le1">
-                <div class="prs_le_1">
-                    <img src="../images/cat.jpg" alt=""/>
-                </div>
-                <div class="prs_le_2">
-                    <div class="prs_le_21"><input name="" type="file" class="ipt_file"/></div>
-                </div>
-                <!--上传头像-->
-                <!--菜单部分-->
-                <div class="prs_le_3">
-                    <ul>
-                        <li class="prs_1" id="prs_1" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="personmessage.action">我的资料</a>
-                        </li>
-                        <li class="prs_1" id="prs_2" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontravller.action">常用乘机人</a>
-                        </li>
-                        <li class="prs_1" id="prs_3" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontcaiwu.action">财务中心</a>
-                        </li>
-                        <li class="prs_clk" id="prs_4" onclick="prs_show(this.id)"><a class="li_aClk"
-                                                                                      href="personorder.actoonl">订单管理</a>
-                        </li>
-                        <li class="prs_1" id="prs_5" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="persontmyflight.action">我的航程</a>
-                        </li>
-                        <li class="prs_1" id="prs_6" onclick="prs_show(this.id)"><a class="li_anlk"
-                                                                                    href="prs_meeting.html">我的会议</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--菜单部分 is over-->
-            </div>
-        </div>
+    <jsp:include page="../persondaohang.jsp"></jsp:include>
         <!--左部 over-->
         <div class="prs_right">
             <!--订单管理-->
@@ -229,37 +183,6 @@
 </form>
 <!--中部 over-->
 <p>&nbsp;</p>
-<!--foodter-->
-<div class="total1">
-    <div class="sear_footer">
-        <div class="sear_footer1" style="margin-left:50px;">
-            <p><a href="">关于窠浦</a></p>
-
-            <p><a href="">法律声明</a></p>
-
-            <p><a href="">意见反馈</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:60px;">
-            <p><a href="">联系我们</a></p>
-
-            <p><a href="">隐私条款</a></p>
-
-            <p><a href="">企业QQ:4006205588</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:15px;">
-            <p><a href="">加入窠浦</a></p>
-
-            <p><a href="">广告服务</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:150px;">
-            <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
-
-            <p>地址:北京市东城区朝阳门银河SOHO中心A座10511室 邮政编码：100010</p>
-
-            <p>京ICP备11016456号 京ICP证110540号</p>
-        </div>
-    </div>
-</div>
-<!--footer-->
+<jsp:include page="../yemiandi.jsp"></jsp:include>
 </body>
 </html>

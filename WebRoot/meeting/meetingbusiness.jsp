@@ -17,28 +17,11 @@
 </head>
 <body onload="goPage(1,3,1)">
 <!--header部分 start-->
-<div class="total">
-    <div class="header">
-        <div class="logo"><a href="../index.html"><img src="../images/logo.jpg" alt=""/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg" alt=""></a></div>
-        <div style="clear:both;"></div>
-    </div>
-</div>
+<jsp:include page="../head.jsp"></jsp:include>
 <!--header部分 over-->
 <p>&nbsp;</p>
-<!--商务资讯-->
 <!--nav-->
-<div class="meeting_nav">
-    <ul>
-        <li><a href="">首页</a></li>
-        <li><a href="">航空订票</a></li>
-        <li><a href="index.html">会议管理</a></li>
-        <li><a href="">目的地服务</a></li>
-        <li><a href="">商务礼品</a></li>
-    </ul>
-</div>
+<jsp:include page="../daohang.jsp"></jsp:include>
 <!--nav over-->
 <!--中间内容-->
 <form action="#" method="post" name="">
@@ -79,10 +62,10 @@
                 <!--商务头部-->
                 <div class="prs_rt1">
                     <div class="prs_rt1_1"><span>&nbsp;商务资讯</span></div>
-                    <div class="prs_comm_adinf">
-                        <div class="comm_add1"><a href=""><img src="../images/mComm_addimg.jpg" alt=""/></a></div>
-                        <div class="comm_add2"><p>(添加商务资讯信息)</p></div>
-                    </div>
+                    <%--<div class="prs_comm_adinf">--%>
+                        <%--<div class="comm_add1"><a href=""><img src="../images/mComm_addimg.jpg" alt=""/></a></div>--%>
+                        <%--<div class="comm_add2"><p>(添加商务资讯信息)</p></div>--%>
+                    <%--</div>--%>
                 </div>
                 <!--商务头部 over-->
                 <!--我的会议内容-->
@@ -92,11 +75,11 @@
                         <!--搜索部分-->
                         <div class="m_Cm_1">
                             <div class="m_Cm1_1">
-                                <div class="m_Cm1_11">
-                                    <input type="text" name="" id="mComm_ipt"
-                                           style="width:230px; height:18px; border:1px solid #ccc; color:#d3cfcf;"
-                                           value="请输入要搜索的内容或日期" onfocus="mComm_ipthid()" onblur="mComm_iptshow()"/>
-                                </div>
+                                <%--<div class="m_Cm1_11">--%>
+                                    <%--<input type="text" name="" id="mComm_ipt"--%>
+                                           <%--style="width:230px; height:18px; border:1px solid #ccc; color:#d3cfcf;"--%>
+                                           <%--value="请输入要搜索的内容或日期" onfocus="mComm_ipthid()" onblur="mComm_iptshow()"/>--%>
+                                <%--</div>--%>
                                 <div class="m_Cm1_12">
                                     &nbsp;&nbsp;<input type="image" name="" src="../images/Mcomm_iptimg.jpg"/>
                                 </div>
@@ -159,37 +142,6 @@
     </div>
 </form>
 <!--中间内容 over-->
-<!--商务资讯 over-->
-<!--foodter-->
-<div class="total1">
-    <div class="sear_footer">
-        <div class="sear_footer1" style="margin-left:50px;">
-            <p><a href="">关于窠浦</a></p>
-
-            <p><a href="">法律声明</a></p>
-
-            <p><a href="">意见反馈</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:60px;">
-            <p><a href="">联系我们</a></p>
-
-            <p><a href="">隐私条款</a></p>
-
-            <p><a href="">企业QQ:4006205588</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:15px;">
-            <p><a href="">加入窠浦</a></p>
-
-            <p><a href="">广告服务</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:150px;">
-            <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
-
-            <p>地址:北京市东城区朝阳门银河SOHO中心A座10511室 邮政编码：100010</p>
-
-            <p>京ICP备11016456号 京ICP证110540号</p>
-        </div>
-    </div>
-</div>
+<jsp:include page="../yemiandi.jsp"></jsp:include>
 </body>
 </html>

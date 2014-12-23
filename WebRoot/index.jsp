@@ -80,10 +80,10 @@
         <!--商业信息-->
         <div class="in_left1" style="margin-left:20px;">
             <div class="comm_h">
-                <img src="images/comm_info.jpg"/>
+                <img src="images/comm_info.jpg" alt=""/>
             </div>
             <div class="comm_first">
-                <div class="comm_img"><img src="images/comm_info_img.jpg"></div>
+                <div class="comm_img"><img src="images/comm_info_img.jpg" alt=""></div>
                 <div class="comm_f_cont">
                     <p style="margin-bottom:5px;">总公司与北京农商银行海淀支行签</p>
 
@@ -141,11 +141,11 @@
         <!--nestpu信息-->
         <div class="in_left1" style="margin-left:45px;">
             <div class="comm_h">
-                <img src="images/nestpu_info.jpg"/>
+                <img src="images/nestpu_info.jpg" alt=""/>
             </div>
 
             <div class="comm_first">
-                <div class="comm_img"><img src="images/nestpu_info_img.jpg"/></div>
+                <div class="comm_img"><img src="images/nestpu_info_img.jpg" alt=""/></div>
                 <div class="comm_f_cont">
                     <p style="margin-bottom:5px;">总公司与北京农商银行海淀支行签</p>
 

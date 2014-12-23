@@ -14,30 +14,11 @@
 </head>
 <body>
 <!--header部分 start-->
-<div class="total">
-    <div class="header">
-        <div class="logo"><a href="../index.jsp"><img src="../images/logo.jpg" alt=""/></a></div>
-        <div class="hd_tel"><img src="../images/tel.jpg" alt=""/></div>
-        <div class="hd_mark"><a href=""><img src="../images/mark1.jpg" alt=""></a>&nbsp;&nbsp;<a href=""><img
-                src="../images/mark2.jpg" alt=""></a></div>
-        <div style="clear:both;"></div>
-    </div>
-</div>
+<jsp:include page="../head.jsp"></jsp:include>
 <!--header部分 over-->
 <p>&nbsp;</p>
-<!--会议管理-->
 <!--nav-->
-<div class="meeting_nav">
-    <ul>
-        <li><a href="">首页</a></li>
-        <li><a href="">航空订票</a></li>
-        <li><a href="#">会议管理</a></li>
-        <li><a href="">目的地服务</a></li>
-        <li><a href="">商务礼品</a></li>
-    </ul>
-</div>
-<!--nav over-->
-<!--banner-->
+<jsp:include page="../daohang.jsp"></jsp:include>
 <div class="meeting_ban">
     <img src="../images/meeting_banner.jpg" alt=""/>
 </div>
@@ -46,7 +27,7 @@
 <div class="meeting_1">
     <!--会议左部-->
     <div class="meeting_left">
-        <div class="meeting1" onclick="window.location.href='meeting_inti.html'">
+        <div class="meeting1" onclick="window.location.href='meetingopen.jsp'">
             <!--发起会议图片-->
             <div class="meetingL1">
                 <div class="m_L_1">
@@ -90,38 +71,7 @@
 </div>
 <!--会议链接 over-->
 <!--会议管理 over-->
-<!--foodter-->
-<div class="total1">
-    <div class="sear_footer">
-        <div class="sear_footer1" style="margin-left:50px;">
-            <p><a href="">关于窠浦</a></p>
-
-            <p><a href="">法律声明</a></p>
-
-            <p><a href="">意见反馈</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:60px;">
-            <p><a href="">联系我们</a></p>
-
-            <p><a href="">隐私条款</a></p>
-
-            <p><a href="">企业QQ:4006205588</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:15px;">
-            <p><a href="">加入窠浦</a></p>
-
-            <p><a href="">广告服务</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:150px;">
-            <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
-
-            <p>地址:北京市东城区朝阳门银河SOHO中心A座10511室 邮政编码：100010</p>
-
-            <p>京ICP备11016456号 京ICP证110540号</p>
-        </div>
-    </div>
-</div>
-<!--footer-->
+<jsp:include page="../yemiandi.jsp"></jsp:include>
 <!--搜索弹出框-->
 <div class="M_div1">
     <form action="searchmeeting.action" method="post" name="meetfrom" id="meetfrom">

@@ -78,9 +78,7 @@ function upd_umsg(ins_nm) {
         //设置地区
         //省份
         var P_len = document.getElementById("province").options.length;
-        alert(P_len);
         for (var I = 1; I < P_len; I++) {
-            alert(I);
             var TT = document.getElementById("province").options[I].text;
             if (TT == pu_Depa) {
                 document.getElementById("province").options[I].selected = "true";
@@ -199,7 +197,6 @@ function upd_umsg1() {
 //        document.getElementById("ck_wdep").innerHTML = "";
 //    }
 //地区over
-    alert(flag2);
     if (flag == 0 && flag1 == 0 && flag2 == 0 && flag3 == 0) {
         return true;
     } else {
