@@ -42,42 +42,42 @@
                     <!--订单部分-->
                     <div class="prs_ordmg" id="prs_Hordmg">
                         <!--搜索部分-->
-                        <div class="ord1">
-                            <div class="ord_1">
-                                <div class="ord1_1">订单号：</div>
-                                <div class="ord1_2"><input type="text" name="aaaa" style="width:120px;"/>&nbsp;</div>
-                                <div class="ord1_1">预定日期：</div>
-                                <div class="ord1_2"><input type="text" name="res_date" id="res_date"
-                                                           style="width:80px; color:#545454" class="doubledate"
-                                                           onfocus="click_hidval(this.id)"
-                                                           onblur="click1_hidval(this.id)"/>&nbsp;</div>
-                                <div class="ord1_1">到&nbsp;</div>
-                                <div class="ord1_2"><input type="text" name="res_date1" id="res_date1"
-                                                           style="width:80px; color:#545454" class="doubledate"
-                                                           onfocus="clk_hidval(this.id)" onblur="clk1_hidval(this.id)"/>&nbsp;
-                                </div>
-                                <div class="ord1_1">类型：</div>
-                                <div class="ord1_2"><select name="">
-                                    <option>单程</option>
-                                    <option>往返</option>
-                                </select>&nbsp;</div>
-                                <div class="ord1_1">状态：</div>
-                                <div class="ord1_2">
-                                    <select name="">
-                                        <option value="">全部</option>
-                                        <option value="1">未确认</option>
-                                        <option value="3">已废弃</option>
-                                        <option value="7">已收款/待出票</option>
-                                        <option value="9">申请退票</option>
-                                        <option value="11">已退票/待退款</option>
-                                        <option value="13">已退款</option>
-                                        <option value="17">已出票</option>
-                                    </select>&nbsp;
-                                </div>
-                                <div class="ord1_2"><input name="" type="image" src="../images/ord_search.jpg"/>&nbsp;
-                                </div>
-                            </div>
-                        </div>
+                        <%--<div class="ord1">--%>
+                            <%--<div class="ord_1">--%>
+                                <%--<div class="ord1_1">订单号：</div>--%>
+                                <%--<div class="ord1_2"><input type="text" name="aaaa" style="width:120px;"/>&nbsp;</div>--%>
+                                <%--<div class="ord1_1">预定日期：</div>--%>
+                                <%--<div class="ord1_2"><input type="text" name="res_date" id="res_date"--%>
+                                                           <%--style="width:80px; color:#545454" class="doubledate"--%>
+                                                           <%--onfocus="click_hidval(this.id)"--%>
+                                                           <%--onblur="click1_hidval(this.id)"/>&nbsp;</div>--%>
+                                <%--<div class="ord1_1">到&nbsp;</div>--%>
+                                <%--<div class="ord1_2"><input type="text" name="res_date1" id="res_date1"--%>
+                                                           <%--style="width:80px; color:#545454" class="doubledate"--%>
+                                                           <%--onfocus="clk_hidval(this.id)" onblur="clk1_hidval(this.id)"/>&nbsp;--%>
+                                <%--</div>--%>
+                                <%--<div class="ord1_1">类型：</div>--%>
+                                <%--<div class="ord1_2"><select name="">--%>
+                                    <%--<option>单程</option>--%>
+                                    <%--<option>往返</option>--%>
+                                <%--</select>&nbsp;</div>--%>
+                                <%--<div class="ord1_1">状态：</div>--%>
+                                <%--<div class="ord1_2">--%>
+                                    <%--<select name="">--%>
+                                        <%--<option value="">全部</option>--%>
+                                        <%--<option value="1">未确认</option>--%>
+                                        <%--<option value="3">已废弃</option>--%>
+                                        <%--<option value="7">已收款/待出票</option>--%>
+                                        <%--<option value="9">申请退票</option>--%>
+                                        <%--<option value="11">已退票/待退款</option>--%>
+                                        <%--<option value="13">已退款</option>--%>
+                                        <%--<option value="17">已出票</option>--%>
+                                    <%--</select>&nbsp;--%>
+                                <%--</div>--%>
+                                <%--<div class="ord1_2"><input name="" type="image" src="../images/ord_search.jpg"/>&nbsp;--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
                         <!--搜索部分 over-->
                         <!--内容部分-->
                         <div class="ord2">

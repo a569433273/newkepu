@@ -50,11 +50,11 @@ public class uploadimages extends ActionSupport implements ModelDriven<Object> {
         Huiyitupian huiyitupian = new Huiyitupian();
         huiyitupian.setHytp_id(UUID.randomUUID().toString());
         huiyitupian.setHytp_meeting_id(request.getSession().getAttribute("meeting_id").toString());
-        huiyitupian.setHytp_url("http://119.161.188.35:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Mobile/" + fileName);
-        huiyitupian.setHytp_iosurl("http://119.161.188.35:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/IOS/" + fileName);
-        huiyitupian.setHytp_andurl("http://119.161.188.35:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Android/" + fileName);
-        huiyitupian.setHytp_weburl("http://119.161.188.35:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Suo/" + fileName);
-        huiyitupian.setHytp_webyuanurl("http://119.161.188.35:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Yuan/" + fileName);
+        huiyitupian.setHytp_url("http://58.132.171.39:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Mobile/" + fileName);
+        huiyitupian.setHytp_iosurl("http://58.132.171.39:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/IOS/" + fileName);
+        huiyitupian.setHytp_andurl("http://58.132.171.39:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Android/" + fileName);
+        huiyitupian.setHytp_weburl("http://58.132.171.39:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Suo/" + fileName);
+        huiyitupian.setHytp_webyuanurl("http://58.132.171.39:8080/newkepu/upload/images/meeting/" + request.getSession().getAttribute("meeting_id").toString() + "/Yuan/" + fileName);
         Calendar calendar = Calendar.getInstance();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
         huiyitupian.setHytp_time(dateFormat.format(calendar.getTime()));

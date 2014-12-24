@@ -59,6 +59,7 @@ public class meetingopen extends ActionSupport implements ModelDriven<Object> {
         meeting.setMeeting_cjdate(timenow);
         meetingDao.save(meeting);
         meetings = meetingDao.findbymeeting_id(theid);
+        request.getSession().setAttribute("meeting_id",theid);
         return "success";
     }
 

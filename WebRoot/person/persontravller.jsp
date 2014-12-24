@@ -42,117 +42,119 @@
 <!--中部-->
 <form action="travllerchuli.action" name="travllersavefrom" id="travllersavefrom" method="post">
     <jsp:include page="../persondaohang.jsp"></jsp:include>
-        <div class="prs_right">
-            <!--常用乘机人-->
-            <div class="prs_rt" id="prsC_2">
-                <!--常用乘机人头部-->
-                <div class="prs_rt1">
-                    <div class="prs_rt1_1"><span>&nbsp;常用乘机人</span></div>
-                    <div class="prs_rt1_2" id="pack1_2"><img src="../images/per_hid.jpg" style="margin-top:3px;"
-                                                             id="pack_2" onclick="cont_disp(this.id);"/>&nbsp;</div>
-                </div>
-                <!--常用乘机人头部 over-->
-                <!--常用乘机人内部-->
-                <div class="prs_rt2" id="pack2">
-                    <!--常用乘机人内部-->
-                    <div class="prs_psg1" id="prs_psg1">
-                        <table class="prs_psg_tab">
-                            <tbody id="tb_tab">
-                            <tr bgcolor="#eef8fa" align="center" height="30">
-                                <td width="8%" style="border-top:1px solid #97d3d9; line-height:30px; color:#0066cc;">
-                                    <input name="" type="checkbox" value="" id="slt1_all" onclick="selct_all(this.id)"/>&nbsp;全选
-                                </td>
-                                <td width="10%" style="border-top:1px solid #97d3d9;">姓名</td>
-                                <td width="10%" style="border-top:1px solid #97d3d9;">手机号</td>
-                                <td width="8%" style="border-top:1px solid #97d3d9;">证件类型</td>
-                                <td width="13%" style="border-top:1px solid #97d3d9;">证件号</td>
-                                <td width="10%" style="border-top:1px solid #97d3d9;">出生日期</td>
-                                <td width="10%" style="border-top:1px solid #97d3d9;">旅客类型</td>
-                                <td width="10%" style="border-top:1px solid #97d3d9;">性别</td>
-                                <td width="13%" style="border-top:1px solid #97d3d9;">操作</td>
-                            </tr>
-                            <!--乘客信息-->
-                            <s:iterator value="travellers" status="status">
-                            <tr height="50" align="center" id="prsge<s:property value="#status.count"/>">
-                                <td width="8%"><input name="" type="checkbox" value="" class="only_slt"
-                                                      id='psg<s:property value="#status.count"/>_ckbox'
-                                                      onclick="oly_selt(this.id)"/></td>
-                                <td width="10%" id="psg<s:property value="#status.count"/>_Nm"><s:property
-                                        value="traveller_name"></s:property></td>
-                                <td width="10%" id="psg<s:property value="#status.count"/>_Tel"><s:property
-                                        value="traveller_phone"></s:property></td>
-                                <s:if test="traveller_papers_type==0">
-                                    <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">身份证</td>
-                                    <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
-                                            value="traveller_sf_num"></s:property></td>
-                                </s:if>
-                                <s:elseif test="traveller_papers_type==1">
-                                    <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">护照</td>
-                                    <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
-                                            value="traveller_hz_num"></s:property></td>
-                                </s:elseif>
-                                <s:elseif test="traveller_papers_type==4">
-                                    <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">其他</td>
-                                    <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
-                                            value="traveller_qt_num"></s:property></td>
-                                </s:elseif>
-                                <td width="10%" id="psg<s:property value="#status.count"/>_Bir"><s:property
-                                        value="traveller_birth"></s:property></td>
-                                <s:if test="traveller_type == 0">
-                                    <td width="10%" id="psg<s:property value="#status.count"/>_Adt">成人</td>
-                                </s:if>
-                                <s:else>
-                                    <td width="10%" id="psg<s:property value="#status.count"/>_Adt">儿童</td>
-                                </s:else>
-                                <td width="10%" id="psg<s:property value="#status.count"/>_Sex"><s:property
-                                        value="traveller_sex"></s:property></td>
-                                <td style="display: none" id="psg<s:property value="#status.count"/>_Id"><s:property
-                                        value="traveller_id"></s:property></td>
-                                <td width="13%" style="color:#0066cc;"><span style="cursor:pointer;"
-                                                                             id="prs<s:property value="#status.count"/>_Look"
-                                                                             onclick="prs_Look(this.id)">查看</span>&nbsp;<span
-                                        style="cursor:pointer;" id="prs<s:property value="#status.count"/>_Udp"
-                                        onclick="prs_Upt(this.id)">编辑</span>&nbsp;<span style="cursor:pointer;"
-                                                                                        id="prs<s:property value="#status.count"/>_Del"
-                                                                                        onclick="prs_Dele(this.id)">删除</span>
-                                </td>
-                                <form action="travllerchuli.action" name="travllerdeletefrom" id="travllerdeletefrom"
-                                      method="post">
-                                    <input name="deleteid" id="deleteid" value="1" type="hidden"/>
-                                </form>
-                            </tr>
-                            </s:iterator>
-
-                            <!--乘客信息 over-->
-                            <tr bgcolor="#eef8fa" align="center" height="30">
-                                <td width="8%"
-                                    style="border-bottom:1px solid #97d3d9; line-height:30px; color:#0066cc;"><input
-                                        name="" type="checkbox" value="" id="slt_all" onclick="selct_all(this.id)"/>&nbsp;<span>全选</span>
-                                </td>
-                                <td style="border-bottom:1px solid #97d3d9; line-height:30px; text-align:left; color:#0066cc;"
-                                    colspan="9">&nbsp;<span style="cursor:pointer;" id='sl_ondel' onclick="rmv_psg();">删除</span>&nbsp;&nbsp;<span
-                                        style="cursor:pointer;" onclick="prs_addpsg()">添加</span></td>
-                            </tr>
-                        </table>
-                        <p>&nbsp;</p>
-                    </div>
-                    <!--分页效果-->
-                    <div style="float:left; width:810px; height:auto; overflow:hidden; display:inline;" id="page_total">
-                        <div class="Pg_1" id="Pg_1">
-                        </div>
-                    </div>
-                    <!--分页效果 over-->
-                    <div style="float:left; width:810px; height:auto; overflow:hidden;  display:inline;" id="prs_ins1">
-                        <!--js加载-->
-                    </div>
-                    <!--乘机人查看编辑内容 over-->
-                </div>
-                <!--常用乘机人内容 over-->
+    <div class="prs_right">
+        <!--常用乘机人-->
+        <div class="prs_rt" id="prsC_2">
+            <!--常用乘机人头部-->
+            <div class="prs_rt1">
+                <div class="prs_rt1_1"><span>&nbsp;常用乘机人</span></div>
+                <div class="prs_rt1_2" id="pack1_2"><img src="../images/per_hid.jpg" style="margin-top:3px;"
+                                                         id="pack_2" onclick="cont_disp(this.id);"/>&nbsp;</div>
             </div>
-            <!--常用乘机人 over-->
+            <!--常用乘机人头部 over-->
+            <!--常用乘机人内部-->
+            <div class="prs_rt2" id="pack2">
+                <!--常用乘机人内部-->
+                <div class="prs_psg1" id="prs_psg1">
+                    <table class="prs_psg_tab">
+                        <thead id="tb_tab">
+                        <tr bgcolor="#eef8fa" align="center" height="30">
+                            <td width="8%" style="border-top:1px solid #97d3d9; line-height:30px; color:#0066cc;">
+                                <input name="" type="checkbox" value="" id="slt1_all" onclick="selct_all(this.id)"/>&nbsp;全选
+                            </td>
+                            <td width="10%" style="border-top:1px solid #97d3d9;">姓名</td>
+                            <td width="10%" style="border-top:1px solid #97d3d9;">手机号</td>
+                            <td width="8%" style="border-top:1px solid #97d3d9;">证件类型</td>
+                            <td width="13%" style="border-top:1px solid #97d3d9;">证件号</td>
+                            <td width="10%" style="border-top:1px solid #97d3d9;">出生日期</td>
+                            <td width="10%" style="border-top:1px solid #97d3d9;">旅客类型</td>
+                            <td width="10%" style="border-top:1px solid #97d3d9;">性别</td>
+                            <td width="13%" style="border-top:1px solid #97d3d9;">操作</td>
+                        </tr>
+                        <!--乘客信息-->
+                        <s:iterator value="travellers" status="status">
+                        <tr height="50" align="center" id="prsge<s:property value="#status.count"/>">
+                            <td width="8%"><input name="" type="checkbox" value="" class="only_slt"
+                                                  id='psg<s:property value="#status.count"/>_ckbox'
+                                                  onclick="oly_selt(this.id)"/></td>
+                            <td width="10%" id="psg<s:property value="#status.count"/>_Nm"><s:property
+                                    value="traveller_name"></s:property></td>
+                            <td width="10%" id="psg<s:property value="#status.count"/>_Tel"><s:property
+                                    value="traveller_phone"></s:property></td>
+                            <s:if test="traveller_papers_type==0">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">身份证</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_sf_num"></s:property></td>
+                            </s:if>
+                            <s:elseif test="traveller_papers_type==1">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">护照</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_hz_num"></s:property></td>
+                            </s:elseif>
+                            <s:elseif test="traveller_papers_type==4">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">其他</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_qt_num"></s:property></td>
+                            </s:elseif>
+                            <td width="10%" id="psg<s:property value="#status.count"/>_Bir"><s:property
+                                    value="traveller_birth"></s:property></td>
+                            <s:if test="traveller_type == 0">
+                                <td width="10%" id="psg<s:property value="#status.count"/>_Adt">成人</td>
+                            </s:if>
+                            <s:else>
+                                <td width="10%" id="psg<s:property value="#status.count"/>_Adt">儿童</td>
+                            </s:else>
+                            <td width="10%" id="psg<s:property value="#status.count"/>_Sex"><s:property
+                                    value="traveller_sex"></s:property></td>
+                            <td style="display: none" id="psg<s:property value="#status.count"/>_Id"><s:property
+                                    value="traveller_id"></s:property></td>
+                            <td width="13%" style="color:#0066cc;"><span style="cursor:pointer;"
+                                                                         id="prs<s:property value="#status.count"/>_Look"
+                                                                         onclick="prs_Look(this.id)">查看</span>&nbsp;<span
+                                    style="cursor:pointer;" id="prs<s:property value="#status.count"/>_Udp"
+                                    onclick="prs_Upt(this.id)">编辑</span>&nbsp;<span style="cursor:pointer;"
+                                                                                    id="prs<s:property value="#status.count"/>_Del"
+                                                                                    onclick="prs_Dele(this.id)">删除</span>
+                            </td>
+                        </tr>
+                        </s:iterator>
+                        </thead>
+                        <!--乘客信息 over-->
+                        <tr bgcolor="#eef8fa" align="center" height="30">
+                            <%--<td width="8%"--%>
+                                <%--style="border-bottom:1px solid #97d3d9; line-height:30px; color:#0066cc;"><input--%>
+                                    <%--name="" type="checkbox" value="" id="slt_all" onclick="selct_all(this.id)"/>&nbsp;<span>全选</span>--%>
+                            <%--</td>--%>
+                            <td style="border-bottom:1px solid #97d3d9; line-height:30px; text-align:left; color:#0066cc;"
+                                colspan="9">&nbsp;
+                                <%--<span style="cursor:pointer;" id='sl_ondel' onclick="rmv_psg();">删除</span>&nbsp;&nbsp;--%>
+                                <span
+                                    style="cursor:pointer;" onclick="prs_addpsg()">添加</span></td>
+                        </tr>
+                    </table>
+                    <p>&nbsp;</p>
+                </div>
+                <!--分页效果-->
+                <div style="float:left; width:810px; height:auto; overflow:hidden; display:inline;" id="page_total">
+                    <div class="Pg_1" id="Pg_1">
+                    </div>
+                </div>
+                <!--分页效果 over-->
+                <div style="float:left; width:810px; height:auto; overflow:hidden;  display:inline;" id="prs_ins1">
+                    <!--js加载-->
+                </div>
+                <!--乘机人查看编辑内容 over-->
+            </div>
+            <!--常用乘机人内容 over-->
         </div>
-        <div style="clear:both;"></div>
+        <!--常用乘机人 over-->
     </div>
+    <div style="clear:both;"></div>
+    </div>
+</form>
+<form action="travllerchuli.action" name="travllerdeletefrom" id="travllerdeletefrom"
+      method="post">
+    <input name="deleteid" id="deleteid" value="1" type="hidden"/>
 </form>
 <!--中部 over-->
 <p>&nbsp;</p>
@@ -160,14 +162,12 @@
 <!--确认删除-->
 <div class="s_div1" id='s_div'>
     <h2>窠浦提醒您</h2>
-
     <div class="s_t">
         <div class="s_1">网页出现错误,请重新查询</div>
         <div class="s_2"><img src="../images/show_sure.jpg" onclick="lc_href()"/></div>
     </div>
 </div>
 <div id="z_h"></div>
-
 <!--确认删除over-->
 </body>
 </html>

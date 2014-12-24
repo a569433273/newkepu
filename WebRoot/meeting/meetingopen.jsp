@@ -91,10 +91,10 @@
                         </tr>
                     </table>
                 </div>
+                <div class="mInti2_2">
+                    <input type="image" src="../images/mInti_sub.jpg" onclick="return Minti_cksub()"/>
+                </div>
             </form>
-            <div class="mInti2_2">
-                <input type="image" src="../images/mInti_sub.jpg" onclick="return Minti_cksub()"/>
-            </div>
         </div>
         <!--左部over-->
         <!--右部-->

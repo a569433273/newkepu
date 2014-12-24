@@ -49,7 +49,7 @@ public class searchInfo {
     private int Ptype1;
     private String Sex1;
     private String Id1;
-    private String deleteid;
+    private String deleteid = "1";
 
     //注册页面传来的值
     private String u_name;

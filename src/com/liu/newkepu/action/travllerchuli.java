@@ -24,7 +24,6 @@ public class travllerchuli extends ActionSupport implements ModelDriven<Object> 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-
         if (searchInfo.getDeleteid().equals("1")) {
             //Id1为1，新增，有值就是update
             if (searchInfo.getId1().equals("1")) {
@@ -35,6 +34,7 @@ public class travllerchuli extends ActionSupport implements ModelDriven<Object> 
         } else {
             Traveller traveller = travellerDao.load(searchInfo.getDeleteid());
             travellerDao.delete(traveller);
+            searchInfo.setDeleteid("1");
         }
         return "success";
     }
