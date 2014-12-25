@@ -26,7 +26,7 @@ public class kepunews extends ActionSupport implements ModelDriven<Object>{
         //窠浦新闻0，商业新闻1
         kepunewses = newsDao.findBytype("0");
         shangyenewses = newsDao.findBytype("1");
-
+        //TODO 修改Struct配置，将index.jsp改为指向该action
         return "success";
     }
 

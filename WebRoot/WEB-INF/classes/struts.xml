@@ -84,6 +84,9 @@
         <action name="uploadmessage" class="uploadmessage">
             <result name="success">/ueditor/index.html</result>
         </action>
+        <action name="kepunews" class="kepunews">
+            <result name="success">/index.jsp</result>
+        </action>
     </package>
 </struts>
 	
