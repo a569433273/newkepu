@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>会议管理--发起会议</title>
+    <title>会议管理--商务资讯详情</title>
     <link href="../css/index.css" rel="stylesheet" type="text/css"/>
     <link href="../css/meeting.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../js/jquery-1.6.4.js"></script>

@@ -24,8 +24,23 @@ public class kepunews extends ActionSupport implements ModelDriven<Object>{
     @Override
     public String execute() throws Exception{
         //窠浦新闻0，商业新闻1
-        kepunewses = newsDao.findBytype("0");
-        shangyenewses = newsDao.findBytype("1");
+        List<News> kepunewsestemp = newsDao.findBytype("0");
+        List<News> shangyenewsestemp = newsDao.findBytype("1");
+        if (kepunewsestemp.size() > 7) {
+            for (int i=0;i<7;i++) {
+                kepunewses.add(kepunewsestemp.get(i));
+            }
+        } else {
+            kepunewses = kepunewsestemp;
+        }
+
+        if (shangyenewsestemp.size() > 7) {
+            for (int i=0;i<7;i++) {
+                shangyenewses.add(shangyenewsestemp.get(i));
+            }
+        } else {
+            shangyenewses = shangyenewsestemp;
+        }
         //TODO 修改Struct配置，将index.jsp改为指向该action
         return "success";
     }

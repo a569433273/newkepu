@@ -1,12 +1,6 @@
+<%--suppress ALL --%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://"
-            + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
-%>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -92,48 +86,14 @@
             </div>
             <div class="comm_cont">
                 <ul>
+                    <s:iterator value="shangyenewses">
                     <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
+                        <div class="litter_m"><a href=""><s:property value="new_biaoti"></s:property></a></div>
                         <div class="new_mark">&nbsp;</div>
-                        <div class="li_right">2014.07.25</div>
+                        <div class="li_right"><s:property value="new_date"></s:property></div>
                         <div style="clear:both;"></div>
                     </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="new_mark">&nbsp;</div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
+                    </s:iterator>
                 </ul>
             </div>
         </div>
@@ -156,48 +116,14 @@
 
             <div class="comm_cont">
                 <ul>
+                    <s:iterator value="kepunewses">
                     <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
+                        <div class="litter_m"><a href=""><s:property value="new_biaoti"></s:property></a></div>
                         <div class="new_mark">&nbsp;</div>
-                        <div class="li_right">2014.07.25</div>
+                        <div class="li_right"><s:property value="new_date"></s:property></div>
                         <div style="clear:both;"></div>
                     </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="new_mark">&nbsp;</div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
-                    <li>
-                        <div class="litter_m"><a href="">总公司召开学习十八大精神专</a></div>
-                        <div class="li_right">2014.07.25</div>
-                        <div style="clear:both;"></div>
-                    </li>
+                    </s:iterator>
                 </ul>
             </div>
         </div>
