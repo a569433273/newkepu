@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component("kepunews")
@@ -17,13 +18,15 @@ public class kepunews extends ActionSupport implements ModelDriven<Object>{
     @Resource
     private NewsDao newsDao;
 
-    private List<News> kepunewses;
+    private List<News> kepunewses = new ArrayList<News>();
 
-    private List<News> shangyenewses;
+    private List<News> shangyenewses = new ArrayList<News>();
 
     @Override
     public String execute() throws Exception{
         //窠浦新闻0，商业新闻1
+        kepunewses.clear();
+        shangyenewses.clear();
         List<News> kepunewsestemp = newsDao.findBytype("0");
         List<News> shangyenewsestemp = newsDao.findBytype("1");
         if (kepunewsestemp.size() > 7) {
@@ -41,7 +44,6 @@ public class kepunews extends ActionSupport implements ModelDriven<Object>{
         } else {
             shangyenewses = shangyenewsestemp;
         }
-        //TODO 修改Struct配置，将index.jsp改为指向该action
         return "success";
     }
 

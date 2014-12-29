@@ -6,8 +6,8 @@
 <struts>
     <package name="/" extends="struts-default">
         <action name="denglu" class="denglu">
-            <result name="success">/index.jsp</result>
-            <result name="faild">/index.jsp</result>
+            <result name="success" type="redirect">kepunews.action</result>
+            <result name="faild" type="redirect">kepunews.action</result>
         </action>
         <action name="searchplane" class="searchplane">
         </action>
