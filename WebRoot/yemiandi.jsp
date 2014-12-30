@@ -10,18 +10,18 @@
 <div class="total1">
     <div class="sear_footer" >
         <div class="sear_footer1" style="margin-left:50px;">
-            <p><a href="">关于窠浦</a></p>
-            <p><a href="">法律声明</a></p>
-            <p><a href="">意见反馈</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=aboutus">关于窠浦</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=falvshengming">法律声明</a></p>
+            <%--<p><a href="">意见反馈</a></p>--%>
         </div>
         <div class="sear_footer1" style="margin-left:60px;">
-            <p><a href="">联系我们</a></p>
-            <p><a href="">隐私条款</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=contactus">联系我们</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=yinsitiaokuan">隐私条款</a></p>
             <p><a href="">企业QQ:4006205588</a></p>
         </div>
         <div class="sear_footer1" style="margin-left:15px;">
-            <p><a href="">加入窠浦</a></p>
-            <p><a href="">广告服务</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=joinus">加入窠浦</a></p>
+            <p><a href="http://localhost:8080/aboutkepu/indexabout.jsp?thepage=guanggaozhaoshang">广告服务</a></p>
         </div>
         <div class="sear_footer1" style="margin-left:150px;">
             <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
