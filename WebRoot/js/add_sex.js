@@ -74,6 +74,9 @@ function yong_litter(id_name) {
     if (childstr8 == '15') {
         childstr8 = 10;
     }
+    if (childstr8 == '5') {
+        childstr8 = 0;
+    }
     //油价 逢5进1
     var str8_y = parseInt(M5 / 2);
 
@@ -89,7 +92,7 @@ function yong_litter(id_name) {
     //油价 逢5进1 over
 
     //单个童价格
-    var add_y_money = str8_lt_int + childstr8 +str4;
+    var add_y_money = str8_lt_int + childstr8;
     //机建燃油的价格 over
 //读取url里面的数据
 

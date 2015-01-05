@@ -39,8 +39,11 @@ function remov_pinfo(id_name) {
         var str8 = parseInt(str7);//油价
         var add_money = parseInt(M3) + str4 + str8;//添加时要添加的钱数
         var childstr8 = parseInt(str8 / 2);
-        if (childstr8 == '55') {
-            childstr8 = 50;
+        if (childstr8 == '15') {
+            childstr8 = 10;
+        }
+        if (childstr8 == '5') {
+            childstr8 = 0;
         }
         //油价 逢5进1
         var str8_y = parseInt(M5 / 2);

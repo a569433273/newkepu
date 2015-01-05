@@ -42,6 +42,9 @@ function add_pinfo() {
         var str8 = parseInt(str7);//油价
         var add_money = parseInt(M3) + str4 + str8;//添加时要添加的钱数
         var childstr8 = parseInt(str8 / 2);
+        if (childstr8 == '5') {
+            childstr8 = 0;
+        }
         if (childstr8 == '15') {
             childstr8 = 10;
         }
@@ -60,7 +63,7 @@ function add_pinfo() {
         //油价 逢5进1 over
 
         //单个童价格
-        var add_y_money = str8_lt_int + childstr8 +str4;
+        var add_y_money = str8_lt_int + childstr8;
         //机建燃油的价格 over
 //读取url里面的数据
 
