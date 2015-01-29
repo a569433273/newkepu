@@ -20,6 +20,8 @@ import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.tempuri.Service;
 
@@ -60,9 +62,30 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 
         String from = getsanzima(searchInfo.getFrom());
         String arrival = getsanzima(searchInfo.getArrival());
+        wenxinJSON wenxinJSON = new wenxinJSON();
+        testresult ts = wenxinJSON.wJSON(arrival,from,riqi);
+        System.out.println(Calendar.getInstance().getTime());
         String resultsString = searchresult(from, arrival, riqi);
         System.out.println(resultsString);
-
+        System.out.println(Calendar.getInstance().getTime());
+        System.out.println(ts.getContent());
+        System.out.println(Calendar.getInstance().getTime());
+        JSONObject json = new JSONObject(ts.getContent());
+        JSONArray jsonArray = json.getJSONObject("exhibitionObject").getJSONArray("solutionList");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+//            System.out.println(jsonObject);
+            JSONArray routList = jsonObject.getJSONArray("routList");
+            for (int k = 0; k < routList.length(); k++) {
+                JSONObject ro = routList.getJSONObject(k);
+                System.out.println(ro.get("carr").toString() + ro.get("fltNo").toString());
+            }
+            JSONArray allcabins = jsonObject.getJSONArray("allCabins");
+            for (int j = 0; j < allcabins.length(); j++) {
+                JSONObject ao = allcabins.getJSONObject(j);
+                System.out.println(ao);
+            }
+        }
         HttpServletRequest request = ServletActionContext.getRequest();
         if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
             cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(2, from, arrival);
@@ -180,6 +203,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * @author 刘健
      */
     private String searchresult(String from, String arrival, String riqi) {
+        System.out.println("开始接口查询");
         String time = "0000";
         Calendar calendar = Calendar.getInstance();
         if (searchInfo.getFromdata().equals(riqi)) {
