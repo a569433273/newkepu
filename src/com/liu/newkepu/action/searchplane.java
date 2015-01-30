@@ -62,30 +62,14 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 
         String from = getsanzima(searchInfo.getFrom());
         String arrival = getsanzima(searchInfo.getArrival());
+        System.out.println(searchInfo.getFromdata());
         wenxinJSON wenxinJSON = new wenxinJSON();
-        testresult ts = wenxinJSON.wJSON(arrival,from,riqi);
-        System.out.println(Calendar.getInstance().getTime());
+        testresult ts = wenxinJSON.wJSON(arrival, from, searchInfo.getFromdata());
         String resultsString = searchresult(from, arrival, riqi);
         System.out.println(resultsString);
-        System.out.println(Calendar.getInstance().getTime());
         System.out.println(ts.getContent());
-        System.out.println(Calendar.getInstance().getTime());
         JSONObject json = new JSONObject(ts.getContent());
         JSONArray jsonArray = json.getJSONObject("exhibitionObject").getJSONArray("solutionList");
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-//            System.out.println(jsonObject);
-            JSONArray routList = jsonObject.getJSONArray("routList");
-            for (int k = 0; k < routList.length(); k++) {
-                JSONObject ro = routList.getJSONObject(k);
-                System.out.println(ro.get("carr").toString() + ro.get("fltNo").toString());
-            }
-            JSONArray allcabins = jsonObject.getJSONArray("allCabins");
-            for (int j = 0; j < allcabins.length(); j++) {
-                JSONObject ao = allcabins.getJSONObject(j);
-                System.out.println(ao);
-            }
-        }
         HttpServletRequest request = ServletActionContext.getRequest();
         if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
             cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(2, from, arrival);
@@ -105,23 +89,26 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             }
         }
 
-        List<Fdprice> fdprices = getFdprices(from, arrival);
-        shihefdprice(fdprices);
+//        List<Fdprice> fdprices = getFdprices(from, arrival);
+//        shihefdprice(fdprices);
         Document document = DocumentHelper.parseText(resultsString);
         Element rootElement = document.getRootElement();
         Iterator<?> iter = rootElement.elements("Item").iterator();
         while (iter.hasNext()) {
             Element item = (Element) iter.next();
-            if (item.element("FlightType").getText().equals("S")) {
+            System.out.println(item.element("UsableClass").getText());
+            if (item.element("FlightType").getText().equals("S") || item.element("UsableClass").getText() == null) {
                 rootElement.remove(item);
             } else {
                 // savehangban(item);
                 removeuseable(item);
                 if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
-                    addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
+                    addcuxiaopricetoXML(item, cuxiaozhengces, jsonArray);
+//                    addpriceByjson(item, jsonArray);
                 } else {
-                    addcuxiaopricetoXML(item, cuxiaozhengces, fdprices);
-                    addpricetoXML(item, fdprices);
+                    addcuxiaopricetoXML(item, cuxiaozhengces, jsonArray);
+//                    addpricetoXML(item, fdprices);
+                    addpriceByjson(item, jsonArray);
                 }
                 addtuigai(item);
                 addjichang(item);
@@ -131,6 +118,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
 
         return null;
     }
+
 
     @Override
     public Object getModel() {
@@ -284,6 +272,46 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
         }
     }
 
+    private void addpriceByjson(Element item, JSONArray jsonArray) {
+        String UsableClass[] = item.elementText("UsableClass").split(" ");
+        Element classesElement = item.addElement("Classes");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            JSONArray routList = jsonObject.getJSONArray("routList");
+            for (int k = 0; k < routList.length(); k++) {
+                JSONObject ro = routList.getJSONObject(k);
+                if (item.element("Carrier").getText().equals(ro.get("carr").toString()) & item.element("FlightNo").getText().equals(ro.get("fltNo").toString())) {
+                    JSONArray allcabins = jsonObject.getJSONArray("allCabins");
+                    for (int j = 0; j < UsableClass.length; j++) {
+                        String string = UsableClass[j];
+                        for (int q = 0; q < allcabins.length(); q++) {
+                            JSONObject ao = allcabins.getJSONObject(q);
+                            if (string == null || string.isEmpty()) {
+
+                            } else {
+                                if (string.substring(0, 1).equals(
+                                        ao.get("routClasses").toString())) {
+                                    Element classElement = classesElement
+                                            .addElement("Class");
+                                    classElement.addAttribute("Code",
+                                            string.substring(0, 1));
+                                    classElement.addAttribute("Seat",
+                                            string.substring(1, 2));
+                                    classElement.addAttribute("Price", ao.get("disAmt").toString());
+                                    classElement.addAttribute("Ext", "0");
+                                    classElement.addAttribute("tuipiao", "");
+                                    classElement.addAttribute("gaiqi", "");
+                                    classElement.addAttribute("qianzhuan", "");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        item.remove(item.element("UsableClass"));
+    }
+
     /**
      * 给XML添加fdprice价格
      *
@@ -295,7 +323,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
         String UsableClass[] = item.elementText("UsableClass").split(" ");
         Element classesElement = item.element("Classes");
         for (int i = 0; i < fdprices.size(); i++) {
-            // 根据航空公司，起飞地，目的地，添加价格
+            // 根据航空公司，起飞地，目的地，添加价格 FlightNo
             if (fdprices.get(i).getHangkonggongsi()
                     .equals(item.element("Carrier").getText())
                     & fdprices.get(i).getQifei()
@@ -336,7 +364,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * @param fdprices 添加进XML的价格
      * @author 刘健
      */
-    private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, List<Fdprice> fdprices) {
+    private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, JSONArray jsonArray) {
         String UsableClass[] = item.element("UsableClass").getText().split(" ");
         Element classesElement = item.addElement("Classes");
         int hastheflight = 0;
@@ -356,27 +384,38 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                 }
                 if (hastheflight == 1) {
                     String[] cangwei = cuxiaozhengce.getCxzc_cangwei().split("/");
-                    for (String string : UsableClass) {
-                        if (string == null || string.isEmpty()) {
-                        } else {
-                            for (String aCangwei : cangwei) {
-                                if (string.substring(0, 1).equals(aCangwei)) {
-                                    for (Fdprice fdprice : fdprices) {
-                                        if (string.substring(0, 1).equals(
-                                                fdprice.getCangwei())) {
-                                            Element classElement = classesElement
-                                                    .addElement("Class");
-                                            classElement.addAttribute("Code",
-                                                    string.substring(0, 1));
-                                            classElement.addAttribute("Seat",
-                                                    string.substring(1, 2));
-                                            int pricess = Integer.valueOf(fdprice.getPrice());
-                                            pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
-                                            classElement.addAttribute("Price", String.valueOf(pricess));
-                                            classElement.addAttribute("Ext", "1");
-                                            classElement.addAttribute("tuipiao", cuxiaozhengce.getCxzc_tuipiao());
-                                            classElement.addAttribute("gaiqi", cuxiaozhengce.getCxzc_gaiqian());
-                                            classElement.addAttribute("qianzhuan", cuxiaozhengce.getCxzc_qianzhuan());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        JSONArray routList = jsonObject.getJSONArray("routList");
+                        for (int k = 0; k < routList.length(); k++) {
+                            JSONObject ro = routList.getJSONObject(k);
+                            if (item.element("Carrier").getText().equals(ro.get("carr").toString()) & item.element("FlightNo").getText().equals(ro.get("fltNo").toString())) {
+                                JSONArray allcabins = jsonObject.getJSONArray("allCabins");
+                                for (String string : UsableClass) {
+                                    if (string == null || string.isEmpty()) {
+                                    } else {
+                                        for (String aCangwei : cangwei) {
+                                            if (string.substring(0, 1).equals(aCangwei)) {
+                                                for (int q = 0; q < allcabins.length(); q++) {
+                                                    JSONObject ao = allcabins.getJSONObject(q);
+                                                    if (string.substring(0, 1).equals(
+                                                            ao.get("routClasses").toString())) {
+                                                        Element classElement = classesElement
+                                                                .addElement("Class");
+                                                        classElement.addAttribute("Code",
+                                                                string.substring(0, 1));
+                                                        classElement.addAttribute("Seat",
+                                                                string.substring(1, 2));
+                                                        int pricess = Integer.valueOf(ao.get("disAmt").toString());
+                                                        pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
+                                                        classElement.addAttribute("Price", String.valueOf(pricess));
+                                                        classElement.addAttribute("Ext", "1");
+                                                        classElement.addAttribute("tuipiao", cuxiaozhengce.getCxzc_tuipiao());
+                                                        classElement.addAttribute("gaiqi", cuxiaozhengce.getCxzc_gaiqian());
+                                                        classElement.addAttribute("qianzhuan", cuxiaozhengce.getCxzc_qianzhuan());
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -407,13 +446,13 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             for (int i = 0; i < tuigais.size(); i++) {
                 if (tgq.attributeValue("Code").equals(
                         tuigais.get(i).getCangwei())) {
-                    if (tgq.attribute("tuipiao").getValue() == null||tgq.attribute("tuipiao").getValue().equals("")) {
+                    if (tgq.attribute("tuipiao").getValue() == null || tgq.attribute("tuipiao").getValue().equals("")) {
                         tgq.addAttribute("tuipiao", tuigais.get(i).getTuipiao());
                     }
-                    if (tgq.attribute("gaiqi").getValue() == null||tgq.attribute("gaiqi").getValue().equals("")) {
+                    if (tgq.attribute("gaiqi").getValue() == null || tgq.attribute("gaiqi").getValue().equals("")) {
                         tgq.addAttribute("gaiqi", tuigais.get(i).getGaiqi());
                     }
-                    if (tgq.attribute("qianzhuan").getValue() == null||tgq.attribute("qianzhuan").getValue().equals("")) {
+                    if (tgq.attribute("qianzhuan").getValue() == null || tgq.attribute("qianzhuan").getValue().equals("")) {
                         tgq.addAttribute("qianzhuan", tuigais.get(i).getQianzhuan());
                     }
                 }

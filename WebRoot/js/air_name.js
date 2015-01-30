@@ -99,5 +99,8 @@ function air_n(Carrier) {
     else if (Carrier == 'Z2') {
         air_name = '中原航空'
     }
+    else if (Carrier == 'GJ') {
+        air_name = '长龙航空'
+    }
     return air_name;
 }
