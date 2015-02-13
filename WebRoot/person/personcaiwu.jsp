@@ -95,7 +95,14 @@
                                         <td width="15%"><s:property value="vmrecord_orderid"></s:property></td>
                                         <td width="8%"><s:property value="vmrecord_number"></s:property></td>
                                         <td width="10%"><s:property value="vmrecord_time"></s:property></td>
-                                        <td width="8%"><s:property value="vmrecord_type"></s:property></td>
+                                        <%--<s:if test="vmrecord_type == 0">--%>
+                                        <%--<td width="8%">充值</td>--%>
+                                        <%--</s:if> <s:elseif test="vmrecord_type == 1">--%>
+                                        <%--<td width="8%">支付</td>--%>
+                                        <%--</s:elseif><s:else>--%>
+                                        <%--<td width="8%">退款</td>--%>
+                                        <%--</s:else>--%>
+                                        <td width="8%"><s:property value="vmrecord_remark"></s:property></td>
                                         <td width="8%"><s:property value="vmrecord_money"></s:property></td>
                                         <td width="15%"><s:property value="vmrecord_beizhu"></s:property></td>
                                     </tr>

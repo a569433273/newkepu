@@ -13,25 +13,27 @@ public class Passenger {
     private int passenger_type;
     private int passenger_paperstype;
     private String passenger_papernum;
-    private int passenger_ishangyixian;
-    private int passenger_hangyixian;
-    private int passenger_isyanwuxian;
-    private int passenger_yanwuxian;
+//    private int passenger_ishangyixian;
+//    private int passenger_hangyixian;
+//    private int passenger_isyanwuxian;
+//    private int passenger_yanwuxian;
+    private int passenger_isbaoxian;
     private String passenger_ticketnum;
     private String passenger_order_id;
     private String passenger_birth;
     private String passenger_tuipiao_message;
-    private String passenger_hangyixianhao;
-    private String passenger_yanwuxianhao;
+//    private String passenger_hangyixianhao;
+//    private String passenger_yanwuxianhao;
+    private String passenger_baoxianhao;
     private String passenger_sex;
     private int passenger_goxiaofei;
     private int passenger_backxiaofei;
     private int passenger_ranyou;
     private int passenger_jijian;
-    private int passenger_price;
+    private int passenger_pirce;
     private int passenger_backranyou;
     private int passenger_backjijian;
-    private int passenger_backprice;
+    private int passenger_backpirce;
     private String passenger_gocw;
     private String passenger_backcw;
     private int passenger_isbenren;
@@ -77,36 +79,12 @@ public class Passenger {
         this.passenger_papernum = passenger_papernum;
     }
 
-    public int getPassenger_ishangyixian() {
-        return passenger_ishangyixian;
+    public int getPassenger_isbaoxian() {
+        return passenger_isbaoxian;
     }
 
-    public void setPassenger_ishangyixian(int passenger_ishangyixian) {
-        this.passenger_ishangyixian = passenger_ishangyixian;
-    }
-
-    public int getPassenger_hangyixian() {
-        return passenger_hangyixian;
-    }
-
-    public void setPassenger_hangyixian(int passenger_hangyixian) {
-        this.passenger_hangyixian = passenger_hangyixian;
-    }
-
-    public int getPassenger_isyanwuxian() {
-        return passenger_isyanwuxian;
-    }
-
-    public void setPassenger_isyanwuxian(int passenger_isyanwuxian) {
-        this.passenger_isyanwuxian = passenger_isyanwuxian;
-    }
-
-    public int getPassenger_yanwuxian() {
-        return passenger_yanwuxian;
-    }
-
-    public void setPassenger_yanwuxian(int passenger_yanwuxian) {
-        this.passenger_yanwuxian = passenger_yanwuxian;
+    public void setPassenger_isbaoxian(int passenger_isbaoxian) {
+        this.passenger_isbaoxian = passenger_isbaoxian;
     }
 
     public String getPassenger_ticketnum() {
@@ -141,21 +119,6 @@ public class Passenger {
         this.passenger_tuipiao_message = passenger_tuipiao_message;
     }
 
-    public String getPassenger_hangyixianhao() {
-        return passenger_hangyixianhao;
-    }
-
-    public void setPassenger_hangyixianhao(String passenger_hangyixianhao) {
-        this.passenger_hangyixianhao = passenger_hangyixianhao;
-    }
-
-    public String getPassenger_yanwuxianhao() {
-        return passenger_yanwuxianhao;
-    }
-
-    public void setPassenger_yanwuxianhao(String passenger_yanwuxianhao) {
-        this.passenger_yanwuxianhao = passenger_yanwuxianhao;
-    }
 
     public String getPassenger_sex() {
         return passenger_sex;
@@ -197,14 +160,6 @@ public class Passenger {
         this.passenger_jijian = passenger_jijian;
     }
 
-    public int getPassenger_price() {
-        return passenger_price;
-    }
-
-    public void setPassenger_price(int passenger_price) {
-        this.passenger_price = passenger_price;
-    }
-
     public int getPassenger_backranyou() {
         return passenger_backranyou;
     }
@@ -219,14 +174,6 @@ public class Passenger {
 
     public void setPassenger_backjijian(int passenger_backjijian) {
         this.passenger_backjijian = passenger_backjijian;
-    }
-
-    public int getPassenger_backprice() {
-        return passenger_backprice;
-    }
-
-    public void setPassenger_backprice(int passenger_backprice) {
-        this.passenger_backprice = passenger_backprice;
     }
 
     public String getPassenger_gocw() {
@@ -251,5 +198,29 @@ public class Passenger {
 
     public void setPassenger_isbenren(int passenger_isbenren) {
         this.passenger_isbenren = passenger_isbenren;
+    }
+
+    public String getPassenger_baoxianhao() {
+        return passenger_baoxianhao;
+    }
+
+    public void setPassenger_baoxianhao(String passenger_baoxianhao) {
+        this.passenger_baoxianhao = passenger_baoxianhao;
+    }
+
+    public int getPassenger_pirce() {
+        return passenger_pirce;
+    }
+
+    public void setPassenger_pirce(int passenger_pirce) {
+        this.passenger_pirce = passenger_pirce;
+    }
+
+    public int getPassenger_backpirce() {
+        return passenger_backpirce;
+    }
+
+    public void setPassenger_backpirce(int passenger_backpirce) {
+        this.passenger_backpirce = passenger_backpirce;
     }
 }

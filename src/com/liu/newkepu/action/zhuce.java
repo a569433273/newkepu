@@ -103,7 +103,7 @@ public class zhuce extends ActionSupport implements ModelDriven<Object> {
         member.setMember_paypass(searchInfo.getU_pwd());
         member.setMember_staffmessage_id("");
         member.setMember_phone(searchInfo.getU_tel());
-        member.setMember_papers_type(0);
+        member.setMember_papers_type("0");
         member.setMember_papers_num("");
         member.setMember_hz_num("");
         member.setMember_qt_num("");

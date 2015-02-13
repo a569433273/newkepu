@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.List;
 
 public class wenxinJSON {
-    public String theress = null;
     public wenxinJSON() {
 
     }
@@ -83,15 +82,10 @@ public class wenxinJSON {
             new Thread() {
                 public void run() {
                     BufferedReader in = null;
-                    //在匿名内部类中使用count、future、c。
                     testresult.setRealData(in,client,request2);
                     testresult.setContent();
                 }
             }.start();
-//            thejson = requ1(in,client,request2);
-//                TestThread testThread = new TestThread(in,client,request2);
-//                Thread thread1 = new Thread(testThread);
-//                thread1.start();
 
             System.out.println("结束微信查询");
             return testresult;
@@ -106,14 +100,6 @@ public class wenxinJSON {
             }
         }
         return testresult;
-    }
-
-    public String getTheress() {
-        return theress;
-    }
-
-    public void setTheress(String theress) {
-        this.theress = theress;
     }
 }
 

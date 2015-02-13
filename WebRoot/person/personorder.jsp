@@ -123,7 +123,7 @@
                                                     value="flight_company"></s:property><s:property
                                                     value="flight_id"></s:property></td>
                                             <td width="8%" id="ord_mg1_artl"><s:property
-                                                    value="order_price"></s:property></td>
+                                                    value="order_pirce"></s:property></td>
                                             <td width="8%" id="ord_mg1_arst"><s:property
                                                     value="back_tpm"></s:property></td>
                                             <td width="10%" id="ord_mg1_artk"><s:property

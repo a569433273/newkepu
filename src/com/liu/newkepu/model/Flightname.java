@@ -2,36 +2,38 @@ package com.liu.newkepu.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "flight_name")
 public class Flightname {
 
-    private String sanzima;
-    private String jichang;
-    private String chengshi;
+    private String B;
+    private String C;
+    private String D;
+
+        public String getB() {
+        return B;
+    }
+
+    public void setB(String b) {
+        B = b;
+    }
 
     @Id
-    public String getSanzima() {
-        return sanzima;
+    public String getC() {
+        return C;
     }
 
-    public void setSanzima(String sanzima) {
-        this.sanzima = sanzima;
+    public void setC(String c) {
+        C = c;
     }
 
-    public String getJichang() {
-        return jichang;
+    public String getD() {
+        return D;
     }
 
-    public void setJichang(String jichang) {
-        this.jichang = jichang;
-    }
-
-    public String getChengshi() {
-        return chengshi;
-    }
-
-    public void setChengshi(String chengshi) {
-        this.chengshi = chengshi;
+    public void setD(String d) {
+        D = d;
     }
 }

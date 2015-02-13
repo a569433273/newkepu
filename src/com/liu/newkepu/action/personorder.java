@@ -1,5 +1,6 @@
 package com.liu.newkepu.action;
 
+import com.liu.newkepu.dao.FdDao;
 import com.liu.newkepu.dao.FlightnameDao;
 import com.liu.newkepu.dao.HangkonggsDao;
 import com.liu.newkepu.dao.OrderDao;
@@ -35,16 +36,25 @@ public class personorder extends ActionSupport implements ModelDriven<Object> {
     @Resource
     private HangkonggsDao hangkonggsDao;
 
+    @Resource
+    private FdDao fdDao;
+
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         orders = orderDao.findBymember_id(request.getSession().getAttribute("member_id").toString());
+        List<Hangkonggs> hangkonggses = hangkonggsDao.findAll();
         for (Order order : orders) {
             sessionFactory.getCurrentSession().evict(order);
-            List<Hangkonggs> hangkonggses = hangkonggsDao.findBycode(order.getFlight_company());
-            order.setFlight_tpm(hangkonggses.get(0).getGongsiname());
-            order.setFlight_from(flightnameDao.findBysanzima(order.getFlight_from()).getChengshi());
-            order.setFlight_arrival(flightnameDao.findBysanzima(order.getFlight_arrival()).getChengshi());
+//            List<Hangkonggs> hangkonggses = hangkonggsDao.findBycode(order.getFlight_company());
+            for (Hangkonggs hangkonggse : hangkonggses) {
+                if (hangkonggse.getCode().equals(order.getFlight_company())) {
+                    order.setFlight_tpm(hangkonggse.getJcname());
+//                    break;
+                }
+            }
+            order.setFlight_from(fdDao.findBysanzima(order.getFlight_from()).getFdname());
+            order.setFlight_arrival(fdDao.findBysanzima(order.getFlight_arrival()).getFdname());
             switch (order.getOrder_state()) {
                 case 0:
                     order.setBack_tpm("未确认");

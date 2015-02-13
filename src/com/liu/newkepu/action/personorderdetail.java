@@ -47,9 +47,9 @@ public class personorderdetail extends ActionSupport implements ModelDriven<Obje
         for (Order order : ordersdetail) {
             sessionFactory.getCurrentSession().evict(order);
             List<Hangkonggs> hangkonggses = hangkonggsDao.findBycode(order.getFlight_company());
-            order.setFlight_tpm(hangkonggses.get(0).getGongsiname());
-            order.setFlight_from(flightnameDao.findBysanzima(order.getFlight_from()).getJichang());
-            order.setFlight_arrival(flightnameDao.findBysanzima(order.getFlight_arrival()).getJichang());
+            order.setFlight_tpm(hangkonggses.get(0).getJcname());
+            order.setFlight_from(flightnameDao.findBysanzima(order.getFlight_from()).getD());
+            order.setFlight_arrival(flightnameDao.findBysanzima(order.getFlight_arrival()).getD());
             switch (order.getOrder_state()) {
                 case 0:
                     order.setBack_tpm("未确认");

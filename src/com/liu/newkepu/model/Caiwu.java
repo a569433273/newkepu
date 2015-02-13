@@ -9,7 +9,6 @@ import javax.persistence.Table;
 @Table(name = "kepu_vmrecord")
 public class Caiwu {
     private String vmrecord_id;
-    private String vmrecord_zhanghao;
     private String vmrecord_type;
     private String vmrecord_time;
     private int vmrecord_money;
@@ -18,6 +17,9 @@ public class Caiwu {
     private String vmrecord_beizhu;
     private String vmrecord_member_id;
     private String vmrecord_caozuoren;
+    private String vmrecord_remark;
+    private String vmrecord_order_type;
+    private String vmrecord_pay_type;
 
     @Id
     public String getVmrecord_id() {
@@ -26,14 +28,6 @@ public class Caiwu {
 
     public void setVmrecord_id(String vmrecord_id) {
         this.vmrecord_id = vmrecord_id;
-    }
-
-    public String getVmrecord_zhanghao() {
-        return vmrecord_zhanghao;
-    }
-
-    public void setVmrecord_zhanghao(String vmrecord_zhanghao) {
-        this.vmrecord_zhanghao = vmrecord_zhanghao;
     }
 
     public String getVmrecord_type() {
@@ -98,5 +92,29 @@ public class Caiwu {
 
     public void setVmrecord_caozuoren(String vmrecord_caozuoren) {
         this.vmrecord_caozuoren = vmrecord_caozuoren;
+    }
+
+    public String getVmrecord_remark() {
+        return vmrecord_remark;
+    }
+
+    public void setVmrecord_remark(String vmrecord_remark) {
+        this.vmrecord_remark = vmrecord_remark;
+    }
+
+    public String getVmrecord_order_type() {
+        return vmrecord_order_type;
+    }
+
+    public void setVmrecord_order_type(String vmrecord_order_type) {
+        this.vmrecord_order_type = vmrecord_order_type;
+    }
+
+    public String getVmrecord_pay_type() {
+        return vmrecord_pay_type;
+    }
+
+    public void setVmrecord_pay_type(String vmrecord_pay_type) {
+        this.vmrecord_pay_type = vmrecord_pay_type;
     }
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.liu.newkepu.dao.MemberDao;
 import com.liu.newkepu.model.Member;
+import com.liu.newkepu.util.Des3;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +33,7 @@ public class denglu extends ActionSupport implements ModelDriven<Object> {
             searchInfo.setTuichu(0);
             return "success";
         }
-        List<Member> members = memberDao.findBynameandpassword(searchInfo.getUsername(), searchInfo.getPassword());
+        List<Member> members = memberDao.findBynameandpassword(searchInfo.getUsername(), Des3.encode(searchInfo.getPassword()));
         if (members.size() > 0) {
             request.getSession().setAttribute("member_id", members.get(0).getMember_id());
             request.getSession().setAttribute("member_realname", members.get(0).getMember_realname());

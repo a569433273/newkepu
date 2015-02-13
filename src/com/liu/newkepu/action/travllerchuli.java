@@ -64,9 +64,9 @@ public class travllerchuli extends ActionSupport implements ModelDriven<Object> 
 
     private void Savetravllermessage(HttpServletRequest request, Traveller traveller) {
         traveller.setTraveller_name(searchInfo.getNm1());
-        traveller.setTraveller_type(searchInfo.getPtype1());
+        traveller.setTraveller_type(String.valueOf(searchInfo.getPtype1()));
         traveller.setTraveller_papers_type(searchInfo.getCtype1());
-        switch (searchInfo.getCtype1()) {
+        switch (Integer.valueOf(searchInfo.getCtype1())) {
             case 0:
                 traveller.setTraveller_sf_num(searchInfo.getCrdNo1());
                 break;
@@ -80,7 +80,7 @@ public class travllerchuli extends ActionSupport implements ModelDriven<Object> 
         traveller.setTraveller_sex(searchInfo.getSex1());
         traveller.setTraveller_birth(searchInfo.getBdate1());
         traveller.setTraveller_member_id(request.getSession().getAttribute("member_id").toString());
-        traveller.setTraveller_phone(searchInfo.getPtel1());
+//        traveller.setTraveller_phone(searchInfo.getPtel1());
     }
 
     @Override

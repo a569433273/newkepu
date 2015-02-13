@@ -43,10 +43,10 @@ public class searchInfo {
     /*常用成绩人编辑和添加页面传来的值*/
     private String Nm1;
     private String Ptel1;
-    private int Ctype1;
+    private String Ctype1;
     private String CrdNo1;
     private String Bdate1;
-    private int Ptype1;
+    private String Ptype1;
     private String Sex1;
     private String Id1;
     private String deleteid = "1";
@@ -66,6 +66,7 @@ public class searchInfo {
     private int pu_crdtp;
     private String pu_date;
     private String pu_resu;
+    private String pu_job;
 
     //会议发起页面传来的值
     private String Minti_depart;
@@ -395,11 +396,11 @@ public class searchInfo {
         Ptel1 = ptel1;
     }
 
-    public int getCtype1() {
+    public String getCtype1() {
         return Ctype1;
     }
 
-    public void setCtype1(int ctype1) {
+    public void setCtype1(String ctype1) {
         Ctype1 = ctype1;
     }
 
@@ -419,11 +420,11 @@ public class searchInfo {
         Bdate1 = bdate1;
     }
 
-    public int getPtype1() {
+    public String getPtype1() {
         return Ptype1;
     }
 
-    public void setPtype1(int ptype1) {
+    public void setPtype1(String ptype1) {
         Ptype1 = ptype1;
     }
 
@@ -545,6 +546,14 @@ public class searchInfo {
 
     public void setPu_resu(String pu_resu) {
         this.pu_resu = pu_resu;
+    }
+
+    public String getPu_job() {
+        return pu_job;
+    }
+
+    public void setPu_job(String pu_job) {
+        this.pu_job = pu_job;
     }
 
     public String getMinti_depart() {

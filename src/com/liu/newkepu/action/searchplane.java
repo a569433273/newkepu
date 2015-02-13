@@ -51,6 +51,9 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
     @Resource
     private CuxiaozhengceDao cuxiaozhengceDao;
 
+    @Resource
+    private FdDao fdDao;
+
     private List<Cuxiaozhengce> cuxiaozhengces;
 
     @Override
@@ -134,7 +137,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      */
     private String getsanzima(String fromandarrival) {
         ZhengzeUtil zhengzeUtil = new ZhengzeUtil();
-        List<Flightname> list = new ArrayList<Flightname>();
+        List<FD> list = new ArrayList<FD>();
 
 		/*
          * 针对格式为 北京(NAY)
@@ -154,15 +157,15 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                         0,
                         fromandarrivalList.get(0).substring(0,
                                 fromandarrivalList.get(0).length() - 1));
-                list = flightnameDao.findBychengshi(fromandarrivalList.get(0));
-                fromandarrivalList.set(0, list.get(0).getSanzima());
+                list = fdDao.findBychengshi(fromandarrivalList.get(0));
+                fromandarrivalList.set(0, list.get(0).getFdszm1());
             } else {
                 /*
                  * 针对格式为 北京
 				 */
-                list = flightnameDao.findBychengshi(fromandarrival);
+                list = fdDao.findBychengshi(fromandarrival);
                 if (list.size() > 0) {
-                    fromandarrivalList.add(list.get(0).getSanzima());
+                    fromandarrivalList.add(list.get(0).getFdszm1());
                 } else {
                     return null;
                 }
@@ -361,7 +364,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * 给XML添加促销价格
      *
      * @param item     添加价格的节点
-     * @param fdprices 添加进XML的价格
+     *
      * @author 刘健
      */
     private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, JSONArray jsonArray) {
@@ -469,12 +472,12 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
     private void addjichang(Element item) {
         Element Boardairport = item.addElement("Boardairport");
         String qifeijichang = flightnameDao.findBysanzima(
-                item.elementText("BoardPoint")).getJichang();
+                item.elementText("BoardPoint")).getD();
         Boardairport.addText(qifeijichang);
 
         Element Offairport = item.addElement("Offairport");
         String daodajichang = flightnameDao.findBysanzima(
-                item.elementText("OffPoint")).getJichang();
+                item.elementText("OffPoint")).getD();
         Offairport.addText(daodajichang);
     }
 

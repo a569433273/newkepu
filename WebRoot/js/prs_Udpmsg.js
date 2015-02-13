@@ -28,7 +28,7 @@ function prs_Upt(prs_U) {
     str3 += "<div class='prs_rt2_1' id='prs_Tp2'></div>";
     $("#prs_Tp1").append(str3);
     str4 = "<div class='prs_rt2_11'><div class='ct_1'>姓名：&nbsp;</div><div class='ct_2'><input type='text' name='Nm1' value=''  style='margin-top:5px;' id='Nm1' onkeyup='chk_Nm1()'/>&nbsp;<span id='chk_Nm1'></span></div></div>";
-    str4 += "<div class='prs_rt2_11'><div class='ct_1'>证件类型：&nbsp;</div><div class='ct_2'><select name='Ctype1' style='margin-top:5px; width:120px;' id='Ctype1'><option value='0'>身份证</option><option value='1'>护照</option><option value='4'>其他</option></select></div></div>";
+    str4 += "<div class='prs_rt2_11'><div class='ct_1'>证件类型：&nbsp;</div><div class='ct_2'><select name='Ctype1' style='margin-top:5px; width:120px;' id='Ctype1'><option value='0'>身份证</option><option value='1'>护照</option><option value='2'>军官</option><option value='3'>警官</option><option value='4'>港澳通行证</option><option value='5'>其他</option></select></div></div>";
     str4 += "<div class='prs_rt2_11'><div class='ct_1'>出生日期：&nbsp;</div><div class='ct_2'><input type='text' name='Bdate1' value=''  style='margin-top:5px; width:70px;' id='Bdate1' onkeyup='chk_Date()' onblur='chk_bCrd()'/>&nbsp;<span id='chk_Bdate'></span>&nbsp;<span style='font-size:12px; color:#f00; line-height:25px;'>如:2014-01-02</span></div></div>";
     str4 += "<div class='prs_rt2_11'><div class='ct_1'>性别：&nbsp;</div><div class='ct_2'><input name='Psex1' type='radio' value='男' id='Psex1' onclick='checksex(this.value)'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;男</span>&nbsp;&nbsp;&nbsp;<input name='Psex2' type='radio' value='女' id='Psex2' onclick='checksex(this.value)'/><span style='color:#555; font-size:12px; line-height:30px;'>&nbsp;&nbsp;女</span></div></div>";
     $("#prs_Tp2").append(str4);
@@ -36,7 +36,7 @@ function prs_Upt(prs_U) {
     $("#prs_Tp1").append(str5);
     str6 = "<div class='prs_rt2_11'><div class='ct_1'>手机号码：&nbsp;</div><div class='ct_2'><input type='text' name='Ptel1' value=''  style='margin-top:5px;' id='Ptel1' onkeyup='chk_Ptel()'/>&nbsp;<span id='chk_Ptel1'></span></div></div>";
     str6 += "<div class='prs_rt2_11'><div class='ct_1'>证件号：&nbsp;</div><div class='ct_2'><input type='text' name='CrdNo1' value=''  style='margin-top:5px;' id='CrdNo1' onkeyup='chk_Crd()' onblur='chk_bCrd()'/>&nbsp;<span id='chk_CrdNo1'></span></div></div>";
-    str6 += "<div class='prs_rt2_11'><div class='ct_1'>旅客类型：&nbsp;</div><div class='ct_2'><select name='Ptype1' style='margin-top:5px; width:120px;' id='Ptype1' onchange='chk_bCrd()'><option value='0'>成人(>12)</option><option value='1'>儿童(<12)</option></select></div></div>";
+    str6 += "<div class='prs_rt2_11'><div class='ct_1'>旅客类型：&nbsp;</div><div class='ct_2'><select name='Ptype1' style='margin-top:5px; width:120px;' id='Ptype1' onchange='chk_bCrd()'><option value='1'>成人(>12)</option><option value='0'>儿童(<12)</option></select></div></div>";
     str6 += "<input type='hidden' name='Id1' id='Id1' value=''>";
     str6 += "<input type='hidden' name='Sex1' id='Sex1' value=''>";
     $("#prs_Tp3").append(str6);
@@ -62,8 +62,17 @@ function prs_Upt(prs_U) {
     else if (prs_L3 == '护照') {
         document.getElementById("Ctype1").options[1].selected = 'true';
     }
-    else {
+    else if (prs_L3 == '军官') {
         document.getElementById("Ctype1").options[2].selected = 'true';
+    }
+    else if (prs_L3 == '警官') {
+        document.getElementById("Ctype1").options[3].selected = 'true';
+    }
+    else if (prs_L3 == '港澳通行证') {
+        document.getElementById("Ctype1").options[4].selected = 'true';
+    }
+    else {
+        document.getElementById("Ctype1").options[5].selected = 'true';
     }
     if (prs_L6 == '成人') {
         document.getElementById("Ptype1").options[0].selected = 'true';

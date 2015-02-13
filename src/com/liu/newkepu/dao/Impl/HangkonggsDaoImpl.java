@@ -20,4 +20,10 @@ public class HangkonggsDaoImpl implements HangkonggsDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from Hangkonggs h where h.code='" + code + "'");
         return query.list();
     }
+
+    @Override
+    public List<Hangkonggs> findAll() {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Hangkonggs h");
+        return query.list();
+    }
 }

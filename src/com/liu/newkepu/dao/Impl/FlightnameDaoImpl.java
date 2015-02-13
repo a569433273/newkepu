@@ -18,12 +18,6 @@ public class FlightnameDaoImpl implements FlightnameDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Flightname> findBychengshi(String chengshi) {
-        Query query = sessionFactory.getCurrentSession().createQuery("from Flightname f where f.chengshi like '%" + chengshi + "%'");
-        return query.list();
-    }
-
-    @Override
     public Flightname findBysanzima(String sanzima) {
         Flightname flightname = (Flightname) sessionFactory.getCurrentSession().load(Flightname.class, sanzima);
         return flightname;

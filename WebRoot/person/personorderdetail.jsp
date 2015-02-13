@@ -120,7 +120,7 @@
                                     <s:iterator value="passengers">
                                         <tr align="center" height="50">
                                             <td width="10%"><s:property value="passenger_name"></s:property></td>
-                                            <s:if test="passenger_type == 0">
+                                            <s:if test="passenger_type == 1">
                                                 <td width="8%">成人</td>
                                             </s:if>
                                             <s:else>
@@ -132,7 +132,16 @@
                                             <s:elseif test="passenger_paperstype == 1">
                                                 <td width="8%">护照</td>
                                             </s:elseif>
+                                            <s:elseif test="passenger_paperstype == 2">
+                                                <td width="8%">军官</td>
+                                            </s:elseif>
+                                            <s:elseif test="passenger_paperstype == 3">
+                                                <td width="8%">警官</td>
+                                            </s:elseif>
                                             <s:elseif test="passenger_paperstype == 4">
+                                                <td width="8%">港澳通行证</td>
+                                            </s:elseif>
+                                            <s:elseif test="passenger_paperstype == 5">
                                                 <td width="8%">其他</td>
                                             </s:elseif>
                                             <td width="15%"><s:property value="passenger_papernum"></s:property></td>

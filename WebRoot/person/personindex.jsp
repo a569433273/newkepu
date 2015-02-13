@@ -69,15 +69,27 @@
                                     <s:if test="member_papers_type==0">
                                         <span style="line-height:30px; font-size:12px; color:#555;"
                                               id="pu_crdtp">身份证</span></div>
-                                </s:if>
-                                <s:elseif test="member_papers_type==1">
+                                    </s:if>
+                                    <s:elseif test="member_papers_type==1">
                                         <span style="line-height:30px; font-size:12px; color:#555;"
                                               id="pu_crdtp">护照</span></div>
-                            </s:elseif>
-                            <s:elseif test="member_papers_type==4">
+                                    </s:elseif>
+                                    <s:elseif test="member_papers_type==2">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">军官</span></div>
+                                    </s:elseif>
+                                    <s:elseif test="member_papers_type==3">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">警官</span></div>
+                                    </s:elseif>
+                                    <s:elseif test="member_papers_type==4">
+                                        <span style="line-height:30px; font-size:12px; color:#555;"
+                                              id="pu_crdtp">港澳通行证</span></div>
+                                    </s:elseif>
+                                    <s:elseif test="member_papers_type==5">
                                         <span style="line-height:30px; font-size:12px; color:#555;"
                                               id="pu_crdtp">其他</span></div>
-                        </s:elseif>
+                                    </s:elseif>
                     </div>
                     <div class="prs_rt2_11">
                         <div class="ct_1">出生日期：&nbsp;</div>
@@ -107,7 +119,7 @@
                     <div class="prs_rt2_11">
                         <div class="ct_1">座机号：&nbsp;</div>
                         <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                                id="pu_ztel"><s:property value="member_zuoji"></s:property></span>
+                                                id="pu_ztel"><s:property value="member_tel"></s:property></span>
                         </div>
                     </div>
                     <div class="prs_rt2_11">
@@ -138,12 +150,12 @@
             <div class="prs_rt2_11">
                 <div class="ct_1">工作单位：&nbsp;</div>
                 <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                        id="pu_job">未设置</span></div>
+                                        id="pu_job"><s:property value="member_workaddress"></s:property></span></div>
             </div>
             <div class="prs_rt2_11">
                 <div class="ct_1">职称：&nbsp;</div>
                 <div class="ct_2"><span style="line-height:30px; font-size:12px; color:#555;"
-                                        id="pu_resu">未设置</span></div>
+                                        id="pu_resu"><s:property value="member_workname"></s:property></span></div>
             </div>
         </div>
         <!--内容右部 over-->

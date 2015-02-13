@@ -9,19 +9,18 @@ import javax.persistence.Table;
 public class Traveller {
     private String traveller_id;
     private String traveller_name;
-    private int traveller_type;
-    private int traveller_papers_type;
+    private String traveller_type;
+    private String traveller_papers_type;
     private String traveller_sf_num;
     private String traveller_hz_num;
     private String traveller_ga_num;
     private String traveller_jug_num;
     private String traveller_jingu_num;
     private String traveller_qt_num;
-    private int traveller_isbenren;
+    private String traveller_isbenren;
     private String traveller_sex;
     private String traveller_birth;
     private String traveller_member_id;
-    private String traveller_phone;
 
     @Id
     public String getTraveller_id() {
@@ -40,19 +39,19 @@ public class Traveller {
         this.traveller_name = traveller_name;
     }
 
-    public int getTraveller_type() {
+    public String getTraveller_type() {
         return traveller_type;
     }
 
-    public void setTraveller_type(int traveller_type) {
+    public void setTraveller_type(String traveller_type) {
         this.traveller_type = traveller_type;
     }
 
-    public int getTraveller_papers_type() {
+    public String getTraveller_papers_type() {
         return traveller_papers_type;
     }
 
-    public void setTraveller_papers_type(int traveller_papers_type) {
+    public void setTraveller_papers_type(String traveller_papers_type) {
         this.traveller_papers_type = traveller_papers_type;
     }
 
@@ -81,7 +80,6 @@ public class Traveller {
     }
 
     public String getTraveller_jug_num() {
-
         return traveller_jug_num;
     }
 
@@ -105,11 +103,11 @@ public class Traveller {
         this.traveller_qt_num = traveller_qt_num;
     }
 
-    public int getTraveller_isbenren() {
+    public String getTraveller_isbenren() {
         return traveller_isbenren;
     }
 
-    public void setTraveller_isbenren(int traveller_isbenren) {
+    public void setTraveller_isbenren(String traveller_isbenren) {
         this.traveller_isbenren = traveller_isbenren;
     }
 
@@ -135,13 +133,5 @@ public class Traveller {
 
     public void setTraveller_member_id(String traveller_member_id) {
         this.traveller_member_id = traveller_member_id;
-    }
-
-    public String getTraveller_phone() {
-        return traveller_phone;
-    }
-
-    public void setTraveller_phone(String traveller_phone) {
-        this.traveller_phone = traveller_phone;
     }
 }

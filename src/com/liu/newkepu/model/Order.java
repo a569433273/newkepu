@@ -25,7 +25,7 @@ public class Order {
     private String flight_type;
     private String flight_from_site;
     private String flight_arrival_site;
-    private String flight_price;
+    private String flight_pirce;
     private String flight_ranyou;
     private String flight_jijian;
     private String flight_tpm;
@@ -41,24 +41,27 @@ public class Order {
     private String back_type;
     private String back_from_site;
     private String back_arrival_site;
-    private String back_price;
+    private String back_pirce;
     private String back_ranyou;
     private String back_jijian;
     private String back_tpm;
-    private String order_tpm;
-    private String order_price;
+    private int order_tpm;
+    private String order_pirce;
     private String flight_lxr;
     private String flight_lxrdh;
-    private String flight_lxryx;
+//    private String flight_lxryx;
     private String chirdPNR;
     private String peoplePNR;
     private String tuipiaomessage;
-    private String tuipiao_price;
+    private String tuipiao_pirce;
     private String order_caozuoren;
     private String order_pomp_id;
+    private int order_pomp_jifenNum;
     private String order_xdrid;
     private int order_shgrant;
     private String order_isgw;
+    private int payOrderType;
+    private String payWork;
     private int order_issuoding;
     private String order_suodingrenId;
     private int order_jifenNum;
@@ -128,20 +131,20 @@ public class Order {
         this.flight_position = flight_position;
     }
 
-    public String getFlight_arrival() {
-        return flight_arrival;
-    }
-
-    public void setFlight_arrival(String flight_arrival) {
-        this.flight_arrival = flight_arrival;
-    }
-
     public String getFlight_from() {
         return flight_from;
     }
 
     public void setFlight_from(String flight_from) {
         this.flight_from = flight_from;
+    }
+
+    public String getFlight_arrival() {
+        return flight_arrival;
+    }
+
+    public void setFlight_arrival(String flight_arrival) {
+        this.flight_arrival = flight_arrival;
     }
 
     public String getFlight_from_date() {
@@ -200,12 +203,12 @@ public class Order {
         this.flight_arrival_site = flight_arrival_site;
     }
 
-    public String getFlight_price() {
-        return flight_price;
+    public String getFlight_pirce() {
+        return flight_pirce;
     }
 
-    public void setFlight_price(String flight_price) {
-        this.flight_price = flight_price;
+    public void setFlight_pirce(String flight_pirce) {
+        this.flight_pirce = flight_pirce;
     }
 
     public String getFlight_ranyou() {
@@ -328,12 +331,12 @@ public class Order {
         this.back_arrival_site = back_arrival_site;
     }
 
-    public String getBack_price() {
-        return back_price;
+    public String getBack_pirce() {
+        return back_pirce;
     }
 
-    public void setBack_price(String back_price) {
-        this.back_price = back_price;
+    public void setBack_pirce(String back_pirce) {
+        this.back_pirce = back_pirce;
     }
 
     public String getBack_ranyou() {
@@ -360,20 +363,20 @@ public class Order {
         this.back_tpm = back_tpm;
     }
 
-    public String getOrder_tpm() {
+    public int getOrder_tpm() {
         return order_tpm;
     }
 
-    public void setOrder_tpm(String order_tpm) {
+    public void setOrder_tpm(int order_tpm) {
         this.order_tpm = order_tpm;
     }
 
-    public String getOrder_price() {
-        return order_price;
+    public String getOrder_pirce() {
+        return order_pirce;
     }
 
-    public void setOrder_price(String order_price) {
-        this.order_price = order_price;
+    public void setOrder_pirce(String order_pirce) {
+        this.order_pirce = order_pirce;
     }
 
     public String getFlight_lxr() {
@@ -390,14 +393,6 @@ public class Order {
 
     public void setFlight_lxrdh(String flight_lxrdh) {
         this.flight_lxrdh = flight_lxrdh;
-    }
-
-    public String getFlight_lxryx() {
-        return flight_lxryx;
-    }
-
-    public void setFlight_lxryx(String flight_lxryx) {
-        this.flight_lxryx = flight_lxryx;
     }
 
     public String getChirdPNR() {
@@ -424,12 +419,12 @@ public class Order {
         this.tuipiaomessage = tuipiaomessage;
     }
 
-    public String getTuipiao_price() {
-        return tuipiao_price;
+    public String getTuipiao_pirce() {
+        return tuipiao_pirce;
     }
 
-    public void setTuipiao_price(String tuipiao_price) {
-        this.tuipiao_price = tuipiao_price;
+    public void setTuipiao_pirce(String tuipiao_pirce) {
+        this.tuipiao_pirce = tuipiao_pirce;
     }
 
     public String getOrder_caozuoren() {
@@ -446,6 +441,14 @@ public class Order {
 
     public void setOrder_pomp_id(String order_pomp_id) {
         this.order_pomp_id = order_pomp_id;
+    }
+
+    public int getOrder_pomp_jifenNum() {
+        return order_pomp_jifenNum;
+    }
+
+    public void setOrder_pomp_jifenNum(int order_pomp_jifenNum) {
+        this.order_pomp_jifenNum = order_pomp_jifenNum;
     }
 
     public String getOrder_xdrid() {
@@ -472,6 +475,22 @@ public class Order {
         this.order_isgw = order_isgw;
     }
 
+    public int getPayOrderType() {
+        return payOrderType;
+    }
+
+    public void setPayOrderType(int payOrderType) {
+        this.payOrderType = payOrderType;
+    }
+
+    public String getPayWork() {
+        return payWork;
+    }
+
+    public void setPayWork(String payWork) {
+        this.payWork = payWork;
+    }
+
     public int getOrder_issuoding() {
         return order_issuoding;
     }
@@ -495,5 +514,4 @@ public class Order {
     public void setOrder_jifenNum(int order_jifenNum) {
         this.order_jifenNum = order_jifenNum;
     }
-
 }

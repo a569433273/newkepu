@@ -2,12 +2,14 @@ package com.liu.newkepu.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity()
+@Table(name = "kepu_jc")
 public class Hangkonggs {
     private String code;
-    private String gongsiname;
-    private String jiancheng;
+    private String jcname;
+    private String pyname;
 
     @Id
     public String getCode() {
@@ -18,19 +20,19 @@ public class Hangkonggs {
         this.code = code;
     }
 
-    public String getGongsiname() {
-        return gongsiname;
+    public String getJcname() {
+        return jcname;
     }
 
-    public void setGongsiname(String gongsiname) {
-        this.gongsiname = gongsiname;
+    public void setJcname(String jcname) {
+        this.jcname = jcname;
     }
 
-    public String getJiancheng() {
-        return jiancheng;
+    public String getPyname() {
+        return pyname;
     }
 
-    public void setJiancheng(String jiancheng) {
-        this.jiancheng = jiancheng;
+    public void setPyname(String pyname) {
+        this.pyname = pyname;
     }
 }

@@ -263,48 +263,48 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
             String xingbieshengri = aMessage.replaceAll(".*[0]*[?]", "");
             if (xingbieshengri.length() > 5) {
                 if (xingbieshengri.substring(0, 1).equals("0")) {
-                    passenger.setPassenger_sex("男");
+                    passenger.setPassenger_sex("male");
                 } else {
-                    passenger.setPassenger_sex("女");
+                    passenger.setPassenger_sex("female");
                 }
                 passenger.setPassenger_birth(xingbieshengri.substring(1, xingbieshengri.length() - 5));
             }
             int hangyixian = 0;
             //是否选择航意险，选择几份
-            if (aMessage.substring(messagelen - 4, messagelen - 3).equals("1")) {
-                passenger.setPassenger_ishangyixian(1);
-                hangyixian = Integer.valueOf(aMessage.substring(messagelen - 3, messagelen - 2));
-                passenger.setPassenger_hangyixian(hangyixian);
-            } else {
-                passenger.setPassenger_ishangyixian(0);
-                hangyixian = 0;
-                passenger.setPassenger_hangyixian(hangyixian);
-            }
-            int yanwuxian = 0;
-            //是否选择延误险，选择几份
-            if (aMessage.substring(messagelen - 2, messagelen - 1).equals("1")) {
-                passenger.setPassenger_isyanwuxian(1);
-                yanwuxian = Integer.valueOf(aMessage.substring(messagelen - 1, messagelen));
-                passenger.setPassenger_yanwuxian(yanwuxian);
-            } else {
-                passenger.setPassenger_isyanwuxian(0);
-                yanwuxian = 0;
-                passenger.setPassenger_yanwuxian(yanwuxian);
-            }
+//            if (aMessage.substring(messagelen - 4, messagelen - 3).equals("1")) {
+//                passenger.setPassenger_ishangyixian(1);
+//                hangyixian = Integer.valueOf(aMessage.substring(messagelen - 3, messagelen - 2));
+//                passenger.setPassenger_hangyixian(hangyixian);
+//            } else {
+//                passenger.setPassenger_ishangyixian(0);
+//                hangyixian = 0;
+//                passenger.setPassenger_hangyixian(hangyixian);
+//            }
+//            int yanwuxian = 0;
+//            //是否选择延误险，选择几份
+//            if (aMessage.substring(messagelen - 2, messagelen - 1).equals("1")) {
+//                passenger.setPassenger_isyanwuxian(1);
+//                yanwuxian = Integer.valueOf(aMessage.substring(messagelen - 1, messagelen));
+//                passenger.setPassenger_yanwuxian(yanwuxian);
+//            } else {
+//                passenger.setPassenger_isyanwuxian(0);
+//                yanwuxian = 0;
+//                passenger.setPassenger_yanwuxian(yanwuxian);
+//            }
             //是否保存为常用乘机人
             if (aMessage.substring(messagelen - 5, messagelen - 4).equals("1")) {
                 Traveller traveller = new Traveller();
                 traveller.setTraveller_name(passenger.getPassenger_name());
-                traveller.setTraveller_type(passenger.getPassenger_type());
-                traveller.setTraveller_papers_type(passenger.getPassenger_paperstype());
+                traveller.setTraveller_type(String.valueOf(passenger.getPassenger_type()));
+                traveller.setTraveller_papers_type(String.valueOf(passenger.getPassenger_paperstype()));
                 if (passenger.getPassenger_paperstype() == 0) {
                     String shenfenzheng = passenger.getPassenger_papernum();
                     traveller.setTraveller_sf_num(shenfenzheng);
                     traveller.setTraveller_birth(shenfenzheng.substring(6, 10) + "-" + shenfenzheng.substring(10, 12) + "-" + shenfenzheng.substring(12, 14));
                     if (Integer.valueOf(shenfenzheng.substring(16, 17)) % 2 == 1) {
-                        traveller.setTraveller_sex("男");
+                        traveller.setTraveller_sex("male");
                     } else {
-                        traveller.setTraveller_sex("女");
+                        traveller.setTraveller_sex("female");
                     }
                 } else if (passenger.getPassenger_paperstype() == 1) {
                     traveller.setTraveller_hz_num(passenger.getPassenger_papernum());
@@ -321,8 +321,8 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
             }
 
             passenger.setPassenger_order_id(order_id);
-            passenger.setPassenger_price(price);
-            passenger.setPassenger_goxiaofei(price + jijian + ranyou + (hangyixian * 30) + (yanwuxian * 20));
+            passenger.setPassenger_pirce(price);
+            passenger.setPassenger_goxiaofei(price + jijian + ranyou);
             passengerDao.save(passenger);
         }
     }
@@ -357,15 +357,15 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         order.setFlight_type(flight_type);
         order.setFlight_from_site(flight_from_site);
         order.setFlight_arrival_site(flight_arrival_site);
-        order.setFlight_price(flight_price);
+        order.setFlight_pirce(flight_price);
         order.setFlight_ranyou(flight_ranyou);
         order.setFlight_jijian(flight_jijian);
         order.setFlight_tpm(flight_tpm);
-        order.setOrder_tpm(order_tpm);
-        order.setOrder_price(order_price);
+        order.setOrder_tpm(Integer.valueOf(order_tpm));
+        order.setOrder_pirce(order_price);
         order.setFlight_lxr(flight_lxr);
         order.setFlight_lxrdh(flight_lxrdh);
-        order.setFlight_lxryx(flight_lxryx);
+//        order.setFlight_lxryx(flight_lxryx);
         order.setChirdPNR("");
         order.setPeoplePNR("");
         orderDao.save(order);

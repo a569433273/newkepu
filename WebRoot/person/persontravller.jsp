@@ -91,21 +91,40 @@
                                 <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
                                         value="traveller_hz_num"></s:property></td>
                             </s:elseif>
+                            <s:elseif test="traveller_papers_type==2">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">军官</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_jug_num"></s:property></td>
+                            </s:elseif>
+                            <s:elseif test="traveller_papers_type==3">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">警官</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_jingu_num"></s:property></td>
+                            </s:elseif>
                             <s:elseif test="traveller_papers_type==4">
+                                <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">港高通行证</td>
+                                <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
+                                        value="traveller_ga_num"></s:property></td>
+                            </s:elseif>
+                            <s:elseif test="traveller_papers_type==5">
                                 <td width="8%" id="psg<s:property value="#status.count"/>_Ctp">其他</td>
                                 <td width="13%" id="psg<s:property value="#status.count"/>_Crd"><s:property
                                         value="traveller_qt_num"></s:property></td>
                             </s:elseif>
                             <td width="10%" id="psg<s:property value="#status.count"/>_Bir"><s:property
                                     value="traveller_birth"></s:property></td>
-                            <s:if test="traveller_type == 0">
+                            <s:if test="traveller_type == 1">
                                 <td width="10%" id="psg<s:property value="#status.count"/>_Adt">成人</td>
                             </s:if>
                             <s:else>
                                 <td width="10%" id="psg<s:property value="#status.count"/>_Adt">儿童</td>
                             </s:else>
-                            <td width="10%" id="psg<s:property value="#status.count"/>_Sex"><s:property
-                                    value="traveller_sex"></s:property></td>
+                            <s:if test="traveller_sex == 'male'">
+                                <td width="10%" id="psg<s:property value="#status.count"/>_Sex">男性</td>
+                            </s:if>
+                            <s:else>
+                                <td width="10%" id="psg<s:property value="#status.count"/>_Sex">女性</td>
+                            </s:else>
                             <td style="display: none" id="psg<s:property value="#status.count"/>_Id"><s:property
                                     value="traveller_id"></s:property></td>
                             <td width="13%" style="color:#0066cc;"><span style="cursor:pointer;"
