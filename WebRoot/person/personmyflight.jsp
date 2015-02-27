@@ -39,10 +39,18 @@
                     <div class="prs_voyage">
                         <!--航程头部-->
                         <div class="prs_voyage1">
-                            <p>总飞行公里数：<span style="color:#f00; font-size:14px; font-weight:bold">1000</span>公里
-                                <span style="margin-left:40px;">总飞行时长<span
-                                        style="color:#f00; font-size:14px; font-weight:bold">20</span>小时<span
-                                        style="color:#f00; font-size:14px; font-weight:bold">15</span>分钟</span></p>
+                            <s:iterator value="zongfei" id="zongfeixing" status="status">
+                                <s:if test="#status.index == 0">
+                            <p>总飞行公里数：<span style="color:#f00; font-size:14px; font-weight:bold"><s:property></s:property></span>公里
+                                </s:if>
+                                <s:if test="#status.index == 1">
+                                    <span style="margin-left:40px;">总飞行时长<span
+                                        style="color:#f00; font-size:14px; font-weight:bold"><s:property></s:property></span>小时
+                                </s:if>
+                                    <s:if test="#status.index == 2">
+                                        <span style="color:#f00; font-size:14px; font-weight:bold"><s:property></s:property></span>分钟</span></p>
+                                    </s:if>
+                            </s:iterator>
                         </div>
                         <!--航程头部 over-->
                         <!--航程信息-->
@@ -60,11 +68,11 @@
                                     </tr>
                                     <s:iterator value="myflights">
                                         <tr align="center" height="50">
-                                            <td width="15%">中国国际航空公司</td>
-                                            <td width="15%">CUA102</td>
-                                            <td width="15%">北京首都机场T1</td>
-                                            <td width="15%">大连机场T2</td>
-                                            <td width="13%">2014-02-10<br/>06:10</td>
+                                            <td width="15%"><s:property value="myflight_company"></s:property></td>
+                                            <td width="15%"><s:property value="myflight_no"></s:property></td>
+                                            <td width="15%"><s:property value="myflight_from"></s:property></td>
+                                            <td width="15%"><s:property value="myflight_arrivate"></s:property></td>
+                                            <td width="13%"><s:property value="myflight_from_date"></s:property><br/><s:property value="myflight_from_time"></s:property></td>
                                         </tr>
                                     </s:iterator>
                                 </table>
