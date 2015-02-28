@@ -40,7 +40,7 @@ public class personmyflight extends ActionSupport implements ModelDriven<Object>
 
     @Override
     public String execute() throws Exception {
-        zongfei = new ArrayList<>();
+        zongfei = new ArrayList<String>();
         int zonglicheng = 0;
         int zongxiaoshi = 0;
         int zongfenzhong = 0;

@@ -16,7 +16,7 @@ public class ZhengzeUtil {
      * @author 刘健
      */
     public List<String> zhengze(String message, String zhengzebiaodashi) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         Pattern pattern = Pattern.compile(zhengzebiaodashi);
         Matcher matcher = pattern.matcher(message);
         while (matcher.find()) {

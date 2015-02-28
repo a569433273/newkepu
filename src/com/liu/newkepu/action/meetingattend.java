@@ -26,13 +26,13 @@ public class meetingattend extends ActionSupport implements ModelDriven<Object> 
     @Resource
     private MemberDao memberDao;
 
-    private List<Member> memberscanjia = new ArrayList<>();
+    private List<Member> memberscanjia = new ArrayList<Member>();
 
-    private List<Member> membersfaqi = new ArrayList<>();
+    private List<Member> membersfaqi = new ArrayList<Member>();
 
-    private List<Member> membersguanli = new ArrayList<>();
+    private List<Member> membersguanli = new ArrayList<Member>();
 
-    private List<Member> membersxieban = new ArrayList<>();
+    private List<Member> membersxieban = new ArrayList<Member>();
 
     @Override
     public String execute() throws Exception {

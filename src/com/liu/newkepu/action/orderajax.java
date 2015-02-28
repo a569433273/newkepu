@@ -59,7 +59,9 @@ public class orderajax extends ActionSupport implements ModelDriven<Object> {
                     zjnumelement.addText(traveller.getTraveller_sf_num());
                 } else if (zjtypeelement.getText().equals("1")) {
                     zjnumelement.addText(traveller.getTraveller_hz_num());
-                } else {
+                }else if(zjtypeelement.getText().equals("2")) {
+                    zjnumelement.addText((traveller.getTraveller_jug_num()));
+                }else {
                     zjnumelement.addText(traveller.getTraveller_qt_num());
                 }
                 Element sexelement = travllerelement.addElement("sex");

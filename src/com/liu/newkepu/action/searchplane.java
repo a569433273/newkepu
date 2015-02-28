@@ -20,8 +20,6 @@ import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 import org.tempuri.Service;
 
@@ -40,82 +38,46 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
     private FlightnameDao flightnameDao;
 
     @Resource
-    private FdpriceDao fdpriceDao;
-
-    @Resource
     private HangbanDao hangbanDao;
 
     @Resource
     private TuigaiDao tuigaiDao;
 
     @Resource
-    private CuxiaozhengceDao cuxiaozhengceDao;
-
-    @Resource
     private FdDao fdDao;
-
-    private List<Cuxiaozhengce> cuxiaozhengces;
 
     @Override
     public String execute() throws Exception {
-        riqizhuan riqizhuan = new riqizhuan();
         Calendar calendar = Calendar.getInstance();
         DateFormat timedf = new SimpleDateFormat("yyyy-MM-dd");
         String riqi = timedf.format(calendar.getTime());
 
         String from = getsanzima(searchInfo.getFrom());
         String arrival = getsanzima(searchInfo.getArrival());
-        System.out.println(searchInfo.getFromdata());
-        wenxinJSON wenxinJSON = new wenxinJSON();
-        testresult ts = wenxinJSON.wJSON(arrival, from, searchInfo.getFromdata());
         String resultsString = searchresult(from, arrival, riqi);
         System.out.println(resultsString);
-        System.out.println(ts.getContent());
-        JSONObject json = new JSONObject(ts.getContent());
-        JSONArray jsonArray = json.getJSONObject("exhibitionObject").getJSONArray("solutionList");
-        HttpServletRequest request = ServletActionContext.getRequest();
-        if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
-            cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(2, from, arrival);
-        } else {
-            cuxiaozhengces = cuxiaozhengceDao.findByhybsandother(0, from, arrival);
-        }
-        for (int i = 0; i < cuxiaozhengces.size(); i++) {
-            if (Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_startime())) <= Integer.valueOf(riqi.replaceAll("-", "")) & Integer.valueOf(riqi.replaceAll("-", "")) <= Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_endtime()))) {
-            } else {
-                cuxiaozhengces.remove(i);
-                i--;
-            }
-            if (Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_chupiaostartime())) <= Integer.valueOf(searchInfo.getFromdata().replaceAll("-", "")) & Integer.valueOf(riqi.replaceAll("-", "")) <= Integer.valueOf(riqizhuan.switchriqi(cuxiaozhengces.get(i).getCxzc_chupiaoendtime()))) {
-            } else {
-                cuxiaozhengces.remove(i);
-                i--;
-            }
-        }
-
-//        List<Fdprice> fdprices = getFdprices(from, arrival);
-//        shihefdprice(fdprices);
         Document document = DocumentHelper.parseText(resultsString);
         Element rootElement = document.getRootElement();
         Iterator<?> iter = rootElement.elements("Item").iterator();
         while (iter.hasNext()) {
             Element item = (Element) iter.next();
-            System.out.println(item.element("UsableClass").getText());
-            if (item.element("FlightType").getText().equals("S") || item.element("UsableClass").getText() == null) {
+            if (item.element("FlightType").getText().equals("S")) {
                 rootElement.remove(item);
-            } else {
-                // savehangban(item);
-                removeuseable(item);
-                if (Integer.valueOf(request.getSession().getAttribute("member_shstate").toString()) == 1) {
-                    addcuxiaopricetoXML(item, cuxiaozhengces, jsonArray);
-//                    addpriceByjson(item, jsonArray);
-                } else {
-                    addcuxiaopricetoXML(item, cuxiaozhengces, jsonArray);
-//                    addpricetoXML(item, fdprices);
-                    addpriceByjson(item, jsonArray);
-                }
-                addtuigai(item);
-                addjichang(item);
+                continue;
             }
+            Iterator<?> classiter = item.element("Classes").elements("Class").iterator();
+            while (classiter.hasNext()) {
+                Element cla = (Element) classiter.next();
+                if (cla.attributeValue("Price").equals("0")) {
+                    item.element("Classes").remove(cla);
+                }
+            }
+//            if (!classiter.hasNext()) {
+//                rootElement.remove(item);
+//            }
+            addtuigai(item);
+            addjichang(item);
+
         }
         returnxml(document);
 
@@ -202,7 +164,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
             time = dateFormat.format(calendar.getTime());
         }
         String identity = "<?xml version='1.0' encoding='utf-8'?><Identity_1_0><ABEConnectionString>User=liujian;Password=123456;Server=58.132.171.39;Port=350;MaxPages=20;</ABEConnectionString></Identity_1_0>";
-        String request = "<?xml version='1.0'?><ABE_AVDataset_1_2><From>"
+        String request = "<?xml version='1.0'?><ABE_AVDataset_1_4><From>"
                 + from
                 + "</From><Arrive>"
                 + arrival
@@ -210,155 +172,12 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
                 + searchInfo.getFromdata()
                 + "</Date><Carrier></Carrier><Time>"
                 + time
-                + "</Time><StopType>D</StopType><Option>;CP</Option><MaxNum/></ABE_AVDataset_1_2>";
+                + "</Time><StopType>D</StopType><Option>;CP</Option><MaxNum/></ABE_AVDataset_1_4>";
         String filter = "";
         Service service = new Service();
         return service.getServiceSoap().abeSubmit(identity, request, filter);
     }
 
-    /**
-     * 调用数据库获取FD价格
-     *
-     * @param from    起飞地
-     * @param arrival 目的地
-     * @return 各航空公司该航段的FD价格
-     * @author 刘健
-     */
-    private List<Fdprice> getFdprices(String from, String arrival) {
-        List<Fdprice> fdprices = fdpriceDao.findByqifeianddaoda(from, arrival);
-        // 在查询PEK北京首都机场出发的时候，一般是要加上NAY北京南苑出发的，SHA上海虹桥出发的，也是一般加上PVG上海浦东
-        if (from.equals("PEK")) {
-            fdprices.addAll(getFdprices("NAY", arrival));
-        } else if (from.equals("SHA")) {
-            fdprices.addAll(getFdprices("PVG", arrival));
-        }
-        if (arrival.equals("PEK")) {
-            fdprices.addAll(getFdprices(from, "NAY"));
-        } else if (arrival.equals("SHA")) {
-            fdprices.addAll(getFdprices(from, "PVG"));
-        }
-        return fdprices;
-    }
-
-    /**
-     * 根据WEB传来的查询日期，去掉价格中不符合该日期的价格
-     *
-     * @param fdprices 需要处理的价格List
-     * @author 刘健
-     */
-    private void shihefdprice(List<Fdprice> fdprices) {
-        riqizhuan riqizhuan = new riqizhuan();
-        String kaishi;
-        String jieshu;
-        String data = searchInfo.getFromdata();
-        for (int i = 0; i < fdprices.size(); i++) {
-            kaishi = fdprices.get(i).getKaishi();
-            jieshu = fdprices.get(i).getJieshu();
-            // 比较查询日期和价格中的开始日期和结束日期的关系
-            if (!jieshu.equals("")) {
-                if (Integer.valueOf(riqizhuan.switchriqi(kaishi).replaceAll(
-                        "-", "")) <= Integer.valueOf(data.replaceAll("-", ""))
-                        & Integer.valueOf(data.replaceAll("-", "")) <= Integer
-                        .valueOf(riqizhuan.switchriqi(jieshu)
-                                .replaceAll("-", ""))) {
-                } else {
-                    fdprices.remove(i);
-                    i--;
-                }
-            } else {
-                if (Integer.valueOf(riqizhuan.switchriqi(kaishi).replaceAll(
-                        "-", "")) >= Integer.valueOf(data.replaceAll("-", ""))) {
-                    fdprices.remove(i);
-                    i--;
-                }
-            }
-        }
-    }
-
-    private void addpriceByjson(Element item, JSONArray jsonArray) {
-        String UsableClass[] = item.elementText("UsableClass").split(" ");
-        Element classesElement = item.addElement("Classes");
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject jsonObject = jsonArray.getJSONObject(i);
-            JSONArray routList = jsonObject.getJSONArray("routList");
-            for (int k = 0; k < routList.length(); k++) {
-                JSONObject ro = routList.getJSONObject(k);
-                if (item.element("Carrier").getText().equals(ro.get("carr").toString()) & item.element("FlightNo").getText().equals(ro.get("fltNo").toString())) {
-                    JSONArray allcabins = jsonObject.getJSONArray("allCabins");
-                    for (int j = 0; j < UsableClass.length; j++) {
-                        String string = UsableClass[j];
-                        for (int q = 0; q < allcabins.length(); q++) {
-                            JSONObject ao = allcabins.getJSONObject(q);
-                            if (string == null || string.isEmpty()) {
-
-                            } else {
-                                if (string.substring(0, 1).equals(
-                                        ao.get("routClasses").toString())) {
-                                    Element classElement = classesElement
-                                            .addElement("Class");
-                                    classElement.addAttribute("Code",
-                                            string.substring(0, 1));
-                                    classElement.addAttribute("Seat",
-                                            string.substring(1, 2));
-                                    classElement.addAttribute("Price", ao.get("disAmt").toString());
-                                    classElement.addAttribute("Ext", "0");
-                                    classElement.addAttribute("tuipiao", "");
-                                    classElement.addAttribute("gaiqi", "");
-                                    classElement.addAttribute("qianzhuan", "");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        item.remove(item.element("UsableClass"));
-    }
-
-    /**
-     * 给XML添加fdprice价格
-     *
-     * @param item     添加价格的节点
-     * @param fdprices 添加进XML的价格
-     * @author 刘健
-     */
-    private void addpricetoXML(Element item, List<Fdprice> fdprices) {
-        String UsableClass[] = item.elementText("UsableClass").split(" ");
-        Element classesElement = item.element("Classes");
-        for (int i = 0; i < fdprices.size(); i++) {
-            // 根据航空公司，起飞地，目的地，添加价格 FlightNo
-            if (fdprices.get(i).getHangkonggongsi()
-                    .equals(item.element("Carrier").getText())
-                    & fdprices.get(i).getQifei()
-                    .equals(item.element("BoardPoint").getText())
-                    & fdprices.get(i).getDaoda()
-                    .equals(item.element("OffPoint").getText())) {
-                for (int j = 0; j < UsableClass.length; j++) {
-                    String string = UsableClass[j];
-                    if (string == null || string.isEmpty()) {
-
-                    } else {
-                        if (string.substring(0, 1).equals(
-                                fdprices.get(i).getCangwei())) {
-                            Element classElement = classesElement
-                                    .addElement("Class");
-                            classElement.addAttribute("Code",
-                                    string.substring(0, 1));
-                            classElement.addAttribute("Seat",
-                                    string.substring(1, 2));
-                            classElement.addAttribute("Price", fdprices.get(i)
-                                    .getPrice());
-                            classElement.addAttribute("Ext", "0");
-                            classElement.addAttribute("tuipiao", "");
-                            classElement.addAttribute("gaiqi", "");
-                            classElement.addAttribute("qianzhuan", "");
-                        }
-                    }
-                }
-            }
-            item.remove(item.element("UsableClass"));
-        }
-    }
 
     /**
      * 给XML添加促销价格
@@ -367,68 +186,7 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      *
      * @author 刘健
      */
-    private void addcuxiaopricetoXML(Element item, List<Cuxiaozhengce> cuxiaozhengces, JSONArray jsonArray) {
-        String UsableClass[] = item.element("UsableClass").getText().split(" ");
-        Element classesElement = item.addElement("Classes");
-        int hastheflight = 0;
-        for (Cuxiaozhengce cuxiaozhengce : cuxiaozhengces) {
-            // 根据航空公司，起飞地，目的地，添加价格
-            if (cuxiaozhengce.getCxzc_company().equals(item.element("Carrier").getText())) {
-                if (cuxiaozhengce.getCxzc_flight_id().equals("All")) {
-                    hastheflight = 1;
-                } else {
-                    String[] flid = cuxiaozhengce.getCxzc_flight_id().split(",");
-                    for (String aFlid : flid) {
-                        if (item.elementText("FlightNo").equals(aFlid)) {
-                            hastheflight = 1;
-                            break;
-                        }
-                    }
-                }
-                if (hastheflight == 1) {
-                    String[] cangwei = cuxiaozhengce.getCxzc_cangwei().split("/");
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        JSONArray routList = jsonObject.getJSONArray("routList");
-                        for (int k = 0; k < routList.length(); k++) {
-                            JSONObject ro = routList.getJSONObject(k);
-                            if (item.element("Carrier").getText().equals(ro.get("carr").toString()) & item.element("FlightNo").getText().equals(ro.get("fltNo").toString())) {
-                                JSONArray allcabins = jsonObject.getJSONArray("allCabins");
-                                for (String string : UsableClass) {
-                                    if (string == null || string.isEmpty()) {
-                                    } else {
-                                        for (String aCangwei : cangwei) {
-                                            if (string.substring(0, 1).equals(aCangwei)) {
-                                                for (int q = 0; q < allcabins.length(); q++) {
-                                                    JSONObject ao = allcabins.getJSONObject(q);
-                                                    if (string.substring(0, 1).equals(
-                                                            ao.get("routClasses").toString())) {
-                                                        Element classElement = classesElement
-                                                                .addElement("Class");
-                                                        classElement.addAttribute("Code",
-                                                                string.substring(0, 1));
-                                                        classElement.addAttribute("Seat",
-                                                                string.substring(1, 2));
-                                                        int pricess = Integer.valueOf(ao.get("disAmt").toString());
-                                                        pricess = pricess * (1 - cuxiaozhengce.getCxzc_fandian() / 100) + cuxiaozhengce.getCxzc_fliuqian() + cuxiaozhengce.getCxzc_zliuqian();
-                                                        classElement.addAttribute("Price", String.valueOf(pricess));
-                                                        classElement.addAttribute("Ext", "1");
-                                                        classElement.addAttribute("tuipiao", cuxiaozhengce.getCxzc_tuipiao());
-                                                        classElement.addAttribute("gaiqi", cuxiaozhengce.getCxzc_gaiqian());
-                                                        classElement.addAttribute("qianzhuan", cuxiaozhengce.getCxzc_qianzhuan());
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+//
 
     /**
      * 给舱位添加退改签规则
@@ -443,21 +201,15 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
         for (Iterator<?> iterator = classes.elementIterator(); iterator
                 .hasNext(); ) {
             Element tgq = (Element) iterator.next();
-//            tgq.addAttribute("tuipiao", "");
-//            tgq.addAttribute("gaiqi", "");
-//            tgq.addAttribute("qianzhuan", "");
-            for (int i = 0; i < tuigais.size(); i++) {
+            tgq.addAttribute("tuipiao", "");
+            tgq.addAttribute("gaiqi", "");
+            tgq.addAttribute("qianzhuan", "");
+            for (Tuigai tuigai : tuigais) {
                 if (tgq.attributeValue("Code").equals(
-                        tuigais.get(i).getCangwei())) {
-                    if (tgq.attribute("tuipiao").getValue() == null || tgq.attribute("tuipiao").getValue().equals("")) {
-                        tgq.addAttribute("tuipiao", tuigais.get(i).getTuipiao());
-                    }
-                    if (tgq.attribute("gaiqi").getValue() == null || tgq.attribute("gaiqi").getValue().equals("")) {
-                        tgq.addAttribute("gaiqi", tuigais.get(i).getGaiqi());
-                    }
-                    if (tgq.attribute("qianzhuan").getValue() == null || tgq.attribute("qianzhuan").getValue().equals("")) {
-                        tgq.addAttribute("qianzhuan", tuigais.get(i).getQianzhuan());
-                    }
+                        tuigai.getCangwei())) {
+                    tgq.setAttributeValue("tuipiao", tuigai.getTuipiao());
+                    tgq.setAttributeValue("gaiqi", tuigai.getGaiqi());
+                    tgq.setAttributeValue("qianzhuan", tuigai.getQianzhuan());
                 }
             }
         }
@@ -488,7 +240,6 @@ public class searchplane extends ActionSupport implements ModelDriven<Object> {
      * @author 刘健
      */
     private void removeuseable(Element item) {
-        item.remove(item.element("Class"));
         item.remove(item.element("ElementNo"));
         item.remove(item.element("ShareCarrier"));
         item.remove(item.element("ShareFlight"));

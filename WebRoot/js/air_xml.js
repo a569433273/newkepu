@@ -167,8 +167,8 @@ $(document)
                         }
                         if (qianzhuan == '') {
                             var tuipiao2 = '按航空公司规定执行';
-                            gaiqi2 = '';
-                            qianzhuan1 = '';
+                            gaiqi2 = '按航空公司规定执行';
+                            qianzhuan1 = '按航空公司规定执行';
                         }
                         var check_add = tuipiao2;
                         // 退票 改签 over
