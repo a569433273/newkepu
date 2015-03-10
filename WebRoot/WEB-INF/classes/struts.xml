@@ -87,6 +87,10 @@
         <action name="kepunews" class="kepunews">
             <result name="success">/index.jsp</result>
         </action>
+        <action name="heepayreturn" class="heepayreturn">
+            <result name="success">/index.jsp</result>
+            <result name="faild">/index.jsp</result>
+        </action>
     </package>
 </struts>
 	

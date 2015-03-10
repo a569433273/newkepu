@@ -16,6 +16,16 @@ public class CaiwuDaoImpl implements CaiwuDao {
     private SessionFactory sessionFactory;
 
     @Override
+    public void save(Caiwu caiwu) {
+        sessionFactory.getCurrentSession().save(caiwu);
+    }
+
+    @Override
+    public void update(Caiwu caiwu) {
+        sessionFactory.getCurrentSession().update(caiwu);
+    }
+
+    @Override
     public List<Caiwu> findBymember_id(String member_id) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Caiwu c where c.vmrecord_member_id='" + member_id + "'");
         return query.list();

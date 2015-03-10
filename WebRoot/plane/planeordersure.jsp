@@ -40,9 +40,9 @@
 <div class="py_my">
     <div class="py_my1">
         <div class="py_my_1">
-            <span style="margin-left:30px;">订单号:</span><span class="py_sp1">oma140924092044628</span><span style="margin-left:60px;">订单状态：</span><span class="py_sp3">请支付</span><span style="margin-left:60px;">待支付金额：</span><span class="py_sp2">¥661</span><span style="margin-left:60px;">成人PNR：</span><span style="color:#F30">oma140924092044628</span>
-            <div class="py_my_2">
-                <div class="py_my_21"><img src="../images/warn.jpg"/></div><div class="py_my_22"><span>航班价格变动频繁，请您仔细核对订单信息后及时付款以免座位被取消或价格发生变化。</span></div><div style="float:left; width:200px; height:16px; margin-left:69px; display:inline;"><span>儿童PNR：</span><span style="color:#F30">oma140924092044628</span>
+            <span style="margin-left:30px;">订单号:</span><span class="py_sp1"><%=request.getAttribute("order_id")%></span><span style="margin-left:60px;">订单状态：</span><span class="py_sp3">请支付</span><span style="margin-left:60px;">待支付金额：</span><span class="py_sp2">¥661</span><span style="margin-left:60px;">成人PNR：</span><span style="color:#F30">oma140924092044628</span>
+                <div class="py_my_2">
+                <div class="py_my_21"><img src="../images/warn.jpg"/></div><div class="py_my_22"><span>航班价格变动频繁，请您仔细核对订单信息后及时付款以免座位被取消或价格发生变化。</span></div><div style="float:left; width:200px; height:16px; margin-left:69px; display:inline;"><span>儿童PNR：</span><span style="color:#F30"><%=request.getAttribute("agent_bill_id")%></span>
             </div></div>
         </div>
         <div style="clear:both;"></div>
@@ -154,11 +154,12 @@
         </div>
     </div>
 </div>
+
 <!--联系人信息 over-->
 <!--确认支付-->
 <div class="py_pmsg">
     <div class="py_pmsg1">
-        <div class="py_pmsg11"><a href=""><img src="../images/pay_submit.jpg" style="margin-top:20px;"/></a></div>
+        <div class="py_pmsg11"><a href="http://localhost:8080/plane/planepay.jsp"><img src="../images/pay_submit.jpg" style="margin-top:20px;"/></a></div>
     </div>
 </div>
 <!--确认支付 over-->

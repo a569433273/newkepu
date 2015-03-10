@@ -38,6 +38,7 @@ public class searchInfo {
     private int lianxi;
     private int benren;
     private String feixingtime;
+    private String ipadd;
 
 
     /*常用成绩人编辑和添加页面传来的值*/
@@ -103,6 +104,16 @@ public class searchInfo {
 
     private String editor;
     private String huiyibiaotibj;
+
+    private String result;
+    private String pay_message;
+    private String agent_id;
+    private String jnet_bill_no;
+    private String agent_bill_id;
+    private String pay_type;
+    private String pay_amt;
+    private String remark;
+    private String sign;
 
     public String getUsername() {
         return username;
@@ -378,6 +389,14 @@ public class searchInfo {
 
     public void setFeixingtime(String feixingtime) {
         this.feixingtime = feixingtime;
+    }
+
+    public String getIpadd() {
+        return ipadd;
+    }
+
+    public void setIpadd(String ipadd) {
+        this.ipadd = ipadd;
     }
 
     public String getNm1() {
@@ -738,6 +757,78 @@ public class searchInfo {
 
     public void setHuiyibiaotibj(String huiyibiaotibj) {
         this.huiyibiaotibj = huiyibiaotibj;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getPay_message() {
+        return pay_message;
+    }
+
+    public void setPay_message(String pay_message) {
+        this.pay_message = pay_message;
+    }
+
+    public String getAgent_id() {
+        return agent_id;
+    }
+
+    public void setAgent_id(String agent_id) {
+        this.agent_id = agent_id;
+    }
+
+    public String getJnet_bill_no() {
+        return jnet_bill_no;
+    }
+
+    public void setJnet_bill_no(String jnet_bill_no) {
+        this.jnet_bill_no = jnet_bill_no;
+    }
+
+    public String getAgent_bill_id() {
+        return agent_bill_id;
+    }
+
+    public void setAgent_bill_id(String agent_bill_id) {
+        this.agent_bill_id = agent_bill_id;
+    }
+
+    public String getPay_type() {
+        return pay_type;
+    }
+
+    public void setPay_type(String pay_type) {
+        this.pay_type = pay_type;
+    }
+
+    public String getPay_amt() {
+        return pay_amt;
+    }
+
+    public void setPay_amt(String pay_amt) {
+        this.pay_amt = pay_amt;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
 }
 

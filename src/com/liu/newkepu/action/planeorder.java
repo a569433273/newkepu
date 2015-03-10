@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.liu.newkepu.dao.*;
 import com.liu.newkepu.model.*;
 import com.liu.newkepu.util.CreatPNR;
+import com.liu.newkepu.util.Md5Tools;
 import com.liu.newkepu.util.ZhengzeUtil;
 import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
@@ -55,7 +57,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         ZhengzeUtil zhengzeUtil = new ZhengzeUtil();
 
         Calendar calendar = Calendar.getInstance();
-        DateFormat idFormat = new SimpleDateFormat("yyyyMMddhhmmssSSS");
+        DateFormat idFormat = new SimpleDateFormat("yyMMddhhmmssSSS");
         DateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:ss");
 
         String order_id = "KP" + idFormat.format(calendar.getTime());
@@ -131,6 +133,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
             order_price = order_price + passengers.get(i).getPassenger_goxiaofei();
         }
         request.setAttribute("order_price", order_price);
+        payheepay(order_id,String.valueOf(order_price));
 
         if (searchInfo.getLianxi() == 1) {
             List<Lianxiren> lianxirens = lianxirenDao.fingThechongfu(order_member_id, flight_lxr, flight_lxrdh);
@@ -157,15 +160,48 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         List<Passenger> passengerPeople = passengerDao.findByorder_idandpassenger_type(order_id, 0);
         List<Passenger> passengerChild = passengerDao.findByorder_idandpassenger_type(order_id, 1);
         if (passengerPeople.size() > 0) {
-            order.setPeoplePNR(getpnr(order, passengerPeople));
+//            order.setPeoplePNR(getpnr(order, passengerPeople));
+              order.setPeoplePNR("HRBYHE");
         }
         if (passengerChild.size() > 0) {
-            order.setChirdPNR(getpnr(order, passengerChild));
+//            order.setChirdPNR(getpnr(order, passengerChild));
+            order.setChirdPNR("childr");
         }
         orderDao.update(order);
         orders = orderDao.findByorder_id(order_id);
 
         return "success";
+    }
+
+    private void payheepay(String order_id,String order_price) {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String version = "1";
+        String pay_type = "20";
+        String pay_code = "0";
+        String agent_id = "1951704";
+        DateFormat abidFormat = new SimpleDateFormat("mmss");
+        String agent_bill_id = order_id.toLowerCase() + abidFormat.format(Calendar.getInstance().getTime());
+        request.getSession().setAttribute("agent_bill_id", agent_bill_id);
+        String pay_amt = String.format("%.2f", Double.valueOf(order_price));
+        request.getSession().setAttribute("pay_amt", pay_amt);
+        String notify_url = "http://58.132.171.39:3991/heepayreturn.action";
+        String return_url = "http://58.132.171.39:3991/heepayreturn.action";
+        String user_ip = searchInfo.getIpadd().replaceAll(".","_");
+        request.getSession().setAttribute("user_ip", user_ip);
+//        TimeZone tz = TimeZone.getTimeZone("ETC/GMT");
+//        TimeZone.setDefault(tz);
+        DateFormat agent_billFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        String agent_bill_time = agent_billFormat.format(Calendar.getInstance().getTime());
+        request.getSession().setAttribute("agent_bill_time", agent_bill_time);
+        String goods_name = "jipiao";
+        String remark = "nestpu1233";
+        String is_test = "1";
+        String key = "EF27117A2C7B4ABFA7E49226";
+        Md5Tools md5Tools = new Md5Tools();
+        String sign = md5Tools.MD5("version=" + version + "&agent_id=" + agent_id + "&agent_bill_id=" + agent_bill_id + "&agent_bill_time=" + agent_bill_time + "&pay_type="
+                + pay_type + "&pay_amt=" + pay_amt + "&notify_url=" + notify_url + "&return_url="
+                + return_url + "&user_ip=" + user_ip + "&is_test=" + is_test + "&key=" + key).toLowerCase();
+        request.getSession().setAttribute("sign", sign);
     }
 
     private void saveMyflight(String order_id, String order_time, String order_member_id, String flight_company, String flight_id, List<String> from_cn, List<String> arrival_cn, String flight_from_date, String flight_from_time, String flight_arrival_date, String flight_arrival_time, String flight_type, String flight_tpm) {

@@ -22,6 +22,7 @@
     <form action="denglu.action" method="post" name="loginfrom" id="loginfrom">
         <div class="login_part">
             <div class="login_left">
+
                 <div style="float:left;">用户名：</div>
                 <div style="float:left; margin-top:-1px; display:inline;"><input type="text" name="username"
                                                                                  id="username"

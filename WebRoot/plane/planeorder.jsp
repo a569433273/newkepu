@@ -68,6 +68,7 @@
     <div class="right"><img src="../images/1_03.jpg"/></div>
     <div style="clear:both;"></div>
 </div>
+
 <!--预定信息-->
 <div class="res_top1">
     <table class="table1">
@@ -318,6 +319,11 @@
         <input name="benren" type="hidden" id="benren" value="0"/><!--有无乘机人本人-->
         <input name="feixingtime" type="hidden" id="feixingtime" value=""/><!--飞行时长-->
     </div>
+    <input type="hidden" id="ipadd" name="ipadd"/>
+    <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script type="text/javascript">
+        document.getElementById("ipadd").value=returnCitySN["cip"];
+    </script>
     <!--航空隐藏部分 over-->
     <p>&nbsp;</p>
 
