@@ -133,7 +133,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
             order_price = order_price + passengers.get(i).getPassenger_goxiaofei();
         }
         request.setAttribute("order_price", order_price);
-        payheepay(order_id,String.valueOf(order_price));
+        payheepay(order_id,String.valueOf(order_price),order_member_id);
 
         if (searchInfo.getLianxi() == 1) {
             List<Lianxiren> lianxirens = lianxirenDao.fingThechongfu(order_member_id, flight_lxr, flight_lxrdh);
@@ -173,7 +173,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         return "success";
     }
 
-    private void payheepay(String order_id,String order_price) {
+    private void payheepay(String order_id,String order_price,String order_member_id) {
         HttpServletRequest request = ServletActionContext.getRequest();
         String version = "1";
         String pay_type = "20";
@@ -184,9 +184,9 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         request.getSession().setAttribute("agent_bill_id", agent_bill_id);
         String pay_amt = String.format("%.2f", Double.valueOf(order_price));
         request.getSession().setAttribute("pay_amt", pay_amt);
-        String notify_url = "http://58.132.171.39:3991/heepayreturn.action";
+        String notify_url = "http://58.132.171.39:3991/heepaynotify.action";
         String return_url = "http://58.132.171.39:3991/heepayreturn.action";
-        String user_ip = searchInfo.getIpadd().replaceAll(".","_");
+        String user_ip = searchInfo.getIpadd().replace(".","_");
         request.getSession().setAttribute("user_ip", user_ip);
 //        TimeZone tz = TimeZone.getTimeZone("ETC/GMT");
 //        TimeZone.setDefault(tz);
@@ -194,7 +194,7 @@ public class planeorder extends ActionSupport implements ModelDriven<Object> {
         String agent_bill_time = agent_billFormat.format(Calendar.getInstance().getTime());
         request.getSession().setAttribute("agent_bill_time", agent_bill_time);
         String goods_name = "jipiao";
-        String remark = "nestpu1233";
+        String remark = order_member_id;
         String is_test = "1";
         String key = "EF27117A2C7B4ABFA7E49226";
         Md5Tools md5Tools = new Md5Tools();

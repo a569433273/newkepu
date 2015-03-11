@@ -159,7 +159,7 @@
 <!--确认支付-->
 <div class="py_pmsg">
     <div class="py_pmsg1">
-        <div class="py_pmsg11"><a href="http://localhost:8080/plane/planepay.jsp"><img src="../images/pay_submit.jpg" style="margin-top:20px;"/></a></div>
+        <div class="py_pmsg11"><a href="planepay.jsp"><img src="../images/pay_submit.jpg" style="margin-top:20px;"/></a></div>
     </div>
 </div>
 <!--确认支付 over-->

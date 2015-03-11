@@ -88,8 +88,10 @@
             <result name="success">/index.jsp</result>
         </action>
         <action name="heepayreturn" class="heepayreturn">
-            <result name="success">/index.jsp</result>
-            <result name="faild">/index.jsp</result>
+            <result name="success">/payjieguo.jsp</result>
+            <result name="faild">/payjieguo.jsp</result>
+        </action>
+        <action name="heepaynotify" class="heepaynotify">
         </action>
     </package>
 </struts>

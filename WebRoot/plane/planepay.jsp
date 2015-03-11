@@ -14,11 +14,11 @@
     <input type="text" name="pay_type" value="20" />
     <input type="text" name="pay_code" value="0" />
     <input type="text" name="pay_amt" value="<%=request.getSession().getAttribute("pay_amt")%>" />
-    <input type="text" name="notify_url" value="http://58.132.171.39:3991/heepayreturn.action" />
+    <input type="text" name="notify_url" value="http://58.132.171.39:3991/heepaynotify.action" />
     <input type="text" name="return_url" value="http://58.132.171.39:3991/heepayreturn.action" />
     <input type="text" name="user_ip" value="<%=request.getSession().getAttribute("user_ip")%>" />
     <input type="text" name="goods_name" value="jipiao" />
-    <input type="text" name="remark" value="nestpu12333" />
+    <input type="text" name="remark" value="<%=request.getSession().getAttribute("member_id")%>" />
     <input type="text" name="is_test" value="1" />
     <input type="text" name="sign" value="<%=request.getSession().getAttribute("sign")%>" />
 </form>

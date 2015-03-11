@@ -31,6 +31,8 @@ public class heepayreturn  extends ActionSupport implements ModelDriven<Object> 
 
     private List<Order> orders;
 
+    private String paymess;
+
     @Override
     public String execute() throws Exception {
         String key = "EF27117A2C7B4ABFA7E49226";
@@ -58,21 +60,32 @@ public class heepayreturn  extends ActionSupport implements ModelDriven<Object> 
                 caiwu.setVmrecord_type("1");
                 DateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 caiwu.setVmrecord_time(timeFormat.format(Calendar.getInstance().getTime()));
-                caiwu.setVmrecord_money(Integer.valueOf(spay_amt));
+                caiwu.setVmrecord_money(Integer.valueOf(spay_amt.substring(0,spay_amt.length() -3)));
                 caiwu.setVmrecord_number(0);
                 caiwu.setVmrecord_orderid(sagent_bill_id.substring(0,sagent_bill_id.length() - 4));
                 caiwu.setVmrecord_remark("支付");
-                caiwu.setVmrecord_member_id(request.getSession().getAttribute("member_id").toString());
+                caiwu.setVmrecord_member_id(sremark);
                 caiwu.setVmrecord_beizhu("通过汇付宝支付，支付订单号：" + sjnet_bill_no);
                 caiwu.setVmrecord_order_type("0");
                 caiwu.setVmrecord_pay_type("3");
                 caiwuDao.save(caiwu);
+                paymess = "支付成功";
                 return "success";
             }
+            paymess = "支付失败";
             return "faild";
         } else {
+            paymess = "支付失败";
             return "faild";
         }
+    }
+
+    public String getPaymess() {
+        return paymess;
+    }
+
+    public void setPaymess(String paymess) {
+        this.paymess = paymess;
     }
 
     @Override
