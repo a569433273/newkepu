@@ -20,7 +20,11 @@
     <!--发送验证时出现计时-->
 </head>
 <body>
-<jsp:include page="../head.jsp"></jsp:include>
+<!--头-->
+<div class="header">
+    <iframe src="header.jsp" width="985px" height="78px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--头over-->
 <s:set value="zhuce"></s:set>
 <p>&nbsp;</p>
 <!--中部-->
@@ -149,7 +153,11 @@
     </div>
 </form>
 <!--中部 over-->
-<p>&nbsp;</p>
-<jsp:include page="../yemiandi.jsp"></jsp:include>
+<!--footer-->
+<div style="widdth:985px; height:45px; overflow:hidden;"></div>
+<div class="footer">
+    <iframe src="../footer.jsp" width="100%" height="125px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--footer over-->
 </body>
 </html>

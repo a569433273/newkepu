@@ -37,7 +37,11 @@
     <!--分页效果-->
 </head>
 <body onload="goPage(1,5,1)">
-<jsp:include page="../head.jsp"></jsp:include>
+<!--头-->
+<div class="header">
+    <iframe src="header.jsp" width="985px" height="78px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--头over-->
 <p>&nbsp;</p>
 <!--中部-->
 <form action="travllerchuli.action" name="travllersavefrom" id="travllersavefrom" method="post">
@@ -176,9 +180,12 @@
     <input name="deleteid" id="deleteid" value="1" type="hidden"/>
 </form>
 <!--中部 over-->
-<p>&nbsp;</p>
-<jsp:include page="../yemiandi.jsp"></jsp:include>
-<!--确认删除-->
+<!--footer-->
+<div style="widdth:985px; height:45px; overflow:hidden;"></div>
+<div class="footer">
+    <iframe src="../footer.jsp" width="100%" height="125px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--footer over-->
 <div class="s_div1" id='s_div'>
     <h2>窠浦提醒您</h2>
     <div class="s_t">

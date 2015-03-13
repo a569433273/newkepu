@@ -164,37 +164,11 @@
 </div>
 <!--确认支付 over-->
 <p>&nbsp;</p>
-<!--foodter-->
-<div class="total1">
-    <div class="sear_footer">
-        <div class="sear_footer1" style="margin-left:50px;">
-            <p><a href="">关于窠浦</a></p>
-
-            <p><a href="">法律声明</a></p>
-
-            <p><a href="">意见反馈</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:60px;">
-            <p><a href="">联系我们</a></p>
-
-            <p><a href="">隐私条款</a></p>
-
-            <p><a href="">企业QQ:4006205588</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:15px;">
-            <p><a href="">加入窠浦</a></p>
-
-            <p><a href="">广告服务</a></p>
-        </div>
-        <div class="sear_footer1" style="margin-left:150px;">
-            <p>窠浦（北京）商务服务有限公司 Nestpu(Beijing) Business Service Co.Ltd.版权所有</p>
-
-            <p>地址:北京市东城区朝阳门银河SOHO中心A座10511室 邮政编码：100010</p>
-
-            <p>京ICP备11016456号 京ICP证110540号</p>
-        </div>
-    </div>
-</div>
 <!--footer-->
+<div style="width:100%; height:40px; overflow:hidden;"></div>
+<div class="footer">
+    <iframe src="../footer.jsp" width="100%" height="125px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--footer over-->
 </body>
 </html>

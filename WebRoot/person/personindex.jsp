@@ -27,7 +27,11 @@
     <!--选择省份城市-->
 </head>
 <body>
-<jsp:include page="../head.jsp"></jsp:include>
+<!--头-->
+<div class="header">
+    <iframe src="header.jsp" width="985px" height="78px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--头over-->
 <p>&nbsp;</p>
 
 <form action="personmessage.action" name="messageform" id="messageform" method="post" onsubmit="return upd_umsg1();">
@@ -171,7 +175,11 @@
     <div style="clear:both;"></div>
     <!--中部 over-->
 </form>
-<p>&nbsp;</p>
-<jsp:include page="../yemiandi.jsp"></jsp:include>
+<!--footer-->
+<div style="widdth:985px; height:45px; overflow:hidden;"></div>
+<div class="footer">
+    <iframe src="../footer.jsp" width="100%" height="125px" frameborder="0" scrolling="no"></iframe>
+</div>
+<!--footer over-->
 </body>
 </html>

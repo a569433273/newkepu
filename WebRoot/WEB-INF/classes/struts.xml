@@ -85,7 +85,7 @@
             <result name="success">/ueditor/index.html</result>
         </action>
         <action name="kepunews" class="kepunews">
-            <result name="success">/index.jsp</result>
+            <result name="success">/newindex.jsp</result>
         </action>
         <action name="heepayreturn" class="heepayreturn">
             <result name="success">/payjieguo.jsp</result>
